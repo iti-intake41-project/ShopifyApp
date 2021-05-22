@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BA0C1A4265884E400B00A14 /* AllProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0C1A3265884E400B00A14 /* AllProducts.swift */; };
+		4BA0C1A62658884A00B00A14 /* ShopifyCollentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0C1A52658884A00B00A14 /* ShopifyCollentions.swift */; };
 		7649274E26570A3A00B23245 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649274D26570A3A00B23245 /* Shop.storyboard */; };
 		7649275326570B8400B23245 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649275226570B8400B23245 /* Category.storyboard */; };
 		7649275826570BD000B23245 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649275726570BD000B23245 /* Me.storyboard */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		084C039A3F7AD7FD999EBEC7 /* Pods_ShopifyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D93BFD7B1D8DD090D512522 /* Pods_ShopifyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA0C1A3265884E400B00A14 /* AllProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProducts.swift; sourceTree = SOURCE_ROOT; };
+		4BA0C1A52658884A00B00A14 /* ShopifyCollentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyCollentions.swift; sourceTree = SOURCE_ROOT; };
 		71066BE45E12FF94E7039064 /* Pods-ShopifyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.release.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.release.xcconfig"; sourceTree = "<group>"; };
 		7649274D26570A3A00B23245 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		7649275226570B8400B23245 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 		D37210DD2655B93400935F86 /* DataClass */ = {
 			isa = PBXGroup;
 			children = (
+				4BA0C1A3265884E400B00A14 /* AllProducts.swift */,
+				4BA0C1A52658884A00B00A14 /* ShopifyCollentions.swift */,
 			);
 			path = DataClass;
 			sourceTree = "<group>";
@@ -539,7 +545,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
+				4BA0C1A4265884E400B00A14 /* AllProducts.swift in Sources */,
 				D37210A82655B81100935F86 /* AppDelegate.swift in Sources */,
+				4BA0C1A62658884A00B00A14 /* ShopifyCollentions.swift in Sources */,
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

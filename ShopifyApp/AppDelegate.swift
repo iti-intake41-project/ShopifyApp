@@ -8,7 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
