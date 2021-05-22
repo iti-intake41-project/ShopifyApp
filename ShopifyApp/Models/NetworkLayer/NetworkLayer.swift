@@ -11,14 +11,14 @@ import Alamofire
 class NetworkLayer {
     
     
-    func getCategories(completion: @escaping ([String]?, Error?) -> ()) {
-        AF.request(URLs.categories()).validate().responseDecodable(of: String.self) { (response) in
+    func getCategories(completion: @escaping ([CustomCollections]?, Error?) -> ()) {
+        AF.request(URLs.categories()).validate().responseDecodable(of: ShopifyCollentions.self) { (response) in
             
             switch response.result {
                 case .success( _):
                         
                     guard let data = response.value else { return }
-                    //completion(data, nil)
+                    completion(data.customCollections, nil)
                     
                 case .failure(let error):
                     
