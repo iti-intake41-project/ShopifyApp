@@ -16,8 +16,11 @@ target 'ShopifyApp' do
     # Pods for testing
   end
 
-pod 'SDWebImage'
+#pod 'SDWebImage'
 pod 'Alamofire'
 pod 'IQKeyboardManagerSwift'
+
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
 
 end
