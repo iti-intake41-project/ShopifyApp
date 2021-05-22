@@ -9,12 +9,18 @@ import Foundation
  
 struct ShopifyCollentions : Codable{
     let customCollections:[CustomCollections]
+    
+    enum CodingKeys : String , CodingKey {
+                
+                case customCollections = "custom_collections"
+               
+            }
 }
 
 struct CustomCollections :Codable{
     let id:Int
     let title: String
-    let image: Image?
+    let image: CollectionImage?
     
     enum CodingKeys : String , CodingKey {
              
@@ -26,7 +32,7 @@ struct CustomCollections :Codable{
        
 }
 
-struct Image :Codable {
+struct CollectionImage :Codable {
     let width:Double
     let height:Double
     let src:String

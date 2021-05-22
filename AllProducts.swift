@@ -8,8 +8,11 @@
 import Foundation
 
 
-struct Products:Codable{
-    let product:[Product]
+struct AllProducts:Codable{
+    let products:[Product]
+    enum CodingKeys : String , CodingKey {
+        case products = "products"
+    }
 }
 struct Product:Codable {
     let id:Int
@@ -17,11 +20,26 @@ struct Product:Codable {
     let description:String
     let vendor:String?
     let productType:String?
-    let images:[Image]
+    let images:[ProductImage]
     let options:[OptionList]?
     let varients:[Varient]?
+    
+    enum CodingKeys : String , CodingKey {
+            
+            case id = "id"
+            case title = "title"
+            case description = "body_html"
+            case vendor = "vendor"
+            case productType = "product_type"
+            case images = "images"
+            case options = "options"
+            case varients = "variants"
+
+        }
+      
+    
 }
-struct Image:Codable {
+struct ProductImage:Codable {
     let id:Int
     let productID:Int
     let position:Int
