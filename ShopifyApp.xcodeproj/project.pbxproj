@@ -24,6 +24,7 @@
 		D37210CA2655B81300935F86 /* ShopifyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37210C92655B81300935F86 /* ShopifyAppUITests.swift */; };
 		D37210E12655B97B00935F86 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37210E02655B97B00935F86 /* URLs.swift */; };
 		D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37210EF2655BA4800935F86 /* NetworkLayer.swift */; };
+		D396044E2659BC4D00D94931 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396044D2659BC4D00D94931 /* ShopViewController.swift */; };
 		D685EABFF99B8C5D3D468FF4 /* Pods_ShopifyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D93BFD7B1D8DD090D512522 /* Pods_ShopifyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		D37210CB2655B81300935F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D37210E02655B97B00935F86 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		D37210EF2655BA4800935F86 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		D396044D2659BC4D00D94931 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		764927792657190300B23245 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				D396044D2659BC4D00D94931 /* ShopViewController.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 			files = (
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
 				4BA0C1A4265884E400B00A14 /* AllProducts.swift in Sources */,
+				D396044E2659BC4D00D94931 /* ShopViewController.swift in Sources */,
 				D37210A82655B81100935F86 /* AppDelegate.swift in Sources */,
 				4BA0C1A62658884A00B00A14 /* ShopifyCollentions.swift in Sources */,
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
