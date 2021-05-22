@@ -237,9 +237,9 @@
 			children = (
 				764927792657190300B23245 /* Shop */,
 				D39604612659BDA700D94931 /* Category */,
-				D39604622659BDD100D94931 /* Favourites */,
-				D39604642659BDD100D94931 /* Me */,
-				D39604632659BDD100D94931 /* ShoppingBag */,
+				D396046B2659BE5E00D94931 /* Favourites */,
+				D396046C2659BE5E00D94931 /* Me */,
+				D396046D2659BE5E00D94931 /* ShoppingBag */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -273,25 +273,25 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		D39604622659BDD100D94931 /* Favourites */ = {
+		D396046B2659BE5E00D94931 /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Favourites;
 			sourceTree = "<group>";
 		};
-		D39604632659BDD100D94931 /* ShoppingBag */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ShoppingBag;
-			sourceTree = "<group>";
-		};
-		D39604642659BDD100D94931 /* Me */ = {
+		D396046C2659BE5E00D94931 /* Me */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Me;
+			sourceTree = "<group>";
+		};
+		D396046D2659BE5E00D94931 /* ShoppingBag */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShoppingBag;
 			sourceTree = "<group>";
 		};
 		F013673DF402C9F4033A290A /* Pods */ = {
