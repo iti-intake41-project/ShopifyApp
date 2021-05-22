@@ -6,15 +6,15 @@
 //
 
 import Foundation
- 
+
 struct ShopifyCollentions : Codable{
     let customCollections:[CustomCollections]
     
     enum CodingKeys : String , CodingKey {
-                
-                case customCollections = "custom_collections"
-               
-            }
+        
+        case customCollections = "custom_collections"
+        
+    }
 }
 
 struct CustomCollections :Codable{
@@ -23,13 +23,13 @@ struct CustomCollections :Codable{
     let image: CollectionImage?
     
     enum CodingKeys : String , CodingKey {
-             
-             case id = "id"
-             case title = "title"
-             case image = "image"
         
-         }
-       
+        case id = "id"
+        case title = "title"
+        case image = "image"
+        
+    }
+    
 }
 
 struct CollectionImage :Codable {
@@ -38,10 +38,10 @@ struct CollectionImage :Codable {
     let src:String
     
     enum CodingKeys : String , CodingKey {
-               
-               case width = "width"
-               case height = "height"
-               case src = "src"
-          
-           }
+        
+        case width = "width"
+        case height = "height"
+        case src = "src"
+        
+    }
 }

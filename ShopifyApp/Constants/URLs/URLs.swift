@@ -13,4 +13,8 @@ class URLs {
     static func categories() -> String {
         return baseUrl + "custom_collections.json"
     }
+    
+    static func produts(collectionID: String) -> String {
+        return baseUrl + "products.json?collection_id=\(collectionID)"
+    }
 }

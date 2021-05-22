@@ -17,18 +17,14 @@ class ShopViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        shopViewModel.bindShopViewModelToView = {
-            self.onSuccessUpdateView()
-            
-        }
-        shopViewModel.bindViewModelErrorToView = {
-            self.onFailUpdateView()
-        }
+        shopViewModel.bindShopViewModelToView  = onSuccessUpdateView
+        shopViewModel.bindViewModelErrorToView = onFailUpdateView
         //call  products from viewController based on collectionID
-        shopViewModel.fetchAllProductsFromAPI(collectionID: "267715608774")
+        shopViewModel.fetchCustomCollection()
+        shopViewModel.fetchAllProductsFromAPI()
     }
     func onSuccessUpdateView() {
-      guard let products = shopViewModel.allProducts?.products
+      guard let products = shopViewModel.allProducts
        else {
         print("no products")
         return }
@@ -36,7 +32,7 @@ class ShopViewController: UIViewController {
 
         print(products.count)
         print(products[0].title)
-        print(products[0].productType)
+//        print(products[0].productType!)
         print("-------------------------")
     }
     func onFailUpdateView() {

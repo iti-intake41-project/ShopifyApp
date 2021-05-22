@@ -9,13 +9,14 @@ import Foundation
 
 class ShopViewModel :NSObject{
     
-    var networkService: NetworkLayer!
-    var allProducts: AllProducts? {
+    var networkService = NetworkLayer()
+    
+    var allProducts: [Product]? {
         didSet {
             self.bindShopViewModelToView()
         }
     }
-    var customCollections: ShopifyCollentions? {
+    var customCollections: [CustomCollections]? {
         didSet {
             self.bindShopViewModelToView()
         }
@@ -28,47 +29,42 @@ class ShopViewModel :NSObject{
     
     var bindShopViewModelToView : (()->()) = {}
     var bindViewModelErrorToView : (()->()) = {}
-         
+    
     override init() {
-           
-           super .init()
-           self.networkService = NetworkLayer()
-           self.fetchAllProductsFromAPI()
-       }
-   
-       
+        
+        super .init()
+        //self.fetchAllProductsFromAPI()
+    }
+    
+    
     func fetchAllProductsFromAPI (collectionID: String = "268359598278"){
-           
-           networkService.fetchAllProducts(completion: { (allProducts, error) in
-               
-               if let error : Error = error{
-                   
-                   let message = error.localizedDescription
-                   self.showError = message
-                   
-               }else{
-                if let products = allProducts {
-                   self.allProducts = products
+
+        networkService.getProducts(collectionID: collectionID) { (product, error) in
+            if let error : Error = error{
+
+                let message = error.localizedDescription
+                self.showError = message
+
+            }else{
+                if let products = product {
+                    self.allProducts = products
                 }
-               }
-              
-           },collecionID: collectionID)
-       }
+            }
+        }
+    }
     
     func fetchCustomCollection(){
-        networkService.fetchCustomCollection(completion:{
-             (customCollection , error) in
+        networkService.getCategories { (customCollections, error) in
             if let error : Error = error{
                 
                 let message = error.localizedDescription
                 self.showError = message
                 
             }else{
-             if let collections = customCollection {
-                self.customCollections = collections
-             }
+                if let collections = customCollections {
+                    self.customCollections = collections
+                }
             }
-            
-        })
+        }
     }
 }
