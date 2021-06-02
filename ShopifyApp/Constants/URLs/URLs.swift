@@ -17,4 +17,10 @@ class URLs {
     static func produts(collectionID: String) -> String {
         return baseUrl + "products.json?collection_id=\(collectionID)"
     }
+    
+    static func discountCodes(priceRuleID: String) -> String {
+           return baseUrl + "price_rules/discount_codes.json?collection_id=\(priceRuleID)"
+       }
+
+
 }
