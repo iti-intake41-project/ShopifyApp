@@ -11,6 +11,8 @@ import SDWebImage
 class ProductListViewController: UIViewController {
 
     @IBOutlet weak var productSearchView: UISearchBar!
+
+    
     @IBOutlet weak var productsCollectionView: UICollectionView!
     var products: [Product] = [Product]()
     var orignalProducts: [Product] = [Product]()
@@ -75,6 +77,16 @@ class ProductListViewController: UIViewController {
                  self.present(alert, animated: true, completion: nil)
         }
     
+    @IBAction func sortProducts(_ sender: UIButton) {
+        
+   
+        products = products.sorted(by: {
+            Double ($0.varients![0].price)! < Double( $1.varients![0].price)!
+            
+        })
+        self.productsCollectionView.reloadData()
+        
+    }
     
 }
 extension ProductListViewController : UICollectionViewDelegate , UICollectionViewDelegateFlowLayout{
@@ -98,7 +110,6 @@ extension ProductListViewController : UICollectionViewDataSource {
         
         cell.productImage.sd_setImage(with: URL(string:products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
 
-        cell.priceLbl.text = products[indexPath.row].title
         cell.priceLbl.text = products[indexPath.row].varients?[0].price
         
         return cell

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="750" verticalCompressionResistancePriority="748" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QOx-fY-VN2">
-                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UQU-Mv-1Qm">
                                     <size key="itemSize" width="192" height="325"/>
@@ -77,21 +77,44 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="E2j-0q-2TC">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTg-gU-Phu">
+                                <rect key="frame" x="384" y="44" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="1HQ-nv-gkq"/>
+                                    <constraint firstAttribute="height" constant="30" id="ySO-TX-se2"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="square.and.arrow.up.fill" catalog="system"/>
+                            </button>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="E2j-0q-2TC">
+                                <rect key="frame" x="0.0" y="52" width="354" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbV-cy-kdl">
+                                <rect key="frame" x="354" y="59" width="30" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="M5c-I7-lcr"/>
+                                    <constraint firstAttribute="width" constant="30" id="r76-NY-2cw"/>
+                                </constraints>
+                                <state key="normal" title="sort" image="sort-down"/>
+                                <connections>
+                                    <action selector="sortProducts:" destination="966-cE-v6a" eventType="touchUpInside" id="BnQ-kK-jEh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="QOx-fY-VN2" firstAttribute="top" secondItem="E2j-0q-2TC" secondAttribute="bottom" id="3Jp-aE-uaa"/>
-                            <constraint firstItem="E2j-0q-2TC" firstAttribute="trailing" secondItem="UUH-97-ZGE" secondAttribute="trailing" id="Net-JD-epP"/>
+                            <constraint firstItem="E2j-0q-2TC" firstAttribute="leading" secondItem="UUH-97-ZGE" secondAttribute="leading" id="7e6-pg-nc2"/>
+                            <constraint firstItem="KbV-cy-kdl" firstAttribute="leading" secondItem="E2j-0q-2TC" secondAttribute="trailing" id="AR0-Pi-fUk"/>
+                            <constraint firstItem="QOx-fY-VN2" firstAttribute="top" secondItem="E2j-0q-2TC" secondAttribute="bottom" id="FGj-pY-U9k"/>
+                            <constraint firstItem="E2j-0q-2TC" firstAttribute="top" secondItem="UUH-97-ZGE" secondAttribute="top" constant="8" id="U7d-hM-3p4"/>
+                            <constraint firstItem="KbV-cy-kdl" firstAttribute="top" secondItem="UUH-97-ZGE" secondAttribute="top" constant="15" id="Yg4-He-qLP"/>
+                            <constraint firstItem="nTg-gU-Phu" firstAttribute="leading" secondItem="KbV-cy-kdl" secondAttribute="trailing" id="ZVu-Xa-zuH"/>
                             <constraint firstItem="QOx-fY-VN2" firstAttribute="trailing" secondItem="UUH-97-ZGE" secondAttribute="trailing" id="a2W-ev-4df"/>
-                            <constraint firstItem="E2j-0q-2TC" firstAttribute="leading" secondItem="UUH-97-ZGE" secondAttribute="leading" id="cKV-Bb-XCK"/>
-                            <constraint firstItem="QOx-fY-VN2" firstAttribute="top" secondItem="E2j-0q-2TC" secondAttribute="bottom" id="eEE-8o-Po7"/>
+                            <constraint firstItem="nTg-gU-Phu" firstAttribute="top" secondItem="UUH-97-ZGE" secondAttribute="top" id="biy-tw-fce"/>
                             <constraint firstItem="QOx-fY-VN2" firstAttribute="bottom" secondItem="UUH-97-ZGE" secondAttribute="bottom" id="gCe-En-64u"/>
                             <constraint firstItem="QOx-fY-VN2" firstAttribute="leading" secondItem="UUH-97-ZGE" secondAttribute="leading" id="q5w-U9-FNa"/>
-                            <constraint firstItem="E2j-0q-2TC" firstAttribute="top" secondItem="UUH-97-ZGE" secondAttribute="top" id="uRI-R5-zpm"/>
+                            <constraint firstAttribute="trailing" secondItem="nTg-gU-Phu" secondAttribute="trailing" id="ub7-ef-koY"/>
+                            <constraint firstItem="nTg-gU-Phu" firstAttribute="leading" secondItem="KbV-cy-kdl" secondAttribute="trailing" id="zrv-1H-sw2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UUH-97-ZGE"/>
                     </view>
@@ -107,5 +130,7 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="sort-down" width="512" height="512"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
     </resources>
 </document>
