@@ -43,23 +43,25 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKA-QC-qVY">
-                                                    <rect key="frame" x="10" y="304.5" width="119.5" height="20.5"/>
+                                                    <rect key="frame" x="10" y="304.5" width="103.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJG-wQ-RIe">
-                                                    <rect key="frame" x="129.5" y="308" width="20.5" height="17"/>
-                                                    <state key="normal" image="heart.fill" catalog="system"/>
+                                                    <rect key="frame" x="121.5" y="308" width="20.5" height="9"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Nib-PO-yUE" firstAttribute="top" secondItem="SVe-MD-OaP" secondAttribute="top" id="9Cd-Xj-tSU"/>
                                                 <constraint firstAttribute="bottom" secondItem="lKA-QC-qVY" secondAttribute="bottom" id="Hey-gL-Pay"/>
-                                                <constraint firstAttribute="trailing" secondItem="QJG-wQ-RIe" secondAttribute="trailing" id="MkT-iL-M86"/>
-                                                <constraint firstAttribute="bottom" secondItem="QJG-wQ-RIe" secondAttribute="bottom" id="YJF-Nu-Uze"/>
+                                                <constraint firstAttribute="trailing" secondItem="QJG-wQ-RIe" secondAttribute="trailing" constant="8" id="MkT-iL-M86"/>
+                                                <constraint firstAttribute="bottom" secondItem="QJG-wQ-RIe" secondAttribute="bottom" constant="8" id="YJF-Nu-Uze"/>
                                                 <constraint firstItem="lKA-QC-qVY" firstAttribute="leading" secondItem="SVe-MD-OaP" secondAttribute="leading" constant="10" id="ZyC-Ae-Tai"/>
-                                                <constraint firstItem="QJG-wQ-RIe" firstAttribute="leading" secondItem="lKA-QC-qVY" secondAttribute="trailing" id="cT0-4R-UXz"/>
+                                                <constraint firstItem="QJG-wQ-RIe" firstAttribute="leading" secondItem="lKA-QC-qVY" secondAttribute="trailing" constant="8" id="cT0-4R-UXz"/>
                                                 <constraint firstItem="QJG-wQ-RIe" firstAttribute="top" secondItem="Nib-PO-yUE" secondAttribute="bottom" constant="8" id="cnm-sd-qXy"/>
                                                 <constraint firstAttribute="trailing" secondItem="Nib-PO-yUE" secondAttribute="trailing" id="mRX-XQ-Bqd"/>
                                                 <constraint firstItem="Nib-PO-yUE" firstAttribute="leading" secondItem="SVe-MD-OaP" secondAttribute="leading" id="u6j-3L-1e7"/>
@@ -94,6 +96,7 @@
                         <viewLayoutGuide key="safeArea" id="UUH-97-ZGE"/>
                     </view>
                     <connections>
+                        <outlet property="productSearchView" destination="E2j-0q-2TC" id="SOI-g0-y3z"/>
                         <outlet property="productsCollectionView" destination="QOx-fY-VN2" id="xjy-NZ-m3x"/>
                     </connections>
                 </viewController>
@@ -103,6 +106,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
     </resources>
 </document>

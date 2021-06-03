@@ -48,6 +48,16 @@ class ProductListViewModel :NSObject{
             }
         }
     }
+    func searchProduct(sProducts:[Product],searchTxt:String)
+        ->[Product]{
+       return searchTxt.isEmpty ? sProducts : sProducts.filter({
+                  (data :Product)->Bool in
+                   print ("search done ")
+                  return data.varients?[0].price.range(of: searchTxt , options: .caseInsensitive) != nil
+               
+              })
+        
+    }
     
    
 }

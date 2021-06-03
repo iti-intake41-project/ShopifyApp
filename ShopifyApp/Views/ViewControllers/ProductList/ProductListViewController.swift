@@ -10,14 +10,17 @@ import SDWebImage
 
 class ProductListViewController: UIViewController {
 
+    @IBOutlet weak var productSearchView: UISearchBar!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     var products: [Product] = [Product]()
+    var orignalProducts: [Product] = [Product]()
     let productsViewModel: ProductListViewModel = ProductListViewModel()
        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        productSearchView.delegate = self
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
         productsViewModel.fetchAllProductsFromAPI()
@@ -50,8 +53,8 @@ class ProductListViewController: UIViewController {
             return
             
         }
-            self.products = products
-
+        self.products = products
+        self.orignalProducts = products
         productsCollectionView.reloadData()
         print("****ProductList****")
             print(products.count)
@@ -76,9 +79,9 @@ class ProductListViewController: UIViewController {
 }
 extension ProductListViewController : UICollectionViewDelegate , UICollectionViewDelegateFlowLayout{
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width-20 , height:200)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: view.frame.width-20 , height:200)
+//    }
    
     
 }
@@ -102,5 +105,18 @@ extension ProductListViewController : UICollectionViewDataSource {
         
     }
     
+}
+
+extension ProductListViewController:UISearchBarDelegate{
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        products = productsViewModel.searchProduct(sProducts: orignalProducts, searchTxt: searchText)
+        self.productsCollectionView.reloadData()
+    }
     
+    
+    
+                 
+     
 }
