@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B4518FB2667F93400E0D1DF /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4518FA2667F93400E0D1DF /* ProductList.storyboard */; };
+		4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4518FC2667FC4A00E0D1DF /* ProductListViewController.swift */; };
+		4B4519002667FEEB00E0D1DF /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4518FF2667FEEB00E0D1DF /* ProductsCollectionViewCell.swift */; };
+		4B4519022668174300E0D1DF /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4519012668174300E0D1DF /* ProductListViewModel.swift */; };
 		7649274E26570A3A00B23245 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649274D26570A3A00B23245 /* Shop.storyboard */; };
 		7649275326570B8400B23245 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649275226570B8400B23245 /* Category.storyboard */; };
 		7649275826570BD000B23245 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649275726570BD000B23245 /* Me.storyboard */; };
@@ -49,6 +53,10 @@
 /* Begin PBXFileReference section */
 		084C039A3F7AD7FD999EBEC7 /* Pods_ShopifyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D93BFD7B1D8DD090D512522 /* Pods_ShopifyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B4518FA2667F93400E0D1DF /* ProductList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductList.storyboard; sourceTree = "<group>"; };
+		4B4518FC2667FC4A00E0D1DF /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		4B4518FF2667FEEB00E0D1DF /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B4519012668174300E0D1DF /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		71066BE45E12FF94E7039064 /* Pods-ShopifyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.release.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.release.xcconfig"; sourceTree = "<group>"; };
 		7649274D26570A3A00B23245 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		7649275226570B8400B23245 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
@@ -109,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B4518FE2667FC5B00E0D1DF /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				4B4518FC2667FC4A00E0D1DF /* ProductListViewController.swift */,
+				4B4518FF2667FEEB00E0D1DF /* ProductsCollectionViewCell.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
 		764927792657190300B23245 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				D396045C2659BD6A00D94931 /* ShopViewModel.swift */,
+				4B4519012668174300E0D1DF /* ProductListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -235,6 +253,7 @@
 		D37210E82655B9AB00935F86 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4B4518FE2667FC5B00E0D1DF /* ProductList */,
 				764927792657190300B23245 /* Shop */,
 				D39604612659BDA700D94931 /* Category */,
 				D396046B2659BE5E00D94931 /* Favourites */,
@@ -254,6 +273,7 @@
 				7649275726570BD000B23245 /* Me.storyboard */,
 				76492762265710B900B23245 /* Favourites.storyboard */,
 				76492767265710F000B23245 /* ShoppingBag.storyboard */,
+				4B4518FA2667F93400E0D1DF /* ProductList.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -415,6 +435,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4518FB2667F93400E0D1DF /* ProductList.storyboard in Resources */,
 				7649275326570B8400B23245 /* Category.storyboard in Resources */,
 				7649274E26570A3A00B23245 /* Shop.storyboard in Resources */,
 				7649275826570BD000B23245 /* Me.storyboard in Resources */,
@@ -553,9 +574,12 @@
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
 				D396044E2659BC4D00D94931 /* ShopViewController.swift in Sources */,
 				D37210A82655B81100935F86 /* AppDelegate.swift in Sources */,
+				4B4519002667FEEB00E0D1DF /* ProductsCollectionViewCell.swift in Sources */,
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
 				D39604542659BD3E00D94931 /* AllProducts.swift in Sources */,
+				4B4519022668174300E0D1DF /* ProductListViewModel.swift in Sources */,
 				D39604552659BD3E00D94931 /* ShopifyCollentions.swift in Sources */,
+				4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */,
 				D396045D2659BD6A00D94931 /* ShopViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
