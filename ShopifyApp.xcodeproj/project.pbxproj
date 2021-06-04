@@ -15,8 +15,6 @@
 		769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */; };
 		769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */; };
 		76BE68E726586ED600C93F88 /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68E626586ED600C93F88 /* LoginRegister.storyboard */; };
-		76BE68EF26586F3B00C93F88 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE68EE26586F3B00C93F88 /* RegisterViewController.swift */; };
-		76BE68F726586F4500C93F88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE68F626586F4500C93F88 /* LoginViewController.swift */; };
 		76BE68FC2658708900C93F88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68FB2658708900C93F88 /* GoogleService-Info.plist */; };
 		76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918C326695F23000E406C /* RegisterViewModel.swift */; };
 		76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918CC26695F36000E406C /* LoginViewModel.swift */; };
@@ -63,8 +61,6 @@
 		769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
 		769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		76BE68E626586ED600C93F88 /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
-		76BE68EE26586F3B00C93F88 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		76BE68F626586F4500C93F88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		76BE68FB2658708900C93F88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76D918C326695F23000E406C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		76D918CC26695F36000E406C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -165,7 +161,6 @@
 		76BE68EC26586F0C00C93F88 /* Login  */ = {
 			isa = PBXGroup;
 			children = (
-				76BE68F626586F4500C93F88 /* LoginViewController.swift */,
 				769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */,
 			);
 			path = "Login ";
@@ -174,7 +169,6 @@
 		76BE68ED26586F2B00C93F88 /* Register  */ = {
 			isa = PBXGroup;
 			children = (
-				76BE68EE26586F3B00C93F88 /* RegisterViewController.swift */,
 				769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */,
 			);
 			path = "Register ";
@@ -638,8 +632,6 @@
 				76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */,
 				D37210A82655B81100935F86 /* AppDelegate.swift in Sources */,
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
-				76BE68F726586F4500C93F88 /* LoginViewController.swift in Sources */,
-				76BE68EF26586F3B00C93F88 /* RegisterViewController.swift in Sources */,
 				76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
