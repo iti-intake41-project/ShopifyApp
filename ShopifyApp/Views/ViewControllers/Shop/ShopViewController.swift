@@ -10,6 +10,8 @@ import UIKit
 class ShopViewController: UIViewController {
 
     var products: [Product] = [Product]()
+    var adds: [DiscountCode] = [DiscountCode]()
+
     let shopViewModel: ShopViewModel = ShopViewModel()
     
     override func viewDidLoad() {
@@ -17,11 +19,13 @@ class ShopViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        shopViewModel.bindShopViewModelToView  = onSuccessUpdateView
+        shopViewModel.bindProductsViewModelToView  = onSuccessUpdateView
+        shopViewModel.bindAddsViewModelToView = onSuccessAddsUpdateView
         shopViewModel.bindViewModelErrorToView = onFailUpdateView
         //call  products from viewController based on collectionID
         shopViewModel.fetchCustomCollection()
         shopViewModel.fetchAllProductsFromAPI()
+        shopViewModel.fetchAdds()
     }
     func onSuccessUpdateView() {
       guard let products = shopViewModel.allProducts
@@ -34,6 +38,15 @@ class ShopViewController: UIViewController {
         print(products[0].title)
 //        print(products[0].productType!)
         print("-------------------------")
+    }
+    func onSuccessAddsUpdateView (){
+        guard let adds = shopViewModel.adds
+            else{
+                print("no adds")
+                return
+        }
+        self.adds = adds
+        print(adds[0].code)
     }
     func onFailUpdateView() {
         let alert = UIAlertController(title: "Error", message: shopViewModel.showError, preferredStyle: .alert)

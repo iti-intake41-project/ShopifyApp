@@ -13,12 +13,17 @@ class ShopViewModel :NSObject{
     
     var allProducts: [Product]? {
         didSet {
-            self.bindShopViewModelToView()
+            self.bindProductsViewModelToView()
         }
     }
     var customCollections: [CustomCollections]? {
         didSet {
-            self.bindShopViewModelToView()
+            self.bindCollectionsViewModelToView()
+        }
+    }
+    var adds: [DiscountCode]? {
+        didSet {
+            self.bindAddsViewModelToView()
         }
     }
     var showError: String? {
@@ -27,7 +32,10 @@ class ShopViewModel :NSObject{
         }
     }
     
-    var bindShopViewModelToView : (()->()) = {}
+    var bindProductsViewModelToView : (()->()) = {}
+    var bindCollectionsViewModelToView : (()->()) = {}
+    var bindAddsViewModelToView : (()->()) = {}
+
     var bindViewModelErrorToView : (()->()) = {}
     
     override init() {
@@ -67,4 +75,20 @@ class ShopViewModel :NSObject{
             }
         }
     }
+    
+    func fetchAdds (priceRuleID: String = "950161080518"){
+
+        networkService.getDiscountCode(priceRuleID: priceRuleID){ (adds , error) in
+            if let error : Error = error{
+
+                let message = error.localizedDescription
+                self.showError = message
+
+            }else{
+                if let adds = adds {
+                    self.adds = adds
+                }
+            }
+    }
+}
 }

@@ -19,7 +19,7 @@ class URLs {
     }
     
     static func discountCodes(priceRuleID: String) -> String {
-           return baseUrl + "price_rules/discount_codes.json?collection_id=\(priceRuleID)"
+           return baseUrl + "price_rules/950161080518/discount_codes.json"
        }
 
 
