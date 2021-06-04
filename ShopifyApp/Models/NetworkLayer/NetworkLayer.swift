@@ -10,7 +10,6 @@ import Alamofire
 
 class NetworkLayer {
     
-    
     func getCategories(completion: @escaping ([CustomCollections]?, Error?) -> ()) {
         AF.request(URLs.categories()).validate().responseDecodable(of: ShopifyCollentions.self) { (response) in
             
