@@ -14,39 +14,60 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var confirmPasswordText: UITextField!
+    let viewModel:RegisterViewModelTemp = RegisterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        bindToViewModel()
     }
     
+    func bindToViewModel(){
+        viewModel.alertMsgDriver.drive {[weak self] (message) in
+            self?.showAlret(message: message)
+        } onCompleted: {
+            
+        } onDisposed: {
+            
+        }
+    }
     
     @IBAction func register(_ sender: UIButton) {
+        let pass = passwordText.text ?? ""
+        let confirmPass = confirmPasswordText.text ?? ""
+        viewModel.registerCustomer(firstName: "123", lastName: "", email: "", password: pass, confirmPassword: confirmPass)
         
-        if usernameText.text != "" && passwordText.text == confirmPasswordText.text && passwordText.text != "" {
-            
-            Auth.auth().createUser(withEmail: self.usernameText.text!, password: self.passwordText.text!) { [weak self] (result, error) in
-                
-                if error != nil {
-                    print("error on register \(String(describing: error?.localizedDescription))")
-                    //show dialog
-                    return
-                }
-                print("register successfully")
-                print("result: \(result!.user.uid)")
-                //Navigate
-                self?.performSegue(withIdentifier: "navigationToLogin", sender: nil)
-            }
-        } else{
-            //show dialog
-        }
+//        if usernameText.text != "" && passwordText.text == confirmPasswordText.text && passwordText.text != "" {
+//
+//            Auth.auth().createUser(withEmail: self.usernameText.text!, password: self.passwordText.text!) { [weak self] (result, error) in
+//
+//                if error != nil {
+//                    print("error on register \(String(describing: error?.localizedDescription))")
+//                    //show dialog
+//                    return
+//                }
+//                print("register successfully")
+//                print("result: \(result!.user.uid)")
+//                //Navigate
+//                self?.performSegue(withIdentifier: "navigationToLogin", sender: nil)
+//            }
+//        } else{
+//            //show dialog
+//        }
     }
     
     @IBAction func resetPassword(_ sender: UIButton) {
         
     }
     
+    func showAlret(message:String){
+        let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            print("alert working")
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+
+    }
     
     /*
     // MARK: - Navigation

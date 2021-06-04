@@ -12,10 +12,14 @@
 		7649275826570BD000B23245 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649275726570BD000B23245 /* Me.storyboard */; };
 		76492763265710B900B23245 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76492762265710B900B23245 /* Favourites.storyboard */; };
 		76492768265710F000B23245 /* ShoppingBag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76492767265710F000B23245 /* ShoppingBag.storyboard */; };
+		769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */; };
+		769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */; };
 		76BE68E726586ED600C93F88 /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68E626586ED600C93F88 /* LoginRegister.storyboard */; };
 		76BE68EF26586F3B00C93F88 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE68EE26586F3B00C93F88 /* RegisterViewController.swift */; };
 		76BE68F726586F4500C93F88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE68F626586F4500C93F88 /* LoginViewController.swift */; };
 		76BE68FC2658708900C93F88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68FB2658708900C93F88 /* GoogleService-Info.plist */; };
+		76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918C326695F23000E406C /* RegisterViewModel.swift */; };
+		76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918CC26695F36000E406C /* LoginViewModel.swift */; };
 		9FD3887BCF629E1AE1B942C4 /* Pods_ShopifyApp_ShopifyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765D6F3A1516A825D81CE8C4 /* Pods_ShopifyApp_ShopifyAppUITests.framework */; };
 		CE9F0EA52E581D3A76C33543 /* Pods_ShopifyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 084C039A3F7AD7FD999EBEC7 /* Pods_ShopifyAppTests.framework */; };
 		D37210A82655B81100935F86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37210A72655B81100935F86 /* AppDelegate.swift */; };
@@ -56,10 +60,14 @@
 		76492762265710B900B23245 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		76492767265710F000B23245 /* ShoppingBag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingBag.storyboard; sourceTree = "<group>"; };
 		765D6F3A1516A825D81CE8C4 /* Pods_ShopifyApp_ShopifyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp_ShopifyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
+		769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		76BE68E626586ED600C93F88 /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
 		76BE68EE26586F3B00C93F88 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		76BE68F626586F4500C93F88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		76BE68FB2658708900C93F88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		76D918C326695F23000E406C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		76D918CC26695F36000E406C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		78535481158D8E91529DF7D1 /* Pods-ShopifyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyAppTests/Pods-ShopifyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85036CC28D5579779AED4E59 /* Pods-ShopifyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A5D74218A6BD87316BB8F71D /* Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyApp-ShopifyAppUITests/Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				76BE68F626586F4500C93F88 /* LoginViewController.swift */,
+				769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */,
 			);
 			path = "Login ";
 			sourceTree = "<group>";
@@ -166,8 +175,25 @@
 			isa = PBXGroup;
 			children = (
 				76BE68EE26586F3B00C93F88 /* RegisterViewController.swift */,
+				769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */,
 			);
 			path = "Register ";
+			sourceTree = "<group>";
+		};
+		76D918C126695EFF000E406C /* LoginViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76D918CC26695F36000E406C /* LoginViewModel.swift */,
+			);
+			path = LoginViewModel;
+			sourceTree = "<group>";
+		};
+		76D918C226695F0D000E406C /* RegisterViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76D918C326695F23000E406C /* RegisterViewModel.swift */,
+			);
+			path = RegisterViewModel;
 			sourceTree = "<group>";
 		};
 		D372109B2655B81100935F86 = {
@@ -246,6 +272,8 @@
 		D37210DC2655B91900935F86 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				76D918C226695F0D000E406C /* RegisterViewModel */,
+				76D918C126695EFF000E406C /* LoginViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -604,11 +632,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */,
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
+				769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */,
+				76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */,
 				D37210A82655B81100935F86 /* AppDelegate.swift in Sources */,
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
 				76BE68F726586F4500C93F88 /* LoginViewController.swift in Sources */,
 				76BE68EF26586F3B00C93F88 /* RegisterViewController.swift in Sources */,
+				76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

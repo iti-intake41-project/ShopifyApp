@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
                     return
                 }
                 print("login successfully")
-                print("result: \(result!.user.uid)")
+                print("resultt: \(result!.user.uid)")
                 //Navigate
                 
             }
