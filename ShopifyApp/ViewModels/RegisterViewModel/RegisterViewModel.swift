@@ -28,7 +28,7 @@ class RegisterViewModel: RegisterViewModelTemp {
     func registerCustomer(firstName: String, lastName: String, email: String, password: String, confirmPassword: String) {
         if firstName != "" {
             if password == confirmPassword {
-                if password.count < 6 {
+                if password.count >= 6 {
                     if isValidEmail(email){
                         
                         let customer = Customer(first_name: firstName, last_name: lastName, email: email, phone: nil, tags: password, id: nil, verified_email: true, addresses: nil)
