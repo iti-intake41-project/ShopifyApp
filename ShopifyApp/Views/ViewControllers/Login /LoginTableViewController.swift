@@ -19,7 +19,7 @@ class LoginTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
-        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
 
     }
     
@@ -40,12 +40,20 @@ class LoginTableViewController: UITableViewController {
     }
         
     func navigate(){
-//        let registerScreen = storyboard?.instantiateViewController(identifier: "")
+//        let registerScreen = storyboard?.instantiateViewController(withIdentifier: "main")
+//        registerScreen?.modalPresentationStyle = .fullScreen
+//        present(registerScreen!, animated: true, completion: nil)
+        performSegue(withIdentifier: "navigateToMain", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
     
-    
-    @IBAction func googleLogin(_ sender: Any) {
+    @IBAction func navigateToRegister(_ sender: Any) {
+        let registerScreen = storyboard?.instantiateViewController(withIdentifier: "RegisterTableViewController")
+        registerScreen?.modalPresentationStyle = .fullScreen
+        present(registerScreen!, animated: true, completion: nil)
         
     }
     

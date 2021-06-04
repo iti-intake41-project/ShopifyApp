@@ -11,7 +11,7 @@
         <!--Register Table View Controller-->
         <scene sceneID="7JP-Ij-EGJ">
             <objects>
-                <tableViewController id="VPU-Kd-tWU" customClass="RegisterTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RegisterTableViewController" id="VPU-Kd-tWU" customClass="RegisterTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tz4-bS-XiU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,7 +236,7 @@
         <!--Login Table View Controller-->
         <scene sceneID="XBT-J1-766">
             <objects>
-                <tableViewController id="ZEW-AU-tvH" customClass="LoginTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LoginTableViewController" id="ZEW-AU-tvH" customClass="LoginTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fhO-n8-B0m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,8 +355,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="navigateToRegister:" destination="ZEW-AU-tvH" eventType="touchUpInside" id="Two-wr-k1N"/>
-                                                        <action selector="register:" destination="VPU-Kd-tWU" eventType="touchUpInside" id="xz7-yu-x9v"/>
+                                                        <action selector="navigateToRegister:" destination="ZEW-AU-tvH" eventType="touchUpInside" id="QRQ-5H-80f"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -381,11 +380,22 @@
                     <connections>
                         <outlet property="emailText" destination="by2-3Z-zbp" id="5NI-Dj-aQo"/>
                         <outlet property="passwordText" destination="3Dz-aH-moO" id="ypz-4L-gHY"/>
+                        <segue destination="7xA-Zm-6Nw" kind="presentation" identifier="navigateToMain" modalPresentationStyle="fullScreen" id="Alx-do-lRB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KY-Q6-dUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1737.68115942029" y="2.6785714285714284"/>
+        </scene>
+        <!--main-->
+        <scene sceneID="W7Y-Hd-PKm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="main" id="7xA-Zm-6Nw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="T8e-jH-Bta"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Zm-cr-Li6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2252" y="-70"/>
         </scene>
     </scenes>
     <resources>
