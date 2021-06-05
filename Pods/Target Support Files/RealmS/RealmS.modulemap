@@ -1,0 +1,6 @@
+framework module RealmS {
+  umbrella header "RealmS-umbrella.h"
+
+  export *
+  module * { export * }
+}
