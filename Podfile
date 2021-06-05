@@ -20,4 +20,11 @@ pod 'SDWebImage'
 pod 'Alamofire'
 pod 'IQKeyboardManagerSwift'
 
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
+
+pod 'RxSwift' 
+pod 'RxCocoa' 
+
+
 end

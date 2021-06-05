@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="966-cE-v6a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="966-cE-v6a">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,12 +35,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nib-PO-yUE">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Nib-PO-yUE">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="300"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="196" id="QPk-Ue-yIG"/>
-                                                        <constraint firstAttribute="height" constant="300" id="xyT-eG-a3W"/>
+                                                        <constraint firstAttribute="width" constant="150" id="OSR-EQ-rQM"/>
+                                                        <constraint firstAttribute="height" constant="300" id="UBl-df-aAd"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKA-QC-qVY">
@@ -49,22 +50,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJG-wQ-RIe">
-                                                    <rect key="frame" x="121.5" y="308" width="20.5" height="9"/>
+                                                    <rect key="frame" x="121.5" y="295" width="20.5" height="22"/>
                                                     <state key="normal" image="heart" catalog="system">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Nib-PO-yUE" firstAttribute="top" secondItem="SVe-MD-OaP" secondAttribute="top" id="9Cd-Xj-tSU"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nib-PO-yUE" secondAttribute="trailing" id="8HQ-s2-wPl"/>
+                                                <constraint firstItem="Nib-PO-yUE" firstAttribute="top" secondItem="SVe-MD-OaP" secondAttribute="top" id="BiE-1D-tB3"/>
+                                                <constraint firstItem="lKA-QC-qVY" firstAttribute="top" secondItem="Nib-PO-yUE" secondAttribute="bottom" constant="4.5" id="DzA-Hm-dMx"/>
                                                 <constraint firstAttribute="bottom" secondItem="lKA-QC-qVY" secondAttribute="bottom" id="Hey-gL-Pay"/>
                                                 <constraint firstAttribute="trailing" secondItem="QJG-wQ-RIe" secondAttribute="trailing" constant="8" id="MkT-iL-M86"/>
                                                 <constraint firstAttribute="bottom" secondItem="QJG-wQ-RIe" secondAttribute="bottom" constant="8" id="YJF-Nu-Uze"/>
                                                 <constraint firstItem="lKA-QC-qVY" firstAttribute="leading" secondItem="SVe-MD-OaP" secondAttribute="leading" constant="10" id="ZyC-Ae-Tai"/>
                                                 <constraint firstItem="QJG-wQ-RIe" firstAttribute="leading" secondItem="lKA-QC-qVY" secondAttribute="trailing" constant="8" id="cT0-4R-UXz"/>
-                                                <constraint firstItem="QJG-wQ-RIe" firstAttribute="top" secondItem="Nib-PO-yUE" secondAttribute="bottom" constant="8" id="cnm-sd-qXy"/>
-                                                <constraint firstAttribute="trailing" secondItem="Nib-PO-yUE" secondAttribute="trailing" id="mRX-XQ-Bqd"/>
-                                                <constraint firstItem="Nib-PO-yUE" firstAttribute="leading" secondItem="SVe-MD-OaP" secondAttribute="leading" id="u6j-3L-1e7"/>
+                                                <constraint firstItem="Nib-PO-yUE" firstAttribute="leading" secondItem="SVe-MD-OaP" secondAttribute="leading" id="lJh-al-L45"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,7 +102,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="UUH-97-ZGE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="E2j-0q-2TC" firstAttribute="leading" secondItem="UUH-97-ZGE" secondAttribute="leading" id="7e6-pg-nc2"/>
                             <constraint firstItem="KbV-cy-kdl" firstAttribute="leading" secondItem="E2j-0q-2TC" secondAttribute="trailing" id="AR0-Pi-fUk"/>
@@ -116,7 +118,6 @@
                             <constraint firstAttribute="trailing" secondItem="nTg-gU-Phu" secondAttribute="trailing" id="ub7-ef-koY"/>
                             <constraint firstItem="nTg-gU-Phu" firstAttribute="leading" secondItem="KbV-cy-kdl" secondAttribute="trailing" id="zrv-1H-sw2"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="UUH-97-ZGE"/>
                     </view>
                     <connections>
                         <outlet property="productSearchView" destination="E2j-0q-2TC" id="SOI-g0-y3z"/>
@@ -132,5 +133,8 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="sort-down" width="512" height="512"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
