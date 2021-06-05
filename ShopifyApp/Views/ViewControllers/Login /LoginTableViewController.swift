@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Firebase
-import GoogleSignIn
+//import Firebase
+//import GoogleSignIn
 
 class LoginTableViewController: UITableViewController {
     @IBOutlet weak var emailText: UITextField!

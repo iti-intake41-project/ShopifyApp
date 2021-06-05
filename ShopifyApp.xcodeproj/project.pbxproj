@@ -392,7 +392,6 @@
 				D37210A12655B81100935F86 /* Frameworks */,
 				D37210A22655B81100935F86 /* Resources */,
 				7C7D1470276A0D80554F0A1C /* [CP] Embed Pods Frameworks */,
-				BD40AAA1AB50DA699DBEFC62 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -431,7 +430,6 @@
 				D37210C22655B81300935F86 /* Frameworks */,
 				D37210C32655B81300935F86 /* Resources */,
 				750581943C8DFA8E87A4C6A9 /* [CP] Embed Pods Frameworks */,
-				1CF3E1BBCB77D861F43B8D71 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -521,23 +519,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1CF3E1BBCB77D861F43B8D71 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp-ShopifyAppUITests/Pods-ShopifyApp-ShopifyAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp-ShopifyAppUITests/Pods-ShopifyApp-ShopifyAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp-ShopifyAppUITests/Pods-ShopifyApp-ShopifyAppUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2143983A741E5115CB68CB62 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -636,23 +617,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BD40AAA1AB50DA699DBEFC62 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
