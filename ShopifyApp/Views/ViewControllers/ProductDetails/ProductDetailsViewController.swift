@@ -33,6 +33,11 @@ class ProductDetailsViewController: UIViewController {
         let shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         shoppingViewModel.addProduct(product: product)
     }
+    
+    @IBAction func goBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 }
 

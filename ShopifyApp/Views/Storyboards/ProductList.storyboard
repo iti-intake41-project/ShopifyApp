@@ -283,6 +283,19 @@
                                     <constraint firstAttribute="trailing" secondItem="M2U-kF-dfh" secondAttribute="trailing" id="wxy-TL-kDX"/>
                                 </constraints>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-J0-Kqh">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="k2b-gV-0oB">
+                                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="SnH-mg-3eZ">
+                                            <connections>
+                                                <action selector="goBack:" destination="sC3-SD-3DG" id="f9P-8I-Q8y"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uu0-Wq-eXp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -308,6 +321,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="sort-down" width="512" height="512"/>
