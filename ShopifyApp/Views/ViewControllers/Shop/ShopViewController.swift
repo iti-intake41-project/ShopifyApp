@@ -7,14 +7,28 @@
 
 import UIKit
 
-class ShopViewController: UIViewController {
+class ShopViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var shopCollectionView: UICollectionView!
+    
+    @IBOutlet weak var UIPageControl: UIPageControl!
+    
+    var adsArray = [UIImage(named: "pic")!,UIImage(named: "pic1")!,UIImage(named: "pic1")!]
+    var timer :Timer?
+    var currentCellIndex = 0
+    
+    
     var products: [Product] = [Product]()
     let shopViewModel: ShopViewModel = ShopViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        shopCollectionView.delegate=self
+        shopCollectionView.dataSource=self
+        startTimer()
+        UIPageControl.numberOfPages = adsArray.count
+        
         // Do any additional setup after loading the view.
         
         shopViewModel.bindShopViewModelToView  = onSuccessUpdateView
@@ -23,6 +37,47 @@ class ShopViewController: UIViewController {
         shopViewModel.fetchCustomCollection()
         shopViewModel.fetchAllProductsFromAPI()
     }
+    
+    func startTimer()
+    {
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(moveToNextSlide), userInfo: nil, repeats: true)
+    }
+    
+    @objc func moveToNextSlide()
+    {
+        if(currentCellIndex < adsArray.count-1)
+        {
+            currentCellIndex+=1
+        }
+        else{
+            currentCellIndex = 0
+        }
+        
+        shopCollectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+        UIPageControl.currentPage = currentCellIndex
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = shopCollectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCollectionViewCell
+        cell.shopAdsImages.image = adsArray[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        adsArray.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    
     func onSuccessUpdateView() {
       guard let products = shopViewModel.allProducts
        else {
