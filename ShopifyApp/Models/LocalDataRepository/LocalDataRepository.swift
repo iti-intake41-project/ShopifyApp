@@ -57,7 +57,7 @@ class RealmDataRepository: LocalDataRepository {
         //4
         let productCD = NSManagedObject(entity: entity!, insertInto: managedContext)
         productCD.setValue(product.id, forKey: "id")
-        productCD.setValue(product.count, forKey: "count")
+        productCD.setValue(product.count + 1, forKey: "count")
         productCD.setValue(product.varients?[0].price ?? "0.0", forKey: "price")
         productCD.setValue(product.title, forKey: "title")
         productCD.setValue(product.images[0].src, forKey: "imgUrl")

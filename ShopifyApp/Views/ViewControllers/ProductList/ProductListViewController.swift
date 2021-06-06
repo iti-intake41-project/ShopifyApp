@@ -116,7 +116,10 @@ extension ProductListViewController : UICollectionViewDataSource {
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let productDetailsViewController = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        productDetailsViewController.modalPresentationStyle = .fullScreen
+        productDetailsViewController.product = products[indexPath.row]
+        present(productDetailsViewController, animated: true, completion: nil)
     }
     
 }

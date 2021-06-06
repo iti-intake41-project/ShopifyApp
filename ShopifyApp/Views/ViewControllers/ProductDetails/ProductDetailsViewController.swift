@@ -18,6 +18,8 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var cartButton: UIButton!
     
     var product: Product!
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,9 +30,10 @@ class ProductDetailsViewController: UIViewController {
     }
     
     @IBAction func cartAction(_ sender: Any) {
+        let shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+        shoppingViewModel.addProduct(product: product)
     }
-    
-    
+
 }
 
 extension ProductDetailsViewController {
