@@ -10,7 +10,7 @@ import IQKeyboardManagerSwift
 //import Firebase
 //import GoogleSignIn
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate/*, GIDSignInDelegate*/ {
     var window: UIWindow?
 

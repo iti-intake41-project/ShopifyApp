@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct AllProducts:Codable{
     let products:[Product]
     enum CodingKeys : String , CodingKey {
@@ -37,7 +36,6 @@ struct Product:Codable {
 
         }
       
-    
 }
 struct ProductImage:Codable {
     let id:Int
@@ -79,7 +77,6 @@ struct OptionList:Codable{
           
       }
     
-
 }
 struct Varient:Codable {
     let id:Int
