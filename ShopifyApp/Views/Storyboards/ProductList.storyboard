@@ -30,7 +30,7 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductsCollectionViewCell" id="LYx-hd-pWc" customClass="ProductsCollectionViewCell" customModule="ShopifyApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="325"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SVe-MD-OaP" customClass="ProductsCollectionViewCell" customModule="ShopifyApp" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SVe-MD-OaP">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
