@@ -11,7 +11,6 @@ class ShoppingBagViewController: UIViewController {
     @IBOutlet weak var shoppingTable: UITableView!
     @IBOutlet weak var totalPriceText: UILabel!
     var totalPrice: Float = 0
-//    var product = Product(id: 1, title: "Sketcher", description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: 1, productID: 1, position: 1, width: 1, height: 1, src: "https://cdn.shopify.com/s/files/1/0567/9310/4582/products/44694ee386818f3276566210464cf341.jpg?v=1621288163", graphQlID: "")], options: nil, varients: [Varient(id: 0, productID: 0, title: "", price: "1.99")])
     var list:[Product] = []
     var viewModel:ShoppingBagViewModelTemp!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -32,15 +31,12 @@ class ShoppingBagViewController: UIViewController {
     func updateTableView(){
         totalPrice = 0
         list = []
-//        print("list count before fetch \(list.count)")
         list = viewModel.getProductList()
-//        print("list count after fetch \(list.count)")
         shoppingTable.reloadData()
         for product in list{
             totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
         }
         totalPriceText.text = String(format: "US$%.2f", totalPrice)
-        
     }
     
     func updateCD(id: Int){
@@ -62,9 +58,6 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
         return list.count
     }
     
-    //    func numberOfSections(in tableView: UITableView) -> Int {
-    //        return 1
-    //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -110,7 +103,6 @@ extension ShoppingBagViewController : productListDelegate {
                 if self.list[i].count > 1 {
                     self.list[i].count -= 1
                     self.updateCD(id: id)
-                    //                    self.updateTableView()
                     break
                 }
             }
