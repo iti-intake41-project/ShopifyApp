@@ -9,23 +9,50 @@ import UIKit
 
 class ShoppingBagViewController: UIViewController {
     @IBOutlet weak var shoppingTable: UITableView!
-    var product = Product(id: 1, title: "Sketcher", description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: 1, productID: 1, position: 1, width: 1, height: 1, src: "https://cdn.shopify.com/s/files/1/0567/9310/4582/products/44694ee386818f3276566210464cf341.jpg?v=1621288163", graphQlID: "")], options: nil, varients: nil)
-    var product2 = Product(id: 2, title: "Sketcher2", description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: 2, productID: 1, position: 1, width: 1, height: 1, src: "https://cdn.shopify.com/s/files/1/0567/9310/4582/products/44694ee386818f3276566210464cf341.jpg?v=1621288163", graphQlID: "")], options: nil, varients: nil)
-    var product3 = Product(id: 3, title: "Sketcher3", description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: 3, productID: 1, position: 1, width: 1, height: 1, src: "https://cdn.shopify.com/s/files/1/0567/9310/4582/products/44694ee386818f3276566210464cf341.jpg?v=1621288163", graphQlID: "")], options: nil, varients: nil)
-    var product4 = Product(id: 4, title: "Sketcher4", description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: 3, productID: 1, position: 1, width: 1, height: 1, src: "https://cdn.shopify.com/s/files/1/0567/9310/4582/products/44694ee386818f3276566210464cf341.jpg?v=1621288163", graphQlID: "")], options: nil, varients: nil)
+    @IBOutlet weak var totalPriceText: UILabel!
+    var totalPrice: Float = 0
+//    var product = Product(id: 1, title: "Sketcher", description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: 1, productID: 1, position: 1, width: 1, height: 1, src: "https://cdn.shopify.com/s/files/1/0567/9310/4582/products/44694ee386818f3276566210464cf341.jpg?v=1621288163", graphQlID: "")], options: nil, varients: [Varient(id: 0, productID: 0, title: "", price: "1.99")])
     var list:[Product] = []
-    
+    var viewModel:ShoppingBagViewModelTemp!
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         shoppingTable.delegate = self
         shoppingTable.dataSource = self
-        list.append(product)
-        list.append(product2)
-        list.append(product3)
-        list.append(product4)
-        // Do any additional setup after loading the view.
+        
+        updateTableView()
     }
+    
+    @IBAction func navigateToCheckOut(_ sender: UIButton) {
+        
+    }
+    
+    func updateTableView(){
+        totalPrice = 0
+        list = []
+//        print("list count before fetch \(list.count)")
+        list = viewModel.getProductList()
+//        print("list count after fetch \(list.count)")
+        shoppingTable.reloadData()
+        for product in list{
+            totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
+        }
+        totalPriceText.text = String(format: "US$%.2f", totalPrice)
+        
+    }
+    
+    func updateCD(id: Int){
+        for product in list{
+            if product.id == id {
+                viewModel.updateProductList(id: id, product: product)
+            }
+        }
+        updateTableView()
+    }
+    
+    
 }
 
 // MARK: - Table View
@@ -35,9 +62,9 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
         return list.count
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
+    //    func numberOfSections(in tableView: UITableView) -> Int {
+    //        return 1
+    //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -45,6 +72,7 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
         cell.imgUrl = list[indexPath.row].images[0].src
         cell.delegate = self
         cell.product = list[indexPath.row]
+        cell.productPrice.text = "US$\((Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
         return cell
     }
     
@@ -65,27 +93,29 @@ extension ShoppingBagViewController : productListDelegate {
     func increaseCount(id: Int) {
         for i in 0...self.list.count - 1{
             if id == self.list[i].id{
-                print("i: \(i)")
+                print("i: \(i) id:\(self.list[i].id)")
                 self.list[i].count += 1
-                self.shoppingTable.reloadData()
+                self.updateCD(id: id)
+                //                self.updateTableView()
                 break
             }
         }
-
+        
     }
     
     func decreaseCount(id: Int) {
         for i in 0...self.list.count - 1{
             if id == self.list[i].id{
-                print("i: \(i)")
+                print("i: \(i) id:\(self.list[i].id)")
                 if self.list[i].count > 1 {
                     self.list[i].count -= 1
-                    self.shoppingTable.reloadData()
+                    self.updateCD(id: id)
+                    //                    self.updateTableView()
                     break
                 }
             }
         }
-
+        
     }
     
     func deleteProduct(id: Int) {
@@ -96,8 +126,8 @@ extension ShoppingBagViewController : productListDelegate {
             for i in 0...self.list.count - 1{
                 if id == self.list[i].id{
                     print("i: \(i)")
-                    self.list.remove(at: i)
-                    self.shoppingTable.reloadData()
+                    self.viewModel.deleteProduct(id: id)
+                    self.updateTableView()
                     break
                 }
             }

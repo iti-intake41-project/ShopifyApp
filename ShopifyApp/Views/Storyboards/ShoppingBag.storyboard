@@ -140,6 +140,9 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="titleShadowColor" red="0.61494665039999996" green="0.8841817837" blue="0.88345727669999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="navigateToCheckOut:" destination="kat-JW-gFQ" eventType="touchUpInside" id="UdX-q7-J3C"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXU-9d-nSY">
                                                 <rect key="frame" x="54" y="8" width="43.5" height="20.5"/>
@@ -184,6 +187,7 @@
                     </view>
                     <connections>
                         <outlet property="shoppingTable" destination="WJ0-DC-4Ov" id="sMx-Dg-BTV"/>
+                        <outlet property="totalPriceText" destination="VXU-9d-nSY" id="2xx-xG-gZ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylm-6I-Jtl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -26,6 +26,6 @@ pod 'IQKeyboardManagerSwift'
 pod 'RxSwift' 
 pod 'RxCocoa' 
 
-pod 'RealmS', '~> 4.0.0'
+#pod 'RealmS', '~> 4.0.0'
 
 end

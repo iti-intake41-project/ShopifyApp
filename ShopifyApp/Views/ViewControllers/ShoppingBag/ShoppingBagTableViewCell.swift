@@ -19,7 +19,6 @@ class ShoppingBagTableViewCell: UITableViewCell {
         didSet{
             productName.text = product.title
             itemCountText.text = "\(product.count)"
-
         }
     }
     

@@ -20,6 +20,8 @@
 		76818CEF266B5DBF006CB1DC /* ShopingBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76818CEE266B5DBF006CB1DC /* ShopingBagViewController.swift */; };
 		76818CFB266B6247006CB1DC /* ShoppingBagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76818CFA266B6247006CB1DC /* ShoppingBagTableViewCell.swift */; };
 		76818D01266B7A11006CB1DC /* ShoppingBagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76818D00266B7A11006CB1DC /* ShoppingBagViewModel.swift */; };
+		76818D8A266BD1A1006CB1DC /* LocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76818D89266BD1A1006CB1DC /* LocalDataRepository.swift */; };
+		76818DF5266BD900006CB1DC /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76818DF3266BD900006CB1DC /* CoreDataModel.xcdatamodeld */; };
 		769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */; };
 		769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */; };
 		76BE68E726586ED600C93F88 /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68E626586ED600C93F88 /* LoginRegister.storyboard */; };
@@ -78,6 +80,8 @@
 		76818CEE266B5DBF006CB1DC /* ShopingBagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingBagViewController.swift; sourceTree = "<group>"; };
 		76818CFA266B6247006CB1DC /* ShoppingBagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagTableViewCell.swift; sourceTree = "<group>"; };
 		76818D00266B7A11006CB1DC /* ShoppingBagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagViewModel.swift; sourceTree = "<group>"; };
+		76818D89266BD1A1006CB1DC /* LocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataRepository.swift; sourceTree = "<group>"; };
+		76818DF4266BD900006CB1DC /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
 		769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		76BE68E626586ED600C93F88 /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
@@ -172,6 +176,14 @@
 			path = ShoppingBag;
 			sourceTree = "<group>";
 		};
+		76818D88266BD189006CB1DC /* LocalDataRepository */ = {
+			isa = PBXGroup;
+			children = (
+				76818D89266BD1A1006CB1DC /* LocalDataRepository.swift */,
+			);
+			path = LocalDataRepository;
+			sourceTree = "<group>";
+		};
 		76BE68EC26586F0C00C93F88 /* Login  */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +275,7 @@
 		D37210DA2655B8FE00935F86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				76818D88266BD189006CB1DC /* LocalDataRepository */,
 				D37210ED2655BA1E00935F86 /* NetworkLayer */,
 			);
 			path = Models;
@@ -295,6 +308,7 @@
 				D39604522659BD3D00D94931 /* AllProducts.swift */,
 				D39604532659BD3E00D94931 /* ShopifyCollentions.swift */,
 				767DAA1E266AF74200067EE9 /* customer.swift */,
+				76818DF3266BD900006CB1DC /* CoreDataModel.xcdatamodeld */,
 			);
 			path = DataClass;
 			sourceTree = "<group>";
@@ -656,6 +670,8 @@
 				4B4519022668174300E0D1DF /* ProductListViewModel.swift in Sources */,
 				D39604552659BD3E00D94931 /* ShopifyCollentions.swift in Sources */,
 				76818CEF266B5DBF006CB1DC /* ShopingBagViewController.swift in Sources */,
+				76818D8A266BD1A1006CB1DC /* LocalDataRepository.swift in Sources */,
+				76818DF5266BD900006CB1DC /* CoreDataModel.xcdatamodeld in Sources */,
 				767DAA1F266AF74200067EE9 /* customer.swift in Sources */,
 				4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */,
 				76818CFB266B6247006CB1DC /* ShoppingBagTableViewCell.swift in Sources */,
@@ -1001,6 +1017,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		76818DF3266BD900006CB1DC /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				76818DF4266BD900006CB1DC /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 76818DF4266BD900006CB1DC /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D372109C2655B81100935F86 /* Project object */;
 }
