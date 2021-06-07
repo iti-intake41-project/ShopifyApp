@@ -22,6 +22,7 @@ struct Product:Codable {
     let images:[ProductImage]
     let options:[OptionList]?
     let varients:[Varient]?
+    var count: Int = 0
     
     enum CodingKeys : String , CodingKey {
             
