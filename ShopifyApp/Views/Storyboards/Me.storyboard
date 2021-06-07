@@ -8,11 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Me View Controller-->
         <scene sceneID="4yt-vV-9he">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cOj-WU-UQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="9Lc-MY-xqT" sceneMemberID="viewController">
+                <viewController id="9Lc-MY-xqT" customClass="MeViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qmm-GC-eRx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,14 +60,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dzj-fQ-WaF" userLabel="OrderStack View">
                                 <rect key="frame" x="20" y="120.33333333333331" width="374" height="178"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-lU-yE3" userLabel="Order1Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kAc-lU-yE3" userLabel="Order1Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="178"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="iCF-9i-Bw0">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="154"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="170.66666666666666"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjG-Zm-Y64">
-                                                <rect key="frame" x="0.0" y="154" width="119.33333333333333" height="24"/>
+                                                <rect key="frame" x="0.0" y="170.66666666666669" width="119.33333333333333" height="7.3333333333333428"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -78,21 +77,21 @@
                                             <constraint firstAttribute="height" constant="178" id="SVy-qb-DPd"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lZm-2Y-zSV" userLabel="Order2Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lZm-2Y-zSV" userLabel="Order2Stack View">
                                         <rect key="frame" x="127.33333333333334" y="0.0" width="119.33333333333334" height="178"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="sort-down" translatesAutoresizingMaskIntoConstraints="NO" id="lbA-7R-NRn">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="154"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="170"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvV-jf-AqD">
-                                                <rect key="frame" x="0.0" y="154" width="119.33333333333333" height="24"/>
+                                                <rect key="frame" x="0.0" y="170" width="119.33333333333333" height="8"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2p1-VC-2iQ" userLabel="Order3Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2p1-VC-2iQ" userLabel="Order3Stack View">
                                         <rect key="frame" x="254.66666666666671" y="0.0" width="119.33333333333334" height="178"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="B5X-EB-jPM">
@@ -205,7 +204,16 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="downloads" id="Tur-oW-Eg7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imgOrder1" destination="iCF-9i-Bw0" id="4Sw-C9-KdZ"/>
+                        <outlet property="imgOrder2" destination="lbA-7R-NRn" id="gju-p5-mGR"/>
+                        <outlet property="imgOrder3" destination="B5X-EB-jPM" id="XHp-KC-mHp"/>
+                        <outlet property="lblOrder1" destination="SjG-Zm-Y64" id="s1A-x2-Aj1"/>
+                        <outlet property="lblOrder2" destination="vvV-jf-AqD" id="D0g-7I-rJE"/>
+                        <outlet property="lblOrder3" destination="2kA-Jd-wMH" id="ndi-iO-DAm"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOj-WU-UQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="291.304347826087" y="142.66304347826087"/>
         </scene>
