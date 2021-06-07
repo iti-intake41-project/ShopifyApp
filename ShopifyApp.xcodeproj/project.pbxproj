@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B3F8838266DEEB2009ED0BC /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F8837266DEEB2009ED0BC /* MeViewController.swift */; };
 		4B4518FB2667F93400E0D1DF /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4518FA2667F93400E0D1DF /* ProductList.storyboard */; };
 		4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4518FC2667FC4A00E0D1DF /* ProductListViewController.swift */; };
 		4B4519002667FEEB00E0D1DF /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4518FF2667FEEB00E0D1DF /* ProductsCollectionViewCell.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		084C039A3F7AD7FD999EBEC7 /* Pods_ShopifyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D93BFD7B1D8DD090D512522 /* Pods_ShopifyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B3F8837266DEEB2009ED0BC /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		4B4518FA2667F93400E0D1DF /* ProductList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductList.storyboard; sourceTree = "<group>"; };
 		4B4518FC2667FC4A00E0D1DF /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		4B4518FF2667FEEB00E0D1DF /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		D396046C2659BE5E00D94931 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				4B3F8837266DEEB2009ED0BC /* MeViewController.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 			files = (
 				769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */,
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
+				4B3F8838266DEEB2009ED0BC /* MeViewController.swift in Sources */,
 				D396044E2659BC4D00D94931 /* ShopViewController.swift in Sources */,
 				769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */,
 				76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */,
