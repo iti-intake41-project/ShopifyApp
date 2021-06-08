@@ -11,19 +11,24 @@ import CoreData
 protocol LocalDataRepository{
     func addProduct(product: Product)
     func updateProductList(id: Int, product: Product)
-    func getProductList()->[Product]
+    func getShoppingCartProductList()->[Product]
     func deleteProduct(id: Int)
+    func addFavourite(product: Product)
+    func deleteFavourite(id: Int)
+    func getFavourites()->[Product]
 }
 
-class RealmDataRepository: LocalDataRepository {
+class CoreDataRepository: LocalDataRepository {
     var productList = [Product]()
+    var favouriteList = [Product]()
     var delegate: AppDelegate
     
     init(appDelegate: inout AppDelegate) {
         delegate = appDelegate
     }
 
-    func getProductList()->[Product] {
+    // MARK: - Shopping Cart
+    func getShoppingCartProductList()->[Product] {
         productList = []
         let managedContext = delegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ProductCoreData")
@@ -67,7 +72,6 @@ class RealmDataRepository: LocalDataRepository {
         }catch let error as NSError{
             print(error)
         }
-
     }
     
     func updateProductList(id: Int, product: Product) {
@@ -109,4 +113,66 @@ class RealmDataRepository: LocalDataRepository {
             print("failed to delete product from core data \(error)")
         }
     }
+    
+    
+    // MARK: - Favourites
+    
+    func deleteFavourite(id: Int) {
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCoreData")
+        fetchRequest.predicate = NSPredicate(format: "id = \(id)")
+        do{
+            let productCDArray = try managedContext.fetch(fetchRequest)
+            for product in productCDArray {
+                managedContext.delete(product)
+            }
+            try managedContext.save()
+
+        }catch{
+            print("failed to delete product from core data \(error)")
+        }
+    }
+    
+    func addFavourite(product: Product) {
+        print("add product in CD \(product)")
+        let managedContext = delegate.persistentContainer.viewContext
+        //3
+        let entity = NSEntityDescription.entity(forEntityName: "FavouriteCoreData", in: managedContext)
+        //4
+        let productCD = NSManagedObject(entity: entity!, insertInto: managedContext)
+        productCD.setValue(product.id, forKey: "id")
+        productCD.setValue(product.varients?[0].price ?? "0.0", forKey: "price")
+        productCD.setValue(product.title, forKey: "title")
+        productCD.setValue(product.images[0].src, forKey: "imgUrl")
+        do{
+            try managedContext.save()
+            print("saved successfully")
+        }catch let error as NSError{
+            print(error)
+        }
+    }
+    
+    func getFavourites() -> [Product] {
+        favouriteList = []
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCoreData")
+        do{
+            let productCDArray = try managedContext.fetch(fetchRequest)
+            print("fetch product CD count\(productCDArray.count)")
+            for product in productCDArray{
+                let id = product.value(forKey: "id") as! Int
+                print("read id: \(id)")
+                let price = product.value(forKey: "price") as! String
+                let title = product.value(forKey: "title") as! String
+                let imgUrl = product.value(forKey: "imgUrl") as! String
+                let product = Product(id: id, title: title, description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: 0, productID: 0, title: "", price: price)])
+                print(price)
+                favouriteList.append(product)
+            }
+        }catch{
+            print("failed to load products from core data")
+        }
+        return favouriteList
+    }
+    
 }

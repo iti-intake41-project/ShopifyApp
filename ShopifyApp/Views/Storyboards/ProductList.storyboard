@@ -55,6 +55,9 @@
                                                     <state key="normal" image="heart" catalog="system">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="toggleFavourite:" destination="LYx-hd-pWc" eventType="touchUpInside" id="Rps-Gf-7oN"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

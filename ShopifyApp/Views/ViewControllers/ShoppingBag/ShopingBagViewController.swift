@@ -31,7 +31,7 @@ class ShoppingBagViewController: UIViewController {
     func updateTableView(){
         totalPrice = 0
         list = []
-        list = viewModel.getProductList()
+        list = viewModel.getShoppingCartProductList()
         shoppingTable.reloadData()
         for product in list{
             totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
@@ -128,6 +128,7 @@ extension ShoppingBagViewController : productListDelegate {
         alert.addAction(yesAction)
         alert.addAction(noAction)
         self.present(alert, animated: true, completion: nil)
+        
     }
     
 }

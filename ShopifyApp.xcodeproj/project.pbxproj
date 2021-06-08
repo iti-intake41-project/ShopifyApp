@@ -22,6 +22,8 @@
 		76818D01266B7A11006CB1DC /* ShoppingBagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76818D00266B7A11006CB1DC /* ShoppingBagViewModel.swift */; };
 		76818D8A266BD1A1006CB1DC /* LocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76818D89266BD1A1006CB1DC /* LocalDataRepository.swift */; };
 		76818DF5266BD900006CB1DC /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76818DF3266BD900006CB1DC /* CoreDataModel.xcdatamodeld */; };
+		7697901A266EE70E00ED9ED5 /* FavouritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76979019266EE70E00ED9ED5 /* FavouritesCollectionViewController.swift */; };
+		7697901F266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7697901E266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift */; };
 		769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */; };
 		769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */; };
 		76BE68E726586ED600C93F88 /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68E626586ED600C93F88 /* LoginRegister.storyboard */; };
@@ -85,6 +87,8 @@
 		76818D00266B7A11006CB1DC /* ShoppingBagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagViewModel.swift; sourceTree = "<group>"; };
 		76818D89266BD1A1006CB1DC /* LocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataRepository.swift; sourceTree = "<group>"; };
 		76818DF4266BD900006CB1DC /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		76979019266EE70E00ED9ED5 /* FavouritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewController.swift; sourceTree = "<group>"; };
+		7697901E266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteProductCellProtocol.swift; sourceTree = "<group>"; };
 		769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
 		769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		76BE68E626586ED600C93F88 /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
@@ -386,6 +390,8 @@
 		D396046B2659BE5E00D94931 /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
+				76979019266EE70E00ED9ED5 /* FavouritesCollectionViewController.swift */,
+				7697901E266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift */,
 			);
 			path = Favourites;
 			sourceTree = "<group>";
@@ -688,10 +694,12 @@
 				76818D01266B7A11006CB1DC /* ShoppingBagViewModel.swift in Sources */,
 				769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */,
 				76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */,
+				7697901A266EE70E00ED9ED5 /* FavouritesCollectionViewController.swift in Sources */,
 				D37210A82655B81100935F86 /* AppDelegate.swift in Sources */,
 				D3F148FD266BC04600729210 /* ProductDetailsViewModel.swift in Sources */,
 				4B4519002667FEEB00E0D1DF /* ProductsCollectionViewCell.swift in Sources */,
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
+				7697901F266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift in Sources */,
 				D39604542659BD3E00D94931 /* AllProducts.swift in Sources */,
 				4B4519022668174300E0D1DF /* ProductListViewModel.swift in Sources */,
 				D39604552659BD3E00D94931 /* ShopifyCollentions.swift in Sources */,
