@@ -78,7 +78,6 @@ extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionVi
         return image
     }
     
-    
 }
 
 extension ProductDetailsViewController: UICollectionViewDelegateFlowLayout {

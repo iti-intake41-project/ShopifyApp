@@ -19,17 +19,16 @@ class RegisterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindToViewModel()
+    bindToViewModel()
     }
     
     func bindToViewModel(){
-        let _ = viewModel.alertMsgDriver.drive {[weak self] (message) in
-            self?.showAlret(message: message)
-        } onCompleted: {
-            
-        } onDisposed: {
-            
-        }
+
+        let _ = viewModel.alertMsgDriver.drive(onNext: {
+            [weak self] (message) in
+            (self?.showAlret(message: message))
+        }, onCompleted: nil, onDisposed:nil )
+        
     }
 
     

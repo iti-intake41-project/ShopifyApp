@@ -9,7 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import CoreData
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate/*, GIDSignInDelegate*/ {
     var window: UIWindow?
 
