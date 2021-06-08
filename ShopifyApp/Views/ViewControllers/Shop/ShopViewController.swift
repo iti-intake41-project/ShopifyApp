@@ -7,14 +7,18 @@
 
 import UIKit
 
-class ShopViewController: UIViewController {
+class ShopViewController: UIViewController{
 
+    
+    
     var products: [Product] = [Product]()
     let shopViewModel: ShopViewModel = ShopViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         // Do any additional setup after loading the view.
         
 //        shopViewModel.bindShopViewModelToView  = onSuccessUpdateView
@@ -25,6 +29,9 @@ class ShopViewController: UIViewController {
         
 //        performSegue(withIdentifier: "productlist", sender: self)
     }
+    
+
+    
     func onSuccessUpdateView() {
       guard let products = shopViewModel.allProducts
        else {
