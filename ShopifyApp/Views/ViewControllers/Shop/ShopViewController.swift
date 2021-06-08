@@ -23,7 +23,7 @@ class ShopViewController: UIViewController {
         shopViewModel.fetchCustomCollection()
         //shopViewModel.fetchAllProductsFromAPI()
         
-        performSegue(withIdentifier: "productlist", sender: self)
+//        performSegue(withIdentifier: "productlist", sender: self)
     }
     func onSuccessUpdateView() {
       guard let products = shopViewModel.allProducts

@@ -362,8 +362,8 @@
 				7649274D26570A3A00B23245 /* Shop.storyboard */,
 				7649275226570B8400B23245 /* Category.storyboard */,
 				7649275726570BD000B23245 /* Me.storyboard */,
-				76492762265710B900B23245 /* Favourites.storyboard */,
 				76492767265710F000B23245 /* ShoppingBag.storyboard */,
+				76492762265710B900B23245 /* Favourites.storyboard */,
 				4B4518FA2667F93400E0D1DF /* ProductList.storyboard */,
 				76BE68E626586ED600C93F88 /* LoginRegister.storyboard */,
 			);
