@@ -56,7 +56,7 @@ class MeViewController: UIViewController {
     }
     func getOrders() ->[Product]{
         let shoppingBagViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
-        return shoppingBagViewModel.getProductList()
+        return shoppingBagViewModel.getShoppingCartProductList()
        
     }
     func setOrderesUI(products:[Product]) {
