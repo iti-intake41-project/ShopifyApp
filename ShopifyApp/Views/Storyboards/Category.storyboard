@@ -135,6 +135,10 @@
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="3AH-Un-cA8"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="categoriesCollectionView" destination="Sl4-Gf-Oc1" id="6yr-fG-JaU"/>
+                        <outlet property="subCategoriesTable" destination="mKT-fK-tCZ" id="Efw-N2-rYT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYr-mn-3d7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
