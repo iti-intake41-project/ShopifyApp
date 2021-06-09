@@ -7,17 +7,17 @@
 
 import Foundation
 
-protocol addToShoppingCart {
+protocol baseProtocol {
     func addProduct(product: Product)
 }
 
-protocol ShoppingBagViewModelTemp: addToShoppingCart{
+protocol ShoppingBagViewModelTemp: baseProtocol {
     func updateProductList(id: Int, product: Product)
     func getShoppingCartProductList()->[Product]
     func deleteProduct(id: Int)
 }
 
-protocol FavouriteViewModelTemp: addToShoppingCart{
+protocol FavouriteViewModelTemp: baseProtocol {
     func isFavourite(id: Int)->Bool
     func deleteFavourite(id: Int)
     func addFavourite(product: Product)
@@ -27,14 +27,13 @@ protocol FavouriteViewModelTemp: addToShoppingCart{
 }
 
 class ShoppingBagViewModel: ShoppingBagViewModelTemp {
-    var bindFavouritesList: () -> () = {}
     
+    var bindFavouritesList: () -> () = {}
     var favourites: [Product]{
         didSet{
             bindFavouritesList()
         }
     }
-    
     
     var delegate: AppDelegate
     let dataRepository: LocalDataRepository
@@ -44,7 +43,6 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         dataRepository = CoreDataRepository(appDelegate: &delegate)
         favourites = dataRepository.getFavourites()
     }
-    
     
     // MARK: - Shopping Cart
     func getShoppingCartProductList() -> [Product] {
@@ -106,4 +104,5 @@ extension ShoppingBagViewModel: FavouriteViewModelTemp {
     func getAllFaourites() -> [Product] {
         return dataRepository.getFavourites()
     }
+    
 }

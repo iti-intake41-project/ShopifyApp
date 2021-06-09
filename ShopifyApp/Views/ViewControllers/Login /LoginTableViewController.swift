@@ -29,7 +29,8 @@ class LoginTableViewController: UITableViewController {
         }
         
         viewModel.bindDontNavigate = { [weak self] in
-            self?.showAlret(message: "Can't login, please check your info")
+            let message = self?.viewModel.alertMessage ?? "Can't login, please check your info"
+            self?.showAlret(message: message)
         }
     }
     

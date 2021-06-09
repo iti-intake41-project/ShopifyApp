@@ -17,4 +17,9 @@ class URLs {
     static func produts(collectionID: String) -> String {
         return baseUrl + "products.json?collection_id=\(collectionID)"
     }
+    
+    static func customers() -> String {
+        return baseUrl + "customers.json"
+    }
+
 }

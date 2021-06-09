@@ -19,7 +19,7 @@ protocol RegisterViewModelTemp {
 class RegisterViewModel: RegisterViewModelTemp {
     var alertMsgDriver:Driver<String>
     var alertMsgSubject = PublishSubject<String>()
-    
+    let defaultsRepo: DefaultsDataRepository = UserDefaultsDataRepository()
     init() {
         alertMsgDriver = alertMsgSubject.asDriver(onErrorJustReturn: "")
     }
@@ -55,19 +55,9 @@ class RegisterViewModel: RegisterViewModelTemp {
         }
     }
     
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        print("\(email) \(emailPred.evaluate(with: email))")
-        return emailPred.evaluate(with: email)
-    }
-    
-    
     //code to be moved to network layer
     func registerCustomer(newCustomer:NewCustomer){
-        let urlString = "https://ce751b18c7156bf720ea405ad19614f4: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@itiana.myshopify.com/admin/api/2021-04/customers.json"
-        guard let url = URL(string: urlString) else {return}
+        guard let url = URL(string: URLs.customers()) else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         let session = URLSession.shared
@@ -96,6 +86,10 @@ class RegisterViewModel: RegisterViewModelTemp {
                     print("id: \(id)")
                     if id != 0 {
                         //registered successfully
+                        self?.defaultsRepo.login()
+                        self?.alertMsgSubject.onNext("registered successfully")
+                        print("registered successfully")
+                        //Navigate
                     }else{
                         self?.alertMsgSubject.onNext("An error occurred while registering")
                     }
@@ -107,3 +101,12 @@ class RegisterViewModel: RegisterViewModelTemp {
     
     
 }
+
+func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    print("\(email) \(emailPred.evaluate(with: email))")
+    return emailPred.evaluate(with: email)
+}
+

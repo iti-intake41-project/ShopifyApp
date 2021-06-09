@@ -14,9 +14,17 @@ protocol LoginViewModelTemp {
     var notFound:Bool!{get set}
     var bindNavigate:(()->()) {get set}
     var bindDontNavigate:(()->()) {get set}
+    var alertMessage: String! {get}
 }
 
 class LoginViewModel: LoginViewModelTemp {
+    let defaultsRepo: DefaultsDataRepository = UserDefaultsDataRepository()
+
+    var alertMessage: String!{
+        didSet{
+            bindDontNavigate()
+        }
+    }
     
     var navigate: Bool! {
         didSet{
@@ -35,31 +43,41 @@ class LoginViewModel: LoginViewModelTemp {
     
     
     func login(email: String, password: String){
-        let url = "https://ce751b18c7156bf720ea405ad19614f4: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@itiana.myshopify.com/admin/api/2021-04/customers.json"
-        AF.request(url).validate().responseDecodable(of:LoginResponse.self) { [weak self] (response) in
-            switch response.result{
-            case .success(_):
-                guard let responseObject = response.value else {return}
-                let customersList = responseObject.customers
-                for customer in customersList {
-                    let comingMail = customer.email ?? ""
-                    let comingPassword = customer.tags ?? ""
-                    if comingMail == email && comingPassword == password {
-                        print("found")
-                        self?.navigate = true
-                        break
+        if isValidEmail(email){
+            if password.count >= 6{
+                AF.request(URLs.customers()).validate().responseDecodable(of:LoginResponse.self) { [weak self] (response) in
+                    switch response.result{
+                    case .success(_):
+                        guard let responseObject = response.value else {return}
+                        let customersList = responseObject.customers
+                        for customer in customersList {
+                            let comingMail = customer.email ?? ""
+                            let comingPassword = customer.tags ?? ""
+                            if comingMail == email && comingPassword == password {
+                                print("found")
+                                self?.defaultsRepo.login()
+                                self?.navigate = true
+                                break
+                            }
+                        }
+                        guard let _ = self?.navigate else{
+                            self?.notFound = true
+                            self?.alertMessage = "Can't login, please check your info"
+                            return
+                        }
+
+                    case .failure(let error):
+                        self?.alertMessage = "An error occured while logging-in, please try again later"
+                        print(error)
                     }
                 }
-                guard let _ = self?.navigate else{
-                    self?.notFound = true
-                    return
-                }
-
-            case .failure(let error):
-                print(error)
+            } else{
+                alertMessage = "Password should be 6 characters at least"
             }
+        }else{
+            alertMessage = "Please enter a valid mail"
         }
-        
+        print("is logged in? \(defaultsRepo.isLoggedIn())")
     }
-    
+
 }
