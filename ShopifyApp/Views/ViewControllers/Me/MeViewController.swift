@@ -8,7 +8,7 @@
 import UIKit
 
 class MeViewController: UIViewController {
-
+    
     @IBOutlet weak var imgOrder1: UIImageView!
     @IBOutlet weak var lblOrder1: UILabel!
     @IBOutlet weak var imgOrder2: UIImageView!
@@ -31,23 +31,26 @@ class MeViewController: UIViewController {
     @IBOutlet weak var fav2StackView: UIStackView!
     @IBOutlet weak var fav3StackView: UIStackView!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setOrderesUI(products: getOrders())
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+          setOrderesUI(products: getOrders())
+
     }
     @IBAction func gotTOOrders(_ sender: UIButton) {
     }
     
     @IBAction func goToShoppingBag(_ sender: UIButton) {
         
-//        let ShopViewController = storyboard?.instantiateViewController(withIdentifier: "ShopViewController") as! ShoppingBagViewController
-//        ShopViewController.modalPresentationStyle = .fullScreen
-//
-//        present(ShopViewController, animated: true, completion: nil)
-//         performSegue(withIdentifier: "ShoppingBag", sender: self)
+        //        let ShopViewController = storyboard?.instantiateViewController(withIdentifier: "ShopViewController") as! ShoppingBagViewController
+        //        ShopViewController.modalPresentationStyle = .fullScreen
+        //
+        //        present(ShopViewController, animated: true, completion: nil)
+        //         performSegue(withIdentifier: "ShoppingBag", sender: self)
     }
     
     @IBAction func goTOWishList(_ sender: UIButton) {
@@ -57,50 +60,41 @@ class MeViewController: UIViewController {
     func getOrders() ->[Product]{
         let shoppingBagViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         return shoppingBagViewModel.getShoppingCartProductList()
-       
+        
     }
     func setOrderesUI(products:[Product]) {
         if products.count == 1 {
-               imgOrder1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                   lblOrder1.text = products[0].title
+            imgOrder1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            lblOrder1.text = products[0].title
             order2StackView.isHidden = true
             order3StackView.isHidden = true
-
-               }
-               
-               else if products.count >= 3 {
-                 imgOrder1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                 imgOrder2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
-               imgOrder3.sd_setImage(with:URL(string:products[2].images[0].src), placeholderImage: UIImage(named: "noImage"))
-            lblOrder1.text = products[0].varients?[0].price
-            lblOrder2.text = products[1].varients?[0].price
-            lblOrder3.text = products[2].varients?[0].price
+            
+        }
+            
+        else if products.count >= 3 {
+            imgOrder1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            imgOrder2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            imgOrder3.sd_setImage(with:URL(string:products[2].images[0].src), placeholderImage: UIImage(named: "noImage"))
            
+            lblOrder1.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
+            lblOrder2.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
+            lblOrder3.text = FormatePrice.formatePrice(priceStr: products[3].varients?[0].price)
+            
             print(products[2].title)
             
-
-                   }
-               else if products.count == 2 {
-                 imgOrder1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                   imgOrder2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
-               
-                lblOrder1.text = products[0].title
-                lblOrder2.text = products[1].title
-                order3StackView.isHidden = true
-
-                   
-               }
+            
+        }
+        else if products.count == 2 {
+            imgOrder1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            imgOrder2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            
+            lblOrder1.text = products[0].title
+            lblOrder2.text = products[1].title
+            order3StackView.isHidden = true
+            
+            
+        }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
+    
 }
