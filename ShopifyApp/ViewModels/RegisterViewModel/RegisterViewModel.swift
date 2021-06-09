@@ -87,6 +87,7 @@ class RegisterViewModel: RegisterViewModelTemp {
                     if id != 0 {
                         //registered successfully
                         self?.defaultsRepo.login()
+                        self?.defaultsRepo.addId(id: id)
                         self?.alertMsgSubject.onNext("registered successfully")
                         print("registered successfully")
                         //Navigate

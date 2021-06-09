@@ -56,6 +56,7 @@ class LoginViewModel: LoginViewModelTemp {
                             if comingMail == email && comingPassword == password {
                                 print("found")
                                 self?.defaultsRepo.login()
+                                
                                 self?.navigate = true
                                 break
                             }

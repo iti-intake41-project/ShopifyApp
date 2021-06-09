@@ -42,6 +42,13 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         delegate = appDelegate
         dataRepository = CoreDataRepository(appDelegate: &delegate)
         favourites = dataRepository.getFavourites()
+        
+        
+//        dataRepository.addAddress(address: Address(address1: "Fayoum", city: "Fayoum", province: "", phone: "", zip: "", last_name: "", first_name: "", country: "Egypt"))
+//        print("address in CD \(dataRepository.getAddress())")
+//        print("address check in CD \(dataRepository.hasAddress())")
+//        dataRepository.deleteAddress()
+//        print("address check in CD \(dataRepository.hasAddress())")
     }
     
     // MARK: - Shopping Cart
