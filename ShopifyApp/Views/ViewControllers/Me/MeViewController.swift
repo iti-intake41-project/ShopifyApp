@@ -39,18 +39,19 @@ class MeViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
           setOrderesUI(products: getOrders())
+          setWishListToUI(favourites: getfavourites())
 
     }
     @IBAction func gotTOOrders(_ sender: UIButton) {
     }
     
     @IBAction func goToShoppingBag(_ sender: UIButton) {
-        
-        //        let ShopViewController = storyboard?.instantiateViewController(withIdentifier: "ShopViewController") as! ShoppingBagViewController
-        //        ShopViewController.modalPresentationStyle = .fullScreen
-        //
-        //        present(ShopViewController, animated: true, completion: nil)
-        //         performSegue(withIdentifier: "ShoppingBag", sender: self)
+//        
+//                let ShopViewController = storyboard?.instantiateViewController(withIdentifier: "ShopViewController") as! ShoppingBagViewController
+//                ShopViewController.modalPresentationStyle = .fullScreen
+//        
+//                present(ShopViewController, animated: true, completion: nil)
+//                 performSegue(withIdentifier: "ShoppingBag", sender: self)
     }
     
     @IBAction func goTOWishList(_ sender: UIButton) {
@@ -95,6 +96,45 @@ class MeViewController: UIViewController {
             
         }
     }
+    func getfavourites() ->[Product]{
+        var viewModel:FavouriteViewModelTemp!
+        viewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+        return viewModel.getAllFaourites()
+         
+      }
    
+    func setWishListToUI(favourites products:[Product]) {
+        if products.count == 1 {
+                   imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+                   lblFav1.text = products[0].title
+                   fav2StackView.isHidden = true
+                   fav3StackView.isHidden = true
+                   
+               }
+                   
+               else if products.count >= 3 {
+                   imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+                   imgFav2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
+                   imgFav3.sd_setImage(with:URL(string:products[2].images[0].src), placeholderImage: UIImage(named: "noImage"))
+                  
+                   lblFav1.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
+                   lblFav2.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
+                   lblFav3.text = FormatePrice.formatePrice(priceStr: products[3].varients?[0].price)
+                   
+                   print(products[2].title)
+                   
+                   
+               }
+               else if products.count == 2 {
+                   imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+                   imgFav2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
+                   
+                   lblFav1.text = products[0].title
+                   lblFav2.text = products[1].title
+                   fav3StackView.isHidden = true
+                   
+                   
+               }
+    }
     
 }
