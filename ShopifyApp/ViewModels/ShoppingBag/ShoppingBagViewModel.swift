@@ -7,17 +7,18 @@
 
 import Foundation
 
-protocol addToShoppingCart {
+protocol baseProtocol {
     func addProduct(product: Product)
 }
 
-protocol ShoppingBagViewModelTemp: addToShoppingCart{
+protocol ShoppingBagViewModelTemp: baseProtocol {
     func updateProductList(id: Int, product: Product)
     func getShoppingCartProductList()->[Product]
     func deleteProduct(id: Int)
+    func navigateToCheckOut()
 }
 
-protocol FavouriteViewModelTemp: addToShoppingCart{
+protocol FavouriteViewModelTemp: baseProtocol {
     func isFavourite(id: Int)->Bool
     func deleteFavourite(id: Int)
     func addFavourite(product: Product)
@@ -27,24 +28,30 @@ protocol FavouriteViewModelTemp: addToShoppingCart{
 }
 
 class ShoppingBagViewModel: ShoppingBagViewModelTemp {
-    var bindFavouritesList: () -> () = {}
     
+    
+    var bindFavouritesList: () -> () = {}
     var favourites: [Product]{
         didSet{
             bindFavouritesList()
         }
     }
     
-    
     var delegate: AppDelegate
     let dataRepository: LocalDataRepository
-
+    let defaultsRepository = UserDefaultsDataRepository()
     init(appDelegate: inout AppDelegate) {
         delegate = appDelegate
         dataRepository = CoreDataRepository(appDelegate: &delegate)
         favourites = dataRepository.getFavourites()
+        
+        
+//        dataRepository.addAddress(address: Address(address1: "Fayoum", city: "Fayoum", province: "", phone: "", zip: "", last_name: "", first_name: "", country: "Egypt"))
+//        print("address in CD \(dataRepository.getAddress())")
+//        print("address check in CD \(dataRepository.hasAddress())")
+//        dataRepository.deleteAddress()
+//        print("address check in CD \(dataRepository.hasAddress())")
     }
-    
     
     // MARK: - Shopping Cart
     func getShoppingCartProductList() -> [Product] {
@@ -67,6 +74,14 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     
     func deleteProduct(id: Int) {
         dataRepository.deleteProduct(id: id)
+    }
+    
+    func navigateToCheckOut() {
+        if dataRepository.hasAddress() {
+            //navigate to check out
+        } else {
+            //navigate to add address
+        }
     }
 
 }
@@ -106,4 +121,5 @@ extension ShoppingBagViewModel: FavouriteViewModelTemp {
     func getAllFaourites() -> [Product] {
         return dataRepository.getFavourites()
     }
+    
 }

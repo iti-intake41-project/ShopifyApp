@@ -37,5 +37,11 @@ class SettingViewModel :NSObject{
         self.currency = value
 
     }
-  
+    
+    //moataz
+    func logout(appDelegate:inout AppDelegate){
+        userDefaults.logut()
+        CoreDataRepository.deleteAddress(appDelegate: &appDelegate)
+    }
+    //Moataz
 }

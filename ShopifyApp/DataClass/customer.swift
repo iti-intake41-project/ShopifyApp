@@ -19,8 +19,8 @@ struct Customer: Codable {
 }
 
 struct Address: Codable {
-    let address, city, province, phone: String?
-    let zip, last_name, first_name, country: String?
+    var address1, city, province, phone: String?
+    var zip, last_name, first_name, country: String?
 }
 struct LoginResponse: Codable {
     let customers: [Customer]
