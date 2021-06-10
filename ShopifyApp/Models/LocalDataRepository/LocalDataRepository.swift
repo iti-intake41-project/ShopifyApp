@@ -17,7 +17,7 @@ protocol LocalDataRepository{
     func deleteFavourite(id: Int)
     func getFavourites()->[Product]
     func addAddress(address: Address)
-    func deleteAddress()
+    static func deleteAddress(appDelegate: inout AppDelegate)
     func hasAddress()->Bool
     func getAddress()->Address
 }
@@ -200,8 +200,8 @@ class CoreDataRepository: LocalDataRepository {
         
     }
     
-    func deleteAddress() {
-        let context = delegate.persistentContainer.viewContext
+    static func deleteAddress(appDelegate: inout AppDelegate) {
+        let context = appDelegate.persistentContainer.viewContext
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AddressCoreData")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         do{
