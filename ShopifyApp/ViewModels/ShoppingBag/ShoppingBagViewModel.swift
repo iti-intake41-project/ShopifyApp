@@ -15,6 +15,7 @@ protocol ShoppingBagViewModelTemp: baseProtocol {
     func updateProductList(id: Int, product: Product)
     func getShoppingCartProductList()->[Product]
     func deleteProduct(id: Int)
+    func navigateToCheckOut()
 }
 
 protocol FavouriteViewModelTemp: baseProtocol {
@@ -28,6 +29,7 @@ protocol FavouriteViewModelTemp: baseProtocol {
 
 class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     
+    
     var bindFavouritesList: () -> () = {}
     var favourites: [Product]{
         didSet{
@@ -37,7 +39,7 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     
     var delegate: AppDelegate
     let dataRepository: LocalDataRepository
-
+    let defaultsRepository = UserDefaultsDataRepository()
     init(appDelegate: inout AppDelegate) {
         delegate = appDelegate
         dataRepository = CoreDataRepository(appDelegate: &delegate)
@@ -72,6 +74,14 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     
     func deleteProduct(id: Int) {
         dataRepository.deleteProduct(id: id)
+    }
+    
+    func navigateToCheckOut() {
+        if dataRepository.hasAddress() {
+            //navigate to check out
+        } else {
+            //navigate to add address
+        }
     }
 
 }

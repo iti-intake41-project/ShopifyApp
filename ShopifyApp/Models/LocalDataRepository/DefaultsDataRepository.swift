@@ -11,9 +11,9 @@ protocol DefaultsDataRepository {
     func isLoggedIn()->Bool
     func login()
     func logut()
-    func hasAddress()->Bool
-    func registerAddress()
-    func unregisterAddress()
+//    func hasAddress()->Bool
+//    func addAddressFlag()
+//    func removeAddressFlag()
     func addId(id: Int)
     func getId()->Int
 }
@@ -32,17 +32,17 @@ class UserDefaultsDataRepository: DefaultsDataRepository {
         UserDefaults.standard.set(true, forKey: "IsLoggedIn")
     }
     
-    func hasAddress()->Bool {
-        return UserDefaults.standard.bool(forKey: "Address")
-    }
-    
-    func registerAddress() {
-        UserDefaults.standard.set(true, forKey: "Address")
-    }
-    
-    func unregisterAddress() {
-        UserDefaults.standard.set(false, forKey: "Address")
-    }
+//    func hasAddress()->Bool {
+//        return UserDefaults.standard.bool(forKey: "Address")
+//    }
+//    
+//    func addAddressFlag() {
+//        UserDefaults.standard.set(true, forKey: "Address")
+//    }
+//    
+//    func removeAddressFlag() {
+//        UserDefaults.standard.set(false, forKey: "Address")
+//    }
     
     func addId(id: Int) {
         UserDefaults.standard.set(id, forKey: "id")

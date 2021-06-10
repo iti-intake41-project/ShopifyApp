@@ -12,12 +12,13 @@ import UIKit
 class LoginTableViewController: UITableViewController {
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
-    
-    var viewModel: LoginViewModelTemp = LoginViewModel()
+    var delegate = UIApplication.shared.delegate as! AppDelegate
+    var viewModel: LoginViewModelTemp!
     var email, password: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = LoginViewModel(appDelegate: &delegate)
         bindToViewModel()
 //        GIDSignIn.sharedInstance()?.presentingViewController = self
 

@@ -18,7 +18,17 @@ protocol LoginViewModelTemp {
 }
 
 class LoginViewModel: LoginViewModelTemp {
+    
     let defaultsRepo: DefaultsDataRepository = UserDefaultsDataRepository()
+    let dataRepository: LocalDataRepository
+
+    init(appDelegate: inout AppDelegate) {
+        dataRepository = CoreDataRepository(appDelegate: &appDelegate)
+//        defaultsRepo.logut()
+        print("is logged in? \(defaultsRepo.isLoggedIn())")
+        print("has address? \(dataRepository.hasAddress())")
+        print("address: \(dataRepository.getAddress())")
+    }
 
     var alertMessage: String!{
         didSet{
@@ -39,7 +49,7 @@ class LoginViewModel: LoginViewModelTemp {
 
     var bindNavigate:(()->()) = {}
     var bindDontNavigate:(()->()) = {}
-
+    
     
     
     func login(email: String, password: String){
@@ -54,9 +64,15 @@ class LoginViewModel: LoginViewModelTemp {
                             let comingMail = customer.email ?? ""
                             let comingPassword = customer.tags ?? ""
                             if comingMail == email && comingPassword == password {
+                                print("correct customer address: \(customer.addresses?[0].address1 != "")")
                                 print("found")
                                 self?.defaultsRepo.login()
-                                
+                                self?.defaultsRepo.addId(id: customer.id ?? 0)
+                                if customer.addresses?[0].address1 != "" {
+                                    //save address
+                                    self?.dataRepository.addAddress(address: customer.addresses![0])
+//                                    self?.defaultsRepo.addAddressFlag()
+                                }
                                 self?.navigate = true
                                 break
                             }
@@ -78,7 +94,6 @@ class LoginViewModel: LoginViewModelTemp {
         }else{
             alertMessage = "Please enter a valid mail"
         }
-        print("is logged in? \(defaultsRepo.isLoggedIn())")
     }
 
 }

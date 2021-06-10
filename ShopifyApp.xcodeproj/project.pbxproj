@@ -28,6 +28,8 @@
 		7697901F266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7697901E266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift */; };
 		769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */; };
 		769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */; };
+		769F089D267219E8003A3948 /* AddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769F089C267219E8003A3948 /* AddressTableViewController.swift */; };
+		769F08A226721C07003A3948 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769F08A126721C07003A3948 /* AddressViewModel.swift */; };
 		76BE68E726586ED600C93F88 /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68E626586ED600C93F88 /* LoginRegister.storyboard */; };
 		76BE68FC2658708900C93F88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68FB2658708900C93F88 /* GoogleService-Info.plist */; };
 		76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918C326695F23000E406C /* RegisterViewModel.swift */; };
@@ -95,6 +97,8 @@
 		7697901E266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteProductCellProtocol.swift; sourceTree = "<group>"; };
 		769AEF992669DFA000D79AD5 /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
 		769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
+		769F089C267219E8003A3948 /* AddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewController.swift; sourceTree = "<group>"; };
+		769F08A126721C07003A3948 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		76BE68E626586ED600C93F88 /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
 		76BE68FB2658708900C93F88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76D918C326695F23000E406C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				76818D00266B7A11006CB1DC /* ShoppingBagViewModel.swift */,
+				769F08A126721C07003A3948 /* AddressViewModel.swift */,
 			);
 			path = ShoppingBag;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 			children = (
 				76818CEE266B5DBF006CB1DC /* ShopingBagViewController.swift */,
 				76818CFA266B6247006CB1DC /* ShoppingBagTableViewCell.swift */,
+				769F089C267219E8003A3948 /* AddressTableViewController.swift */,
 			);
 			path = ShoppingBag;
 			sourceTree = "<group>";
@@ -701,11 +707,13 @@
 				76818D01266B7A11006CB1DC /* ShoppingBagViewModel.swift in Sources */,
 				769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */,
 				76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */,
+				769F08A226721C07003A3948 /* AddressViewModel.swift in Sources */,
 				7697901A266EE70E00ED9ED5 /* FavouritesCollectionViewController.swift in Sources */,
 				D37210A82655B81100935F86 /* AppDelegate.swift in Sources */,
 				D3F148FD266BC04600729210 /* ProductDetailsViewModel.swift in Sources */,
 				4B4519002667FEEB00E0D1DF /* ProductsCollectionViewCell.swift in Sources */,
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
+				769F089D267219E8003A3948 /* AddressTableViewController.swift in Sources */,
 				7697901F266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift in Sources */,
 				D39604542659BD3E00D94931 /* AllProducts.swift in Sources */,
 				76943DC3266FA27E009AFDC0 /* DefaultsDataRepository.swift in Sources */,
