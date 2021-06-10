@@ -32,15 +32,19 @@ class MeViewController: UIViewController {
     @IBOutlet weak var fav3StackView: UIStackView!
     
     @IBOutlet weak var orderStackView: UIStackView!
-    @IBOutlet weak var loginOrRegisterStackView: UIStackView!
+    @IBOutlet weak var loginOrRegisterOrderStackView: UIStackView!
     @IBOutlet weak var registerOrder: UIButton!
     @IBOutlet weak var loginOrder: UIButton!
+    @IBOutlet weak var loginFav: UIButton!
+    @IBOutlet weak var registerFav: UIButton!
     
+    @IBOutlet weak var FavouriteStackVIew: UIStackView!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
