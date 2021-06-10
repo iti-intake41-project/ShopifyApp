@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkName = "sortProducts(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,42 +30,10 @@
             filePath = "ShopifyApp/Views/ViewControllers/Me/MeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "goToShoppingBag(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3787280E-9854-4790-B128-95A194048914 - fae22a007b051457"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShopifyApp.MeViewController.goToShoppingBag(__C.UIButton) -&gt; ()"
-                  moduleName = "ShopifyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/doniaashraf/Documents/GraduationProject/ShopifyApp/ShopifyApp/Views/ViewControllers/Me/MeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "85">
-               </Location>
-               <Location
-                  uuid = "3787280E-9854-4790-B128-95A194048914 - fae22a007b051457"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShopifyApp.MeViewController.goToShoppingBag(__C.UIButton) -&gt; ()"
-                  moduleName = "ShopifyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/doniaashraf/Documents/GraduationProject/ShopifyApp/ShopifyApp/Views/ViewControllers/Me/MeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "492">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,9 +46,25 @@
             filePath = "ShopifyApp/Views/ViewControllers/Me/MeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "goToShoppingBag(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C66E0B3-9E45-4005-91E0-7E9A3D10D790"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShopifyApp/Views/ViewControllers/Setting/SettingTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
