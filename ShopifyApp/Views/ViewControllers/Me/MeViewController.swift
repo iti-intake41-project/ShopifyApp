@@ -30,6 +30,12 @@ class MeViewController: UIViewController {
     @IBOutlet weak var order2StackView: UIStackView!
     @IBOutlet weak var fav2StackView: UIStackView!
     @IBOutlet weak var fav3StackView: UIStackView!
+    
+    @IBOutlet weak var orderStackView: UIStackView!
+    @IBOutlet weak var loginOrRegisterStackView: UIStackView!
+    @IBOutlet weak var registerOrder: UIButton!
+    @IBOutlet weak var loginOrder: UIButton!
+    
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
