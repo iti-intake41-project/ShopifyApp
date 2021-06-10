@@ -24,7 +24,6 @@
                                         <state key="normal" image="star.fill" catalog="system"/>
                                         <connections>
                                             <action selector="goToShoppingBag:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="ZNl-NB-0dY"/>
-                                            <segue destination="cyX-jU-RWh" kind="show" id="epq-2C-ibo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqZ-wY-WI7" userLabel="settingBtn">
@@ -62,7 +61,6 @@
                                         <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
                                         <connections>
                                             <action selector="gotTOOrders:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="GNO-rD-XGR"/>
-                                            <segue destination="cyX-jU-RWh" kind="show" id="OQa-zL-TQP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -133,11 +131,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <state key="normal" title="          Login  "/>
+                                                <connections>
+                                                    <action selector="login:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="f8R-eZ-Lca"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOC-9F-4ZD">
                                                 <rect key="frame" x="197" y="0.0" width="177" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <state key="normal" title=" Register"/>
+                                                <connections>
+                                                    <action selector="register:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="rnM-IZ-a4W"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -157,7 +161,6 @@
                                         <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
                                         <connections>
                                             <action selector="goTOWishList:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="MZ7-8y-1KH"/>
-                                            <segue destination="l1b-Qn-oSo" kind="show" identifier="favourite" id="8vW-Vc-nJM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -231,11 +234,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <state key="normal" title="          Login  "/>
+                                                <connections>
+                                                    <action selector="login:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="tj3-JC-Vrq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZA9-oX-TVp">
                                                 <rect key="frame" x="197" y="0.0" width="177" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <state key="normal" title=" Register"/>
+                                                <connections>
+                                                    <action selector="register:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="hSP-NO-zCH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -268,7 +277,7 @@
                     <tabBarItem key="tabBarItem" systemItem="downloads" id="Tur-oW-Eg7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="FavouriteStackVIew" destination="1cI-r5-wCB" id="OsB-si-qCd"/>
+                        <outlet property="FavouriteStackVIew" destination="1cI-r5-wCB" id="mz3-Oy-pim"/>
                         <outlet property="fav1StackView" destination="uT7-tQ-kau" id="DBQ-OH-AEy"/>
                         <outlet property="fav2StackView" destination="Rwl-Cj-kOB" id="HrQ-uA-n66"/>
                         <outlet property="fav3StackView" destination="DvJ-ab-BKY" id="iEK-Dy-UaG"/>
@@ -285,15 +294,19 @@
                         <outlet property="lblOrder2" destination="vvV-jf-AqD" id="D0g-7I-rJE"/>
                         <outlet property="lblOrder3" destination="2kA-Jd-wMH" id="ndi-iO-DAm"/>
                         <outlet property="loginFav" destination="1XG-by-KOa" id="aYV-Pp-nLI"/>
-                        <outlet property="loginOrRegisterFav" destination="TQo-rR-fIk" id="X6t-jN-sFH"/>
-                        <outlet property="loginOrRegisterOrderStackView" destination="dzj-fQ-WaF" id="plW-6h-O6L"/>
+                        <outlet property="loginOrRegisterFav" destination="TQo-rR-fIk" id="TUm-Ug-VQB"/>
+                        <outlet property="loginOrRegisterOrderStackView" destination="EMm-bc-K10" id="P2u-Zn-1f0"/>
                         <outlet property="loginOrder" destination="565-VP-SCh" id="qTq-C9-nXc"/>
                         <outlet property="order1StackVIew" destination="kAc-lU-yE3" id="OIH-Gp-H7B"/>
                         <outlet property="order2StackView" destination="lZm-2Y-zSV" id="FOB-bW-Re0"/>
                         <outlet property="order3StackView" destination="2p1-VC-2iQ" id="vfm-t5-cYK"/>
-                        <outlet property="orderStackView" destination="dzj-fQ-WaF" id="wKG-tC-ioJ"/>
+                        <outlet property="orderStackView" destination="dzj-fQ-WaF" id="TRe-Vr-Qih"/>
                         <outlet property="registerFav" destination="ZA9-oX-TVp" id="9Rb-iY-7du"/>
                         <outlet property="registerOrder" destination="uOC-9F-4ZD" id="s02-ti-gYS"/>
+                        <segue destination="cyX-jU-RWh" kind="show" identifier="gotToShoppingBag" id="xdA-eQ-tXQ"/>
+                        <segue destination="NM9-lJ-4fv" kind="show" identifier="register" id="6Yy-Ca-RG6"/>
+                        <segue destination="l1b-Qn-oSo" kind="show" identifier="goToFav" id="RLn-SC-FhL"/>
+                        <segue destination="B43-Xi-SN8" kind="show" identifier="login" id="vgt-0h-a4I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOj-WU-UQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -309,14 +322,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y66-dB-Byg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="691" y="-109"/>
-        </scene>
-        <!--ProductList-->
-        <scene sceneID="wZP-Z3-f0H">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ProductList" id="wZA-C3-UpP" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OWr-Ff-SZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="707" y="17"/>
         </scene>
         <!--Setting Table View Controller-->
         <scene sceneID="iwD-Oq-6fH">
@@ -530,6 +535,7 @@
                         <outlet property="addrbtn" destination="JmB-Hq-7fa" id="jA5-nB-faM"/>
                         <outlet property="countrybtn" destination="UVh-Bk-WkG" id="6iR-UL-z9S"/>
                         <outlet property="currencytBtn" destination="y0N-Wb-2q7" id="2qA-Vu-gak"/>
+                        <outlet property="logoutStack" destination="hBn-V3-5aS" id="rR1-Xa-rYF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8b-lj-hdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -546,10 +552,27 @@
             </objects>
             <point key="canvasLocation" x="679" y="-403"/>
         </scene>
+        <!--RegisterTableViewController-->
+        <scene sceneID="fYH-jS-CFz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="RegisterTableViewController" storyboardName="LoginRegister" referencedIdentifier="RegisterTableViewController" id="NM9-lJ-4fv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="v6V-l2-bXM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jwn-JE-gnk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="746" y="70"/>
+        </scene>
+        <!--LoginTableViewController-->
+        <scene sceneID="Bdg-eU-jf1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginTableViewController" id="B43-Xi-SN8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hKO-J6-6qG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="etB-du-mfw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="161"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="epq-2C-ibo"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>

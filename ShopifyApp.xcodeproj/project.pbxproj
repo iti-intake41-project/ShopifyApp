@@ -167,6 +167,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B35E1DA26728EA900D4CDD7 /* Shop&CategoryViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D396045C2659BD6A00D94931 /* ShopViewModel.swift */,
+			);
+			path = "Shop&CategoryViewModel";
+			sourceTree = "<group>";
+		};
+		4B35E1DB26728EC500D4CDD7 /* ProductListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4B4519012668174300E0D1DF /* ProductListViewModel.swift */,
+			);
+			path = ProductListViewModel;
+			sourceTree = "<group>";
+		};
 		4B4518FE2667FC5B00E0D1DF /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,11 +362,11 @@
 		D37210DC2655B91900935F86 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4B35E1DB26728EC500D4CDD7 /* ProductListViewModel */,
+				4B35E1DA26728EA900D4CDD7 /* Shop&CategoryViewModel */,
 				4BF2BF6D2670EB7F0036EB10 /* Helper */,
 				4BF2BF6A2670BC2C0036EB10 /* SettingVIewModel */,
 				D3F148FB266BC00A00729210 /* ProductDetailsViewModel */,
-				D396045C2659BD6A00D94931 /* ShopViewModel.swift */,
-				4B4519012668174300E0D1DF /* ProductListViewModel.swift */,
 				76D918C226695F0D000E406C /* RegisterViewModel */,
 				76D918C126695EFF000E406C /* LoginViewModel */,
 				76818CFF266B79D9006CB1DC /* ShoppingBag */,

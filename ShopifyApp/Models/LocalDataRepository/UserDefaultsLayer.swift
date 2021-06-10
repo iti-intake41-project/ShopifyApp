@@ -32,9 +32,9 @@ class UserDefaultsLayer: UserDefaultsData {
         
     }
     
-    func getCurrency(key: String) -> String {
+    func getCurrency(key: String = "currency") -> String {
 
-        return self.defaults.string(forKey: key) ?? "empty currency"
+        return self.defaults.string(forKey: key) ?? ""
     }
     
     func setCurrency(key: String, value: String) {

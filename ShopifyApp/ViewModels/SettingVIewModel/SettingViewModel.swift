@@ -37,9 +37,17 @@ class SettingViewModel :NSObject{
         self.currency = value
 
     }
+    func isLoggedIn() -> Bool {
+        print()
+        return userDefaults.isLoggedIn()
+    }
     
     //moataz
     func logout(appDelegate:inout AppDelegate){
+        //donia
+        userDefaults.setCurrency(key: "currency", value:"")
+        // remove address 
+        //donia
         userDefaults.logut()
         CoreDataRepository.deleteAddress(appDelegate: &appDelegate)
     }

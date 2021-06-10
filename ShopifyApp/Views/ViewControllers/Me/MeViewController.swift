@@ -38,33 +38,80 @@ class MeViewController: UIViewController {
     @IBOutlet weak var loginFav: UIButton!
     @IBOutlet weak var registerFav: UIButton!
     
+    @IBOutlet weak var loginOrRegisterFav: UIStackView!
     @IBOutlet weak var FavouriteStackVIew: UIStackView!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    var settingViewModel = SettingViewModel()
+    var isLogegedIn = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+                          
         
         
     }
     override func viewWillAppear(_ animated: Bool) {
           setOrderesUI(products: getOrders())
           setWishListToUI(favourites: getfavourites())
+      
+       //check user is login
+        isLogegedIn = settingViewModel.isLoggedIn()
+        print(isLogegedIn)
+        if isLogegedIn {
+            loginOrRegisterOrderStackView.isHidden = true
+            loginOrRegisterFav.isHidden = true
+            orderStackView.isHidden = false
+            FavouriteStackVIew.isHidden = false
+            
+        
+        }else{
+            loginOrRegisterOrderStackView.isHidden = false
+            loginOrRegisterFav.isHidden = false
+            orderStackView.isHidden = true
+            FavouriteStackVIew.isHidden = true
+                   
+        }
+        
+        
 
     }
+    
+    @IBAction func login(_ sender: UIButton) {
+
+        performSegue(withIdentifier:"login",sender:self)
+    }
+    
+    
+    @IBAction func register(_ sender: UIButton) {
+        performSegue(withIdentifier:"register",sender:self)
+
+    }
+    
     @IBAction func gotTOOrders(_ sender: UIButton) {
+        if isLogegedIn {
+                    performSegue(withIdentifier: "gotToShoppingBag", sender: self)
+               }else {
+                   performSegue(withIdentifier: "login", sender: self)
+               }
     }
     
     @IBAction func goToShoppingBag(_ sender: UIButton) {
-//        
-//                let ShopViewController = storyboard?.instantiateViewController(withIdentifier: "ShopViewController") as! ShoppingBagViewController
-//                ShopViewController.modalPresentationStyle = .fullScreen
-//        
-//                present(ShopViewController, animated: true, completion: nil)
-//                 performSegue(withIdentifier: "ShoppingBag", sender: self)
+
+        if isLogegedIn {
+             performSegue(withIdentifier: "gotToShoppingBag", sender: self)
+        }else {
+            performSegue(withIdentifier: "login", sender: self)
+        }
+        
     }
     
     @IBAction func goTOWishList(_ sender: UIButton) {
+        if isLogegedIn {
+                    performSegue(withIdentifier: "goToFav", sender: self)
+               }else {
+                   performSegue(withIdentifier: "login", sender: self)
+               }
     }
     @IBAction func gotoSetting(_ sender: Any) {
     }
