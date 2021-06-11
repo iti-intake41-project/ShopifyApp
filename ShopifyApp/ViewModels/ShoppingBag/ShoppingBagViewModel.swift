@@ -16,6 +16,8 @@ protocol ShoppingBagViewModelTemp: baseProtocol {
     func getShoppingCartProductList()->[Product]
     func deleteProduct(id: Int)
     func navigateToCheckOut()
+    var navigateToAddress:()->(){set get}
+    var navigateToPayment:()->(){set get}
 }
 
 protocol FavouriteViewModelTemp: baseProtocol {
@@ -28,8 +30,9 @@ protocol FavouriteViewModelTemp: baseProtocol {
 }
 
 class ShoppingBagViewModel: ShoppingBagViewModelTemp {
-    
-    
+    var navigateToAddress = {}
+    var navigateToPayment = {}
+
     var bindFavouritesList: () -> () = {}
     var favourites: [Product]{
         didSet{
@@ -77,11 +80,12 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     }
     
     func navigateToCheckOut() {
-        if dataRepository.hasAddress() {
-            //navigate to check out
-        } else {
-            //navigate to add address
-        }
+        navigateToAddress()
+//        if dataRepository.hasAddress() {
+//            navigateToPayment()
+//        } else {
+//            navigateToAddress()
+//        }
     }
 
 }

@@ -26,6 +26,14 @@ struct LoginResponse: Codable {
     let customers: [Customer]
 }
 
+struct CustomerAddress: Codable {
+    var addresses: [Address]?
+}
+
+struct PutAddress: Codable {
+    let customer: CustomerAddress?
+}
+
 extension Encodable {
     func asDictionary() throws -> [String: Any] {
         let data = try JSONEncoder().encode(self)

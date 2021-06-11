@@ -188,6 +188,7 @@
                     <connections>
                         <outlet property="shoppingTable" destination="WJ0-DC-4Ov" id="sMx-Dg-BTV"/>
                         <outlet property="totalPriceText" destination="VXU-9d-nSY" id="2xx-xG-gZ2"/>
+                        <segue destination="8Zf-Xa-rR6" kind="presentation" identifier="navigateToAddress" modalPresentationStyle="fullScreen" id="cU8-f6-een"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylm-6I-Jtl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -198,10 +199,14 @@
         <scene sceneID="le7-Cn-R4D">
             <objects>
                 <tableViewController id="8Zf-Xa-rR6" customClass="AddressTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kiT-L6-vJJ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kiT-L6-vJJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" id="kbe-k7-eZf">
+                            <rect key="frame" x="0.0" y="376" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <sections>
                             <tableViewSection id="9bT-e8-qlr">
                                 <cells>
@@ -341,6 +346,7 @@
                         <outlet property="addressText" destination="LuH-89-iLB" id="8V6-00-cef"/>
                         <outlet property="cityText" destination="cVl-a7-Dmx" id="dGH-Us-pYS"/>
                         <outlet property="countryText" destination="bbl-vZ-fyJ" id="d3T-O2-1q9"/>
+                        <outlet property="indicator" destination="kbe-k7-eZf" id="mkw-tB-JFR"/>
                         <outlet property="zipcodeText" destination="GeP-a2-c8C" id="tip-xn-yyE"/>
                     </connections>
                 </tableViewController>

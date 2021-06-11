@@ -24,7 +24,6 @@ class RegisterViewModel: RegisterViewModelTemp {
         alertMsgDriver = alertMsgSubject.asDriver(onErrorJustReturn: "")
     }
     
-    
     func registerCustomer(firstName: String, lastName: String, email: String, password: String, confirmPassword: String) {
         if firstName != "" {
             if password == confirmPassword {
@@ -34,9 +33,7 @@ class RegisterViewModel: RegisterViewModelTemp {
                         let customer = Customer(first_name: firstName, last_name: lastName, email: email, phone: nil, tags: password, id: nil, verified_email: true, addresses: nil)
                         let newCustomer = NewCustomer(customer: customer)
                         
-                        //code to be moved to network layer
-                        registerCustomer(newCustomer: newCustomer)
-                        //*********************************
+                        registerCustomer(newCustomer:newCustomer)
                         
                     }else{
                         //                    alertMsg = "Please enter a valid mail"
@@ -55,8 +52,38 @@ class RegisterViewModel: RegisterViewModelTemp {
         }
     }
     
+    
+     func registerCustomer(newCustomer:NewCustomer){
+         registerCustomer(newCustomer:newCustomer){ [weak self] (data, response, error) in
+             if error != nil {
+                 print(error!)
+             } else {
+                 if let data = data {
+                     let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+                     print("json: \(json)")
+                     let returnedCustomer = json["customer"] as? Dictionary<String,Any>
+                     let id = returnedCustomer?["id"] as? Int ?? 0
+                     print("data: \(data)")
+                     print("id: \(id)")
+                     if id != 0 {
+                         //registered successfully
+                         self?.defaultsRepo.login()
+                         self?.defaultsRepo.addId(id: id)
+                         self?.alertMsgSubject.onNext("registered successfully")
+                         print("registered successfully")
+                         //Navigate
+                     }else{
+                         self?.alertMsgSubject.onNext("An error occurred while registering")
+                     }
+                 }
+             }
+
+         }
+     }
+     
+    
     //code to be moved to network layer
-    func registerCustomer(newCustomer:NewCustomer){
+    func registerCustomer(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
         guard let url = URL(string: URLs.customers()) else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -73,29 +100,8 @@ class RegisterViewModel: RegisterViewModelTemp {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        session.dataTask(with: request) {[weak self] (data, response, error) in
-            if error != nil {
-                print(error!)
-            } else {
-                if let data = data {
-                    let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
-                    print("json: \(json)")
-                    let returnedCustomer = json["customer"] as? Dictionary<String,Any>
-                    let id = returnedCustomer?["id"] as? Int ?? 0
-                    print("data: \(data)")
-                    print("id: \(id)")
-                    if id != 0 {
-                        //registered successfully
-                        self?.defaultsRepo.login()
-                        self?.defaultsRepo.addId(id: id)
-                        self?.alertMsgSubject.onNext("registered successfully")
-                        print("registered successfully")
-                        //Navigate
-                    }else{
-                        self?.alertMsgSubject.onNext("An error occurred while registering")
-                    }
-                }
-            }
+        session.dataTask(with: request) { (data, response, error) in
+            completion(data, response, error)
         }.resume()
     }
     //*********************************

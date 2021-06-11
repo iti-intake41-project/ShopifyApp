@@ -21,5 +21,9 @@ class URLs {
     static func customers() -> String {
         return baseUrl + "customers.json"
     }
+    
+    static func customer(id: String) -> String {
+        return baseUrl + "customers/\(id).json"
+    }
 
 }
