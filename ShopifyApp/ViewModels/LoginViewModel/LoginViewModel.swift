@@ -50,12 +50,10 @@ class LoginViewModel: LoginViewModelTemp {
     var bindNavigate:(()->()) = {}
     var bindDontNavigate:(()->()) = {}
     
-    
-    
     func login(email: String, password: String){
         if isValidEmail(email){
             if password.count >= 6{
-                AF.request(URLs.customers()).validate().responseDecodable(of:LoginResponse.self) { [weak self] (response) in
+                login(email: email, password: password) { [weak self] (response) in
                     switch response.result{
                     case .success(_):
                         guard let responseObject = response.value else {return}
@@ -82,12 +80,13 @@ class LoginViewModel: LoginViewModelTemp {
                             self?.alertMessage = "Can't login, please check your info"
                             return
                         }
-
                     case .failure(let error):
                         self?.alertMessage = "An error occured while logging-in, please try again later"
                         print(error)
                     }
+
                 }
+                
             } else{
                 alertMessage = "Password should be 6 characters at least"
             }
@@ -96,4 +95,9 @@ class LoginViewModel: LoginViewModelTemp {
         }
     }
 
+    func login(email: String, password: String, completion: @escaping (DataResponse<LoginResponse, AFError>) -> ()){
+        AF.request(URLs.customers()).validate().responseDecodable(of:LoginResponse.self) { (response) in
+            completion(response)
+        }
+    }
 }

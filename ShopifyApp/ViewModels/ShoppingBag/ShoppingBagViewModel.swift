@@ -80,12 +80,12 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     }
     
     func navigateToCheckOut() {
-        navigateToAddress()
-//        if dataRepository.hasAddress() {
-//            navigateToPayment()
-//        } else {
-//            navigateToAddress()
-//        }
+//        navigateToAddress()
+        if dataRepository.hasAddress() {
+            navigateToPayment()
+        } else {
+            navigateToAddress()
+        }
     }
 
 }

@@ -37,8 +37,8 @@
                                                                 <constraint firstAttribute="width" constant="100" id="dpi-OY-sT7"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fK-Pr-Xzz">
-                                                            <rect key="frame" x="128" y="11" width="41.5" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fK-Pr-Xzz">
+                                                            <rect key="frame" x="128" y="11" width="191" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -92,7 +92,7 @@
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64p-aX-xPY">
                                                             <rect key="frame" x="332" y="11" width="20" height="22"/>
-                                                            <state key="normal" image="archivebox.circle" catalog="system"/>
+                                                            <state key="normal" image="xmark.circle.fill" catalog="system"/>
                                                             <connections>
                                                                 <action selector="deleteProduct:" destination="BuC-st-e0d" eventType="touchUpInside" id="OJR-LM-i9Y"/>
                                                             </connections>
@@ -100,19 +100,19 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="kb0-MC-hvG" firstAttribute="leading" secondItem="4vW-UZ-MOc" secondAttribute="leadingMargin" id="1CG-kD-Rud"/>
+                                                        <constraint firstItem="6fK-Pr-Xzz" firstAttribute="top" secondItem="4vW-UZ-MOc" secondAttribute="topMargin" id="37A-8f-UjJ"/>
                                                         <constraint firstItem="kb0-MC-hvG" firstAttribute="bottom" secondItem="4vW-UZ-MOc" secondAttribute="bottomMargin" id="7A0-AZ-94v"/>
                                                         <constraint firstItem="kb0-MC-hvG" firstAttribute="top" secondItem="4vW-UZ-MOc" secondAttribute="topMargin" id="7V2-li-l2g"/>
-                                                        <constraint firstItem="obd-cW-175" firstAttribute="top" secondItem="6fK-Pr-Xzz" secondAttribute="bottom" constant="8.5" id="7x5-vF-8GG"/>
-                                                        <constraint firstItem="6fK-Pr-Xzz" firstAttribute="top" secondItem="4vW-UZ-MOc" secondAttribute="topMargin" id="Itd-SR-l3i"/>
-                                                        <constraint firstItem="6fK-Pr-Xzz" firstAttribute="leading" secondItem="kb0-MC-hvG" secondAttribute="trailing" constant="8" symbolic="YES" id="PPL-Xw-gzC"/>
+                                                        <constraint firstItem="obd-cW-175" firstAttribute="top" secondItem="6fK-Pr-Xzz" secondAttribute="bottom" constant="8.5" id="Ho6-tv-E5I"/>
+                                                        <constraint firstItem="6fK-Pr-Xzz" firstAttribute="leading" secondItem="kb0-MC-hvG" secondAttribute="trailing" constant="8" symbolic="YES" id="M2S-4Q-REh"/>
                                                         <constraint firstItem="rqi-dF-E88" firstAttribute="bottom" secondItem="4vW-UZ-MOc" secondAttribute="bottomMargin" id="Q7e-Ih-D9g"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="64p-aX-xPY" secondAttribute="trailing" constant="42" id="dEh-iS-jxn"/>
-                                                        <constraint firstItem="obd-cW-175" firstAttribute="leading" secondItem="kb0-MC-hvG" secondAttribute="trailing" constant="8" symbolic="YES" id="k2Z-Sa-1eH"/>
+                                                        <constraint firstItem="obd-cW-175" firstAttribute="leading" secondItem="kb0-MC-hvG" secondAttribute="trailing" constant="8" symbolic="YES" id="eTD-7n-b6e"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="6fK-Pr-Xzz" secondAttribute="trailing" constant="75" id="jak-05-m7M"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="rqi-dF-E88" secondAttribute="trailing" constant="12" id="tHm-M6-Voh"/>
                                                         <constraint firstItem="64p-aX-xPY" firstAttribute="top" secondItem="4vW-UZ-MOc" secondAttribute="topMargin" id="tSi-JL-lw7"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" red="0.69549798669999996" green="1" blue="0.99918059049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="countStack" destination="rqi-dF-E88" id="aZn-r2-vdW"/>
                                                     <outlet property="itemCountText" destination="P7W-B9-g5R" id="DwQ-dI-cao"/>
@@ -134,8 +134,8 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-tq-99x">
                                                 <rect key="frame" x="20" y="50" width="374" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Check Out">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="titleShadowColor" red="0.61494665039999996" green="0.8841817837" blue="0.88345727669999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -151,7 +151,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="RQf-tq-99x" secondAttribute="bottom" constant="50" id="GWf-IY-7az"/>
                                             <constraint firstItem="VXU-9d-nSY" firstAttribute="leading" secondItem="2Fx-h1-74N" secondAttribute="trailing" id="K4s-0u-Ctk"/>
@@ -357,15 +357,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="archivebox.circle" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
