@@ -100,6 +100,20 @@
                                     <action selector="sortProducts:" destination="966-cE-v6a" eventType="touchUpInside" id="BnQ-kK-jEh"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="qWp-7q-Mos">
+                                <rect key="frame" x="296" y="108" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderAction:" destination="966-cE-v6a" eventType="valueChanged" id="mHd-Gb-1wZ"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vos-EL-IyU" userLabel="SliderLabel">
+                                <rect key="frame" x="248" y="108" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -119,8 +133,11 @@
                         <viewLayoutGuide key="safeArea" id="UUH-97-ZGE"/>
                     </view>
                     <connections>
+                        <outlet property="filterBtn" destination="nTg-gU-Phu" id="MZI-CM-1zp"/>
                         <outlet property="productSearchView" destination="E2j-0q-2TC" id="SOI-g0-y3z"/>
                         <outlet property="productsCollectionView" destination="QOx-fY-VN2" id="xjy-NZ-m3x"/>
+                        <outlet property="slider" destination="qWp-7q-Mos" id="VRz-Hg-QKz"/>
+                        <outlet property="sliderLbl" destination="vos-EL-IyU" id="6hu-Ui-MTC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ow0-mc-2Qj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

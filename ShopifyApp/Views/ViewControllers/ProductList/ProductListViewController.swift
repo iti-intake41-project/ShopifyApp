@@ -12,7 +12,9 @@ class ProductListViewController: UIViewController {
 
     @IBOutlet weak var productSearchView: UISearchBar!
 
-    
+    @IBOutlet weak var filterBtn: UIButton!
+    @IBOutlet weak var sliderLbl: UILabel!
+    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     var products: [Product] = [Product]()
     var orignalProducts: [Product] = [Product]()
@@ -38,6 +40,13 @@ class ProductListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
     }
 
+    @IBAction func sliderAction(_ sender: UISlider) {
+        sliderLbl.text = String(Int(sender.value))
+        products = orignalProducts.filter{Double($0.varients![0].price)! <= Double(sender.value) }
+               print(String(Int(sender.value)))
+               self.productsCollectionView.reloadData()
+               
+    }
     /*
     // MARK: - Navigation
 
@@ -80,7 +89,7 @@ class ProductListViewController: UIViewController {
     @IBAction func sortProducts(_ sender: UIButton) {
         
    
-        products = products.sorted(by: {
+        products = orignalProducts.sorted(by: {
             Double ($0.varients![0].price)! < Double( $1.varients![0].price)!
             
         })
