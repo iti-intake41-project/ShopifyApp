@@ -53,8 +53,10 @@ class ProductListViewModel :NSObject{
        return searchTxt.isEmpty ? sProducts : sProducts.filter({
                   (data :Product)->Bool in
                    print ("search done ")
-                  return data.varients?[0].price.range(of: searchTxt , options: .caseInsensitive) != nil
-               
+//                  return data.varients?[0].price.range(of: searchTxt , options: .caseInsensitive) != nil
+//
+        return data.title.range(of: searchTxt , options: .caseInsensitive) != nil
+                 
               })
         
     }

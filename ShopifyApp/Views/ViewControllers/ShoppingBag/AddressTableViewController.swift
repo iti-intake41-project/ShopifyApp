@@ -13,22 +13,44 @@ class AddressTableViewController: UITableViewController {
     @IBOutlet weak var cityText: UITextField!
     @IBOutlet weak var addressText: UITextField!
     @IBOutlet weak var zipcodeText: UITextField!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    var viewModel: AddressViewModel!
+    
+    var viewModel: AddressViewModelTemp!
     var delegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = AddressViewModel(appDelegate: &delegate)
-        
+        bindToViewModel()
+        self.view.isUserInteractionEnabled = true
+        //        indicator.isHidden = true
     }
     
     func bindToViewModel(){
-        viewModel.alretDidAppear = { [weak self] in
-//            self?.addAddress(self?.viewModel.message)
+        viewModel.viewShowAlret = { [weak self] in
+            print("viewShowAlret")
+            if let message = self?.viewModel.message{
+                DispatchQueue.main.async {
+                    self?.view.isUserInteractionEnabled = true
+                    self?.indicator.isHidden = true
+                    self?.showAlret(message: message)
+                }
+            }
+        }
+        viewModel.navigateToCheckOut = { [weak self] in
+            // navigate to checkOut screen
+            DispatchQueue.main.async {
+                self?.view.isUserInteractionEnabled = true
+                self?.indicator.isHidden = true
+                print("navigate to checkOut screen")
+                
+            }
         }
     }
-
+    
     @IBAction func addAddress(_ sender: Any) {
+        indicator.isHidden = false
+        view.isUserInteractionEnabled = false
         viewModel.addAddress(country: countryText.text ?? "", city: cityText.text ?? "", address: addressText.text ?? "", zipcode: zipcodeText.text ?? "")
     }
     
@@ -40,6 +62,5 @@ class AddressTableViewController: UITableViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-
     
 }

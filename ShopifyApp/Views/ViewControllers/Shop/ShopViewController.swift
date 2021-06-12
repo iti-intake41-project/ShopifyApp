@@ -26,8 +26,8 @@ class ShopViewController: UIViewController{
         //call  products from viewController based on collectionID
         shopViewModel.fetchCustomCollection()
         //shopViewModel.fetchAllProductsFromAPI()
-        
-//        performSegue(withIdentifier: "productlist", sender: self)
+//        
+        performSegue(withIdentifier: "productlist", sender: self)
     }
     
 

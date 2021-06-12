@@ -18,14 +18,25 @@ class ShoppingBagViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+        bindToViewModel()
         shoppingTable.delegate = self
         shoppingTable.dataSource = self
         
         updateTableView()
     }
     
-    @IBAction func navigateToCheckOut(_ sender: UIButton) {
+    func bindToViewModel(){
+        viewModel.navigateToAddress = { [weak self] in
+            self?.performSegue(withIdentifier: "navigateToAddress", sender: self!)
+        }
         
+        viewModel.navigateToPayment = {
+            print("navigate to payment")
+        }
+    }
+    
+    @IBAction func navigateToCheckOut(_ sender: UIButton) {
+        viewModel.navigateToCheckOut()
     }
     
     func updateTableView(){
@@ -37,6 +48,7 @@ class ShoppingBagViewController: UIViewController {
             totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
         }
         totalPriceText.text = String(format: "US$%.2f", totalPrice)
+        
     }
     
     func updateCD(id: Int){

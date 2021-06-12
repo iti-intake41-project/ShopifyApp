@@ -15,7 +15,7 @@ class RegisterTableViewController: UITableViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var confirmPasswordText: UITextField!
     var firstName, lastName, email, password, confirmPassword: String!
-    let viewModel: RegisterViewModelTemp = RegisterViewModel()
+    var viewModel: RegisterViewModelTemp = RegisterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,10 @@ class RegisterTableViewController: UITableViewController {
             (self?.showAlret(message: message))
         }, onCompleted: nil, onDisposed:nil )
         
+        viewModel.navigateToMain = { [weak self] in
+            print("navigate to main from controller")
+            self?.performSegue(withIdentifier: "navigateToMainFromRegister", sender: self)
+        }
     }
 
     

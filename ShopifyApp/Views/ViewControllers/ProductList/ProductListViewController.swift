@@ -12,7 +12,9 @@ class ProductListViewController: UIViewController {
 
     @IBOutlet weak var productSearchView: UISearchBar!
 
-    
+    @IBOutlet weak var filterBtn: UIButton!
+    @IBOutlet weak var sliderLbl: UILabel!
+    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     var products: [Product] = [Product]()
     var orignalProducts: [Product] = [Product]()
@@ -22,6 +24,7 @@ class ProductListViewController: UIViewController {
     var favourites: [Product] = [Product]()
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     //Moataz
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +38,6 @@ class ProductListViewController: UIViewController {
         productsViewModel.bindViewModelErrorToView = onFailUpdateView
         //call  products from viewController based on collectionID
       
-
         //Moataz
         favouritesViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         favouritesViewModel.bindFavouritesList = { [weak self] in
@@ -44,11 +46,20 @@ class ProductListViewController: UIViewController {
         }
         favourites = favouritesViewModel.favourites
         //Moataz
+
+               
         
     }
     override func viewWillAppear(_ animated: Bool) {
     }
 
+    @IBAction func sliderAction(_ sender: UISlider) {
+        sliderLbl.text = String(Int(sender.value))
+        products = orignalProducts.filter{Double($0.varients![0].price)! <= Double(sender.value) }
+               print(String(Int(sender.value)))
+               self.productsCollectionView.reloadData()
+               
+    }
     /*
     // MARK: - Navigation
 
@@ -91,7 +102,7 @@ class ProductListViewController: UIViewController {
     @IBAction func sortProducts(_ sender: UIButton) {
         
    
-        products = products.sorted(by: {
+        products = orignalProducts.sorted(by: {
             Double ($0.varients![0].price)! < Double( $1.varients![0].price)!
             
         })
@@ -102,9 +113,9 @@ class ProductListViewController: UIViewController {
 }
 extension ProductListViewController : UICollectionViewDelegate , UICollectionViewDelegateFlowLayout{
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.width / 2)-10 , height:200)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: view.frame.width-20 , height:200)
+//    }
    
     
 }
@@ -122,22 +133,20 @@ extension ProductListViewController : UICollectionViewDataSource {
         cell.productImage.sd_setImage(with: URL(string:products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
 
         cell.priceLbl.text = products[indexPath.row].varients?[0].price
-        
         //Moataz
         cell.favouriteBtn.backgroundColor = UIColor.white
         cell.product = products[indexPath.row]
         cell.isFavourite = favouritesViewModel.isFavourite(id: products[indexPath.row].id)
         cell.delegate = self
         //Moataz
-        
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let productDetailsViewController = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-        productDetailsViewController.modalPresentationStyle = .fullScreen
-        productDetailsViewController.product = products[indexPath.row]
-        present(productDetailsViewController, animated: true, completion: nil)
+               productDetailsViewController.modalPresentationStyle = .fullScreen
+               productDetailsViewController.product = products[indexPath.row]
+               present(productDetailsViewController, animated: true, completion: nil)
     }
     
 }
@@ -156,7 +165,6 @@ extension ProductListViewController:UISearchBarDelegate{
      
 }
 
-
 //Moataz
 
 extension ProductListViewController: FavouriteProductCellProtocol {
@@ -169,6 +177,8 @@ extension ProductListViewController: FavouriteProductCellProtocol {
     }
     
     func isFavourite(id: Int) -> Bool {
+        print("is favourite controller: \(id)")
+
         return favouritesViewModel.isFavourite(id: id)
     }
 }

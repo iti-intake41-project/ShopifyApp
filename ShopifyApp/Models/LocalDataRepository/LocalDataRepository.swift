@@ -12,6 +12,7 @@ protocol LocalDataRepository{
     func addProduct(product: Product)
     func updateProductList(id: Int, product: Product)
     func getShoppingCartProductList()->[Product]
+    func emptyCart()
     func deleteProduct(id: Int)
     func addFavourite(product: Product)
     func deleteFavourite(id: Int)
@@ -23,6 +24,7 @@ protocol LocalDataRepository{
 }
 
 class CoreDataRepository: LocalDataRepository {
+    
     var productList = [Product]()
     var favouriteList = [Product]()
     var delegate: AppDelegate
@@ -46,7 +48,7 @@ class CoreDataRepository: LocalDataRepository {
                 let price = product.value(forKey: "price") as! String
                 let title = product.value(forKey: "title") as! String
                 let imgUrl = product.value(forKey: "imgUrl") as! String
-                var product = Product(id: id, title: title, description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: 0, productID: 0, title: "", price: price)])
+                var product = Product(id: id, title: title, description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price)])
                 product.count = count
 //                print(price)
                 productList.append(product)
@@ -65,7 +67,7 @@ class CoreDataRepository: LocalDataRepository {
         let entity = NSEntityDescription.entity(forEntityName: "ProductCoreData", in: managedContext)
         //4
         let productCD = NSManagedObject(entity: entity!, insertInto: managedContext)
-        productCD.setValue(product.id, forKey: "id")
+        productCD.setValue(product.varients?[0].id ?? 0, forKey: "id")
         productCD.setValue(product.count + 1, forKey: "count")
         productCD.setValue(product.varients?[0].price ?? "0.0", forKey: "price")
         productCD.setValue(product.title, forKey: "title")
@@ -89,7 +91,7 @@ class CoreDataRepository: LocalDataRepository {
             for productCD in productCDArray{
 //                print("update list count: \(productCD)")
                 
-                productCD.setValue(product.id, forKey: "id")
+                productCD.setValue(product.varients?[0].id ?? 0, forKey: "id")
                 productCD.setValue(product.count, forKey: "count")
                 productCD.setValue(product.varients?[0].price ?? "0.0", forKey: "price")
                 productCD.setValue(product.title, forKey: "title")
@@ -106,6 +108,22 @@ class CoreDataRepository: LocalDataRepository {
         let managedContext = delegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ProductCoreData")
         fetchRequest.predicate = NSPredicate(format: "id = \(id)")
+        do{
+            let productCDArray = try managedContext.fetch(fetchRequest)
+            for product in productCDArray {
+                managedContext.delete(product)
+            }
+            try managedContext.save()
+            
+        }catch{
+            print("failed to delete product from core data \(error)")
+        }
+    }
+    
+    func emptyCart(){
+        print("empty cart function")
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ProductCoreData")
         do{
             let productCDArray = try managedContext.fetch(fetchRequest)
             for product in productCDArray {
@@ -144,7 +162,7 @@ class CoreDataRepository: LocalDataRepository {
         let entity = NSEntityDescription.entity(forEntityName: "FavouriteCoreData", in: managedContext)
         //4
         let productCD = NSManagedObject(entity: entity!, insertInto: managedContext)
-        productCD.setValue(product.id, forKey: "id")
+        productCD.setValue(product.varients?[0].id ?? 0, forKey: "id")
         productCD.setValue(product.varients?[0].price ?? "0.0", forKey: "price")
         productCD.setValue(product.title, forKey: "title")
         productCD.setValue(product.images[0].src, forKey: "imgUrl")
@@ -169,7 +187,7 @@ class CoreDataRepository: LocalDataRepository {
                 let price = product.value(forKey: "price") as! String
                 let title = product.value(forKey: "title") as! String
                 let imgUrl = product.value(forKey: "imgUrl") as! String
-                let product = Product(id: id, title: title, description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: 0, productID: 0, title: "", price: price)])
+                let product = Product(id: id, title: title, description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price)])
 //                print(price)
                 favouriteList.append(product)
             }

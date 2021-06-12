@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol baseProtocol {
     func addProduct(product: Product)
@@ -16,6 +17,10 @@ protocol ShoppingBagViewModelTemp: baseProtocol {
     func getShoppingCartProductList()->[Product]
     func deleteProduct(id: Int)
     func navigateToCheckOut()
+    var navigateToAddress:()->(){set get}
+    var navigateToPayment:()->(){set get}
+    
+    func postOrder(products: inout [Product])
 }
 
 protocol FavouriteViewModelTemp: baseProtocol {
@@ -28,8 +33,9 @@ protocol FavouriteViewModelTemp: baseProtocol {
 }
 
 class ShoppingBagViewModel: ShoppingBagViewModelTemp {
-    
-    
+    var navigateToAddress = {}
+    var navigateToPayment = {}
+
     var bindFavouritesList: () -> () = {}
     var favourites: [Product]{
         didSet{
@@ -37,20 +43,15 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         }
     }
     
+    let network = NetworkLayer()
     var delegate: AppDelegate
     let dataRepository: LocalDataRepository
-    let defaultsRepository = UserDefaultsDataRepository()
+    let defaultsRepository = UserDefaultsLayer()
     init(appDelegate: inout AppDelegate) {
         delegate = appDelegate
         dataRepository = CoreDataRepository(appDelegate: &delegate)
         favourites = dataRepository.getFavourites()
         
-        
-//        dataRepository.addAddress(address: Address(address1: "Fayoum", city: "Fayoum", province: "", phone: "", zip: "", last_name: "", first_name: "", country: "Egypt"))
-//        print("address in CD \(dataRepository.getAddress())")
-//        print("address check in CD \(dataRepository.hasAddress())")
-//        dataRepository.deleteAddress()
-//        print("address check in CD \(dataRepository.hasAddress())")
     }
     
     // MARK: - Shopping Cart
@@ -61,7 +62,7 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     func addProduct(product: Product) {
         let products = dataRepository.getShoppingCartProductList()
         for cartProduct in products{
-            if product.id == cartProduct.id {
+            if product.varients?[0].id ?? 0 == cartProduct.varients?[0].id ?? 0 {
                 return
             }
         }
@@ -77,13 +78,44 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     }
     
     func navigateToCheckOut() {
+//        navigateToAddress()
         if dataRepository.hasAddress() {
-            //navigate to check out
+            navigateToPayment()
         } else {
-            //navigate to add address
+            navigateToAddress()
         }
     }
-
+    
+    // MARK: - Order
+    func postOrder(products: inout [Product]){
+        var items: [OrderItem] = []
+        for product in products{
+            items.append(OrderItem(variant_id: product.varients?[0].id ?? 0, quantity: product.count, price: product.varients?[0].price ?? "0.0"))
+        }
+        let customer = OrderCustomer(id: defaultsRepository.getId())
+        let order = Order(line_items: items, customer: customer)
+        let myOrder = APIOrder(order: order)
+//        print("my order: \(myOrder)")
+        network.postOrder(order: myOrder) {[weak self] (data, response, error) in
+            if error != nil{
+                print("error while posting order \(error!.localizedDescription)")
+            }
+            if let data = data{
+                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+//                print("json: \(json)")
+                let returnedOrder = json["order"] as? Dictionary<String,Any>
+                let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
+                let id = returnedCustomer?["id"] as? Int ?? 0
+//                print("customer id: \(id)")
+                if id != 0 {
+                    print("call empty cart")
+                    self?.dataRepository.emptyCart()
+                }
+            }
+        }
+    }
+    
+    
 }
 
 
@@ -91,10 +123,14 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
 extension ShoppingBagViewModel: FavouriteViewModelTemp {
     
     func isFavourite(id: Int)->Bool {
+        print("is favourite viewmodel: \(id)")
+
         var isFav = false
         let favourites = dataRepository.getFavourites()
         for favourite in favourites{
-            if id == favourite.id{
+            if id == favourite.varients?[0].id{
+                print("is favourite viewmodel loop: \(favourite.varients?[0].id ?? 0)")
+
                 isFav = true
                 break
             }
@@ -103,12 +139,13 @@ extension ShoppingBagViewModel: FavouriteViewModelTemp {
     }
     
     func addFavourite(product: Product) {
-        let products = dataRepository.getFavourites()
-        for cartProduct in products{
-            if product.id == cartProduct.id {
-                return
-            }
-        }
+//        let products = dataRepository.getFavourites()
+//        for favProduct in products{
+//            if product.varients?[0].id == favProduct.varients?[0].id {
+//                print("product id: \(product.varients?[0].id) fav id: \(favProduct.varients?[0].id)")
+//                return
+//            }
+//        }
         dataRepository.addFavourite(product: product)
         favourites = dataRepository.getFavourites()
     }
