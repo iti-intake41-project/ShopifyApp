@@ -46,10 +46,17 @@ class SettingViewModel :NSObject{
     func logout(appDelegate:inout AppDelegate){
         //donia
         userDefaults.setCurrency(key: "currency", value:"")
-        // remove address 
         //donia
+        
+        //remove address, empty fav & cart, switch flag
         userDefaults.logut()
-        CoreDataRepository.deleteAddress(appDelegate: &appDelegate)
+        let dataRepo = CoreDataRepository(appDelegate: &appDelegate)
+        dataRepo.deleteAddress()
+        let favourites = dataRepo.getFavourites()
+        for product in favourites{
+            dataRepo.deleteFavourite(id: product.varients?[0].id ?? 0)
+        }
+        dataRepo.emptyCart()
     }
     //Moataz
 }
