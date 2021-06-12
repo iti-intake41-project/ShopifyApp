@@ -52,7 +52,6 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         dataRepository = CoreDataRepository(appDelegate: &delegate)
         favourites = dataRepository.getFavourites()
         
-        let _ = getOrders()
     }
     
     // MARK: - Shopping Cart
@@ -91,7 +90,7 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     func postOrder(products: inout [Product]){
         var items: [OrderItem] = []
         for product in products{
-            items.append(OrderItem(variant_id: product.varients?[0].id ?? 0, quantity: product.count))
+            items.append(OrderItem(variant_id: product.varients?[0].id ?? 0, quantity: product.count, price: product.varients?[0].price ?? "0.0"))
         }
         let customer = OrderCustomer(id: defaultsRepository.getId())
         let order = Order(line_items: items, customer: customer)
@@ -116,31 +115,6 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         }
     }
     
-    //get orders
-    func getOrders()->[Order]{
-        let customerId = defaultsRepository.getId()
-        var orders: [Order] = []
-        network.getOrders { (response) in
-            
-            switch response.result{
-            
-            case .success(let result):
-//                print("result: \(result)")
-                let APIOrders = result.orders
-                for order in APIOrders{
-                    if order.customer.id == customerId {
-                        print("matching order: \(order)")
-                        orders.append(order)
-                    }
-                }
-                
-            case .failure(let error):
-                print("error while getting orders: \(error.localizedDescription)")
-            }
-            
-        }
-        return orders
-    }
     
 }
 

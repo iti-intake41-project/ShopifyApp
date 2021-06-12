@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lc-MY-xqT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lc-MY-xqT">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Me View Controller-->
+        <!--Me-->
         <scene sceneID="4yt-vV-9he">
             <objects>
                 <viewController id="9Lc-MY-xqT" customClass="MeViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,13 +52,13 @@
                                 <rect key="frame" x="20" y="94.333333333333329" width="374" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMU-a8-km1">
-                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82.333333333333329" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv1-8w-NcE">
-                                        <rect key="frame" x="294.33333333333331" y="0.0" width="79.666666666666686" height="24"/>
+                                        <rect key="frame" x="295.33333333333331" y="0.0" width="78.666666666666686" height="24"/>
                                         <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
                                         <connections>
                                             <action selector="gotTOOrders:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="GNO-rD-XGR"/>
@@ -127,7 +128,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EMm-bc-K10" userLabel="loginRegisterOrderStack View">
                                         <rect key="frame" x="0.0" y="170.33333333333337" width="374" height="39"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="565-VP-SCh">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="565-VP-SCh">
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <state key="normal" title="          Login  "/>
@@ -135,7 +136,7 @@
                                                     <action selector="login:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="f8R-eZ-Lca"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOC-9F-4ZD">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOC-9F-4ZD">
                                                 <rect key="frame" x="197" y="0.0" width="177" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <state key="normal" title=" Register"/>
@@ -151,13 +152,13 @@
                                 <rect key="frame" x="20" y="385.66666666666669" width="374" height="26.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WishList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aT3-es-nU5" userLabel="Wishlist">
-                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="26.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="26.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mec-qa-Zbk">
-                                        <rect key="frame" x="295.66666666666669" y="0.0" width="78.333333333333314" height="26.333333333333332"/>
+                                        <rect key="frame" x="295" y="0.0" width="79" height="26.333333333333332"/>
                                         <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
                                         <connections>
                                             <action selector="goTOWishList:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="MZ7-8y-1KH"/>
@@ -230,7 +231,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TQo-rR-fIk" userLabel="LoginOrRegisterFavStack View">
                                         <rect key="frame" x="0.0" y="178" width="374" height="39"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XG-by-KOa">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XG-by-KOa">
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <state key="normal" title="          Login  "/>
@@ -238,7 +239,7 @@
                                                     <action selector="login:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="tj3-JC-Vrq"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZA9-oX-TVp">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZA9-oX-TVp">
                                                 <rect key="frame" x="197" y="0.0" width="177" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <state key="normal" title=" Register"/>
@@ -251,7 +252,8 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dmg-w5-bmJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Frk-P5-i6m" firstAttribute="leading" secondItem="dmg-w5-bmJ" secondAttribute="leading" constant="20" id="C1F-fc-itd"/>
                             <constraint firstItem="dmg-w5-bmJ" firstAttribute="trailing" secondItem="Frk-P5-i6m" secondAttribute="trailing" constant="20" id="GAp-So-1i7"/>
@@ -272,9 +274,8 @@
                             <constraint firstItem="dmg-w5-bmJ" firstAttribute="trailing" secondItem="jrS-f6-a0p" secondAttribute="trailing" constant="20" id="lMd-ms-rpf"/>
                             <constraint firstItem="tka-a9-SIT" firstAttribute="top" secondItem="toZ-Kw-i5x" secondAttribute="bottom" constant="8" id="vRt-Uv-NBp"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dmg-w5-bmJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="Tur-oW-Eg7"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="person.circle.fill" catalog="system" id="Tur-oW-Eg7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="FavouriteStackVIew" destination="1cI-r5-wCB" id="mz3-Oy-pim"/>
@@ -341,7 +342,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9YY-iz-4kU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
                             <tableViewSection id="Php-kc-AvC">
                                 <cells>
@@ -358,8 +359,8 @@
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hga-Rg-XJO" userLabel="AddrStack View">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76.333333333333329"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCr-Jf-IuC">
-                                                                    <rect key="frame" x="0.0" y="18.666666666666671" width="270" height="39"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCr-Jf-IuC">
+                                                                    <rect key="frame" x="0.0" y="18.666666666666671" width="271" height="39"/>
                                                                     <gestureRecognizers/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <state key="normal" title=" Address  "/>
@@ -367,8 +368,8 @@
                                                                         <action selector="address:" destination="I3V-hc-iNK" eventType="touchUpInside" id="hlg-A5-k6Z"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmB-Hq-7fa">
-                                                                    <rect key="frame" x="270" y="21.666666666666671" width="94" height="33"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmB-Hq-7fa">
+                                                                    <rect key="frame" x="271" y="21.666666666666671" width="93" height="33"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <state key="normal" title="add"/>
                                                                     <connections>
@@ -391,16 +392,16 @@
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fJS-qp-6HL" userLabel="CurrencyStack View">
                                                             <rect key="frame" x="0.0" y="84.333333333333343" width="414" height="76.333333333333343"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAB-ja-x5r">
-                                                                    <rect key="frame" x="0.0" y="18.666666666666671" width="273.66666666666669" height="39"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAB-ja-x5r">
+                                                                    <rect key="frame" x="0.0" y="18.666666666666671" width="274.66666666666669" height="39"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <state key="normal" title=" Currency "/>
                                                                     <connections>
                                                                         <action selector="currency:" destination="I3V-hc-iNK" eventType="touchUpInside" id="EhW-mA-W0D"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0N-Wb-2q7" userLabel="currenctBtn">
-                                                                    <rect key="frame" x="273.66666666666669" y="21.666666666666671" width="90.333333333333314" height="33"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0N-Wb-2q7" userLabel="currenctBtn">
+                                                                    <rect key="frame" x="274.66666666666669" y="21.666666666666671" width="89.333333333333314" height="33"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <state key="normal" title="add"/>
                                                                     <connections>
@@ -422,16 +423,16 @@
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wEi-0s-i8Z" userLabel="CountryStack View">
                                                             <rect key="frame" x="0.0" y="168.66666666666666" width="414" height="76.333333333333343"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUy-Ef-Qcy">
-                                                                    <rect key="frame" x="0.0" y="18.666666666666686" width="273" height="39"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUy-Ef-Qcy">
+                                                                    <rect key="frame" x="0.0" y="18.666666666666686" width="273.66666666666669" height="39"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <state key="normal" title=" Country   "/>
                                                                     <connections>
                                                                         <action selector="country:" destination="I3V-hc-iNK" eventType="touchUpInside" id="Xxu-dA-Lvr"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVh-Bk-WkG">
-                                                                    <rect key="frame" x="273" y="21.666666666666686" width="91" height="33"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVh-Bk-WkG">
+                                                                    <rect key="frame" x="273.66666666666669" y="21.666666666666686" width="90.333333333333314" height="33"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <state key="normal" title="add"/>
                                                                     <connections>
@@ -453,7 +454,7 @@
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Ex-Ar-Lmz">
                                                             <rect key="frame" x="0.0" y="253.00000000000003" width="414" height="76.333333333333343"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-EN-iHz">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-EN-iHz">
                                                                     <rect key="frame" x="0.0" y="18.666666666666686" width="364" height="39"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <state key="normal" title=" Contact us"/>
@@ -477,7 +478,7 @@
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hFV-kH-lWi">
                                                             <rect key="frame" x="0.0" y="337.33333333333331" width="414" height="76.333333333333314"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vr4-XR-MWz">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vr4-XR-MWz">
                                                                     <rect key="frame" x="0.0" y="18.666666666666686" width="364" height="39"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <state key="normal" title=" About us   "/>
@@ -497,7 +498,7 @@
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hBn-V3-5aS">
                                                             <rect key="frame" x="0.0" y="421.66666666666669" width="414" height="76.333333333333314"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BB-O2-MKN">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BB-O2-MKN">
                                                                     <rect key="frame" x="0.0" y="18.666666666666629" width="364" height="39"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <state key="normal" title=" Logout         "/>
@@ -580,7 +581,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uHz-OG-Nvm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="198" id="OWr-nQ-7QO" customClass="OrderTableViewCell" customModule="ShopifyApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="198"/>
@@ -626,6 +627,10 @@
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="noImage" width="547" height="547"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

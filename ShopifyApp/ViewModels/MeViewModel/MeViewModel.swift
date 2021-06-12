@@ -8,12 +8,41 @@
 import Foundation
 import UIKit
 class MeViewModel{
-    
+    let network = NetworkLayer()
+    let defaultsRepository = UserDefaultsLayer()
     
     func getOrders()-> [Product]?{
         //call orders from network layer
         return[]
     }
+    
+    //get orders
+    func getOrders()->[Order]{
+        let customerId = defaultsRepository.getId()
+        var orders: [Order] = []
+        network.getOrders { (response) in
+            
+            switch response.result{
+            
+            case .success(let result):
+//                print("result: \(result)")
+                let APIOrders = result.orders
+                for order in APIOrders{
+                    if order.customer.id == customerId {
+                        print("matching order: \(order)")
+                        orders.append(order)
+                    }
+                }
+                
+            case .failure(let error):
+                print("error while getting orders: \(error.localizedDescription)")
+            }
+            
+        }
+        return orders
+    }
+
+    
     //wishList
     func getfavourites(appDelegate: inout AppDelegate) ->[Product]{
         var viewModel:FavouriteViewModelTemp!

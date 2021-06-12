@@ -14,6 +14,7 @@ protocol RegisterViewModelTemp {
     var alertMsgDriver:Driver<String> {get}
     var alertMsgSubject:PublishSubject<String> {get}
     func registerCustomer(firstName:String, lastName:String,email:String,password:String,confirmPassword:String)
+    var navigateToMain:()->() {get set}
 }
 
 class RegisterViewModel: RegisterViewModelTemp {
@@ -21,6 +22,9 @@ class RegisterViewModel: RegisterViewModelTemp {
     var alertMsgSubject = PublishSubject<String>()
     let defaultsRepo: UserDefaultsData = UserDefaultsLayer()
     let network = NetworkLayer()
+    var navigateToMain = {
+        print("navigate from view model")
+    }
 
     init() {
         alertMsgDriver = alertMsgSubject.asDriver(onErrorJustReturn: "")
@@ -72,7 +76,10 @@ class RegisterViewModel: RegisterViewModelTemp {
                          //registered successfully
                          self?.defaultsRepo.login()
                          self?.defaultsRepo.addId(id: id)
-                         self?.alertMsgSubject.onNext("registered successfully")
+//                         self?.alertMsgSubject.onNext("registered successfully")
+                        DispatchQueue.main.sync {
+                            self?.navigateToMain()
+                        }
                          print("registered successfully")
                          //Navigate
                      }else{

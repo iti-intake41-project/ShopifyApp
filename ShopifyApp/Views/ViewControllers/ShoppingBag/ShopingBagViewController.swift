@@ -49,7 +49,6 @@ class ShoppingBagViewController: UIViewController {
         }
         totalPriceText.text = String(format: "US$%.2f", totalPrice)
         
-        viewModel.postOrder(products: &list)
     }
     
     func updateCD(id: Int){
