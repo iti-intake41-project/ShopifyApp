@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Stripe
+import Alamofire
 
 class ShoppingBagViewController: UIViewController {
     @IBOutlet weak var shoppingTable: UITableView!
@@ -14,6 +16,8 @@ class ShoppingBagViewController: UIViewController {
     var list:[Product] = []
     var viewModel:ShoppingBagViewModelTemp!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var paymentSheet: PaymentSheet?
+    var backendCheckoutUrl = URL(string: "https://shopify-app-iti.herokuapp.com/")!  // An example backend endpoint
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +26,27 @@ class ShoppingBagViewController: UIViewController {
         shoppingTable.dataSource = self
         
         updateTableView()
+        setupStripe()
     }
     
     @IBAction func navigateToCheckOut(_ sender: UIButton) {
         
+        
+        
+        // MARK: Start the checkout process
+        paymentSheet?.present(from: self) { paymentResult in
+            // MARK: Handle the payment result
+            switch paymentResult {
+            case .completed:
+                //self.displayAlert("Your order is confirmed!")
+                print("completed")
+            case .canceled:
+                print("Canceled!")
+            case .failed(let error):
+                print(error)
+                //self.displayAlert("Payment failed: \n\(error.localizedDescription)")
+            }
+        }
     }
     
     func updateTableView(){
@@ -131,4 +152,56 @@ extension ShoppingBagViewController : productListDelegate {
         
     }
     
+}
+
+extension ShoppingBagViewController: STPAuthenticationContext {
+    func authenticationPresentingViewController() -> UIViewController {
+        return self
+    }
+    
+    func createPaymentIntent(completion: @escaping STPJSONResponseCompletionBlock) {
+        backendCheckoutUrl.appendPathComponent("create_payment_intent")
+        
+        AF.request(backendCheckoutUrl, method: .post, parameters: [:], encoding: URLEncoding.default, headers: nil).validate(statusCode: 200..<300).responseJSON { (response) in
+                        
+            switch (response.result) {
+            case .failure(let error):
+                completion(nil, error)
+            case .success(let json):
+                completion(json as! [String:Any], nil)
+            }
+        }
+    }
+    
+    func setupStripe() {
+        createPaymentIntent { (paymentIntent, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }else {
+                guard let paymentIntent = paymentIntent as? [String:AnyObject] else{
+                    print("incorrect")
+                    return
+                }
+                
+                let clientSecret = paymentIntent["secret"] as! String
+                
+                
+                STPAPIClient.shared.publishableKey = "pk_test_51J19gZAzeb3g68XKkIDsHNLM8Fl0e6ncassqNHNaQfpuiktP41zn8cuxkANqftLC3SJnokBpwMt3292uHcNmsvnJ007BVuBDay"
+
+                // MARK: Create a PaymentSheet instance
+                var configuration = PaymentSheet.Configuration()
+                configuration.merchantDisplayName = "Example, Inc."
+//                configuration.applePay = .init(
+//                    merchantId: "com.foo.example", merchantCountryCode: "US")
+//                configuration.customer = .init(
+//                    id: customerId, ephemeralKeySecret: customerEphemeralKeySecret)
+                //configuration.returnURL = "payments-example://stripe-redirect"
+                self.paymentSheet = PaymentSheet(
+                    paymentIntentClientSecret: clientSecret,
+                    configuration: configuration)
+                
+            }
+        }
+    }
 }
