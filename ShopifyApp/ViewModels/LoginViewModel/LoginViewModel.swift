@@ -62,11 +62,11 @@ class LoginViewModel: LoginViewModelTemp {
                             let comingMail = customer.email ?? ""
                             let comingPassword = customer.tags ?? ""
                             if comingMail == email && comingPassword == password {
-                                print("correct customer address: \(customer.addresses?[0].address1 != "")")
+//                                print("correct customer address: \(customer.addresses?[0].address1 != "")")
                                 print("found")
                                 self?.defaultsRepo.login()
                                 self?.defaultsRepo.addId(id: customer.id ?? 0)
-                                if customer.addresses?[0].address1 != "" {
+                                if customer.addresses?.count ?? 0 > 0 && customer.addresses?[0].address1 != "" {
                                     //save address
                                     self?.dataRepository.addAddress(address: customer.addresses![0])
                                 }
