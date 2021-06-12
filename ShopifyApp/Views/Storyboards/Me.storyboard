@@ -307,11 +307,22 @@
                         <segue destination="l1b-Qn-oSo" kind="show" identifier="goToFav" id="RLn-SC-FhL"/>
                         <segue destination="B43-Xi-SN8" kind="show" identifier="login" id="vgt-0h-a4I"/>
                         <segue destination="Amh-xO-nsK" kind="show" identifier="gotToOrders" id="WFi-qO-9TB"/>
+                        <segue destination="Ywb-Jf-iSD" kind="show" identifier="gotToShoppingBag" id="lAP-MB-ZhF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOj-WU-UQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="-130.43478260869566"/>
+        </scene>
+        <!--ShoppingBag-->
+        <scene sceneID="4e9-XY-lUC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ShoppingBag" id="Ywb-Jf-iSD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HaV-Z4-f3D"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azf-Mv-8D0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685" y="-307"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="xMs-oS-ufo">
