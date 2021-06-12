@@ -188,7 +188,7 @@
                     <connections>
                         <outlet property="shoppingTable" destination="WJ0-DC-4Ov" id="sMx-Dg-BTV"/>
                         <outlet property="totalPriceText" destination="VXU-9d-nSY" id="2xx-xG-gZ2"/>
-                        <segue destination="8Zf-Xa-rR6" kind="presentation" identifier="navigateToAddress" modalPresentationStyle="fullScreen" id="cU8-f6-een"/>
+                        <segue destination="8Zf-Xa-rR6" kind="show" identifier="navigateToAddress" id="cU8-f6-een"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylm-6I-Jtl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -200,7 +200,7 @@
             <objects>
                 <tableViewController id="8Zf-Xa-rR6" customClass="AddressTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kiT-L6-vJJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" id="kbe-k7-eZf">
@@ -342,6 +342,7 @@
                             <outlet property="delegate" destination="8Zf-Xa-rR6" id="kUI-5S-qlV"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="ScK-2V-99x"/>
                     <connections>
                         <outlet property="addressText" destination="LuH-89-iLB" id="8V6-00-cef"/>
                         <outlet property="cityText" destination="cVl-a7-Dmx" id="dGH-Us-pYS"/>
