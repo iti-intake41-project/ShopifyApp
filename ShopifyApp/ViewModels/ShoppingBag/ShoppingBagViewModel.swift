@@ -19,7 +19,7 @@ protocol ShoppingBagViewModelTemp: baseProtocol {
     func navigateToCheckOut()
     var navigateToAddress:()->(){set get}
     var navigateToPayment:()->(){set get}
-    
+    func getCurrency()->String
     func postOrder(products: inout [Product])
 }
 
@@ -84,6 +84,10 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         } else {
             navigateToAddress()
         }
+    }
+    
+    func getCurrency()->String{
+        return defaultsRepository.getCurrency()
     }
     
     // MARK: - Order
