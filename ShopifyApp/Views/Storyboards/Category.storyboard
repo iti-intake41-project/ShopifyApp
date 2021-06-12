@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6T-EG-5QN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6T-EG-5QN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -19,26 +19,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ymB-Gt-T49">
-                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" horizontalHuggingPriority="129" translatesAutoresizingMaskIntoConstraints="NO" id="Nx9-Us-XIa">
-                                        <rect key="frame" x="0.0" y="0.0" width="309" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="309" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="G6T-EG-5QN" id="LCJ-95-TSs"/>
+                                        </connections>
                                     </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RZn-AB-AVO">
-                                        <rect key="frame" x="314" y="0.0" width="100" height="51"/>
+                                        <rect key="frame" x="314" y="0.0" width="100" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-zU-QV4">
-                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="51"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="56"/>
                                                 <state key="normal" image="bag.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" scale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="shoppingBagAction:" destination="G6T-EG-5QN" eventType="touchUpInside" id="u99-fd-mjq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-0s-rE8">
-                                                <rect key="frame" x="52.5" y="0.0" width="47.5" height="51"/>
+                                                <rect key="frame" x="52.5" y="0.0" width="47.5" height="56"/>
                                                 <state key="normal" image="heart.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" scale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="favoriteAction:" destination="G6T-EG-5QN" eventType="touchUpInside" id="Zrk-8H-WYl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -52,7 +61,7 @@
                                 </constraints>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPQ-Tb-7o3">
-                                <rect key="frame" x="0.0" y="95" width="414" height="59"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="54"/>
                                 <items>
                                     <barButtonItem title="Home" id="2v4-2v-7JS"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="R0b-Jg-2jy"/>
@@ -62,25 +71,28 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dnZ-7z-yfW"/>
                                     <barButtonItem title="Kids" id="YFF-uS-4v2"/>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="G6T-EG-5QN" id="l4p-To-LRS"/>
+                                </connections>
                             </toolbar>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sHq-4H-jrw">
-                                <rect key="frame" x="0.0" y="179" width="414" height="634"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHq-4H-jrw">
+                                <rect key="frame" x="0.0" y="179" width="404" height="634"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-fK-tCZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="136" height="634"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-fK-tCZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="141.5" height="634"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subCategoryCell" rowHeight="100" id="A9b-jS-HDs">
-                                                <rect key="frame" x="0.0" y="24.5" width="136" height="100"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subCategoryCell" rowHeight="100" id="A9b-jS-HDs" customClass="SubCategoriesCell" customModule="ShopifyApp" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="73.5" width="109.5" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A9b-jS-HDs" id="0Rl-Ci-IbB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="109.5" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MV-1c-yyX">
-                                                            <rect key="frame" x="16" y="11" width="104" height="78"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MV-1c-yyX">
+                                                            <rect key="frame" x="16" y="11" width="77.5" height="78"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -91,11 +103,20 @@
                                                         <constraint firstAttribute="bottomMargin" secondItem="3MV-1c-yyX" secondAttribute="bottom" id="xTV-7T-nok"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.33950445060000001" green="0.36982727050000003" blue="0.52898520230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <outlet property="title" destination="3MV-1c-yyX" id="fPU-iG-its"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <sections/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="G6T-EG-5QN" id="nlZ-jb-bub"/>
+                                            <outlet property="delegate" destination="G6T-EG-5QN" id="xbb-YR-3la"/>
+                                        </connections>
                                     </tableView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sl4-Gf-Oc1">
-                                        <rect key="frame" x="151" y="0.0" width="263" height="634"/>
+                                        <rect key="frame" x="141.5" y="0.0" width="262.5" height="634"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hj9-Dq-6Oo">
                                             <size key="itemSize" width="128" height="128"/>
@@ -104,17 +125,44 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="Bbe-F1-fCu">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="Bbe-F1-fCu" customClass="CategoryProductsCollectionView" customModule="ShopifyApp" customModuleProvider="target">
                                                 <rect key="frame" x="67.5" y="0.0" width="128" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DEW-rb-khy">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LcQ-l2-QVu">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="128" id="R6Y-5U-tgS"/>
+                                                                <constraint firstAttribute="height" constant="128" id="TAg-nZ-hpD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="LcQ-l2-QVu" secondAttribute="trailing" id="EMZ-uW-XWT"/>
+                                                        <constraint firstItem="LcQ-l2-QVu" firstAttribute="leading" secondItem="DEW-rb-khy" secondAttribute="leading" id="RSY-Ri-x9L"/>
+                                                        <constraint firstAttribute="bottom" secondItem="LcQ-l2-QVu" secondAttribute="bottom" id="cxS-m4-3iu"/>
+                                                        <constraint firstItem="LcQ-l2-QVu" firstAttribute="top" secondItem="DEW-rb-khy" secondAttribute="top" id="nSQ-Y6-DnJ"/>
+                                                    </constraints>
                                                 </collectionViewCellContentView>
+                                                <size key="customSize" width="128" height="128"/>
+                                                <connections>
+                                                    <outlet property="image" destination="LcQ-l2-QVu" id="sOx-d7-dla"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="G6T-EG-5QN" id="rCX-Wm-cEd"/>
+                                            <outlet property="delegate" destination="G6T-EG-5QN" id="aEj-TR-FUK"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="mKT-fK-tCZ" firstAttribute="width" secondItem="sHq-4H-jrw" secondAttribute="width" multiplier="0.35" id="38a-IG-cGv"/>
+                                    <constraint firstItem="Sl4-Gf-Oc1" firstAttribute="width" secondItem="sHq-4H-jrw" secondAttribute="width" multiplier="0.65" id="zYP-3q-WcV"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ome-u0-tZo"/>
@@ -125,7 +173,7 @@
                             <constraint firstItem="Ome-u0-tZo" firstAttribute="trailing" secondItem="ymB-Gt-T49" secondAttribute="trailing" id="7Kh-sd-wAz"/>
                             <constraint firstItem="BPQ-Tb-7o3" firstAttribute="top" secondItem="ymB-Gt-T49" secondAttribute="bottom" id="FUw-rA-Vp7"/>
                             <constraint firstItem="ymB-Gt-T49" firstAttribute="top" secondItem="Ome-u0-tZo" secondAttribute="top" id="GaZ-cM-pMG"/>
-                            <constraint firstItem="Ome-u0-tZo" firstAttribute="trailing" secondItem="sHq-4H-jrw" secondAttribute="trailing" id="Kub-XN-9Ds"/>
+                            <constraint firstItem="Ome-u0-tZo" firstAttribute="trailing" secondItem="sHq-4H-jrw" secondAttribute="trailing" constant="10" id="Kub-XN-9Ds"/>
                             <constraint firstItem="BPQ-Tb-7o3" firstAttribute="leading" secondItem="Ome-u0-tZo" secondAttribute="leading" id="LzQ-Kj-jSe"/>
                             <constraint firstItem="sHq-4H-jrw" firstAttribute="leading" secondItem="Ome-u0-tZo" secondAttribute="leading" id="MhB-CS-99H"/>
                             <constraint firstItem="Ome-u0-tZo" firstAttribute="bottom" secondItem="sHq-4H-jrw" secondAttribute="bottom" id="W8T-Cp-4LF"/>
@@ -137,7 +185,9 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="Sl4-Gf-Oc1" id="6yr-fG-JaU"/>
+                        <outlet property="productSearchBar" destination="Nx9-Us-XIa" id="wGc-6r-4NI"/>
                         <outlet property="subCategoriesTable" destination="mKT-fK-tCZ" id="Efw-N2-rYT"/>
+                        <outlet property="toolBar" destination="BPQ-Tb-7o3" id="kj6-1D-xKz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYr-mn-3d7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
