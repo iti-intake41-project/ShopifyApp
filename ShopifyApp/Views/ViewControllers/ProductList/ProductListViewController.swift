@@ -19,6 +19,7 @@ class ProductListViewController: UIViewController {
     var products: [Product] = [Product]()
     var orignalProducts: [Product] = [Product]()
     let productsViewModel: ProductListViewModel = ProductListViewModel()
+    var collectionID:String?
     //Moataz
     var favouritesViewModel:FavouriteViewModelTemp!
     var favourites: [Product] = [Product]()
@@ -32,12 +33,12 @@ class ProductListViewController: UIViewController {
         productSearchView.delegate = self
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
-        productsViewModel.fetchAllProductsFromAPI()
+ 
 
         productsViewModel.bindProductListViewModelToView = onSuccessUpdateView
         productsViewModel.bindViewModelErrorToView = onFailUpdateView
         //call  products from viewController based on collectionID
-      
+       print(collectionID!)
         //Moataz
         favouritesViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         favouritesViewModel.bindFavouritesList = { [weak self] in
@@ -51,6 +52,7 @@ class ProductListViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+               productsViewModel.fetchAllProductsFromAPI(collectionID: collectionID!)
     }
 
     @IBAction func sliderAction(_ sender: UISlider) {

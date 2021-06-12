@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vF-Za-LrV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vF-Za-LrV">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,6 +36,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="shoppingBagAction:" destination="0vF-Za-LrV" eventType="touchUpInside" id="f5A-ic-VV1"/>
+                                                    <segue destination="yPA-oQ-hEB" kind="show" id="gLe-i8-chN"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfO-8a-gsD">
@@ -46,6 +46,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="favoriteAction:" destination="0vF-Za-LrV" eventType="touchUpInside" id="YCG-6f-37Z"/>
+                                                    <segue destination="uy2-1Q-k1y" kind="show" id="YU4-dB-lSU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -65,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="379.66666666666674" width="419" height="389.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbD-10-HA3">
-                                                <rect key="frame" x="148" y="0.0" width="123" height="30"/>
+                                                <rect key="frame" x="147.66666666666666" y="0.0" width="123.66666666666666" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="cjG-ul-B37"/>
                                                 </constraints>
@@ -82,7 +83,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3IN-QN-aIf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="182" height="162.33333333333334"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="OYm-il-4F8">
+                                                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="OYm-il-4F8">
                                                                         <rect key="frame" x="0.0" y="0.0" width="182" height="137.33333333333334"/>
                                                                         <gestureRecognizers/>
                                                                         <connections>
@@ -107,7 +108,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lOz-rL-ef3">
                                                                 <rect key="frame" x="0.0" y="182.33333333333331" width="182" height="162"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="yeK-Zb-g8A">
+                                                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="yeK-Zb-g8A">
                                                                         <rect key="frame" x="0.0" y="0.0" width="182" height="137"/>
                                                                         <gestureRecognizers/>
                                                                         <connections>
@@ -137,7 +138,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nPk-qt-RwE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="182" height="157.33333333333334"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="oOD-JD-xou">
+                                                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="oOD-JD-xou">
                                                                         <rect key="frame" x="0.0" y="0.0" width="182" height="132.33333333333334"/>
                                                                         <gestureRecognizers/>
                                                                         <connections>
@@ -162,7 +163,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nAr-we-7wz">
                                                                 <rect key="frame" x="0.0" y="177.33333333333331" width="182" height="157"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="bNc-mY-qEP">
+                                                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="bNc-mY-qEP">
                                                                         <rect key="frame" x="0.0" y="0.0" width="182" height="132"/>
                                                                         <gestureRecognizers/>
                                                                         <connections>
@@ -210,20 +211,25 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="he2-Hd-Tzh"/>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HBK-2g-4J6" firstAttribute="bottom" secondItem="he2-Hd-Tzh" secondAttribute="bottom" id="7Yt-GK-Dsi"/>
                             <constraint firstItem="HBK-2g-4J6" firstAttribute="leading" secondItem="he2-Hd-Tzh" secondAttribute="leading" id="C9w-q9-gk4"/>
                             <constraint firstItem="HBK-2g-4J6" firstAttribute="trailing" secondItem="he2-Hd-Tzh" secondAttribute="trailing" constant="5" id="PYf-FC-cqX"/>
                             <constraint firstItem="HBK-2g-4J6" firstAttribute="top" secondItem="he2-Hd-Tzh" secondAttribute="top" id="phP-zc-zce"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="he2-Hd-Tzh"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="qil-lJ-8Mu"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adsImage" destination="azh-ih-yGt" id="Rxo-tI-nNE"/>
+                        <outlet property="collectionLbl1" destination="8a6-cK-pMe" id="yeU-AM-Olw"/>
+                        <outlet property="collectionLbl2" destination="79x-3W-yaZ" id="peC-fk-aBr"/>
+                        <outlet property="collectionLbl3" destination="0aE-2x-jhj" id="mTd-kC-3LW"/>
+                        <outlet property="collectionLbl4" destination="EPe-pS-7Rc" id="4F1-Ea-CgE"/>
                         <outlet property="productSearchBar" destination="9xy-Qc-kgf" id="vIU-jW-BgI"/>
+                        <segue destination="m4F-Rp-9hH" kind="show" identifier="productList" id="G9e-Z5-lTm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYM-tV-b9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -235,16 +241,19 @@
                 <tapGestureRecognizer id="ZHb-G2-gaY">
                     <connections>
                         <action selector="menAction:" destination="0vF-Za-LrV" id="ZbX-hi-AFU"/>
+                        <segue destination="m4F-Rp-9hH" kind="show" identifier="kids" id="evs-Gr-PXk"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="fpb-xs-Kth">
                     <connections>
                         <action selector="womenAction:" destination="0vF-Za-LrV" id="oLS-VS-vmk"/>
+                        <segue destination="m4F-Rp-9hH" kind="show" identifier="colection3" id="10P-QO-Pi1"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="VJM-6b-X8c">
                     <connections>
                         <action selector="kidsAction:" destination="0vF-Za-LrV" id="HgC-RB-ChC"/>
+                        <segue destination="m4F-Rp-9hH" kind="show" identifier="colection4" id="jzk-Cu-iHJ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="M33-Ws-n9r">
@@ -255,30 +264,44 @@
             </objects>
             <point key="canvasLocation" x="318.84057971014494" y="128.57142857142856"/>
         </scene>
+        <!--ProductList-->
+        <scene sceneID="7Ft-nL-4Ox">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductList" id="m4F-Rp-9hH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="P48-mC-rmv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gzW-RK-9Ry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="129"/>
+        </scene>
         <!--Favourites-->
         <scene sceneID="JRp-A4-erq">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Favourite" storyboardName="Favourites" id="uy2-1Q-k1y" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Favourite" storyboardName="Favourites" id="uy2-1Q-k1y" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8BK-cT-eMJ"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMU-8h-kyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="843" y="48"/>
+            <point key="canvasLocation" x="949" y="-48"/>
         </scene>
         <!--ShoppingBag-->
         <scene sceneID="clm-t5-HZr">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ShoppingBag" storyboardName="ShoppingBag" id="yPA-oQ-hEB" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ShoppingBag" storyboardName="ShoppingBag" id="yPA-oQ-hEB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OVH-4m-ai2"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="046-po-JbJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="155"/>
+            <point key="canvasLocation" x="914" y="-109"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jzk-Cu-iHJ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="pic" width="569" height="351"/>
         <image name="pic1" width="848" height="450"/>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

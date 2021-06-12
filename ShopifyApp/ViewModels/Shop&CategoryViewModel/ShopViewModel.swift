@@ -67,4 +67,15 @@ class ShopViewModel :NSObject{
             }
         }
     }
+        func searchProduct(sProducts:[CustomCollections],searchTxt:String)
+            ->[CustomCollections]{
+           return searchTxt.isEmpty ? sProducts : sProducts.filter({
+                      (data :CustomCollections)->Bool in
+                       print ("search done ")
+    //                  return data.varients?[0].price.range(of: searchTxt , options: .caseInsensitive) != nil
+    //
+            return data.title.range(of: searchTxt , options: .caseInsensitive) != nil
+                     
+                  })
+    }
 }
