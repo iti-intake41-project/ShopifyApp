@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol baseProtocol {
     func addProduct(product: Product)
@@ -18,6 +19,8 @@ protocol ShoppingBagViewModelTemp: baseProtocol {
     func navigateToCheckOut()
     var navigateToAddress:()->(){set get}
     var navigateToPayment:()->(){set get}
+    
+    func postOrder(products: inout [Product])
 }
 
 protocol FavouriteViewModelTemp: baseProtocol {
@@ -40,20 +43,16 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         }
     }
     
+    let network = NetworkLayer()
     var delegate: AppDelegate
     let dataRepository: LocalDataRepository
-    let defaultsRepository = UserDefaultsDataRepository()
+    let defaultsRepository = UserDefaultsLayer()
     init(appDelegate: inout AppDelegate) {
         delegate = appDelegate
         dataRepository = CoreDataRepository(appDelegate: &delegate)
         favourites = dataRepository.getFavourites()
         
-        
-//        dataRepository.addAddress(address: Address(address1: "Fayoum", city: "Fayoum", province: "", phone: "", zip: "", last_name: "", first_name: "", country: "Egypt"))
-//        print("address in CD \(dataRepository.getAddress())")
-//        print("address check in CD \(dataRepository.hasAddress())")
-//        dataRepository.deleteAddress()
-//        print("address check in CD \(dataRepository.hasAddress())")
+        let _ = getOrders()
     }
     
     // MARK: - Shopping Cart
@@ -64,7 +63,7 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
     func addProduct(product: Product) {
         let products = dataRepository.getShoppingCartProductList()
         for cartProduct in products{
-            if product.id == cartProduct.id {
+            if product.varients?[0].id ?? 0 == cartProduct.varients?[0].id ?? 0 {
                 return
             }
         }
@@ -87,7 +86,62 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
             navigateToAddress()
         }
     }
-
+    
+    // MARK: - Order
+    func postOrder(products: inout [Product]){
+        var items: [OrderItem] = []
+        for product in products{
+            items.append(OrderItem(variant_id: product.varients?[0].id ?? 0, quantity: product.count))
+        }
+        let customer = OrderCustomer(id: defaultsRepository.getId())
+        let order = Order(line_items: items, customer: customer)
+        let myOrder = APIOrder(order: order)
+//        print("my order: \(myOrder)")
+        network.postOrder(order: myOrder) {[weak self] (data, response, error) in
+            if error != nil{
+                print("error while posting order \(error!.localizedDescription)")
+            }
+            if let data = data{
+                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+//                print("json: \(json)")
+                let returnedOrder = json["order"] as? Dictionary<String,Any>
+                let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
+                let id = returnedCustomer?["id"] as? Int ?? 0
+//                print("customer id: \(id)")
+                if id != 0 {
+                    print("call empty cart")
+                    self?.dataRepository.emptyCart()
+                }
+            }
+        }
+    }
+    
+    //get orders
+    func getOrders()->[Order]{
+        let customerId = defaultsRepository.getId()
+        var orders: [Order] = []
+        network.getOrders { (response) in
+            
+            switch response.result{
+            
+            case .success(let result):
+//                print("result: \(result)")
+                let APIOrders = result.orders
+                for order in APIOrders{
+                    if order.customer.id == customerId {
+                        print("matching order: \(order)")
+                        orders.append(order)
+                    }
+                }
+                
+            case .failure(let error):
+                print("error while getting orders: \(error.localizedDescription)")
+            }
+            
+        }
+        return orders
+    }
+    
 }
 
 

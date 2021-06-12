@@ -19,7 +19,9 @@ protocol RegisterViewModelTemp {
 class RegisterViewModel: RegisterViewModelTemp {
     var alertMsgDriver:Driver<String>
     var alertMsgSubject = PublishSubject<String>()
-    let defaultsRepo: DefaultsDataRepository = UserDefaultsDataRepository()
+    let defaultsRepo: UserDefaultsData = UserDefaultsLayer()
+    let network = NetworkLayer()
+
     init() {
         alertMsgDriver = alertMsgSubject.asDriver(onErrorJustReturn: "")
     }
@@ -54,13 +56,14 @@ class RegisterViewModel: RegisterViewModelTemp {
     
     
      func registerCustomer(newCustomer:NewCustomer){
-         registerCustomer(newCustomer:newCustomer){ [weak self] (data, response, error) in
+        network.registerCustomer(newCustomer:newCustomer){ [weak self] (data, response, error) in
              if error != nil {
                  print(error!)
              } else {
                  if let data = data {
                      let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
                      print("json: \(json)")
+                    
                      let returnedCustomer = json["customer"] as? Dictionary<String,Any>
                      let id = returnedCustomer?["id"] as? Int ?? 0
                      print("data: \(data)")
@@ -83,27 +86,27 @@ class RegisterViewModel: RegisterViewModelTemp {
      
     
     //code to be moved to network layer
-    func registerCustomer(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
-        guard let url = URL(string: URLs.customers()) else {return}
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let session = URLSession.shared
-        request.httpShouldHandleCookies = false
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: newCustomer.asDictionary(), options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-        //HTTP Headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        session.dataTask(with: request) { (data, response, error) in
-            completion(data, response, error)
-        }.resume()
-    }
+//    func registerCustomer(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
+//        guard let url = URL(string: URLs.customers()) else {return}
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        let session = URLSession.shared
+//        request.httpShouldHandleCookies = false
+//
+//        do {
+//            request.httpBody = try JSONSerialization.data(withJSONObject: newCustomer.asDictionary(), options: .prettyPrinted)
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//
+//        //HTTP Headers
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//
+//        session.dataTask(with: request) { (data, response, error) in
+//            completion(data, response, error)
+//        }.resume()
+//    }
     //*********************************
     
     

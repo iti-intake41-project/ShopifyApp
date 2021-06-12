@@ -48,6 +48,8 @@ class ShoppingBagViewController: UIViewController {
             totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
         }
         totalPriceText.text = String(format: "US$%.2f", totalPrice)
+        
+        viewModel.postOrder(products: &list)
     }
     
     func updateCD(id: Int){

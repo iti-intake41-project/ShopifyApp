@@ -19,9 +19,9 @@ protocol LoginViewModelTemp {
 
 class LoginViewModel: LoginViewModelTemp {
     
-    let defaultsRepo: DefaultsDataRepository = UserDefaultsDataRepository()
+    let defaultsRepo: UserDefaultsData = UserDefaultsLayer()
     let dataRepository: LocalDataRepository
-
+    let network = NetworkLayer()
     init(appDelegate: inout AppDelegate) {
         dataRepository = CoreDataRepository(appDelegate: &appDelegate)
 //        defaultsRepo.logut()
@@ -53,7 +53,7 @@ class LoginViewModel: LoginViewModelTemp {
     func login(email: String, password: String){
         if isValidEmail(email){
             if password.count >= 6{
-                login(email: email, password: password) { [weak self] (response) in
+                network.login(email: email, password: password) { [weak self] (response) in
                     switch response.result{
                     case .success(_):
                         guard let responseObject = response.value else {return}
@@ -69,7 +69,6 @@ class LoginViewModel: LoginViewModelTemp {
                                 if customer.addresses?[0].address1 != "" {
                                     //save address
                                     self?.dataRepository.addAddress(address: customer.addresses![0])
-//                                    self?.defaultsRepo.addAddressFlag()
                                 }
                                 self?.navigate = true
                                 break
@@ -95,9 +94,9 @@ class LoginViewModel: LoginViewModelTemp {
         }
     }
 
-    func login(email: String, password: String, completion: @escaping (DataResponse<LoginResponse, AFError>) -> ()){
-        AF.request(URLs.customers()).validate().responseDecodable(of:LoginResponse.self) { (response) in
-            completion(response)
-        }
-    }
+//    func login(email: String, password: String, completion: @escaping (DataResponse<LoginResponse, AFError>) -> ()){
+//        AF.request(URLs.customers()).validate().responseDecodable(of:LoginResponse.self) { (response) in
+//            completion(response)
+//        }
+//    }
 }
