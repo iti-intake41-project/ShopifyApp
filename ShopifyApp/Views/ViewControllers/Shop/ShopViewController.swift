@@ -9,7 +9,9 @@ import UIKit
 
 class ShopViewController: UIViewController{
 
-    
+    @IBOutlet weak var productSearchBar: UISearchBar!
+    @IBOutlet weak var adsImage: UIImageView!
+
     
     var products: [Product] = [Product]()
     let shopViewModel: ShopViewModel = ShopViewModel()
@@ -55,4 +57,24 @@ class ShopViewController: UIViewController{
              self.present(alert, animated: true, completion: nil)
     }
 
+    @IBAction func shoppingBagAction(_ sender: Any) {
+    }
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+    }
+    
+    @IBAction func adsAction(_ sender: Any) {
+    }
+    
+    @IBAction func homeAction(_ sender: Any) {
+    }
+    
+    @IBAction func menAction(_ sender: Any) {
+    }
+    
+    @IBAction func womenAction(_ sender: Any) {
+    }
+    
+    @IBAction func kidsAction(_ sender: Any) {
+    }
 }
