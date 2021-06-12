@@ -13,14 +13,22 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var currencytBtn: UIButton!
     
     @IBOutlet weak var countrybtn: UIButton!
-    //    let defaults = UserDefaults.standard
     
+    @IBOutlet weak var logoutStack: UIStackView!
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var settingViewModel = SettingViewModel()
+    var isLoggedIn = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settingViewModel.bindSettingViewModel = onSuccess
         currencytBtn.setTitle(settingViewModel.currency, for: .normal)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+         isLoggedIn = settingViewModel.isLoggedIn()
+        if !isLoggedIn {
+            logoutStack.isHidden = true
+        }
     }
     
     func onSuccess() {
@@ -44,6 +52,7 @@ class SettingTableViewController: UITableViewController {
     
     @IBAction func currency(_ sender: Any) {
         print("currency")
+        if isLoggedIn {
         
         let alert = UIAlertController(title: "Choose Currency", message: nil, preferredStyle: .alert)
         
@@ -62,7 +71,7 @@ class SettingTableViewController: UITableViewController {
         alert.addAction(usd)
         alert.addAction(egp)
         self.present(alert, animated: true, completion: nil)
-        
+        }
         
     }
     
@@ -92,6 +101,10 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func logout(_ sender: UIButton) {
+        
+        settingViewModel.logout(appDelegate: &appDelegate)
+        logoutStack.isHidden = true
+    
     }
     
     func getAlert (message:String){

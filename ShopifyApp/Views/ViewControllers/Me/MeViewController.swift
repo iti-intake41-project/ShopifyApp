@@ -30,7 +30,19 @@ class MeViewController: UIViewController {
     @IBOutlet weak var order2StackView: UIStackView!
     @IBOutlet weak var fav2StackView: UIStackView!
     @IBOutlet weak var fav3StackView: UIStackView!
+    
+    @IBOutlet weak var orderStackView: UIStackView!
+    @IBOutlet weak var loginOrRegisterOrderStackView: UIStackView!
+    @IBOutlet weak var registerOrder: UIButton!
+    @IBOutlet weak var loginOrder: UIButton!
+    @IBOutlet weak var loginFav: UIButton!
+    @IBOutlet weak var registerFav: UIButton!
+    
+    @IBOutlet weak var loginOrRegisterFav: UIStackView!
+    @IBOutlet weak var FavouriteStackVIew: UIStackView!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var meViewModel = MeViewModel()
+    var isLoggedIn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,23 +50,55 @@ class MeViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-          setOrderesUI(products: getOrders())
-          setWishListToUI(favourites: getfavourites())
-
+        setOrderesUI(products: getOrders())
+        setWishListToUI(favourites: getfavourites())
+        
+        isLoggedIn = meViewModel.isLoggedIn(
+            loginOrRegisterOrderStackView:loginOrRegisterOrderStackView, loginOrRegisterFavStackView: loginOrRegisterFav, orderStackView: orderStackView, favouriteStackView: FavouriteStackVIew)
+        
+        
     }
+    
+    @IBAction func login(_ sender: UIButton) {
+        
+        performSegue(withIdentifier:"login",sender:self)
+    }
+    
+    
+    @IBAction func register(_ sender: UIButton) {
+        performSegue(withIdentifier:"register",sender:self)
+        
+    }
+    
     @IBAction func gotTOOrders(_ sender: UIButton) {
+        if isLoggedIn {
+            performSegue(withIdentifier: "gotToOrders", sender: self)
+            
+        }else {
+            performSegue(withIdentifier: "login", sender: self)
+        }
     }
     
     @IBAction func goToShoppingBag(_ sender: UIButton) {
-//        
-//                let ShopViewController = storyboard?.instantiateViewController(withIdentifier: "ShopViewController") as! ShoppingBagViewController
-//                ShopViewController.modalPresentationStyle = .fullScreen
-//        
-//                present(ShopViewController, animated: true, completion: nil)
-//                 performSegue(withIdentifier: "ShoppingBag", sender: self)
+        
+        if isLoggedIn {
+            performSegue(withIdentifier: "gotToShoppingBag", sender: self)
+//            let OrdersTableViewController = storyboard?.instantiateViewController(withIdentifier: "OrdersTableViewController") as! OrdersTableViewController
+//                   OrdersTableViewController.modalPresentationStyle = .fullScreen
+//
+//                   present(OrdersTableViewController, animated: true, completion: nil)
+        }else {
+            performSegue(withIdentifier: "login", sender: self)
+        }
+        
     }
     
     @IBAction func goTOWishList(_ sender: UIButton) {
+        if isLoggedIn {
+            performSegue(withIdentifier: "goToFav", sender: self)
+        }else {
+            performSegue(withIdentifier: "login", sender: self)
+        }
     }
     @IBAction func gotoSetting(_ sender: Any) {
     }
@@ -76,7 +120,7 @@ class MeViewController: UIViewController {
             imgOrder1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
             imgOrder2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
             imgOrder3.sd_setImage(with:URL(string:products[2].images[0].src), placeholderImage: UIImage(named: "noImage"))
-           
+            
             lblOrder1.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
             lblOrder2.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
             lblOrder3.text = FormatePrice.formatePrice(priceStr: products[3].varients?[0].price)
@@ -95,46 +139,55 @@ class MeViewController: UIViewController {
             
             
         }
+        else{
+            lblOrder1.text = "Not found orders"
+            order2StackView.isHidden = true
+            order3StackView.isHidden = true
+        }
     }
     func getfavourites() ->[Product]{
-        var viewModel:FavouriteViewModelTemp!
-        viewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
-        return viewModel.getAllFaourites()
-         
-      }
-   
+        
+        return meViewModel.getfavourites(appDelegate: &appDelegate)
+        
+    }
+    
     func setWishListToUI(favourites products:[Product]) {
         if products.count == 1 {
-                   imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                   lblFav1.text = products[0].title
-                   fav2StackView.isHidden = true
-                   fav3StackView.isHidden = true
-                   
-               }
-                   
-               else if products.count >= 3 {
-                   imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                   imgFav2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                   imgFav3.sd_setImage(with:URL(string:products[2].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                  
-                   lblFav1.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
-                   lblFav2.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
-                   lblFav3.text = FormatePrice.formatePrice(priceStr: products[3].varients?[0].price)
-                   
-                   print(products[2].title)
-                   
-                   
-               }
-               else if products.count == 2 {
-                   imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                   imgFav2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
-                   
-                   lblFav1.text = products[0].title
-                   lblFav2.text = products[1].title
-                   fav3StackView.isHidden = true
-                   
-                   
-               }
+            imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            lblFav1.text = products[0].title
+            fav2StackView.isHidden = true
+            fav3StackView.isHidden = true
+            
+        }
+            
+        else if products.count >= 3 {
+            imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            imgFav2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            imgFav3.sd_setImage(with:URL(string:products[2].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            
+            lblFav1.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
+            lblFav2.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
+            lblFav3.text = FormatePrice.formatePrice(priceStr: products[3].varients?[0].price)
+            
+            print(products[2].title)
+            
+            
+        }
+        else if products.count == 2 {
+            imgFav1.sd_setImage(with:URL(string:products[0].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            imgFav2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
+            
+            lblFav1.text = products[0].title
+            lblFav2.text = products[1].title
+            fav3StackView.isHidden = true
+            
+            
+        }else{
+            fav1StackView.isHidden = true
+            fav2StackView.isHidden = true
+            fav3StackView.isHidden = true
+            
+        }
     }
     
 }
