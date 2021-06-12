@@ -24,6 +24,7 @@ class AddressTableViewController: UITableViewController {
         bindToViewModel()
         self.view.isUserInteractionEnabled = true
         //        indicator.isHidden = true
+       
     }
     
     func bindToViewModel(){

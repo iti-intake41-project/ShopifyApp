@@ -51,8 +51,20 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func address(_ sender: UIButton) {
+        if isLoggedIn {
         if  settingViewModel.hasAddress(appDelegate: &appDelegate){
             //navigate to address
+            performSegue(withIdentifier: "showAddress", sender: self)
+            }
+      
+        else{
+            performSegue(withIdentifier: "addAddress", sender: self)
+            }
+            
+        }
+        else {
+            
+            performSegue(withIdentifier: "login", sender: self)
         }
     }
     
@@ -107,7 +119,8 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func logout(_ sender: UIButton) {
-        
+        addrbtn.setTitle("", for: .normal)
+        countrybtn.setTitle("", for: .normal)
         settingViewModel.logout(appDelegate: &appDelegate)
         logoutStack.isHidden = true
         
