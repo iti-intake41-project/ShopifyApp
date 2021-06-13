@@ -19,7 +19,6 @@
 		4B46CD242675C2F100B191D5 /* AddsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CD232675C2F100B191D5 /* AddsTableViewController.swift */; };
 		4B5DF7A3266F868300C15388 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5DF7A2266F868300C15388 /* SettingTableViewController.swift */; };
 		4BA0911A2674F70600117E05 /* ShowAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA091192674F70600117E05 /* ShowAddressTableViewController.swift */; };
-		4BA0911C2674FD4600117E05 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA0911B2674FD4600117E05 /* Me.storyboard */; };
 		4BF2BF692670B7BE0036EB10 /* UserDefaultsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2BF682670B7BE0036EB10 /* UserDefaultsLayer.swift */; };
 		4BF2BF6C2670BC450036EB10 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2BF6B2670BC450036EB10 /* SettingViewModel.swift */; };
 		4BF2BF6F2670EC020036EB10 /* FormatePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2BF6E2670EC020036EB10 /* FormatePrice.swift */; };
@@ -43,6 +42,7 @@
 		76BE68FC2658708900C93F88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68FB2658708900C93F88 /* GoogleService-Info.plist */; };
 		76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918C326695F23000E406C /* RegisterViewModel.swift */; };
 		76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918CC26695F36000E406C /* LoginViewModel.swift */; };
+		76DA59E126769868002EC958 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76DA59E026769868002EC958 /* Me.storyboard */; };
 		9FD3887BCF629E1AE1B942C4 /* Pods_ShopifyApp_ShopifyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765D6F3A1516A825D81CE8C4 /* Pods_ShopifyApp_ShopifyAppUITests.framework */; };
 		C1C610BB266A894400FF455E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C610BA266A894200FF455E /* CategoryViewController.swift */; };
 		C1E635E8266FAE460029F9EA /* CategoryProductsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E635E7266FAE460029F9EA /* CategoryProductsCollectionView.swift */; };
@@ -98,7 +98,6 @@
 		4B46CD232675C2F100B191D5 /* AddsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddsTableViewController.swift; sourceTree = "<group>"; };
 		4B5DF7A2266F868300C15388 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		4BA091192674F70600117E05 /* ShowAddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddressTableViewController.swift; sourceTree = "<group>"; };
-		4BA0911B2674FD4600117E05 /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Me.storyboard; path = ../../../../../../.Trash/Me.storyboard; sourceTree = "<group>"; };
 		4BF2BF682670B7BE0036EB10 /* UserDefaultsLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLayer.swift; sourceTree = "<group>"; };
 		4BF2BF6B2670BC450036EB10 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		4BF2BF6E2670EC020036EB10 /* FormatePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatePrice.swift; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 		76BE68FB2658708900C93F88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76D918C326695F23000E406C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		76D918CC26695F36000E406C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		76DA59E026769868002EC958 /* Me.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		78535481158D8E91529DF7D1 /* Pods-ShopifyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyAppTests/Pods-ShopifyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85036CC28D5579779AED4E59 /* Pods-ShopifyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A5D74218A6BD87316BB8F71D /* Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyApp-ShopifyAppUITests/Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -458,7 +458,7 @@
 		D37210E92655B9CC00935F86 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				4BA0911B2674FD4600117E05 /* Me.storyboard */,
+				76DA59E026769868002EC958 /* Me.storyboard */,
 				D37210AD2655B81100935F86 /* Main.storyboard */,
 				D37210B22655B81300935F86 /* LaunchScreen.storyboard */,
 				7649274D26570A3A00B23245 /* Shop.storyboard */,
@@ -654,6 +654,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DA59E126769868002EC958 /* Me.storyboard in Resources */,
 				4B4518FB2667F93400E0D1DF /* ProductList.storyboard in Resources */,
 				7649275326570B8400B23245 /* Category.storyboard in Resources */,
 				76BE68E726586ED600C93F88 /* LoginRegister.storyboard in Resources */,
@@ -664,7 +665,6 @@
 				76BE68FC2658708900C93F88 /* GoogleService-Info.plist in Resources */,
 				D37210AF2655B81100935F86 /* Main.storyboard in Resources */,
 				76492768265710F000B23245 /* ShoppingBag.storyboard in Resources */,
-				4BA0911C2674FD4600117E05 /* Me.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
