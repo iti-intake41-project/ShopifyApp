@@ -54,10 +54,21 @@ class MeViewController: UIViewController {
         setOrderesUI(products: getOrders())
         setWishListToUI(favourites: getfavourites())
         
-        isLoggedIn = meViewModel.isLoggedIn(
-            userLbl: userLbl,
-            loginOrRegisterOrderStackView:loginOrRegisterOrderStackView, loginOrRegisterFavStackView: loginOrRegisterFav, orderStackView: orderStackView, favouriteStackView: FavouriteStackVIew)
+       isLoggedIn = meViewModel.isLoggedIn()
         
+        if isLoggedIn {
+            loginOrRegisterOrderStackView.isHidden = true
+            loginOrRegisterFav.isHidden = true
+            orderStackView.isHidden = false
+            FavouriteStackVIew.isHidden = false
+            userLbl.text = "Welcome \(meViewModel.getUserName())"
+        }else{
+            loginOrRegisterOrderStackView.isHidden = false
+            loginOrRegisterFav.isHidden = false
+            userLbl.isHidden = true
+            orderStackView.isHidden = true
+            FavouriteStackVIew.isHidden = true
+        }
         
     }
     

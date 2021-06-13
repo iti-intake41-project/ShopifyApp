@@ -303,6 +303,7 @@
                         <outlet property="orderStackView" destination="dzj-fQ-WaF" id="TRe-Vr-Qih"/>
                         <outlet property="registerFav" destination="ZA9-oX-TVp" id="9Rb-iY-7du"/>
                         <outlet property="registerOrder" destination="uOC-9F-4ZD" id="s02-ti-gYS"/>
+                        <outlet property="userLbl" destination="Frk-P5-i6m" id="kMQ-KE-JxZ"/>
                         <segue destination="NM9-lJ-4fv" kind="show" identifier="register" id="6Yy-Ca-RG6"/>
                         <segue destination="l1b-Qn-oSo" kind="show" identifier="goToFav" id="RLn-SC-FhL"/>
                         <segue destination="B43-Xi-SN8" kind="show" identifier="login" id="vgt-0h-a4I"/>

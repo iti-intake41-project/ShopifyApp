@@ -50,34 +50,23 @@ class MeViewModel{
         return viewModel.getAllFaourites()
         
     }
-    func isLoggedIn(
-        userLbl:UILabel,
-        loginOrRegisterOrderStackView:UIStackView,
-        loginOrRegisterFavStackView:UIStackView ,
-        orderStackView:UIStackView,
-        favouriteStackView:UIStackView) -> Bool{
-        
-        let settingViewModel = SettingViewModel()
-        var isLogegedIn = false
-        isLogegedIn = settingViewModel.isLoggedIn()
-        print(isLogegedIn)
-        if isLogegedIn {
-            loginOrRegisterOrderStackView.isHidden = true
-            loginOrRegisterFavStackView.isHidden = true
-            orderStackView.isHidden = false
-            favouriteStackView.isHidden = false
-            userLbl.text = "Welcome \(defaultsRepository.getUserName())"
-            return true
-            
-        }else{
-            loginOrRegisterOrderStackView.isHidden = false
-            loginOrRegisterFavStackView.isHidden = false
-            userLbl.isHidden = true
-            orderStackView.isHidden = true
-            favouriteStackView.isHidden = true
-            return false
-            
-        }
-    }
+     func isLoggedIn() -> Bool{
+          
+          let settingViewModel = SettingViewModel()
+          var isLogegedIn = false
+          isLogegedIn = settingViewModel.isLoggedIn()
+          print(isLogegedIn)
+          if isLogegedIn {
+              return true
+              
+          }else{
+              return false
+              
+          }
+      }
+      func getUserName() -> String {
+         return defaultsRepository.getUserName()
+
+      }
     
 }
