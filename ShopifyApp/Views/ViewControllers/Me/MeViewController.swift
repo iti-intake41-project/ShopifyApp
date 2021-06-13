@@ -9,6 +9,7 @@ import UIKit
 
 class MeViewController: UIViewController {
     
+    @IBOutlet weak var userLbl: UILabel!
     @IBOutlet weak var imgOrder1: UIImageView!
     @IBOutlet weak var lblOrder1: UILabel!
     @IBOutlet weak var imgOrder2: UIImageView!
@@ -54,6 +55,7 @@ class MeViewController: UIViewController {
         setWishListToUI(favourites: getfavourites())
         
         isLoggedIn = meViewModel.isLoggedIn(
+            userLbl: userLbl,
             loginOrRegisterOrderStackView:loginOrRegisterOrderStackView, loginOrRegisterFavStackView: loginOrRegisterFav, orderStackView: orderStackView, favouriteStackView: FavouriteStackVIew)
         
         

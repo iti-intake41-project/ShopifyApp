@@ -14,7 +14,7 @@ class SettingViewModel :NSObject{
     
     var currency: String?{
         didSet {
-//            print("from didSelect :\(currency!) ")
+            //            print("from didSelect :\(currency!) ")
             self.bindSettingViewModel()
         }
     }
@@ -25,7 +25,16 @@ class SettingViewModel :NSObject{
         currency = getCurrency(key: "currency")
         
     }
-    
+    func getAddress(appDelegate:inout AppDelegate) -> Address {
+        let coreDataRepo = CoreDataRepository(appDelegate:&appDelegate)
+        
+        return coreDataRepo.getAddress()
+    }
+    func hasAddress(appDelegate:inout AppDelegate) -> Bool {
+         let coreDataRepo = CoreDataRepository(appDelegate:&appDelegate)
+               
+               return coreDataRepo.hasAddress()
+    }
     
     func getCurrency (key:String)->String{
         self.currency = userDefaults.getCurrency(key: key)
@@ -35,7 +44,7 @@ class SettingViewModel :NSObject{
     func setCurrency(key:String , value:String){
         userDefaults.setCurrency(key: key, value: value)
         self.currency = value
-
+        
     }
     func isLoggedIn() -> Bool {
         print()
@@ -46,6 +55,7 @@ class SettingViewModel :NSObject{
     func logout(appDelegate:inout AppDelegate){
         //donia
         userDefaults.setCurrency(key: "currency", value:"")
+        userDefaults.addUserName(userName: "")
         //donia
         
         //remove address, empty fav & cart, switch flag
