@@ -119,10 +119,17 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func logout(_ sender: UIButton) {
-        addrbtn.setTitle("", for: .normal)
-        countrybtn.setTitle("", for: .normal)
-        settingViewModel.logout(appDelegate: &appDelegate)
-        logoutStack.isHidden = true
+        let alert = UIAlertController(title: "Alert", message: "Do You  want Logout from application ?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) {[weak self] (UIAlertAction) in
+            self?.addrbtn.setTitle("", for: .normal)
+            self?.countrybtn.setTitle("", for: .normal)
+            self?.settingViewModel.logout(appDelegate: &self!.appDelegate)
+            self?.logoutStack.isHidden = true
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(yesAction)
+        alert.addAction(cancel)
+        self.present(alert ,animated: true , completion: nil)
         
     }
     
