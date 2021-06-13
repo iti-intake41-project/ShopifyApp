@@ -88,7 +88,7 @@ class ShopViewController: UIViewController{
         print("home action")
         let productList = ProductListViewController()
         if collections.count != 0 {
-            productList.collectionID = "\(collections[0].id)"
+            productList.collectionID = collections[4]
             prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
             performSegue(withIdentifier: "productList", sender: self)
             
@@ -123,7 +123,7 @@ class ShopViewController: UIViewController{
         //collectionLbl2
         let productList = ProductListViewController()
         if collections.count != 0 {
-        productList.collectionID = "\(collections[0].id)"
+        productList.collectionID = collections[1]
         prepare(for: UIStoryboardSegue(identifier: "kids", source: self, destination: productList), sender: self)
         performSegue(withIdentifier: "kids", sender: self)
         }
@@ -134,7 +134,7 @@ class ShopViewController: UIViewController{
         
         let productList = ProductListViewController()
         if collections.count != 0 {
-        productList.collectionID = "\(collections[3].id)"
+        productList.collectionID = collections[2]
         prepare(for: UIStoryboardSegue(identifier: "colection3", source: self, destination: productList), sender: self)
         performSegue(withIdentifier: "colection3", sender: self)
         }
@@ -145,14 +145,14 @@ class ShopViewController: UIViewController{
         
         let productList = ProductListViewController()
         if collections.count != 0 {
-        productList.collectionID = "\(collections[4].id)"
+        productList.collectionID = collections[3]
         prepare(for: UIStoryboardSegue(identifier: "colection4", source: self, destination: productList), sender: self)
         performSegue(withIdentifier:"colection4",sender: self)
         }
         
     }
 }
-}
+
 
 extension ShopViewController:UISearchBarDelegate {
     
