@@ -262,6 +262,11 @@
                     <tabBarItem key="tabBarItem" systemItem="history" id="qil-lJ-8Mu"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="adsImage" destination="azh-ih-yGt" id="Gav-E1-GgR"/>
+                        <outlet property="collectionImg1" destination="OYm-il-4F8" id="4Ml-MP-kjW"/>
+                        <outlet property="collectionImg2" destination="oOD-JD-xou" id="wLw-Cw-TD8"/>
+                        <outlet property="collectionImg3" destination="yeK-Zb-g8A" id="b6C-vf-b66"/>
+                        <outlet property="collectionImg4" destination="bNc-mY-qEP" id="8oV-TA-MGQ"/>
                         <outlet property="collectionLbl1" destination="8a6-cK-pMe" id="yeU-AM-Olw"/>
                         <outlet property="collectionLbl2" destination="79x-3W-yaZ" id="peC-fk-aBr"/>
                         <outlet property="collectionLbl3" destination="0aE-2x-jhj" id="mTd-kC-3LW"/>

@@ -15,7 +15,11 @@ class ShopViewController: UIViewController{
     @IBOutlet weak var collectionLbl2: UILabel!
     @IBOutlet weak var collectionLbl3: UILabel!
     @IBOutlet weak var collectionLbl4: UILabel!
+    @IBOutlet weak var collectionImg1: UIImageView!
+    @IBOutlet weak var collectionImg2: UIImageView!
     
+    @IBOutlet weak var collectionImg4: UIImageView!
+    @IBOutlet weak var collectionImg3: UIImageView!
     var products: [Product] = [Product]()
     var collections = [CustomCollections]()
     let shopViewModel: ShopViewModel = ShopViewModel()
@@ -24,29 +28,13 @@ class ShopViewController: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         productSearchBar.delegate = self
-        //        shopViewModel.bindShopViewModelToView  = onSuccessUpdateView
-        //        shopViewModel.bindViewModelErrorToView = onFailUpdateView
-        //call  products from viewController based on collectionID
         shopViewModel.fetchCustomCollection()
         shopViewModel.bindShopViewModelToView = onSuccessUpdateView
-        //shopViewModel.fetchAllProductsFromAPI()
-        ////
-        //        performSegue(withIdentifier: "productlist", sender: self)
     }
     
     
     
     func onSuccessUpdateView() {
-        //      guard let products = shopViewModel.allProducts
-        //       else {
-        //        print("no products")
-        //        return }
-        //        self.products = products
-        //
-        //        print(products.count)
-        //        print(products[0].title)
-        //        print(products[0].productType!)
-        //        print("-------------------------")
         guard let collections = shopViewModel.customCollections else {
             print("no collections")
             return
@@ -55,11 +43,14 @@ class ShopViewController: UIViewController{
         for i in collections {
             print(i.title)
         }
-        collectionLbl1.text = collections[0].title
+        collectionLbl1.text = collections[4].title
         collectionLbl2.text = collections[1].title
         collectionLbl3.text = collections[3].title
         collectionLbl4.text = collections[2].title
-        
+        collectionImg1.sd_setImage(with: URL(string: collections[4].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
+        collectionImg2.sd_setImage(with: URL(string: collections[1].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
+        collectionImg3.sd_setImage(with: URL(string: collections[2].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
+        collectionImg4.sd_setImage(with: URL(string: collections[3].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
         
     }
     func onFailUpdateView() {
@@ -98,14 +89,7 @@ class ShopViewController: UIViewController{
     }
     
     @IBAction func homeAction(_ sender: Any) {
-        //        print("home action")
-        //        let productList = ProductListViewController()
-        //        if collections.count != 0 {
-        //            productList.collectionID = collections[4]
-        //            prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
-        //            performSegue(withIdentifier: "productList", sender: self)
-        //
-        //        }
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare")
@@ -131,35 +115,13 @@ class ShopViewController: UIViewController{
     
     
     @IBAction func menAction(_ sender: Any) {
-        //        //collectionLbl2
-        //        let productList = ProductListViewController()
-        //        if collections.count != 0 {
-        //        productList.collectionID = collections[1]
-        //        prepare(for: UIStoryboardSegue(identifier: "kids", source: self, destination: productList), sender: self)
-        //        performSegue(withIdentifier: "kids", sender: self)
-        //        }
     }
     
     @IBAction func womenAction(_ sender: Any) {
-        //collectionLbl3
         
-        //        let productList = ProductListViewController()
-        //        if collections.count != 0 {
-        //        productList.collectionID = collections[2]
-        //        prepare(for: UIStoryboardSegue(identifier: "colection3", source: self, destination: productList), sender: self)
-        //        performSegue(withIdentifier: "colection3", sender: self)
-        //        }
     }
     
     @IBAction func kidsAction(_ sender: Any) {
-        //collectionLbl4
-        
-        //        let productList = ProductListViewController()
-        //        if collections.count != 0 {
-        //        productList.collectionID = collections[3]
-        //        prepare(for: UIStoryboardSegue(identifier: "colection4", source: self, destination: productList), sender: self)
-        //        performSegue(withIdentifier:"colection4",sender: self)
-        //        }
         
     }
 }
