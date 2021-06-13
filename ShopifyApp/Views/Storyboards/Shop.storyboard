@@ -76,8 +76,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="shoppingBagAction:" destination="0vF-Za-LrV" eventType="touchUpInside" id="f5A-ic-VV1"/>
-                                                    <segue destination="yPA-oQ-hEB" kind="show" id="gLe-i8-chN"/>
+                                                    <segue destination="yPA-oQ-hEB" kind="show" id="IVn-p3-BdW"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfO-8a-gsD">
@@ -86,8 +85,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="favoriteAction:" destination="0vF-Za-LrV" eventType="touchUpInside" id="YCG-6f-37Z"/>
-                                                    <segue destination="uy2-1Q-k1y" kind="show" id="YU4-dB-lSU"/>
+                                                    <segue destination="uy2-1Q-k1y" kind="show" id="AT5-D1-K2s"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -269,37 +267,36 @@
                         <outlet property="collectionLbl2" destination="79x-3W-yaZ" id="peC-fk-aBr"/>
                         <outlet property="collectionLbl3" destination="0aE-2x-jhj" id="mTd-kC-3LW"/>
                         <outlet property="collectionLbl4" destination="EPe-pS-7Rc" id="4F1-Ea-CgE"/>
+                        <outlet property="imgCollection1" destination="OYm-il-4F8" id="rd7-03-r1V"/>
+                        <outlet property="imgCollection2" destination="oOD-JD-xou" id="NQK-eG-SNA"/>
+                        <outlet property="imgCollection3" destination="yeK-Zb-g8A" id="Y5T-cg-Ide"/>
+                        <outlet property="imgCollection4" destination="bNc-mY-qEP" id="a7c-PM-oY4"/>
                         <outlet property="productSearchBar" destination="9xy-Qc-kgf" id="vIU-jW-BgI"/>
-                        <segue destination="m4F-Rp-9hH" kind="show" identifier="productList" id="G9e-Z5-lTm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYM-tV-b9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="DiN-yh-0QC">
                     <connections>
-                        <action selector="homeAction:" destination="0vF-Za-LrV" id="DMS-OD-xYR"/>
+                        <segue destination="m4F-Rp-9hH" kind="show" identifier="col1" id="b3Q-gM-QSJ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="ZHb-G2-gaY">
                     <connections>
-                        <action selector="menAction:" destination="0vF-Za-LrV" id="ZbX-hi-AFU"/>
-                        <segue destination="m4F-Rp-9hH" kind="show" identifier="kids" id="evs-Gr-PXk"/>
+                        <segue destination="m4F-Rp-9hH" kind="show" identifier="col2" id="J3c-68-RRo"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="fpb-xs-Kth">
                     <connections>
-                        <action selector="womenAction:" destination="0vF-Za-LrV" id="oLS-VS-vmk"/>
-                        <segue destination="m4F-Rp-9hH" kind="show" identifier="colection3" id="10P-QO-Pi1"/>
+                        <segue destination="m4F-Rp-9hH" kind="show" identifier="col3" id="I7f-2q-ILo"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="VJM-6b-X8c">
                     <connections>
-                        <action selector="kidsAction:" destination="0vF-Za-LrV" id="HgC-RB-ChC"/>
-                        <segue destination="m4F-Rp-9hH" kind="show" identifier="colection4" id="jzk-Cu-iHJ"/>
+                        <segue destination="m4F-Rp-9hH" kind="show" identifier="col4" id="f84-F9-VL9"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="M33-Ws-n9r">
                     <connections>
-                        <action selector="adsAction:" destination="0vF-Za-LrV" id="M5U-cK-QT9"/>
                         <segue destination="Ics-vI-adi" kind="show" identifier="adds" id="NAx-X6-sgQ"/>
                     </connections>
                 </tapGestureRecognizer>
@@ -314,7 +311,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzW-RK-9Ry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="914" y="129"/>
+            <point key="canvasLocation" x="-260" y="-80"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="JRp-A4-erq">
@@ -338,7 +335,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jzk-Cu-iHJ"/>
+        <segue reference="f84-F9-VL9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>

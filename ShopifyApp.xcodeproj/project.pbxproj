@@ -223,13 +223,6 @@
 			path = Orders;
 			sourceTree = "<group>";
 		};
-		4B45CAB22674B97E002FE0A8 /* Adds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Adds;
-			sourceTree = "<group>";
-		};
 		4B5DF7A1266F865D00C15388 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,7 +437,6 @@
 		D37210E82655B9AB00935F86 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4B45CAB22674B97E002FE0A8 /* Adds */,
 				4B45CAB12674B96D002FE0A8 /* Orders */,
 				4B5DF7A1266F865D00C15388 /* Setting */,
 				D3F148F5266BB60800729210 /* ProductDetails */,
