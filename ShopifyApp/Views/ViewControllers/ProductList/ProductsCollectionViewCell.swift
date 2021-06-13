@@ -25,19 +25,25 @@ class ProductsCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-        
+    
     @IBAction func toggleFavourite(_ sender: UIButton) {
-        if delegate.isFavourite(id: product.id){
-            delegate.deleteFavourite(id: product.id)
+
+        if delegate.isFavourite(id: product.varients?[0].id ?? 0){
+            print("is favourite cell: \(product.varients?[0].id ?? 0)")
+
+            delegate.deleteFavourite(id: product.varients?[0].id ?? 0)
             //change button icon to NOT favourite
             favouriteBtn.backgroundColor = UIColor.white
+            print("not favourite")
 
         }else{
             delegate.addFavourite(product: product)
             //change button icon to favourite
             favouriteBtn.backgroundColor = UIColor.red
-
+            print("is favourite")
         }
+        print("prdouct id: \(product.varients?[0].id ?? 0)")
+
     }
     //Moataz
 }

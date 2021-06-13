@@ -23,6 +23,7 @@ class AddressViewModel: AddressViewModelTemp {
     var delegate: AppDelegate
     var dataRepository: LocalDataRepository
     var defaultsRepository = UserDefaultsLayer()
+    let network = NetworkLayer()
     var viewShowAlret:()->() = {
     }
     var navigateToCheckOut:()->() = {}
@@ -43,7 +44,7 @@ class AddressViewModel: AddressViewModelTemp {
             if city != ""{
                 if address != ""{
                     let address = Address(address1: address, city: city, province: "", phone: "", zip: zipcode, last_name: "", first_name: "", country: country)
-                    addAddress(address: address)
+                    addAddress( address: address)
                 }else{
                     message = "Please enter your address"
                 }
@@ -56,7 +57,8 @@ class AddressViewModel: AddressViewModelTemp {
     }
     
     func addAddress(address: Address){
-        addAddress(address: address) { [weak self] (data, response, error) in
+        let id = defaultsRepository.getId()
+        network.addAddress(id: id, address: address) { [weak self] (data, response, error) in
             if error != nil {
                 print("error while adding address \(error!)")
                 self?.message = "An error occured while adding your address"
@@ -80,29 +82,4 @@ class AddressViewModel: AddressViewModelTemp {
         }
     }
     
-    //Move to network layer
-    func addAddress(address: Address, completion: @escaping(Data?, URLResponse?, Error?)->()){
-        let customer = CustomerAddress(addresses: [address])
-        let putObject = PutAddress(customer: customer)
-        let id = defaultsRepository.getId()
-        guard let url = URL(string: URLs.customer(id: "\(id)")) else {return}
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        let session = URLSession.shared
-        request.httpShouldHandleCookies = false
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: putObject.asDictionary(), options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-        //HTTP Headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        session.dataTask(with: request) { (data, response, error) in
-            completion(data, response, error)
-        }.resume()
-    }
 }

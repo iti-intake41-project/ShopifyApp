@@ -18,7 +18,7 @@ protocol LocalDataRepository{
     func deleteFavourite(id: Int)
     func getFavourites()->[Product]
     func addAddress(address: Address)
-    static func deleteAddress(appDelegate: inout AppDelegate)
+    func deleteAddress()
     func hasAddress()->Bool
     func getAddress()->Address
 }
@@ -187,7 +187,7 @@ class CoreDataRepository: LocalDataRepository {
                 let price = product.value(forKey: "price") as! String
                 let title = product.value(forKey: "title") as! String
                 let imgUrl = product.value(forKey: "imgUrl") as! String
-                let product = Product(id: id, title: title, description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: 0, productID: 0, title: "", price: price)])
+                let product = Product(id: id, title: title, description: "mens shoes", vendor: nil, productType: "Shoes", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price)])
 //                print(price)
                 favouriteList.append(product)
             }
@@ -218,8 +218,8 @@ class CoreDataRepository: LocalDataRepository {
         
     }
     
-    static func deleteAddress(appDelegate: inout AppDelegate) {
-        let context = appDelegate.persistentContainer.viewContext
+    func deleteAddress() {
+        let context = delegate.persistentContainer.viewContext
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AddressCoreData")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         do{

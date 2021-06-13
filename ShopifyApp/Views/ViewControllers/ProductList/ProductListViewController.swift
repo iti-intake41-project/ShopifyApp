@@ -19,7 +19,13 @@ class ProductListViewController: UIViewController {
     var products: [Product] = [Product]()
     var orignalProducts: [Product] = [Product]()
     let productsViewModel: ProductListViewModel = ProductListViewModel()
-       
+    var collectionID:String?
+    //Moataz
+    var favouritesViewModel:FavouriteViewModelTemp!
+    var favourites: [Product] = [Product]()
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    //Moataz
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,17 +33,26 @@ class ProductListViewController: UIViewController {
         productSearchView.delegate = self
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
-        productsViewModel.fetchAllProductsFromAPI()
+ 
 
         productsViewModel.bindProductListViewModelToView = onSuccessUpdateView
         productsViewModel.bindViewModelErrorToView = onFailUpdateView
         //call  products from viewController based on collectionID
-      
+       print(collectionID!)
+        //Moataz
+        favouritesViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+        favouritesViewModel.bindFavouritesList = { [weak self] in
+            self?.favourites = self?.favouritesViewModel.favourites ?? []
+//            self?.productsCollectionView.reloadData()
+        }
+        favourites = favouritesViewModel.favourites
+        //Moataz
 
                
         
     }
     override func viewWillAppear(_ animated: Bool) {
+               productsViewModel.fetchAllProductsFromAPI(collectionID: collectionID!)
     }
 
     @IBAction func sliderAction(_ sender: UISlider) {
@@ -120,7 +135,12 @@ extension ProductListViewController : UICollectionViewDataSource {
         cell.productImage.sd_setImage(with: URL(string:products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
 
         cell.priceLbl.text = products[indexPath.row].varients?[0].price
-        
+        //Moataz
+        cell.favouriteBtn.backgroundColor = UIColor.white
+        cell.product = products[indexPath.row]
+        cell.isFavourite = favouritesViewModel.isFavourite(id: products[indexPath.row].id)
+        cell.delegate = self
+        //Moataz
         return cell
         
     }
@@ -146,3 +166,23 @@ extension ProductListViewController:UISearchBarDelegate{
                  
      
 }
+
+//Moataz
+
+extension ProductListViewController: FavouriteProductCellProtocol {
+    func deleteFavourite(id: Int) {
+        favouritesViewModel.deleteFavourite(id: id)
+    }
+    
+    func addFavourite(product: Product) {
+        favouritesViewModel.addFavourite(product: product)
+    }
+    
+    func isFavourite(id: Int) -> Bool {
+        print("is favourite controller: \(id)")
+
+        return favouritesViewModel.isFavourite(id: id)
+    }
+}
+
+//Moataz

@@ -42,6 +42,9 @@
 		76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918C326695F23000E406C /* RegisterViewModel.swift */; };
 		76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918CC26695F36000E406C /* LoginViewModel.swift */; };
 		9FD3887BCF629E1AE1B942C4 /* Pods_ShopifyApp_ShopifyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765D6F3A1516A825D81CE8C4 /* Pods_ShopifyApp_ShopifyAppUITests.framework */; };
+		C1C610BB266A894400FF455E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C610BA266A894200FF455E /* CategoryViewController.swift */; };
+		C1E635E8266FAE460029F9EA /* CategoryProductsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E635E7266FAE460029F9EA /* CategoryProductsCollectionView.swift */; };
+		C1E635EA266FB99F0029F9EA /* SubCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E635E9266FB99F0029F9EA /* SubCategoriesCell.swift */; };
 		CE9F0EA52E581D3A76C33543 /* Pods_ShopifyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 084C039A3F7AD7FD999EBEC7 /* Pods_ShopifyAppTests.framework */; };
 		D37210A82655B81100935F86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37210A72655B81100935F86 /* AppDelegate.swift */; };
 		D37210AF2655B81100935F86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37210AD2655B81100935F86 /* Main.storyboard */; };
@@ -121,6 +124,9 @@
 		85036CC28D5579779AED4E59 /* Pods-ShopifyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A5D74218A6BD87316BB8F71D /* Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyApp-ShopifyAppUITests/Pods-ShopifyApp-ShopifyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ACD3D1608BE6D0B2B978E020 /* Pods-ShopifyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyAppTests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyAppTests/Pods-ShopifyAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C1C610BA266A894200FF455E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = ShopifyApp/Views/ViewControllers/Shop/CategoryViewController.swift; sourceTree = SOURCE_ROOT; };
+		C1E635E7266FAE460029F9EA /* CategoryProductsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryProductsCollectionView.swift; path = ShopifyApp/Views/ViewControllers/Shop/CategoryProductsCollectionView.swift; sourceTree = SOURCE_ROOT; };
+		C1E635E9266FB99F0029F9EA /* SubCategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubCategoriesCell.swift; path = ShopifyApp/Views/ViewControllers/Shop/SubCategoriesCell.swift; sourceTree = SOURCE_ROOT; };
 		C6C66D5016C09C7613674918 /* Pods-ShopifyApp-ShopifyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp-ShopifyAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyApp-ShopifyAppUITests/Pods-ShopifyApp-ShopifyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D37210A42655B81100935F86 /* ShopifyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopifyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37210A72655B81100935F86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -478,6 +484,9 @@
 		D39604612659BDA700D94931 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C1C610BA266A894200FF455E /* CategoryViewController.swift */,
+				C1E635E7266FAE460029F9EA /* CategoryProductsCollectionView.swift */,
+				C1E635E9266FB99F0029F9EA /* SubCategoriesCell.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -785,9 +794,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */,
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
 				4B3F8838266DEEB2009ED0BC /* MeViewController.swift in Sources */,
+
+				C1E635EA266FB99F0029F9EA /* SubCategoriesCell.swift in Sources */,
+				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
+				C1E635E8266FAE460029F9EA /* CategoryProductsCollectionView.swift in Sources */,
+
 				D396044E2659BC4D00D94931 /* ShopViewController.swift in Sources */,
 				76818D01266B7A11006CB1DC /* ShoppingBagViewModel.swift in Sources */,
 				769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */,
@@ -810,6 +825,7 @@
 				4B4519022668174300E0D1DF /* ProductListViewModel.swift in Sources */,
 				4B5DF7A3266F868300C15388 /* SettingTableViewController.swift in Sources */,
 				D39604552659BD3E00D94931 /* ShopifyCollentions.swift in Sources */,
+
 				76818CEF266B5DBF006CB1DC /* ShopingBagViewController.swift in Sources */,
 				76818D8A266BD1A1006CB1DC /* LocalDataRepository.swift in Sources */,
 				76818DF5266BD900006CB1DC /* CoreDataModel.xcdatamodeld in Sources */,
@@ -817,6 +833,9 @@
 				D3F14902266BC4A800729210 /* ProductDetailsCollectionViewCell.swift in Sources */,
 				4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */,
 				76818CFB266B6247006CB1DC /* ShoppingBagTableViewCell.swift in Sources */,
+
+				C1C610BB266A894400FF455E /* CategoryViewController.swift in Sources */,
+
 				D396045D2659BD6A00D94931 /* ShopViewModel.swift in Sources */,
 				4BA0911A2674F70600117E05 /* ShowAddressTableViewController.swift in Sources */,
 				76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */,

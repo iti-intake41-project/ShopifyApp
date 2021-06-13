@@ -19,7 +19,7 @@ protocol ShoppingBagViewModelTemp: baseProtocol {
     func navigateToCheckOut()
     var navigateToAddress:()->(){set get}
     var navigateToPayment:()->(){set get}
-    
+    func getCurrency()->String
     func postOrder(products: inout [Product])
 }
 
@@ -86,6 +86,10 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         }
     }
     
+    func getCurrency()->String{
+        return defaultsRepository.getCurrency()
+    }
+    
     // MARK: - Order
     func postOrder(products: inout [Product]){
         var items: [OrderItem] = []
@@ -123,10 +127,14 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
 extension ShoppingBagViewModel: FavouriteViewModelTemp {
     
     func isFavourite(id: Int)->Bool {
+        print("is favourite viewmodel: \(id)")
+
         var isFav = false
         let favourites = dataRepository.getFavourites()
         for favourite in favourites{
-            if id == favourite.id{
+            if id == favourite.varients?[0].id{
+                print("is favourite viewmodel loop: \(favourite.varients?[0].id ?? 0)")
+
                 isFav = true
                 break
             }
@@ -135,12 +143,13 @@ extension ShoppingBagViewModel: FavouriteViewModelTemp {
     }
     
     func addFavourite(product: Product) {
-        let products = dataRepository.getFavourites()
-        for cartProduct in products{
-            if product.id == cartProduct.id {
-                return
-            }
-        }
+//        let products = dataRepository.getFavourites()
+//        for favProduct in products{
+//            if product.varients?[0].id == favProduct.varients?[0].id {
+//                print("product id: \(product.varients?[0].id) fav id: \(favProduct.varients?[0].id)")
+//                return
+//            }
+//        }
         dataRepository.addFavourite(product: product)
         favourites = dataRepository.getFavourites()
     }

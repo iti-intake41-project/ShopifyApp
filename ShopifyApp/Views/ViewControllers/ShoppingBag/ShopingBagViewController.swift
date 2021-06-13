@@ -36,7 +36,14 @@ class ShoppingBagViewController: UIViewController {
     }
     
     @IBAction func navigateToCheckOut(_ sender: UIButton) {
-        viewModel.navigateToCheckOut()
+        if list.count == 0 {
+            let alert = UIAlertController(title: "Alert", message: "Your cart is empty", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(yesAction)
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            viewModel.navigateToCheckOut()
+        }
     }
     
     func updateTableView(){
@@ -47,8 +54,11 @@ class ShoppingBagViewController: UIViewController {
         for product in list{
             totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
         }
-        totalPriceText.text = String(format: "US$%.2f", totalPrice)
-        
+        if viewModel.getCurrency() == "EGP"{
+            totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+        }else{
+            totalPriceText.text = String(format: "US$%.2f", totalPrice)
+        }
     }
     
     func updateCD(id: Int){
@@ -77,7 +87,13 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
         cell.imgUrl = list[indexPath.row].images[0].src
         cell.delegate = self
         cell.product = list[indexPath.row]
-        cell.productPrice.text = "US$\((Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
+        if viewModel.getCurrency() == "EGP"{
+            let cost = Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0
+            
+            cell.productPrice.text = "\((FormatePrice.formatePrice(priceStr: "\(cost)")))"
+        }else{
+            cell.productPrice.text = "US$\((Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
+        }
         return cell
     }
     
