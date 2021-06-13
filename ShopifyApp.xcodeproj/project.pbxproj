@@ -15,6 +15,8 @@
 		4B45CAB02674AE51002FE0A8 /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B45CAAF2674AE51002FE0A8 /* MeViewModel.swift */; };
 		4B45CAB42674B9A0002FE0A8 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B45CAB32674B9A0002FE0A8 /* OrdersTableViewController.swift */; };
 		4B45CAB62674BB16002FE0A8 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B45CAB52674BB16002FE0A8 /* OrderTableViewCell.swift */; };
+		4B46CD222675BAE400B191D5 /* DiscountCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CD212675BAE400B191D5 /* DiscountCodes.swift */; };
+		4B46CD242675C2F100B191D5 /* AddsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CD232675C2F100B191D5 /* AddsTableViewController.swift */; };
 		4B5DF7A3266F868300C15388 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5DF7A2266F868300C15388 /* SettingTableViewController.swift */; };
 		4BF2BF692670B7BE0036EB10 /* UserDefaultsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2BF682670B7BE0036EB10 /* UserDefaultsLayer.swift */; };
 		4BF2BF6C2670BC450036EB10 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2BF6B2670BC450036EB10 /* SettingViewModel.swift */; };
@@ -91,6 +93,8 @@
 		4B45CAAF2674AE51002FE0A8 /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		4B45CAB32674B9A0002FE0A8 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		4B45CAB52674BB16002FE0A8 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		4B46CD212675BAE400B191D5 /* DiscountCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodes.swift; sourceTree = "<group>"; };
+		4B46CD232675C2F100B191D5 /* AddsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddsTableViewController.swift; sourceTree = "<group>"; };
 		4B5DF7A2266F868300C15388 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		4BF2BF682670B7BE0036EB10 /* UserDefaultsLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLayer.swift; sourceTree = "<group>"; };
 		4BF2BF6B2670BC450036EB10 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				D396044D2659BC4D00D94931 /* ShopViewController.swift */,
+				4B46CD232675C2F100B191D5 /* AddsTableViewController.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 				D39604532659BD3E00D94931 /* ShopifyCollentions.swift */,
 				767DAA1E266AF74200067EE9 /* customer.swift */,
 				76818DF3266BD900006CB1DC /* CoreDataModel.xcdatamodeld */,
+				4B46CD212675BAE400B191D5 /* DiscountCodes.swift */,
 			);
 			path = DataClass;
 			sourceTree = "<group>";
@@ -791,15 +797,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */,
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
 				4B3F8838266DEEB2009ED0BC /* MeViewController.swift in Sources */,
-
 				C1E635EA266FB99F0029F9EA /* SubCategoriesCell.swift in Sources */,
+				4B46CD242675C2F100B191D5 /* AddsTableViewController.swift in Sources */,
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
+				4B46CD222675BAE400B191D5 /* DiscountCodes.swift in Sources */,
 				C1E635E8266FAE460029F9EA /* CategoryProductsCollectionView.swift in Sources */,
-
 				D396044E2659BC4D00D94931 /* ShopViewController.swift in Sources */,
 				76818D01266B7A11006CB1DC /* ShoppingBagViewModel.swift in Sources */,
 				769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */,
@@ -822,7 +827,6 @@
 				4B4519022668174300E0D1DF /* ProductListViewModel.swift in Sources */,
 				4B5DF7A3266F868300C15388 /* SettingTableViewController.swift in Sources */,
 				D39604552659BD3E00D94931 /* ShopifyCollentions.swift in Sources */,
-
 				76818CEF266B5DBF006CB1DC /* ShopingBagViewController.swift in Sources */,
 				76818D8A266BD1A1006CB1DC /* LocalDataRepository.swift in Sources */,
 				76818DF5266BD900006CB1DC /* CoreDataModel.xcdatamodeld in Sources */,
@@ -830,9 +834,7 @@
 				D3F14902266BC4A800729210 /* ProductDetailsCollectionViewCell.swift in Sources */,
 				4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */,
 				76818CFB266B6247006CB1DC /* ShoppingBagTableViewCell.swift in Sources */,
-
 				C1C610BB266A894400FF455E /* CategoryViewController.swift in Sources */,
-
 				D396045D2659BD6A00D94931 /* ShopViewModel.swift in Sources */,
 				76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */,
 				D3F148F7266BB63B00729210 /* ProductDetailsViewController.swift in Sources */,

@@ -18,6 +18,7 @@ class ShopViewController: UIViewController{
     
     var products: [Product] = [Product]()
     var collections = [CustomCollections]()
+    var adds: [DiscountCode] = [DiscountCode]()
     let shopViewModel: ShopViewModel = ShopViewModel()
     
     override func viewDidLoad() {
@@ -35,6 +36,8 @@ class ShopViewController: UIViewController{
         //shopViewModel.fetchAllProductsFromAPI()
         ////
         //        performSegue(withIdentifier: "productlist", sender: self)
+        
+
     }
     
     
@@ -65,6 +68,16 @@ class ShopViewController: UIViewController{
         
         
     }
+    func onSuccessAddsUpdateView (){
+        guard let adds = shopViewModel.adds
+            else{
+                print("no adds")
+                return
+        }
+        self.adds = adds
+        print(adds[0].code)
+    }
+
     func onFailUpdateView() {
         let alert = UIAlertController(title: "Error", message: shopViewModel.showError, preferredStyle: .alert)
         
@@ -123,6 +136,7 @@ class ShopViewController: UIViewController{
             let vc = segue.destination as! ProductListViewController
             vc.collectionID = "\(collections[3].id)"
         }
+        
         
     }
     

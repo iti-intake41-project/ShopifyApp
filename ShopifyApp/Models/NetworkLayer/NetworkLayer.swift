@@ -51,6 +51,25 @@ class NetworkLayer {
             completion(response)
         }
     }
+    //Donia
+    func getDiscountCode(priceRuleID: String, completion: @escaping ([DiscountCode]?, Error?) -> ()) {
+           AF.request(URLs.discountCodes(priceRuleID: priceRuleID)).validate().responseDecodable(of: DiscountCodes.self) { (response) in
+                  
+                  switch response.result {
+                      case .success( _):
+                              
+                          guard let data = response.value else { return }
+                          completion(data.discountCodes, nil)
+                          
+                      case .failure(let error):
+                          
+                          print(error)
+                          completion(nil, error)
+                  }
+              }
+          }
+
+    //Donia
 
     func registerCustomer(newCustomer:NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
         guard let url = URL(string: URLs.customers()) else {return}

@@ -8,6 +8,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Adds Table View Controller-->
+        <scene sceneID="fBk-eL-Ybs">
+            <objects>
+                <tableViewController id="Ics-vI-adi" customClass="AddsTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SI3-nm-QAO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addsCell" textLabel="Ssw-YI-LwB" style="IBUITableViewCellStyleDefault" id="d4L-ez-Pr2">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d4L-ez-Pr2" id="XEv-Se-RKN">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ssw-YI-LwB">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ics-vI-adi" id="bef-JM-WfT"/>
+                            <outlet property="delegate" destination="Ics-vI-adi" id="h0f-U9-EWK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="TZs-tK-H2r"/>
+                    <connections>
+                        <outlet property="addsTableView" destination="SI3-nm-QAO" id="BX6-3G-nEN"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRd-yF-GhQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="409" y="725"/>
+        </scene>
         <!--Shop View Controller-->
         <scene sceneID="SFt-ri-Dp8">
             <objects>
@@ -55,7 +96,7 @@
                                             <constraint firstAttribute="width" secondItem="xK2-gd-yxt" secondAttribute="height" multiplier="379:40" id="tKU-bw-xe3"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="azh-ih-yGt">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="azh-ih-yGt">
                                         <rect key="frame" x="0.0" y="57" width="419" height="307.66666666666669"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -259,10 +300,11 @@
                 <tapGestureRecognizer id="M33-Ws-n9r">
                     <connections>
                         <action selector="adsAction:" destination="0vF-Za-LrV" id="M5U-cK-QT9"/>
+                        <segue destination="Ics-vI-adi" kind="show" identifier="adds" id="NAx-X6-sgQ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="318.84057971014494" y="128.57142857142856"/>
+            <point key="canvasLocation" x="410" y="42"/>
         </scene>
         <!--ProductList-->
         <scene sceneID="7Ft-nL-4Ox">
