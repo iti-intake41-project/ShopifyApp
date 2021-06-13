@@ -9,48 +9,104 @@ import UIKit
 import SDWebImage
 
 class CategoryViewController: UIViewController {
-
+    
     @IBOutlet weak var productSearchBar: UISearchBar!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var subCategoriesTable: UITableView!
     @IBOutlet weak var toolBar: UIToolbar!
     
-   // var products: [Product]!
+    // var products: [Product]!
     //doina
     var products = [Product]()
     let shopViewModel = ShopViewModel()
     var collections = [CustomCollections]()
     var product:Product!
+    var toolBarItem :Int = 4
+    var subCategoryIndex:String = "SHOES"
     //doina
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         toolBar.items![0].action = #selector(homeTabAction)
         toolBar.items![1].action = #selector(womenTabAction)
         toolBar.items![2].action = #selector(menTabAction)
         toolBar.items![3].action = #selector(kidsTabAction)
+        //toolBar.items![0].tintColor = .black
         //donia
         shopViewModel.fetchCustomCollection()
         shopViewModel.bindCategoryViewModelToView = onSuccessUpdateView
         //donia
     }
-
+    
+    
+    @IBAction func item4(_ sender: Any) {
+        
+        print("vkoinjd")
+        toolBarItem = 3
+               toolBar.items![3].tintColor = .darkGray
+               toolBar.items![1].tintColor = .blue
+               toolBar.items![0].tintColor = .blue
+               toolBar.items![2].tintColor = .blue
+               shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
+               self.products = filterProducts(products: products, subCategory: subCategoryIndex)
+               categoriesCollectionView.reloadData()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @objc func homeTabAction() {
-
+        toolBarItem = 4
+        toolBar.items![0].tintColor = .darkGray
+        toolBar.items![1].tintColor = .blue
+        toolBar.items![2].tintColor = .blue
+        toolBar.items![3].tintColor = .blue
+        shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
+        self.products = filterProducts(products: products, subCategory: subCategoryIndex)
+        categoriesCollectionView.reloadData()
+        
         
     }
-
+    
     @objc func womenTabAction() {
-
+        
+        toolBarItem = 1
+        toolBar.items![1].tintColor = .darkGray
+        toolBar.items![0].tintColor = .blue
+        toolBar.items![2].tintColor = .blue
+        toolBar.items![3].tintColor = .blue
+        shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
+        self.products = filterProducts(products: products, subCategory: subCategoryIndex)
+        categoriesCollectionView.reloadData()
     }
-
+    
     @objc func menTabAction() {
-
+        
+        toolBarItem = 2
+        toolBar.items![2].tintColor = .darkGray
+        toolBar.items![1].tintColor = .blue
+        toolBar.items![0].tintColor = .blue
+        toolBar.items![3].tintColor = .blue
+        shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
+        self.products = filterProducts(products: products, subCategory: subCategoryIndex)
+        categoriesCollectionView.reloadData()
     }
-
+    
     @objc func kidsTabAction() {
-
+        toolBarItem = 3
+        toolBar.items![3].tintColor = .darkGray
+        toolBar.items![1].tintColor = .blue
+        toolBar.items![0].tintColor = .blue
+        toolBar.items![2].tintColor = .blue
+        shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
+        self.products = filterProducts(products: products, subCategory: subCategoryIndex)
+        categoriesCollectionView.reloadData()
     }
     
     @IBAction func shoppingBagAction(_ sender: Any) {
@@ -77,6 +133,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             cell.title.text = "SHOES"
+            
             break
         case 1:
             cell.title.text = "T-shirt"
@@ -98,23 +155,28 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             // get selected toolbar
+            
             // call function
-            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[4].id)")
+            subCategoryIndex = "SHOES"
+            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
             self.products = filterProducts(products: products, subCategory: "SHOES")
             categoriesCollectionView.reloadData()
             break
         case 1:
-            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[1].id)")
+            //  subCategoryIndex = 0
+            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
             self.products = filterProducts(products: products, subCategory: "SHOES")
             categoriesCollectionView.reloadData()
             break
         case 2:
-            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[2].id)")
+            //  subCategoryIndex = 0
+            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
             self.products = filterProducts(products: products, subCategory: "SHOES")
             categoriesCollectionView.reloadData()
             break
         case 3:
-            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[3].id)")
+            subCategoryIndex = "ACCESSORIES"
+            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[toolBarItem].id)")
             self.products = filterProducts(products: products, subCategory: "ACCESSORIES")
             categoriesCollectionView.reloadData()
             break
@@ -136,10 +198,10 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! CategoryProductsCollectionView
         
-//        let images = products[indexPath.row].images
-//        item.image.sd_setImage(with: URL(string: images[0].src), completed: nil)
-//        item.image.image = UIImage(named: "pic1")
-//
+        //        let images = products[indexPath.row].images
+        //        item.image.sd_setImage(with: URL(string: images[0].src), completed: nil)
+        //        item.image.image = UIImage(named: "pic1")
+        //
         //donia
         item.image.sd_setImage(with: URL(string: products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "pic"))
         //donia
@@ -177,18 +239,18 @@ extension CategoryViewController {
     }
     func onSucessProductsUpdateView(){
         guard let products = shopViewModel.allProducts else {
-                    print("no products")
-                    return
-                }
-          self.products = products
-          self.products = filterProducts(products: products, subCategory: "SHOES")
-          categoriesCollectionView.reloadData()
-          print("ckiv")
+            print("no products")
+            return
+        }
+        self.products = products
+        self.products = filterProducts(products: products, subCategory: "SHOES")
+        categoriesCollectionView.reloadData()
+        print("ckiv")
     }
-  
+    
     func filterProducts(products:[Product],subCategory:String) -> [Product] {
-      return products.filter{
-        ($0.productType == subCategory)
+        return products.filter{
+            ($0.productType == subCategory)
             
         }
         

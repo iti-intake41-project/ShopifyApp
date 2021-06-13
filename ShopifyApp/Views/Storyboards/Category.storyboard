@@ -70,7 +70,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SJt-ZT-dr7"/>
                                     <barButtonItem title="Men" id="9pF-Ad-DgK"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dnZ-7z-yfW"/>
-                                    <barButtonItem title="Kids" id="YFF-uS-4v2"/>
+                                    <barButtonItem title="Kids" id="YFF-uS-4v2">
+                                        <connections>
+                                            <action selector="item4:" destination="G6T-EG-5QN" id="hqS-Um-nxT"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="G6T-EG-5QN" id="l4p-To-LRS"/>
