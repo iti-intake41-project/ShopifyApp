@@ -98,7 +98,7 @@ class ShopViewController: UIViewController{
         print("home action")
         //
         let productList = ProductListViewController()
-        
+        print("collection count: \(collections.count)")
         productList.collectionID = "\(collections[0].id)"
         prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
         performSegue(withIdentifier: "productList", sender: self)

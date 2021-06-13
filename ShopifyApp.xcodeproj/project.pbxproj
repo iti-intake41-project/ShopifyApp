@@ -791,15 +791,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */,
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
 				4B3F8838266DEEB2009ED0BC /* MeViewController.swift in Sources */,
-
 				C1E635EA266FB99F0029F9EA /* SubCategoriesCell.swift in Sources */,
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
 				C1E635E8266FAE460029F9EA /* CategoryProductsCollectionView.swift in Sources */,
-
 				D396044E2659BC4D00D94931 /* ShopViewController.swift in Sources */,
 				76818D01266B7A11006CB1DC /* ShoppingBagViewModel.swift in Sources */,
 				769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */,
@@ -822,7 +819,6 @@
 				4B4519022668174300E0D1DF /* ProductListViewModel.swift in Sources */,
 				4B5DF7A3266F868300C15388 /* SettingTableViewController.swift in Sources */,
 				D39604552659BD3E00D94931 /* ShopifyCollentions.swift in Sources */,
-
 				76818CEF266B5DBF006CB1DC /* ShopingBagViewController.swift in Sources */,
 				76818D8A266BD1A1006CB1DC /* LocalDataRepository.swift in Sources */,
 				76818DF5266BD900006CB1DC /* CoreDataModel.xcdatamodeld in Sources */,
@@ -830,9 +826,7 @@
 				D3F14902266BC4A800729210 /* ProductDetailsCollectionViewCell.swift in Sources */,
 				4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */,
 				76818CFB266B6247006CB1DC /* ShoppingBagTableViewCell.swift in Sources */,
-
 				C1C610BB266A894400FF455E /* CategoryViewController.swift in Sources */,
-
 				D396045D2659BD6A00D94931 /* ShopViewModel.swift in Sources */,
 				76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */,
 				D3F148F7266BB63B00729210 /* ProductDetailsViewController.swift in Sources */,

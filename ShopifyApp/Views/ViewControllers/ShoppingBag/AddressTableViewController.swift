@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialTextControls_OutlinedTextAreas
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class AddressTableViewController: UITableViewController {
     
-    @IBOutlet weak var countryText: UITextField!
-    @IBOutlet weak var cityText: UITextField!
-    @IBOutlet weak var addressText: UITextField!
-    @IBOutlet weak var zipcodeText: UITextField!
+    @IBOutlet weak var countryText: MDCOutlinedTextField!
+    @IBOutlet weak var cityText: MDCOutlinedTextField!
+    @IBOutlet weak var addressText: MDCOutlinedTextField!
+    @IBOutlet weak var zipcodeText: MDCOutlinedTextField!
+    @IBOutlet weak var addAddressBtn: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     
@@ -23,7 +26,15 @@ class AddressTableViewController: UITableViewController {
         viewModel = AddressViewModel(appDelegate: &delegate)
         bindToViewModel()
         self.view.isUserInteractionEnabled = true
-        //        indicator.isHidden = true
+        setUI()
+    }
+    
+    func setUI(){
+        countryText.label.text = "Coutry"
+        cityText.label.text = "City"
+        addressText.label.text = "Address"
+        zipcodeText.label.text = "Zipcode"
+        addAddressBtn.layer.cornerRadius = addAddressBtn.layer.frame.height / 2
     }
     
     func bindToViewModel(){

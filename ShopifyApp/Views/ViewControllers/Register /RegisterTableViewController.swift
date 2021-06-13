@@ -6,20 +6,47 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialTextControls_FilledTextAreas
+import MaterialComponents.MaterialTextControls_FilledTextFields
+import MaterialComponents.MaterialTextControls_OutlinedTextAreas
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class RegisterTableViewController: UITableViewController {
     
-    @IBOutlet weak var firstNameText: UITextField!
-    @IBOutlet weak var lastNameText: UITextField!
-    @IBOutlet weak var emailText: UITextField!
-    @IBOutlet weak var passwordText: UITextField!
-    @IBOutlet weak var confirmPasswordText: UITextField!
+    @IBOutlet weak var firstNameText: MDCOutlinedTextField!
+    @IBOutlet weak var lastNameText: MDCOutlinedTextField!
+    @IBOutlet weak var emailText: MDCOutlinedTextField!
+    @IBOutlet weak var passwordText: MDCOutlinedTextField!
+    @IBOutlet weak var confirmPasswordText: MDCOutlinedTextField!
     var firstName, lastName, email, password, confirmPassword: String!
+    @IBOutlet weak var registerBtn: UIButton!
     var viewModel: RegisterViewModelTemp = RegisterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    bindToViewModel()
+        bindToViewModel()
+        
+        
+        let estimatedFrame = CGRect(x: 25, y: 10, width: self.view.frame.width - 50, height: 30)
+        let textField = MDCOutlinedTextField(frame: estimatedFrame)
+        textField.sizeToFit()
+        
+        setUI()
+    }
+    func setUI(){
+        let fields = [firstNameText, lastNameText, emailText, passwordText, confirmPasswordText]
+        firstNameText.label.text = "First Name"
+        lastNameText.label.text = "Last Name"
+        emailText.label.text = "Email"
+        passwordText.label.text = "Password"
+        confirmPasswordText.label.text = "Confirm Password"
+        registerBtn.layer.cornerRadius = registerBtn.layer.frame.height / 2
+        for field in fields{
+            field?.containerRadius = field!.layer.frame.height / 2
+            field?.layer.frame = CGRect(x: 25, y: 10, width: self.view.frame.width - 50, height: 20)
+            field?.sizeToFit()
+            field?.textColor = UIColor.red
+        }
     }
     
     func bindToViewModel(){
