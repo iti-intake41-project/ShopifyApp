@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import Cosmos
 
 class ProductDetailsViewController: UIViewController {
 
@@ -16,22 +17,40 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var productDescriptionTextView: UITextView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var cartButton: UIButton!
+    @IBOutlet weak var ratingView: CosmosView!
     
     var product: Product!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var shoppingViewModel: ShoppingBagViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         
         style()
         setProductDetails()
     }
     @IBAction func favoriteAction(_ sender: Any) {
+        if favoriteButton.tintColor == .red{
+            favoriteButton.tintColor = .gray
+            shoppingViewModel.deleteFavourite(id: product.varients![0].id)
+        }else {
+            favoriteButton.tintColor = .red
+            shoppingViewModel.addFavourite(product: product)
+        }
     }
     
     @IBAction func cartAction(_ sender: Any) {
-        let shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
-        shoppingViewModel.addProduct(product: product)
+        if shoppingViewModel.isInShopingCart(id: product.varients![0].id) {
+            let alert = UIAlertController(title: "Done", message: "This product is already in your cart", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (UIAlertAction) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            present(alert, animated: true, completion: nil)
+        }else{
+            shoppingViewModel.addProduct(product: product)
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func goBack(_ sender: Any) {
@@ -49,12 +68,20 @@ extension ProductDetailsViewController {
     
     func setProductDetails() {
         productNameLabel.text = product.title
+        ratingView.settings.fillMode = .precise
+        ratingView.rating = 4.2
         
         if let varients = product.varients {
             productPriceLabel.text = varients[0].price
         }
         
         productDescriptionTextView.text = product.description
+        
+        if shoppingViewModel.isFavourite(id: product.varients![0].id) {
+            favoriteButton.tintColor = .red
+        }else {
+            favoriteButton.tintColor = .gray
+        }
     }
 }
 
@@ -72,8 +99,12 @@ extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionVi
         
         let ImageSrc = product.images[indexPath.row].src
         image.productImageView.sd_setImage(with: URL(string: ImageSrc), completed: nil)
+        image.imageHeight.constant = collectionView.frame.height
+        image.imageWidth.constant = collectionView.frame.width
         
         image.imageCounterLabel.text = "\(indexPath.row + 1)/\(product.images.count)"
+        image.imageCounterLabel.layer.masksToBounds = true
+        image.imageCounterLabel.layer.cornerRadius = image.imageCounterLabel.frame.height / 2
         
         return image
     }
