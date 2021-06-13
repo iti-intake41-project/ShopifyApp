@@ -55,6 +55,7 @@ class SettingViewModel :NSObject{
     func logout(appDelegate:inout AppDelegate){
         //donia
         userDefaults.setCurrency(key: "currency", value:"")
+        userDefaults.addUserName(userName: "")
         //donia
         
         //remove address, empty fav & cart, switch flag
