@@ -6,22 +6,35 @@
 //
 
 import UIKit
-//import Firebase
-//import GoogleSignIn
+import MaterialComponents.MaterialTextControls_FilledTextAreas
+import MaterialComponents.MaterialTextControls_FilledTextFields
+import MaterialComponents.MaterialTextControls_OutlinedTextAreas
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class LoginTableViewController: UITableViewController {
-    @IBOutlet weak var emailText: UITextField!
-    @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var emailText: MDCOutlinedTextField!
+    @IBOutlet weak var passwordText: MDCOutlinedTextField!
     var delegate = UIApplication.shared.delegate as! AppDelegate
     var viewModel: LoginViewModelTemp!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var registerBtn: UIButton!
+    
     var email, password: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = LoginViewModel(appDelegate: &delegate)
         bindToViewModel()
-//        GIDSignIn.sharedInstance()?.presentingViewController = self
-
+        setUI()
+    }
+    
+    func setUI(){
+        emailText.label.text = "Email"
+        passwordText.label.text = "Password"
+        emailText.containerRadius = emailText.layer.frame.height / 2
+        passwordText.containerRadius = passwordText.layer.frame.height / 2
+        loginBtn.layer.cornerRadius = registerBtn.layer.frame.height / 2
+        registerBtn.layer.cornerRadius = registerBtn.layer.frame.height / 2
     }
     
     func bindToViewModel(){
@@ -45,7 +58,8 @@ class LoginTableViewController: UITableViewController {
 //        let registerScreen = storyboard?.instantiateViewController(withIdentifier: "main")
 //        registerScreen?.modalPresentationStyle = .fullScreen
 //        present(registerScreen!, animated: true, completion: nil)
-        performSegue(withIdentifier: "navigateToMain", sender: self)
+//        performSegue(withIdentifier: "navigateToMain", sender: self)
+        dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,9 +67,10 @@ class LoginTableViewController: UITableViewController {
     }
     
     @IBAction func navigateToRegister(_ sender: Any) {
-        let registerScreen = storyboard?.instantiateViewController(withIdentifier: "RegisterTableViewController")
-        registerScreen?.modalPresentationStyle = .fullScreen
-        present(registerScreen!, animated: true, completion: nil)
+//        let registerScreen = storyboard?.instantiateViewController(withIdentifier: "RegisterTableViewController")
+//        registerScreen?.modalPresentationStyle = .fullScreen
+//        present(registerScreen!, animated: true, completion: nil)
+        performSegue(withIdentifier: "navToReg", sender: self)
         
     }
     

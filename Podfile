@@ -26,6 +26,11 @@ pod 'IQKeyboardManagerSwift'
 pod 'RxSwift' 
 pod 'RxCocoa' 
 
+pod 'MaterialComponents/TextControls+FilledTextAreas'
+pod 'MaterialComponents/TextControls+FilledTextFields'
+pod 'MaterialComponents/TextControls+OutlinedTextAreas'
+pod 'MaterialComponents/TextControls+OutlinedTextFields'
+
 #pod 'RealmS', '~> 4.0.0'
 
 end
