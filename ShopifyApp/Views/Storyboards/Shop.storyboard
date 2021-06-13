@@ -262,15 +262,10 @@
                     <tabBarItem key="tabBarItem" systemItem="history" id="qil-lJ-8Mu"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="adsImage" destination="azh-ih-yGt" id="Rxo-tI-nNE"/>
                         <outlet property="collectionLbl1" destination="8a6-cK-pMe" id="yeU-AM-Olw"/>
                         <outlet property="collectionLbl2" destination="79x-3W-yaZ" id="peC-fk-aBr"/>
                         <outlet property="collectionLbl3" destination="0aE-2x-jhj" id="mTd-kC-3LW"/>
                         <outlet property="collectionLbl4" destination="EPe-pS-7Rc" id="4F1-Ea-CgE"/>
-                        <outlet property="imgCollection1" destination="OYm-il-4F8" id="rd7-03-r1V"/>
-                        <outlet property="imgCollection2" destination="oOD-JD-xou" id="NQK-eG-SNA"/>
-                        <outlet property="imgCollection3" destination="yeK-Zb-g8A" id="Y5T-cg-Ide"/>
-                        <outlet property="imgCollection4" destination="bNc-mY-qEP" id="a7c-PM-oY4"/>
                         <outlet property="productSearchBar" destination="9xy-Qc-kgf" id="vIU-jW-BgI"/>
                     </connections>
                 </viewController>
@@ -335,7 +330,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f84-F9-VL9"/>
+        <segue reference="b3Q-gM-QSJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>

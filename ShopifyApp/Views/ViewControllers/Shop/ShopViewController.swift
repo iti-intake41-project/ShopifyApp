@@ -86,67 +86,68 @@ class ShopViewController: UIViewController{
     }
     
     @IBAction func homeAction(_ sender: Any) {
-        print("home action")
-        let productList = ProductListViewController()
-        if collections.count != 0 {
-            productList.collectionID = "\(collections[0].id)"
-            prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
-            performSegue(withIdentifier: "productList", sender: self)
-            
-        }
+//        print("home action")
+//        let productList = ProductListViewController()
+//        if collections.count != 0 {
+//            productList.collectionID = collections[4]
+//            prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
+//            performSegue(withIdentifier: "productList", sender: self)
+//
+//        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare")
-        
-        if segue.identifier == "productList" {
+        print(collections.count)
+        if collections.count != 0{
+        if segue.identifier == "col1" {
             let vc = segue.destination as! ProductListViewController
-            vc.collectionID = "\(collections[0].id)"
+            vc.collectionID = collections[4]
         }
-        else if segue.identifier == "kids"{
+        else if segue.identifier == "col2"{
             let vc = segue.destination as! ProductListViewController
-            vc.collectionID = "\(collections[1].id)"
+            vc.collectionID = collections[1]
             print("kids")
-        }else if segue.identifier == "colection3" {
+        }else if segue.identifier == "col3" {
             let vc = segue.destination as! ProductListViewController
-            vc.collectionID = "\(collections[2].id)"
-        }else if segue.identifier == "colection4"{
+            vc.collectionID = collections[2]
+        }else if segue.identifier == "col4"{
             let vc = segue.destination as! ProductListViewController
-            vc.collectionID = "\(collections[3].id)"
+            vc.collectionID = collections[3]
         }
-        
+        }
     }
     
     
     @IBAction func menAction(_ sender: Any) {
-        //collectionLbl2
-        let productList = ProductListViewController()
-        if collections.count != 0 {
-        productList.collectionID = "\(collections[0].id)"
-        prepare(for: UIStoryboardSegue(identifier: "kids", source: self, destination: productList), sender: self)
-        performSegue(withIdentifier: "kids", sender: self)
-        }
+//        //collectionLbl2
+//        let productList = ProductListViewController()
+//        if collections.count != 0 {
+//        productList.collectionID = collections[1]
+//        prepare(for: UIStoryboardSegue(identifier: "kids", source: self, destination: productList), sender: self)
+//        performSegue(withIdentifier: "kids", sender: self)
+//        }
     }
     
     @IBAction func womenAction(_ sender: Any) {
         //collectionLbl3
         
-        let productList = ProductListViewController()
-        if collections.count != 0 {
-        productList.collectionID = "\(collections[3].id)"
-        prepare(for: UIStoryboardSegue(identifier: "colection3", source: self, destination: productList), sender: self)
-        performSegue(withIdentifier: "colection3", sender: self)
-        }
+//        let productList = ProductListViewController()
+//        if collections.count != 0 {
+//        productList.collectionID = collections[2]
+//        prepare(for: UIStoryboardSegue(identifier: "colection3", source: self, destination: productList), sender: self)
+//        performSegue(withIdentifier: "colection3", sender: self)
+//        }
     }
     
     @IBAction func kidsAction(_ sender: Any) {
         //collectionLbl4
         
-        let productList = ProductListViewController()
-        if collections.count != 0 {
-        productList.collectionID = "\(collections[4].id)"
-        prepare(for: UIStoryboardSegue(identifier: "colection4", source: self, destination: productList), sender: self)
-        performSegue(withIdentifier:"colection4",sender: self)
-        }
+//        let productList = ProductListViewController()
+//        if collections.count != 0 {
+//        productList.collectionID = collections[3]
+//        prepare(for: UIStoryboardSegue(identifier: "colection4", source: self, destination: productList), sender: self)
+//        performSegue(withIdentifier:"colection4",sender: self)
+//        }
         
     }
 }

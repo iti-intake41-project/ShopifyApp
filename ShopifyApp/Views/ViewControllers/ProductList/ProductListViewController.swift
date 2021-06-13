@@ -54,7 +54,12 @@ class ProductListViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        productsViewModel.fetchAllProductsFromAPI(collectionID: "\(collectionID!.id)")
+        guard let collectionID = collectionID else {
+            //alert
+            return
+            
+        }
+        productsViewModel.fetchAllProductsFromAPI(collectionID: "\(collectionID.id)")
     }
 
     @IBAction func sliderAction(_ sender: UISlider) {
