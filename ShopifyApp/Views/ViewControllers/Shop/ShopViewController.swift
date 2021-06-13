@@ -79,22 +79,22 @@ class ShopViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare")
         
-        if segue.identifier == "col1" {
-            let vc = segue.destination as! ProductListViewController
-            vc.collectionID = (collections[4])
-        }
-        else if segue.identifier == "col2"{
-            let vc = segue.destination as! ProductListViewController
-            vc.collectionID = (collections[1])
-            
-        }else if segue.identifier == "col3" {
-            let vc = segue.destination as! ProductListViewController
-            vc.collectionID = collections[2]
-        }else if segue.identifier == "col4"{
-            let vc = segue.destination as! ProductListViewController
-            vc.collectionID = collections[3]
-            
-        }
+//        if segue.identifier == "col1" {
+//            let vc = segue.destination as! ProductListViewController
+//            vc.collectionID = (collections[4])
+//        }
+//        else if segue.identifier == "col2"{
+//            let vc = segue.destination as! ProductListViewController
+//            vc.collectionID = (collections[1])
+//
+//        }else if segue.identifier == "col3" {
+//            let vc = segue.destination as! ProductListViewController
+//            vc.collectionID = collections[2]
+//        }else if segue.identifier == "col4"{
+//            let vc = segue.destination as! ProductListViewController
+//            vc.collectionID = collections[3]
+//
+//        }
         
         
     }
