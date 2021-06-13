@@ -70,12 +70,18 @@ class RegisterViewModel: RegisterViewModelTemp {
                     
                      let returnedCustomer = json["customer"] as? Dictionary<String,Any>
                      let id = returnedCustomer?["id"] as? Int ?? 0
+                     //donia
+                     let name = returnedCustomer?["first_name"] as? String ?? ""
+                    //donia
                      print("data: \(data)")
                      print("id: \(id)")
                      if id != 0 {
                          //registered successfully
                          self?.defaultsRepo.login()
                          self?.defaultsRepo.addId(id: id)
+                        //donia
+                        self?.defaultsRepo.addUserName(userName: name )
+                        //donia
 //                         self?.alertMsgSubject.onNext("registered successfully")
                         DispatchQueue.main.sync {
                             self?.navigateToMain()

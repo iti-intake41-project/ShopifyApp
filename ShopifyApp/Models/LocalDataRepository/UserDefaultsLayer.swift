@@ -12,6 +12,10 @@ protocol UserDefaultsData{
     func setCurrency(key:String , value:String)
     func getUserStatus()->Bool
     func setUserStatus(status:Bool)
+    func getUserName() -> String
+    //donia
+    func addUserName(userName:String)
+    //donia
     //Moataz
     func isLoggedIn()->Bool
     func login()
@@ -63,6 +67,13 @@ class UserDefaultsLayer: UserDefaultsData {
         return UserDefaults.standard.value(forKey: "id") as? Int ?? 0
     }
     //Moataz
-    
+    //donia
+    func addUserName(userName:String) {
+        UserDefaults.standard.set(userName,forKey: "name")
+    }
+    func getUserName() -> String {
+        return UserDefaults.standard.value(forKey: "name") as? String ?? ""
+    }
+    //donia
     
 }

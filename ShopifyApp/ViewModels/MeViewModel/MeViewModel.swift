@@ -51,6 +51,7 @@ class MeViewModel{
         
     }
     func isLoggedIn(
+        userLbl:UILabel,
         loginOrRegisterOrderStackView:UIStackView,
         loginOrRegisterFavStackView:UIStackView ,
         orderStackView:UIStackView,
@@ -65,11 +66,13 @@ class MeViewModel{
             loginOrRegisterFavStackView.isHidden = true
             orderStackView.isHidden = false
             favouriteStackView.isHidden = false
+            userLbl.text = "Welcome \(defaultsRepository.getUserName())"
             return true
             
         }else{
             loginOrRegisterOrderStackView.isHidden = false
             loginOrRegisterFavStackView.isHidden = false
+            userLbl.isHidden = true
             orderStackView.isHidden = true
             favouriteStackView.isHidden = true
             return false

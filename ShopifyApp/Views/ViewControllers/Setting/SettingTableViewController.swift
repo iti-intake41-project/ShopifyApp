@@ -23,9 +23,14 @@ class SettingTableViewController: UITableViewController {
         
         settingViewModel.bindSettingViewModel = onSuccess
         currencytBtn.setTitle(settingViewModel.currency, for: .normal)
+        
+        let address:Address = settingViewModel.getAddress(appDelegate: &appDelegate)
+        
+        addrbtn.setTitle(address.address1, for: .normal)
+        countrybtn.setTitle(address.country, for: .normal)
     }
     override func viewWillAppear(_ animated: Bool) {
-         isLoggedIn = settingViewModel.isLoggedIn()
+        isLoggedIn = settingViewModel.isLoggedIn()
         if !isLoggedIn {
             logoutStack.isHidden = true
         }
@@ -46,31 +51,44 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func address(_ sender: UIButton) {
-        addrbtn.setTitle("rjrge;r", for: .normal)
-        
+        if isLoggedIn {
+        if  settingViewModel.hasAddress(appDelegate: &appDelegate){
+            //navigate to address
+            performSegue(withIdentifier: "showAddress", sender: self)
+            }
+      
+        else{
+            performSegue(withIdentifier: "addAddress", sender: self)
+            }
+            
+        }
+        else {
+            
+            performSegue(withIdentifier: "login", sender: self)
+        }
     }
     
     @IBAction func currency(_ sender: Any) {
         print("currency")
         if isLoggedIn {
-        
-        let alert = UIAlertController(title: "Choose Currency", message: nil, preferredStyle: .alert)
-        
-        let usd  = UIAlertAction(title: "USD", style: .default) { (UIAlertAction) in
-            self.settingViewModel.setCurrency(key: "currency", value: "USD")
-            self.currencytBtn.setTitle(self.settingViewModel.currency, for: .normal)
             
-        }
-        let egp  = UIAlertAction(title: "EGP", style: .default) { (UIAlertAction) in
-           
-            self.settingViewModel.setCurrency(key: "currency", value: "EGP")
-          
+            let alert = UIAlertController(title: "Choose Currency", message: nil, preferredStyle: .alert)
             
-        }
-        
-        alert.addAction(usd)
-        alert.addAction(egp)
-        self.present(alert, animated: true, completion: nil)
+            let usd  = UIAlertAction(title: "USD", style: .default) { (UIAlertAction) in
+                self.settingViewModel.setCurrency(key: "currency", value: "USD")
+                self.currencytBtn.setTitle(self.settingViewModel.currency, for: .normal)
+                
+            }
+            let egp  = UIAlertAction(title: "EGP", style: .default) { (UIAlertAction) in
+                
+                self.settingViewModel.setCurrency(key: "currency", value: "EGP")
+                
+                
+            }
+            
+            alert.addAction(usd)
+            alert.addAction(egp)
+            self.present(alert, animated: true, completion: nil)
         }
         
     }
@@ -101,10 +119,18 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func logout(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Alert", message: "Do You  want Logout from application ?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) {[weak self] (UIAlertAction) in
+            self?.addrbtn.setTitle("", for: .normal)
+            self?.countrybtn.setTitle("", for: .normal)
+            self?.settingViewModel.logout(appDelegate: &self!.appDelegate)
+            self?.logoutStack.isHidden = true
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(yesAction)
+        alert.addAction(cancel)
+        self.present(alert ,animated: true , completion: nil)
         
-        settingViewModel.logout(appDelegate: &appDelegate)
-        logoutStack.isHidden = true
-    
     }
     
     func getAlert (message:String){

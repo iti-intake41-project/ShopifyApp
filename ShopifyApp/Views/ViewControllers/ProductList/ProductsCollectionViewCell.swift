@@ -21,7 +21,10 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     var isFavourite:Bool!{
         didSet{
             if isFavourite{
-                favouriteBtn.backgroundColor = UIColor.red
+                //donia
+                //favouriteBtn.backgroundColor = UIColor.red
+                favouriteBtn.setImage(UIImage(named: "redheart"), for: .normal)
+                //donia
             }
         }
     }
@@ -33,13 +36,20 @@ class ProductsCollectionViewCell: UICollectionViewCell {
 
             delegate.deleteFavourite(id: product.varients?[0].id ?? 0)
             //change button icon to NOT favourite
-            favouriteBtn.backgroundColor = UIColor.white
+             //donia
+             //favouriteBtn.backgroundColor = UIColor.white
+             favouriteBtn.setImage(UIImage(named: "heart"), for: .normal)
+            //donia
+            
             print("not favourite")
 
         }else{
             delegate.addFavourite(product: product)
             //change button icon to favourite
-            favouriteBtn.backgroundColor = UIColor.red
+            //donia
+            //favouriteBtn.backgroundColor = UIColor.red
+            favouriteBtn.setImage(UIImage(named: "redheart"), for: .normal)
+            //donia
             print("is favourite")
         }
         print("prdouct id: \(product.varients?[0].id ?? 0)")
