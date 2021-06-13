@@ -30,7 +30,8 @@ class ShopViewController: UIViewController{
         // Do any additional setup after loading the view.
         productSearchBar.delegate = self
         shopViewModel.fetchCustomCollection()
-        shopViewModel.bindShopViewModelToView = onSuccessUpdateView
+        shopViewModel.bindCategoryViewModelToView = onSuccessUpdateView
+        shopViewModel.bindViewModelErrorToView = onFailUpdateView
     }
     func onSuccessUpdateView() {
         guard let collections = shopViewModel.customCollections else {

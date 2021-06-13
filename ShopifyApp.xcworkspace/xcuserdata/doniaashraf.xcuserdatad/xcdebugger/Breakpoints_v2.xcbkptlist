@@ -14,8 +14,8 @@
             filePath = "ShopifyApp/Views/ViewControllers/ProductList/ProductListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "ProductListViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -82,6 +82,22 @@
             endingLineNumber = "29"
             landmarkName = "FavouriteViewModelTemp"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73004247-1657-4F2E-9273-F7F8524AF0F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShopifyApp/ViewModels/Shop&amp;CategoryViewModel/ShopViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "fetchAllProductsFromAPI(collectionID:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

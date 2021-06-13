@@ -15,7 +15,13 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var subCategoriesTable: UITableView!
     @IBOutlet weak var toolBar: UIToolbar!
     
-    var products: [Product]!
+   // var products: [Product]!
+    //doina
+    var products = [Product]()
+    let shopViewModel = ShopViewModel()
+    var collections = [CustomCollections]()
+    var product:Product!
+    //doina
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,10 +30,15 @@ class CategoryViewController: UIViewController {
         toolBar.items![1].action = #selector(womenTabAction)
         toolBar.items![2].action = #selector(menTabAction)
         toolBar.items![3].action = #selector(kidsTabAction)
+        //donia
+        shopViewModel.fetchCustomCollection()
+        shopViewModel.bindCategoryViewModelToView = onSuccessUpdateView
+        //donia
     }
 
     @objc func homeTabAction() {
 
+        
     }
 
     @objc func womenTabAction() {
@@ -65,7 +76,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            cell.title.text = "Shoes"
+            cell.title.text = "SHOES"
             break
         case 1:
             cell.title.text = "T-shirt"
@@ -74,7 +85,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.title.text = "3"
             break
         case 3:
-            cell.title.text = "4"
+            cell.title.text = "ACCESSORIES"
             break
         default:
             break
@@ -86,16 +97,26 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            
+            // get selected toolbar
+            // call function
+            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[4].id)")
+            self.products = filterProducts(products: products, subCategory: "SHOES")
+            categoriesCollectionView.reloadData()
             break
         case 1:
-            
+            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[1].id)")
+            self.products = filterProducts(products: products, subCategory: "SHOES")
+            categoriesCollectionView.reloadData()
             break
         case 2:
-            
+            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[2].id)")
+            self.products = filterProducts(products: products, subCategory: "SHOES")
+            categoriesCollectionView.reloadData()
             break
         case 3:
-            
+            shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[3].id)")
+            self.products = filterProducts(products: products, subCategory: "ACCESSORIES")
+            categoriesCollectionView.reloadData()
             break
         default:
             break
@@ -109,7 +130,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,12 +138,67 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         
 //        let images = products[indexPath.row].images
 //        item.image.sd_setImage(with: URL(string: images[0].src), completed: nil)
-        item.image.image = UIImage(named: "pic1")
-        
+//        item.image.image = UIImage(named: "pic1")
+//
+        //donia
+        item.image.sd_setImage(with: URL(string: products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "pic"))
+        //donia
         return item
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        product = products[indexPath.row]
+        print(product.title)
+        performSegue(withIdentifier: "ProductDetailsViewController", sender: self)
     }
 }
+//donia
+extension CategoryViewController {
+    func onSuccessUpdateView() {
+        guard let collections = shopViewModel.customCollections else {
+            print("no collections")
+            return
+        }
+        self.collections = collections
+        for i in collections {
+            print(i.title)
+        }
+        // set toolbar
+        toolBar.items![0].title = collections[4].title
+        toolBar.items![1].title = collections[1].title
+        toolBar.items![2].title = collections[2].title
+        toolBar.items![3].title = collections[3].title
+        // set products based on collectionID and subCategory
+        // move to subcategory item
+        shopViewModel.fetchAllProductsFromAPI(collectionID: "\(collections[4].id)")
+        shopViewModel.bindShopViewModelToView = onSucessProductsUpdateView
+        
+        
+    }
+    func onSucessProductsUpdateView(){
+        guard let products = shopViewModel.allProducts else {
+                    print("no products")
+                    return
+                }
+          self.products = products
+          self.products = filterProducts(products: products, subCategory: "SHOES")
+          categoriesCollectionView.reloadData()
+          print("ckiv")
+    }
+  
+    func filterProducts(products:[Product],subCategory:String) -> [Product] {
+      return products.filter{
+        ($0.productType == subCategory)
+            
+        }
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProductDetailsViewController"{
+            let vc = segue.destination as! ProductDetailsViewController
+            vc.product = product
+        }
+    }
+    
+}
+//donia

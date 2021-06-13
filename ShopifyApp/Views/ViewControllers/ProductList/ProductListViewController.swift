@@ -64,16 +64,7 @@ class ProductListViewController: UIViewController {
                self.productsCollectionView.reloadData()
                
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-   
     func onSuccessUpdateView() {
           guard let products = productsViewModel.allProducts
            else {

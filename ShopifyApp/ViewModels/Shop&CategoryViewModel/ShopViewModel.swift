@@ -11,6 +11,7 @@ class ShopViewModel :NSObject{
     
     var networkService = NetworkLayer()
     var bindShopViewModelToView : (()->()) = {}
+    var bindCategoryViewModelToView : (()->()) = {}
     var bindViewModelErrorToView : (()->()) = {}
     var bindAddsViewModelToView : (()->()) = {}
     var allProducts: [Product]? {
@@ -20,7 +21,7 @@ class ShopViewModel :NSObject{
     }
     var customCollections: [CustomCollections]? {
         didSet {
-            self.bindShopViewModelToView()
+            self.bindCategoryViewModelToView()
         }
     }
     var adds: [DiscountCode]? {

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6T-EG-5QN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6T-EG-5QN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,6 +37,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="shoppingBagAction:" destination="G6T-EG-5QN" eventType="touchUpInside" id="u99-fd-mjq"/>
+                                                    <segue destination="XXK-NJ-iWv" kind="show" id="6Wc-2i-N2K"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-0s-rE8">
@@ -47,6 +47,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="favoriteAction:" destination="G6T-EG-5QN" eventType="touchUpInside" id="Zrk-8H-WYl"/>
+                                                    <segue destination="ynX-9V-NuN" kind="show" id="cGL-uQ-dsA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -80,7 +81,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-fK-tCZ">
                                         <rect key="frame" x="0.0" y="0.0" width="141.5" height="634"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subCategoryCell" rowHeight="100" id="A9b-jS-HDs" customClass="SubCategoriesCell" customModule="ShopifyApp" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="73.5" width="109.5" height="100"/>
@@ -117,7 +118,7 @@
                                     </tableView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sl4-Gf-Oc1">
                                         <rect key="frame" x="141.5" y="0.0" width="262.5" height="634"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hj9-Dq-6Oo">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -165,8 +166,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Ome-u0-tZo"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ymB-Gt-T49" firstAttribute="leading" secondItem="Ome-u0-tZo" secondAttribute="leading" id="4Rb-UG-gDX"/>
                             <constraint firstItem="BPQ-Tb-7o3" firstAttribute="trailing" secondItem="Ome-u0-tZo" secondAttribute="trailing" id="5rM-SX-MK2"/>
@@ -179,6 +179,7 @@
                             <constraint firstItem="Ome-u0-tZo" firstAttribute="bottom" secondItem="sHq-4H-jrw" secondAttribute="bottom" id="W8T-Cp-4LF"/>
                             <constraint firstItem="sHq-4H-jrw" firstAttribute="top" secondItem="BPQ-Tb-7o3" secondAttribute="bottom" constant="25" id="j24-ar-WSs"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ome-u0-tZo"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="3AH-Un-cA8"/>
                     <toolbarItems/>
@@ -188,16 +189,29 @@
                         <outlet property="productSearchBar" destination="Nx9-Us-XIa" id="wGc-6r-4NI"/>
                         <outlet property="subCategoriesTable" destination="mKT-fK-tCZ" id="Efw-N2-rYT"/>
                         <outlet property="toolBar" destination="BPQ-Tb-7o3" id="kj6-1D-xKz"/>
+                        <segue destination="MlI-d1-vAw" kind="show" identifier="ProductDetailsViewController" id="ggd-Gy-9hR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYr-mn-3d7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="327.536231884058" y="108.48214285714285"/>
         </scene>
+        <!--ProductDetailsViewController-->
+        <scene sceneID="Gdx-Gc-Izm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductList" referencedIdentifier="ProductDetailsViewController" id="MlI-d1-vAw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OX3-4p-oof"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RA1-XK-3Mo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="-117"/>
+        </scene>
         <!--Favourites-->
         <scene sceneID="FdY-S2-9xC">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Favourite" storyboardName="Favourites" id="ynX-9V-NuN" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Favourite" storyboardName="Favourites" id="ynX-9V-NuN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YpY-Zx-6pf"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTz-xB-9HF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="846" y="46"/>
@@ -205,7 +219,9 @@
         <!--ShoppingBag-->
         <scene sceneID="elm-cv-8gN">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ShoppingBag" storyboardName="ShoppingBag" id="XXK-NJ-iWv" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ShoppingBag" storyboardName="ShoppingBag" id="XXK-NJ-iWv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fHb-07-KcQ"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2B-kl-K3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857" y="153"/>
@@ -214,8 +230,5 @@
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
