@@ -22,10 +22,7 @@ class ShopViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        // Do any additional setup after loading the view.
+       // Do any additional setup after loading the view.
         productSearchBar.delegate = self
         //        shopViewModel.bindShopViewModelToView  = onSuccessUpdateView
         //        shopViewModel.bindViewModelErrorToView = onFailUpdateView
@@ -89,21 +86,14 @@ class ShopViewController: UIViewController{
     }
     
     @IBAction func homeAction(_ sender: Any) {
-        //collectionLbl1
-        //        let productListViewController = storyboard?.instantiateViewController(withIdentifier: "ProductListViewController") as! ProductListViewController
-        //        productListViewController.modalPresentationStyle = .fullScreen
-        //
-        //
-        //        present(productListViewController, animated: true, completion: nil)
         print("home action")
-        //
         let productList = ProductListViewController()
-        
-        productList.collectionID = "\(collections[0].id)"
-        prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
-        performSegue(withIdentifier: "productList", sender: self)
-        
-        
+        if collections.count != 0 {
+            productList.collectionID = "\(collections[0].id)"
+            prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
+            performSegue(withIdentifier: "productList", sender: self)
+            
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare")
@@ -130,31 +120,34 @@ class ShopViewController: UIViewController{
     @IBAction func menAction(_ sender: Any) {
         //collectionLbl2
         let productList = ProductListViewController()
-        
+        if collections.count != 0 {
         productList.collectionID = "\(collections[0].id)"
         prepare(for: UIStoryboardSegue(identifier: "kids", source: self, destination: productList), sender: self)
         performSegue(withIdentifier: "kids", sender: self)
-        
+        }
     }
     
     @IBAction func womenAction(_ sender: Any) {
         //collectionLbl3
         
         let productList = ProductListViewController()
-        
+        if collections.count != 0 {
         productList.collectionID = "\(collections[3].id)"
         prepare(for: UIStoryboardSegue(identifier: "colection3", source: self, destination: productList), sender: self)
         performSegue(withIdentifier: "colection3", sender: self)
+        }
     }
     
     @IBAction func kidsAction(_ sender: Any) {
         //collectionLbl4
         
         let productList = ProductListViewController()
-        
+        if collections.count != 0 {
         productList.collectionID = "\(collections[4].id)"
         prepare(for: UIStoryboardSegue(identifier: "colection4", source: self, destination: productList), sender: self)
         performSegue(withIdentifier:"colection4",sender: self)
+        }
+        
     }
 }
 extension ShopViewController:UISearchBarDelegate{
