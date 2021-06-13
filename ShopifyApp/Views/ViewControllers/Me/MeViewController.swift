@@ -85,10 +85,6 @@ class MeViewController: UIViewController {
         
         if isLoggedIn {
             performSegue(withIdentifier: "gotToShoppingBag", sender: self)
-//            let OrdersTableViewController = storyboard?.instantiateViewController(withIdentifier: "OrdersTableViewController") as! OrdersTableViewController
-//                   OrdersTableViewController.modalPresentationStyle = .fullScreen
-//
-//                   present(OrdersTableViewController, animated: true, completion: nil)
         }else {
             performSegue(withIdentifier: "login", sender: self)
         }

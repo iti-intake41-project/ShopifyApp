@@ -22,7 +22,7 @@ class ShopViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
         productSearchBar.delegate = self
         //        shopViewModel.bindShopViewModelToView  = onSuccessUpdateView
         //        shopViewModel.bindViewModelErrorToView = onFailUpdateView
@@ -76,96 +76,108 @@ class ShopViewController: UIViewController{
     }
     
     @IBAction func shoppingBagAction(_ sender: Any) {
+        if shopViewModel.isLoggedIn() {
+            performSegue(withIdentifier: "card", sender: self)
+            
+        }else{
+            performSegue(withIdentifier: "login", sender: self)
+        }
         
     }
     
     @IBAction func favoriteAction(_ sender: Any) {
+        if shopViewModel.isLoggedIn() {
+            performSegue(withIdentifier: "fav", sender: self)
+            
+        }else{
+            performSegue(withIdentifier: "login", sender: self)
+        }
     }
     
     @IBAction func adsAction(_ sender: Any) {
     }
     
     @IBAction func homeAction(_ sender: Any) {
-//        print("home action")
-//        let productList = ProductListViewController()
-//        if collections.count != 0 {
-//            productList.collectionID = collections[4]
-//            prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
-//            performSegue(withIdentifier: "productList", sender: self)
-//
-//        }
+        //        print("home action")
+        //        let productList = ProductListViewController()
+        //        if collections.count != 0 {
+        //            productList.collectionID = collections[4]
+        //            prepare(for: UIStoryboardSegue(identifier: "productList", source: self, destination: productList), sender: self)
+        //            performSegue(withIdentifier: "productList", sender: self)
+        //
+        //        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare")
         print(collections.count)
         if collections.count != 0{
-        if segue.identifier == "col1" {
-            let vc = segue.destination as! ProductListViewController
-            vc.collectionID = collections[4]
-        }
-        else if segue.identifier == "col2"{
-            let vc = segue.destination as! ProductListViewController
-            vc.collectionID = collections[1]
-            print("kids")
-        }else if segue.identifier == "col3" {
-            let vc = segue.destination as! ProductListViewController
-            vc.collectionID = collections[2]
-        }else if segue.identifier == "col4"{
-            let vc = segue.destination as! ProductListViewController
-            vc.collectionID = collections[3]
-        }
+            if segue.identifier == "col1" {
+                let vc = segue.destination as! ProductListViewController
+                vc.collectionID = collections[4]
+            }
+            else if segue.identifier == "col2"{
+                let vc = segue.destination as! ProductListViewController
+                vc.collectionID = collections[1]
+                print("kids")
+            }else if segue.identifier == "col3" {
+                let vc = segue.destination as! ProductListViewController
+                vc.collectionID = collections[2]
+            }else if segue.identifier == "col4"{
+                let vc = segue.destination as! ProductListViewController
+                vc.collectionID = collections[3]
+            }
         }
     }
     
     
     @IBAction func menAction(_ sender: Any) {
-//        //collectionLbl2
-//        let productList = ProductListViewController()
-//        if collections.count != 0 {
-//        productList.collectionID = collections[1]
-//        prepare(for: UIStoryboardSegue(identifier: "kids", source: self, destination: productList), sender: self)
-//        performSegue(withIdentifier: "kids", sender: self)
-//        }
+        //        //collectionLbl2
+        //        let productList = ProductListViewController()
+        //        if collections.count != 0 {
+        //        productList.collectionID = collections[1]
+        //        prepare(for: UIStoryboardSegue(identifier: "kids", source: self, destination: productList), sender: self)
+        //        performSegue(withIdentifier: "kids", sender: self)
+        //        }
     }
     
     @IBAction func womenAction(_ sender: Any) {
         //collectionLbl3
         
-//        let productList = ProductListViewController()
-//        if collections.count != 0 {
-//        productList.collectionID = collections[2]
-//        prepare(for: UIStoryboardSegue(identifier: "colection3", source: self, destination: productList), sender: self)
-//        performSegue(withIdentifier: "colection3", sender: self)
-//        }
+        //        let productList = ProductListViewController()
+        //        if collections.count != 0 {
+        //        productList.collectionID = collections[2]
+        //        prepare(for: UIStoryboardSegue(identifier: "colection3", source: self, destination: productList), sender: self)
+        //        performSegue(withIdentifier: "colection3", sender: self)
+        //        }
     }
     
     @IBAction func kidsAction(_ sender: Any) {
         //collectionLbl4
         
-//        let productList = ProductListViewController()
-//        if collections.count != 0 {
-//        productList.collectionID = collections[3]
-//        prepare(for: UIStoryboardSegue(identifier: "colection4", source: self, destination: productList), sender: self)
-//        performSegue(withIdentifier:"colection4",sender: self)
-//        }
+        //        let productList = ProductListViewController()
+        //        if collections.count != 0 {
+        //        productList.collectionID = collections[3]
+        //        prepare(for: UIStoryboardSegue(identifier: "colection4", source: self, destination: productList), sender: self)
+        //        performSegue(withIdentifier:"colection4",sender: self)
+        //        }
         
     }
 }
 extension ShopViewController:UISearchBarDelegate{
-
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
+        
         print(searchText)
         collections = shopViewModel.searchProduct(sProducts: collections, searchTxt: searchText)
         
-    //    collectionLbl1.text = collections[0].title
+        //    collectionLbl1.text = collections[0].title
         
         
     }
     
     
     
-                 
-     
+    
+    
 }

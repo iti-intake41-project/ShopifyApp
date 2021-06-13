@@ -10,6 +10,7 @@ import Foundation
 class ShopViewModel :NSObject{
     
     var networkService = NetworkLayer()
+    var userDefaults  = UserDefaultsLayer ()
     var bindShopViewModelToView : (()->()) = {}
     var bindCategoryViewModelToView : (()->()) = {}
     var bindViewModelErrorToView : (()->()) = {}
@@ -99,4 +100,8 @@ class ShopViewModel :NSObject{
             }
         }
     }
+    func isLoggedIn() -> Bool {
+           print()
+           return userDefaults.isLoggedIn()
+       }
 }

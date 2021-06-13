@@ -76,7 +76,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="yPA-oQ-hEB" kind="show" id="IVn-p3-BdW"/>
+                                                    <action selector="shoppingBagAction:" destination="0vF-Za-LrV" eventType="touchUpInside" id="Uav-3t-oAr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfO-8a-gsD">
@@ -85,7 +85,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uy2-1Q-k1y" kind="show" id="AT5-D1-K2s"/>
+                                                    <action selector="favoriteAction:" destination="0vF-Za-LrV" eventType="touchUpInside" id="c1X-Ug-x1Z"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -267,6 +267,9 @@
                         <outlet property="collectionLbl3" destination="0aE-2x-jhj" id="mTd-kC-3LW"/>
                         <outlet property="collectionLbl4" destination="EPe-pS-7Rc" id="4F1-Ea-CgE"/>
                         <outlet property="productSearchBar" destination="9xy-Qc-kgf" id="vIU-jW-BgI"/>
+                        <segue destination="HhF-vL-mQw" kind="show" identifier="login" id="4LJ-8E-3wH"/>
+                        <segue destination="yPA-oQ-hEB" kind="show" identifier="card" id="07h-S4-N9l"/>
+                        <segue destination="uy2-1Q-k1y" kind="show" identifier="fav" id="7nU-y7-VrC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYM-tV-b9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -317,6 +320,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMU-8h-kyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="949" y="-48"/>
+        </scene>
+        <!--LoginRegister-->
+        <scene sceneID="Yjd-Za-epG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginRegister" id="HhF-vL-mQw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xNx-TU-adf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jog-Bn-8uW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="-269"/>
         </scene>
         <!--ShoppingBag-->
         <scene sceneID="clm-t5-HZr">

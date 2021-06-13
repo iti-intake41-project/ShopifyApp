@@ -37,7 +37,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="shoppingBagAction:" destination="G6T-EG-5QN" eventType="touchUpInside" id="u99-fd-mjq"/>
-                                                    <segue destination="XXK-NJ-iWv" kind="show" id="6Wc-2i-N2K"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-0s-rE8">
@@ -47,7 +46,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="favoriteAction:" destination="G6T-EG-5QN" eventType="touchUpInside" id="Zrk-8H-WYl"/>
-                                                    <segue destination="ynX-9V-NuN" kind="show" id="cGL-uQ-dsA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -64,13 +62,29 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPQ-Tb-7o3">
                                 <rect key="frame" x="0.0" y="100" width="414" height="54"/>
                                 <items>
-                                    <barButtonItem title="Home" id="2v4-2v-7JS"/>
+                                    <barButtonItem title="Home" id="2v4-2v-7JS">
+                                        <connections>
+                                            <action selector="item1:" destination="G6T-EG-5QN" id="Il9-BY-LVB"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="R0b-Jg-2jy"/>
-                                    <barButtonItem title="Women" id="rzY-gy-6WR"/>
+                                    <barButtonItem title="Women" id="rzY-gy-6WR">
+                                        <connections>
+                                            <action selector="item2:" destination="G6T-EG-5QN" id="rDd-uk-ZLy"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SJt-ZT-dr7"/>
-                                    <barButtonItem title="Men" id="9pF-Ad-DgK"/>
+                                    <barButtonItem title="Men" id="9pF-Ad-DgK">
+                                        <connections>
+                                            <action selector="item3:" destination="G6T-EG-5QN" id="ZSj-Aw-UCs"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dnZ-7z-yfW"/>
-                                    <barButtonItem title="Kids" id="YFF-uS-4v2"/>
+                                    <barButtonItem title="Kids" id="YFF-uS-4v2">
+                                        <connections>
+                                            <action selector="item4:" destination="G6T-EG-5QN" id="lhb-bC-g9C"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="G6T-EG-5QN" id="l4p-To-LRS"/>
@@ -186,10 +200,17 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="Sl4-Gf-Oc1" id="6yr-fG-JaU"/>
+                        <outlet property="item1" destination="2v4-2v-7JS" id="yjA-BG-ni2"/>
+                        <outlet property="item2" destination="rzY-gy-6WR" id="dX6-QZ-3d5"/>
+                        <outlet property="item3" destination="9pF-Ad-DgK" id="Cqp-Mf-ffW"/>
+                        <outlet property="item4" destination="YFF-uS-4v2" id="Erq-gb-gZD"/>
                         <outlet property="productSearchBar" destination="Nx9-Us-XIa" id="wGc-6r-4NI"/>
                         <outlet property="subCategoriesTable" destination="mKT-fK-tCZ" id="Efw-N2-rYT"/>
                         <outlet property="toolBar" destination="BPQ-Tb-7o3" id="kj6-1D-xKz"/>
                         <segue destination="MlI-d1-vAw" kind="show" identifier="ProductDetailsViewController" id="ggd-Gy-9hR"/>
+                        <segue destination="ynX-9V-NuN" kind="show" identifier="fav" id="2hN-Tl-WIc"/>
+                        <segue destination="XXK-NJ-iWv" kind="show" identifier="card" id="6uf-aa-OLU"/>
+                        <segue destination="8qc-al-xYg" kind="show" identifier="login" id="j9d-ah-AGW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYr-mn-3d7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -206,6 +227,16 @@
             </objects>
             <point key="canvasLocation" x="948" y="-117"/>
         </scene>
+        <!--LoginRegister-->
+        <scene sceneID="FWg-Nh-Fmk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginRegister" id="8qc-al-xYg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rF6-Iq-P90"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YEw-9c-kz3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="706" y="-283"/>
+        </scene>
         <!--Favourites-->
         <scene sceneID="FdY-S2-9xC">
             <objects>
@@ -214,7 +245,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTz-xB-9HF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="46"/>
+            <point key="canvasLocation" x="826" y="-220"/>
         </scene>
         <!--ShoppingBag-->
         <scene sceneID="elm-cv-8gN">
@@ -224,7 +255,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2B-kl-K3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="153"/>
+            <point key="canvasLocation" x="838" y="-173"/>
         </scene>
     </scenes>
     <resources>
