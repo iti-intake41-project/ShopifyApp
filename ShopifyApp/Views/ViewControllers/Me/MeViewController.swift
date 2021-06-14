@@ -48,7 +48,11 @@ class MeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        loginOrder.layer.cornerRadius = loginOrder.layer.frame.height  / 2
+        loginOrder.clipsToBounds = true
+        loginFav.layer.cornerRadius = loginFav.layer.frame.height / 2
+        registerOrder.layer.cornerRadius = registerOrder.layer.frame.height / 2
+        registerFav.layer.cornerRadius = registerFav.layer.frame.height / 2
     }
     override func viewWillAppear(_ animated: Bool) {
         setOrderesUI(products: getOrders())
