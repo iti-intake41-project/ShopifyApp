@@ -22,25 +22,18 @@ class MeViewController: UIViewController {
     @IBOutlet weak var lblFav2: UILabel!
     @IBOutlet weak var lblFav3: UILabel!
     @IBOutlet weak var imgFav2: UIImageView!
-    
     @IBOutlet weak var order3StackView: UIStackView!
-    
     @IBOutlet weak var order1StackVIew: UIStackView!
-    
     @IBOutlet weak var fav1StackView: UIStackView!
     @IBOutlet weak var order2StackView: UIStackView!
     @IBOutlet weak var fav2StackView: UIStackView!
     @IBOutlet weak var fav3StackView: UIStackView!
-    
     @IBOutlet weak var orderStackView: UIStackView!
-    @IBOutlet weak var loginOrRegisterOrderStackView: UIStackView!
-    @IBOutlet weak var registerOrder: UIButton!
-    @IBOutlet weak var loginOrder: UIButton!
-    @IBOutlet weak var loginFav: UIButton!
-    @IBOutlet weak var registerFav: UIButton!
-    
-    @IBOutlet weak var loginOrRegisterFav: UIStackView!
     @IBOutlet weak var FavouriteStackVIew: UIStackView!
+    @IBOutlet weak var loginOrRegisterStackView: UIStackView!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var registerBtn: UIButton!
+    
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var meViewModel = MeViewModel()
     var isLoggedIn = false
@@ -48,11 +41,8 @@ class MeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        loginOrder.layer.cornerRadius = loginOrder.layer.frame.height  / 2
-        loginOrder.clipsToBounds = true
-        loginFav.layer.cornerRadius = loginFav.layer.frame.height / 2
-        registerOrder.layer.cornerRadius = registerOrder.layer.frame.height / 2
-        registerFav.layer.cornerRadius = registerFav.layer.frame.height / 2
+        loginBtn.layer.cornerRadius = loginBtn.layer.frame.height  / 2
+        registerBtn.layer.cornerRadius = registerBtn.layer.frame.height / 2
     }
     override func viewWillAppear(_ animated: Bool) {
         setOrderesUI(products: getOrders())
@@ -61,14 +51,12 @@ class MeViewController: UIViewController {
        isLoggedIn = meViewModel.isLoggedIn()
         
         if isLoggedIn {
-            loginOrRegisterOrderStackView.isHidden = true
-            loginOrRegisterFav.isHidden = true
+            loginOrRegisterStackView.isHidden = true
             orderStackView.isHidden = false
             FavouriteStackVIew.isHidden = false
             userLbl.text = "Welcome \(meViewModel.getUserName())"
         }else{
-            loginOrRegisterOrderStackView.isHidden = false
-            loginOrRegisterFav.isHidden = false
+            loginOrRegisterStackView.isHidden = false
             userLbl.isHidden = true
             orderStackView.isHidden = true
             FavouriteStackVIew.isHidden = true
