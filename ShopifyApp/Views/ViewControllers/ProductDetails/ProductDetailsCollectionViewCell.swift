@@ -11,4 +11,6 @@ class ProductDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var imageCounterLabel: UILabel!
     
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageWidth: NSLayoutConstraint!
 }

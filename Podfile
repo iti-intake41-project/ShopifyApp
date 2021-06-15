@@ -34,5 +34,6 @@ pod 'Cosmos'
 
 
 #pod 'RealmS', '~> 4.0.0'
+pod 'Cosmos'
 
 end

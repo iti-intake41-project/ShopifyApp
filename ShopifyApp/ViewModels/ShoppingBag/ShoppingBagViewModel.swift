@@ -90,6 +90,19 @@ class ShoppingBagViewModel: ShoppingBagViewModelTemp {
         return defaultsRepository.getCurrency()
     }
     
+    //MARK: - abanob
+    func isInShopingCart(id: Int)->Bool {
+        var isIn = false
+        let products = dataRepository.getShoppingCartProductList()
+        for product in products{
+            if id == product.id{
+                isIn = true
+                break
+            }
+        }
+        return isIn
+    }
+    
     // MARK: - Order
     func postOrder(products: inout [Product]){
         var items: [OrderItem] = []
