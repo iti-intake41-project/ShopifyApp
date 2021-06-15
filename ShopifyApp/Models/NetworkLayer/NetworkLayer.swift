@@ -145,6 +145,25 @@ class NetworkLayer {
             completion(data, response, error)
         }.resume()
     }
+    
+    func deleteAddress(id: Int, completion: @escaping(Data?, URLResponse?, Error?)->()){
+        let addressId = id
+        let customerId = UserDefaultsLayer().getId()
+        guard let url = URL(string: URLs.deleteAddress(customerId: customerId, addressId: addressId)) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        let session = URLSession.shared
+        request.httpShouldHandleCookies = false
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        session.dataTask(with: request) { (data, response, error) in
+            completion(data, response, error)
+        }.resume()
+    }
+
 
 
     //Moataz

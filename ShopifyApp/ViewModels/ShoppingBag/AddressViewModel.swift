@@ -34,7 +34,7 @@ class AddressViewModel: AddressViewModelTemp {
         }
     }
     
-    init(appDelegate: inout AppDelegate) {
+    init(appDelegate: AppDelegate) {
         delegate = appDelegate
         dataRepository = CoreDataRepository(appDelegate: &delegate)
     }
@@ -43,7 +43,7 @@ class AddressViewModel: AddressViewModelTemp {
         if country != ""{
             if city != ""{
                 if address != ""{
-                    let address = Address(address1: address, city: city, province: "", phone: "", zip: zipcode, last_name: "", first_name: "", country: country)
+                    var address = Address(address1: address, city: city, province: "", phone: "", zip: zipcode, last_name: "", first_name: "", country: country)
                     addAddress( address: address)
                 }else{
                     message = "Please enter your address"
@@ -58,6 +58,7 @@ class AddressViewModel: AddressViewModelTemp {
     
     func addAddress(address: Address){
         let id = defaultsRepository.getId()
+        var newAddress = address
         network.addAddress(id: id, address: address) { [weak self] (data, response, error) in
             if error != nil {
                 print("error while adding address \(error!)")
@@ -69,14 +70,27 @@ class AddressViewModel: AddressViewModelTemp {
                 let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
                 print("json: \(json)")
                 let returnedCustomer = json["customer"] as? Dictionary<String,Any>
+                do{
+                    let reutrnedCust = try JSONDecoder().decode(NewCustomer.self, from: data)
+                    print("***********")
+                    print("result customer \(String(describing: reutrnedCust))")
+                    print("***********")
+                    print("new address id \(String(describing: reutrnedCust.customer.addresses?.last?.id ?? 0))")
+                    print("***********")
+                    newAddress.id = reutrnedCust.customer.addresses?.last?.id ?? 0
+                }catch{
+                    print("could parse response: \(error.localizedDescription)")
+                }
                 let id = returnedCustomer?["id"] as? Int ?? 0
+//                let addresses = returnedCustomer?["addresses"] as? Int ?? 0
                 if id == 0 {
                     // failed to save address
                     self?.message = "An error occured while adding your address"
                 }else {
                     //succeeded to save address
                     self?.navigateToCheckOut()
-                    self?.dataRepository.addAddress(address: address)
+                    
+                    self?.dataRepository.addAddress(address: newAddress)
                 }
             }
         }

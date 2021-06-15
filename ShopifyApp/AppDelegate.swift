@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate/*, GIDSignInDelegate*/ {
         // Override point for customization after application launch.
 
         IQKeyboardManager.shared.enable = true
-        
         return true
     }
     

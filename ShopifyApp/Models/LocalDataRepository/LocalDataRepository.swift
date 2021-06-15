@@ -208,6 +208,7 @@ class CoreDataRepository: LocalDataRepository {
         let addressCD = NSManagedObject(entity: entity!, insertInto: managedContext)
         addressCD.setValue(address.country ?? "", forKey: "country")
         addressCD.setValue(address.city ?? "", forKey: "city")
+        addressCD.setValue(address.id ?? 0, forKey: "id")
         addressCD.setValue(address.address1 ?? "", forKey: "address1")
         addressCD.setValue(address.zip ?? "", forKey: "zip")
         do{
@@ -251,6 +252,7 @@ class CoreDataRepository: LocalDataRepository {
             for addressCD in addressCDArray{
                 address.country = addressCD.value(forKey: "country") as? String
                 address.city = addressCD.value(forKey: "city") as? String
+                address.id = addressCD.value(forKey: "id") as? Int
                 address.address1 = addressCD.value(forKey: "address1") as? String
                 address.zip = addressCD.value(forKey: "zip") as? String
             }
@@ -275,6 +277,7 @@ class CoreDataRepository: LocalDataRepository {
 
                 address.country = addressCD.value(forKey: "country") as? String
                 address.city = addressCD.value(forKey: "city") as? String
+                address.id = addressCD.value(forKey: "id") as? Int
                 address.address1 = addressCD.value(forKey: "address1") as? String
                 address.zip = addressCD.value(forKey: "zip") as? String
                 

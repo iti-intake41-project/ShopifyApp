@@ -295,7 +295,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cairo, Tahrir" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iXn-Gy-AOA">
-                                                            <rect key="frame" x="75" y="44" width="107" height="31"/>
+                                                            <rect key="frame" x="75" y="44" width="299" height="31"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="31" id="CWH-Rd-Jmu"/>
@@ -308,6 +308,7 @@
                                                     <constraints>
                                                         <constraint firstItem="iXn-Gy-AOA" firstAttribute="leading" secondItem="diX-Zv-GnT" secondAttribute="trailing" constant="3" id="3if-IF-f1h"/>
                                                         <constraint firstItem="s1a-03-jdi" firstAttribute="top" secondItem="Diu-8z-uOZ" secondAttribute="topMargin" id="4G2-mK-Wqc"/>
+                                                        <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="iXn-Gy-AOA" secondAttribute="trailing" constant="20" id="4Nc-xr-qAk"/>
                                                         <constraint firstItem="diX-Zv-GnT" firstAttribute="leading" secondItem="Diu-8z-uOZ" secondAttribute="leadingMargin" constant="8" id="aSp-tW-bb6"/>
                                                         <constraint firstItem="diX-Zv-GnT" firstAttribute="centerY" secondItem="Diu-8z-uOZ" secondAttribute="centerY" id="fAr-Sl-yd4"/>
                                                         <constraint firstItem="s1a-03-jdi" firstAttribute="leading" secondItem="diX-Zv-GnT" secondAttribute="trailing" constant="3" id="nwI-md-qfo"/>

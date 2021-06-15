@@ -23,7 +23,7 @@ class AddressTableViewController: UITableViewController {
     var delegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = AddressViewModel(appDelegate: &delegate)
+        viewModel = AddressViewModel(appDelegate: delegate)
         bindToViewModel()
         self.view.isUserInteractionEnabled = true
         setUI()
