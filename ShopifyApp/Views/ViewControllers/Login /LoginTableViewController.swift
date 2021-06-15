@@ -55,11 +55,12 @@ class LoginTableViewController: UITableViewController {
     }
         
     func navigate(){
-//        let registerScreen = storyboard?.instantiateViewController(withIdentifier: "main")
-//        registerScreen?.modalPresentationStyle = .fullScreen
-//        present(registerScreen!, animated: true, completion: nil)
+//        let mainScreen = storyboard?.instantiateViewController(withIdentifier: "main")
+//        mainScreen?.modalPresentationStyle = .fullScreen
+//        present(mainScreen!, animated: true, completion: nil)
 //        performSegue(withIdentifier: "navigateToMain", sender: self)
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
