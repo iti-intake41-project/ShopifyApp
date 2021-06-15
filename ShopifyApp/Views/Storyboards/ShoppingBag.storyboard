@@ -252,7 +252,7 @@
         <!--Address Table View Controller-->
         <scene sceneID="le7-Cn-R4D">
             <objects>
-                <tableViewController id="8Zf-Xa-rR6" customClass="AddressTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddressTableViewController" id="8Zf-Xa-rR6" customClass="AddressTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kiT-L6-vJJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
