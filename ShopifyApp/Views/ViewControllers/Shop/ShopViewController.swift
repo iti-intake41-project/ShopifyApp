@@ -9,25 +9,18 @@ import UIKit
 
 class ShopViewController: UIViewController{
     
-    @IBOutlet weak var productSearchBar: UISearchBar!
     @IBOutlet weak var adsImage: UIImageView!
-    @IBOutlet weak var collectionLbl1: UILabel!
-    @IBOutlet weak var collectionLbl2: UILabel!
-    @IBOutlet weak var collectionLbl3: UILabel!
-    @IBOutlet weak var collectionLbl4: UILabel!
-    @IBOutlet weak var collectionImg1: UIImageView!
-    @IBOutlet weak var collectionImg2: UIImageView!
+    @IBOutlet weak var vendorView: UIView!
+    @IBOutlet weak var vendorCollectionView: UICollectionView!
     
-    @IBOutlet weak var collectionImg4: UIImageView!
-    @IBOutlet weak var collectionImg3: UIImageView!
     var products: [Product] = [Product]()
     var collections = [CustomCollections]()
     let shopViewModel: ShopViewModel = ShopViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        productSearchBar.delegate = self
+        style()
+
         shopViewModel.fetchCustomCollection()
         shopViewModel.bindShopViewModelToView = onSuccessUpdateView
     }
@@ -43,14 +36,14 @@ class ShopViewController: UIViewController{
         for i in collections {
             print(i.title)
         }
-        collectionLbl1.text = collections[4].title
-        collectionLbl2.text = collections[1].title
-        collectionLbl3.text = collections[3].title
-        collectionLbl4.text = collections[2].title
-        collectionImg1.sd_setImage(with: URL(string: collections[4].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
-        collectionImg2.sd_setImage(with: URL(string: collections[1].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
-        collectionImg3.sd_setImage(with: URL(string: collections[2].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
-        collectionImg4.sd_setImage(with: URL(string: collections[3].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
+//        collectionLbl1.text = collections[4].title
+//        collectionLbl2.text = collections[1].title
+//        collectionLbl3.text = collections[3].title
+//        collectionLbl4.text = collections[2].title
+//        collectionImg1.sd_setImage(with: URL(string: collections[4].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
+//        collectionImg2.sd_setImage(with: URL(string: collections[1].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
+//        collectionImg3.sd_setImage(with: URL(string: collections[2].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
+//        collectionImg4.sd_setImage(with: URL(string: collections[3].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
         
     }
     func onFailUpdateView() {
@@ -64,6 +57,10 @@ class ShopViewController: UIViewController{
         
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func searchAction(_ sender: Any) {
+        
     }
     
     @IBAction func shoppingBagAction(_ sender: Any) {
@@ -84,13 +81,7 @@ class ShopViewController: UIViewController{
             performSegue(withIdentifier: "login", sender: self)
         }
     }
-    
-    @IBAction func adsAction(_ sender: Any) {
-    }
-    
-    @IBAction func homeAction(_ sender: Any) {
-        
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare")
         print(collections.count)
@@ -112,34 +103,45 @@ class ShopViewController: UIViewController{
             }
         }
     }
+}
+extension ShopViewController {
     
     
-    @IBAction func menAction(_ sender: Any) {
-    }
-    
-    @IBAction func womenAction(_ sender: Any) {
-        
-    }
-    
-    @IBAction func kidsAction(_ sender: Any) {
-        
+    func style() {        
+        adsImage.layer.cornerRadius = adsImage.frame.height / 14
+        adsImage.layer.borderWidth = 1
+
+        vendorView.layer.cornerRadius = vendorView.frame.height / 14
+        vendorView.layer.borderWidth = 1
     }
 }
-extension ShopViewController:UISearchBarDelegate{
-    
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        print(searchText)
-        collections = shopViewModel.searchProduct(sProducts: collections, searchTxt: searchText)
-        
-        //    collectionLbl1.text = collections[0].title
-        
-        
+
+extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let vendor = collectionView.dequeueReusableCell(withReuseIdentifier: "vendor", for: indexPath) as! VendorCollectionViewCell
+        
+        vendor.imageWidth.constant = (collectionView.frame.width / 2) - 10
+        vendor.imageHeight.constant = (collectionView.frame.height / 2) - 35
+        
+        vendor.image.image = UIImage(named: "pic")
+        vendor.image.layer.borderWidth = 1
+        vendor.image.layer.cornerRadius = vendor.image.frame.height / 12
+        
+        vendor.name.text = "\(indexPath.row)"
+
+        return vendor
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("\(indexPath.row)")
+    }
     
-    
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 2) - 30)
+    }
 }
