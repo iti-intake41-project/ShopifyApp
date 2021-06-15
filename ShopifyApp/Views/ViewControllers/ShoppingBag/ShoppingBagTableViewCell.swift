@@ -14,6 +14,8 @@ class ShoppingBagTableViewCell: UITableViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var itemCountText: UILabel!
+    @IBOutlet weak var minusBtn: UIButton!
+    @IBOutlet weak var plusBtn: UIButton!
     
     var product: Product!{
         didSet{
@@ -40,6 +42,10 @@ class ShoppingBagTableViewCell: UITableViewCell {
         // Initialization code
         countStack.layer.cornerRadius = 15
         countStack.layer.borderWidth = 1
+//        minusBtn.layer.cornerRadius = 15
+//        minusBtn.layer.borderWidth = 1
+//        plusBtn.layer.cornerRadius = 15
+//        plusBtn.layer.borderWidth = 1
     }
     
     @IBAction func deleteProduct(_ sender: Any) {
