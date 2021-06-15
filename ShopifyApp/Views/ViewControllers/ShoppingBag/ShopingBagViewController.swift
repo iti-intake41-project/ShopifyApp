@@ -32,15 +32,6 @@ class ShoppingBagViewController: UIViewController {
         updateTableView()
         setupStripe()
         
-        NetworkLayer().deleteAddress(id: 6480198959302) { (data, response, error) in
-            let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Dictionary<String,Any>
-            if json.isEmpty {
-                print("deleted")
-            }else{
-                print("cant delete")
-            }
-            print(json)
-        }
 
     }
     

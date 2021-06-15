@@ -22,6 +22,7 @@ protocol LocalDataRepository{
     func hasAddress()->Bool
     func getAddress()->Address
     func getAddresses()->[Address]
+    func deleteAddress(id: Int)
 }
 
 class CoreDataRepository: LocalDataRepository {
@@ -231,6 +232,22 @@ class CoreDataRepository: LocalDataRepository {
             print ("error happened while deleting addresses \(error.localizedDescription)")
         }
         
+    }
+    
+    func deleteAddress(id: Int) {
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AddressCoreData")
+        fetchRequest.predicate = NSPredicate(format: "id = \(id)")
+        do{
+            let addressCDArray = try managedContext.fetch(fetchRequest)
+            for address in addressCDArray {
+                managedContext.delete(address)
+            }
+            try managedContext.save()
+        }catch{
+            print("failed to delete address from core data \(error.localizedDescription)")
+        }
+
     }
     
     func hasAddress()->Bool {

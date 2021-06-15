@@ -13,6 +13,7 @@ class ChooseAddressViewController: UIViewController {
     var addresses: [Address] = []
     var viewModel: ChooseAddressViewModel!
     var delegate = UIApplication.shared.delegate as! AppDelegate
+    var shippingAddressId: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,14 @@ class ChooseAddressViewController: UIViewController {
         addressTable.dataSource = self
         viewModel = ChooseAddressViewModel(appDelegate: &delegate)
         addresses = viewModel.getAddresses()
+        shippingAddressId = addresses[0].id
+        print("default id: \(shippingAddressId)")
+        print("count: \(addresses.count)")
 //        addresses[0].isMainAddress = true
         addressTable.reloadData()
+        viewModel.reloadTable = { [weak self] in
+            self?.addressTable.reloadData()
+        }
     }
     
 
@@ -50,6 +57,12 @@ extension ChooseAddressViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = addressTable.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressDetailCell
         cell.address = addresses[indexPath.row]
+        cell.delegate = self
+        if shippingAddressId != addresses[indexPath.row].id {
+            cell.mybutton.tintColor = UIColor.white
+        }else{
+            cell.mybutton.tintColor = UIColor.blue
+        }
         return cell
     }
     
@@ -63,6 +76,9 @@ class AddressDetailCell: UITableViewCell{
     @IBOutlet private weak var countryText: UITextField!
     @IBOutlet private weak var addressText: UITextField!
     
+    var delegate: MainAddressDelegate!
+    
+    @IBOutlet weak var mybutton: UIButton!
     var address: Address! {
         didSet{
             countryText.text = address.country
@@ -70,13 +86,26 @@ class AddressDetailCell: UITableViewCell{
         }
     }
     
-    override class func awakeFromNib() {
-        
+    
+    @IBAction func changeAddress(_ sender: Any) {
+        delegate.chooseAsMain(addressId: address.id!)
     }
+    
     
 }
 
 // MARK: - Main Address Delegate
 protocol MainAddressDelegate {
-    func chooseAsMain()
+    func chooseAsMain(addressId: Int)
+}
+
+
+extension ChooseAddressViewController: MainAddressDelegate{
+    
+    func chooseAsMain(addressId: Int) {
+        shippingAddressId = addressId
+        print("pressed id \(addressId)")
+        addressTable.reloadData()
+    }
+    
 }
