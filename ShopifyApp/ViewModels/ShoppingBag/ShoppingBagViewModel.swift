@@ -21,6 +21,9 @@ protocol ShoppingBagViewModelTemp: baseProtocol {
     var navigateToPayment:()->(){set get}
     func getCurrency()->String
     func postOrder(products: inout [Product])
+    func deleteFavourite(id: Int)
+    func addFavourite(product: Product)
+    func isFavourite(id: Int)->Bool
 }
 
 protocol FavouriteViewModelTemp: baseProtocol {

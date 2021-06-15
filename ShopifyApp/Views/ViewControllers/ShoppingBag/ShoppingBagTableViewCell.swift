@@ -17,11 +17,20 @@ class ShoppingBagTableViewCell: UITableViewCell {
     @IBOutlet weak var minusBtn: UIButton!
     @IBOutlet weak var plusBtn: UIButton!
     @IBOutlet weak var priceView: UIView!
+    @IBOutlet weak var likeBtn: UIButton!
     
     var product: Product!{
         didSet{
             productName.text = product.title
             itemCountText.text = "\(product.count)"
+        }
+    }
+    
+    var isFavourite: Bool!{
+        didSet{
+            if isFavourite{
+                likeBtn.tintColor = UIColor.red
+            }
         }
     }
     
@@ -54,11 +63,19 @@ class ShoppingBagTableViewCell: UITableViewCell {
         } else {
             // Fallback on earlier versions
         }
+        productImage.roundCorners(corners: .allCorners, radius: 30)
     }
     
-    @IBAction func deleteProduct(_ sender: Any) {
-        delegate.deleteProduct(id: product.id)
+    @IBAction func toggleFav(_ sender: Any) {
+        if delegate.isFavourite(id: product.varients?[0].id ?? 0){
+            delegate.deleteFavourite(id: product.varients?[0].id ?? 0)
+            likeBtn.tintColor = UIColor.white
+        }else{
+            delegate.addFavourite(product: product)
+            likeBtn.tintColor = UIColor.red
+        }
     }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

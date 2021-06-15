@@ -38,6 +38,11 @@ class ShoppingBagViewController: UIViewController {
         totalPriceView.layer.cornerRadius = totalPriceView.layer.frame.height / 4
         checkoutBtn.layer.cornerRadius = checkoutBtn.layer.frame.height / 2
 //        shoppingTable.backgroundView = UIImageView(image: UIImage(named: "cart background.jpg"))
+        if list.count == 0 {
+            shoppingTable.backgroundView = UIImageView(image: UIImage(named: "empty cart.jpeg"))
+
+            
+        }
     }
     
     func bindToViewModel(){
@@ -121,6 +126,7 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
         let cell = shoppingTable.dequeueReusableCell(withIdentifier: "shoppingBagCell", for: indexPath) as! ShoppingBagTableViewCell
         cell.imgUrl = list[indexPath.row].images[0].src
         cell.delegate = self
+        cell.isFavourite = viewModel.isFavourite(id: list[indexPath.row].varients?[0].id ?? 0)
         cell.product = list[indexPath.row]
         if viewModel.getCurrency() == "EGP"{
             let cost = Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0
@@ -135,6 +141,45 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    private func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+//    private func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        // handle delete (by removing the data from your array and updating the tableview)
+//        let id = list[indexPath.row].varients?[0].id ?? 0
+//        viewModel.deleteProduct(id: id)
+//        updateTableView()
+//
+//    }
+    
+//    private func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+//
+//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { [weak self] (action,arg) in
+//            let id = self?.list[indexPath.row].varients?[0].id ?? 0
+//            self?.viewModel.deleteProduct(id: id)
+//            self?.updateTableView()
+//        }
+//
+//        let editAction = UITableViewRowAction(style: .normal, title: "Edit") {(action,arg) in
+//            //handle edit
+//        }
+//
+//        return [deleteAction, editAction]
+//    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let id = list[indexPath.row].varients?[0].id ?? 0
+            viewModel.deleteProduct(id: id)
+            updateTableView()
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            increaseCount(id: list[indexPath.row].varients?[0].id ?? 0)
+        }
+    }
+
 }
 
 // MARK: - ProductListDelegate
@@ -143,9 +188,26 @@ protocol productListDelegate {
     func deleteProduct(id: Int)
     func increaseCount(id: Int)
     func decreaseCount(id: Int)
+    func isFavourite(id: Int)->Bool
+    func addFavourite(product: Product)
+    func deleteFavourite(id: Int)
 }
 
 extension ShoppingBagViewController : productListDelegate {
+    func isFavourite(id: Int)->Bool {
+        print("is favourite: \(viewModel.isFavourite(id: id))")
+        return viewModel.isFavourite(id: id)
+    }
+    
+    func addFavourite(product: Product) {
+        viewModel.addFavourite(product: product)
+    }
+    
+    func deleteFavourite(id: Int) {
+        viewModel.deleteFavourite(id: id)
+    }
+
+    
     func increaseCount(id: Int) {
         for i in 0...self.list.count - 1{
             if id == self.list[i].id{
@@ -167,6 +229,8 @@ extension ShoppingBagViewController : productListDelegate {
                     self.list[i].count -= 1
                     self.updateCD(id: id)
                     break
+                }else{
+                    deleteProduct(id: id)
                 }
             }
         }
