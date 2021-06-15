@@ -94,8 +94,8 @@
             filePath = "ShopifyApp/ViewModels/Shop&amp;CategoryViewModel/ShopViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "fetchAllProductsFromAPI(collectionID:)"
             landmarkType = "7">
          </BreakpointContent>
