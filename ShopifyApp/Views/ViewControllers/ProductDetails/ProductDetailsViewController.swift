@@ -12,6 +12,7 @@ import Cosmos
 class ProductDetailsViewController: UIViewController {
 
     @IBOutlet weak var productImagesCollectionView: UICollectionView!
+    @IBOutlet weak var imageControl: UIPageControl!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productDescriptionTextView: UITextView!
@@ -44,19 +45,18 @@ class ProductDetailsViewController: UIViewController {
         if shoppingViewModel.isInShopingCart(id: product.varients![0].id) {
             let alert = UIAlertController(title: "Done", message: "This product is already in your cart", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (UIAlertAction) in
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }))
             present(alert, animated: true, completion: nil)
         }else{
             shoppingViewModel.addProduct(product: product)
-            dismiss(animated: true, completion: nil)
+            navigationController?.popViewController(animated: true)
         }
     }
     
-    @IBAction func goBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+//    @IBAction func goBack(_ sender: Any) {
+//        dismiss(animated: true, completion: nil)
+//    }
 
 }
 
@@ -91,6 +91,7 @@ extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        imageControl.numberOfPages = product.images.count
         return product.images.count
     }
     
@@ -109,6 +110,9 @@ extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionVi
         return image
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        imageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
 }
 
 extension ProductDetailsViewController: UICollectionViewDelegateFlowLayout {
