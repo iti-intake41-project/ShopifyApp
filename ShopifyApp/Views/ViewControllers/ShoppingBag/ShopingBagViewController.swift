@@ -10,6 +10,9 @@ import UIKit
 class ShoppingBagViewController: UIViewController {
     @IBOutlet weak var shoppingTable: UITableView!
     @IBOutlet weak var totalPriceText: UILabel!
+    @IBOutlet weak var checkoutView: UIView!
+    @IBOutlet weak var totalPriceView: UIView!
+    @IBOutlet weak var checkoutBtn: UIButton!
     var totalPrice: Float = 0
     var list:[Product] = []
     var viewModel:ShoppingBagViewModelTemp!
@@ -23,6 +26,12 @@ class ShoppingBagViewController: UIViewController {
         shoppingTable.dataSource = self
         
         updateTableView()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        checkoutView.roundCorners(corners: [.topLeft, .topRight], radius: 30)
+        totalPriceView.layer.cornerRadius = totalPriceView.layer.frame.height / 4
+        checkoutBtn.layer.cornerRadius = checkoutBtn.layer.frame.height / 2
     }
     
     func bindToViewModel(){
@@ -159,4 +168,16 @@ extension ShoppingBagViewController : productListDelegate {
         
     }
     
+}
+
+
+// MARK: - View Radius
+
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
 }
