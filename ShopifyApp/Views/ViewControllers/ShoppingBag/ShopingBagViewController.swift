@@ -32,6 +32,7 @@ class ShoppingBagViewController: UIViewController {
         checkoutView.roundCorners(corners: [.topLeft, .topRight], radius: 30)
         totalPriceView.layer.cornerRadius = totalPriceView.layer.frame.height / 4
         checkoutBtn.layer.cornerRadius = checkoutBtn.layer.frame.height / 2
+//        shoppingTable.backgroundView = UIImageView(image: UIImage(named: "cart background.jpg"))
     }
     
     func bindToViewModel(){

@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="632"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="shoppingBagCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingBagCell" rowHeight="150" id="BuC-st-e0d" customClass="ShoppingBagTableViewCell" customModule="ShopifyApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" restorationIdentifier="shoppingBagCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingBagCell" rowHeight="150" id="BuC-st-e0d" customClass="ShoppingBagTableViewCell" customModule="ShopifyApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="150"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BuC-st-e0d" id="4vW-UZ-MOc">
@@ -41,15 +41,6 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vsdg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fK-Pr-Xzz">
                                                             <rect key="frame" x="148" y="17" width="196" height="23"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obd-cW-175">
-                                                            <rect key="frame" x="148" y="50" width="48" height="22"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="22" id="dIC-UC-0HJ"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -108,6 +99,25 @@
                                                                 <action selector="deleteProduct:" destination="BuC-st-e0d" eventType="touchUpInside" id="OJR-LM-i9Y"/>
                                                             </connections>
                                                         </button>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWd-ZB-oDG">
+                                                            <rect key="frame" x="148" y="88" width="90" height="30"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="obd-cW-175">
+                                                                    <rect key="frame" x="10" y="4" width="70" height="22"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="90" id="0B7-PX-uRT"/>
+                                                                <constraint firstItem="obd-cW-175" firstAttribute="leading" secondItem="WWd-ZB-oDG" secondAttribute="leading" constant="10" id="N0K-sk-gCO"/>
+                                                                <constraint firstAttribute="bottom" secondItem="obd-cW-175" secondAttribute="bottom" constant="4" id="aVC-B3-0gR"/>
+                                                                <constraint firstAttribute="height" constant="30" id="kUy-fa-kwm"/>
+                                                                <constraint firstItem="obd-cW-175" firstAttribute="top" secondItem="WWd-ZB-oDG" secondAttribute="top" constant="4" id="mEZ-q5-CKE"/>
+                                                                <constraint firstAttribute="trailing" secondItem="obd-cW-175" secondAttribute="trailing" constant="10" id="mYk-OV-mLm"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="64p-aX-xPY" firstAttribute="trailing" secondItem="4vW-UZ-MOc" secondAttribute="trailingMargin" id="1fu-zT-UGH"/>
@@ -116,12 +126,12 @@
                                                         <constraint firstAttribute="trailingMargin" secondItem="6fK-Pr-Xzz" secondAttribute="trailing" constant="50" id="CCE-om-gPI"/>
                                                         <constraint firstItem="rqi-dF-E88" firstAttribute="trailing" secondItem="4vW-UZ-MOc" secondAttribute="trailingMargin" id="Joh-w3-FzN"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="kb0-MC-hvG" secondAttribute="bottom" constant="6" id="PxS-Wu-C3A"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="WWd-ZB-oDG" secondAttribute="bottom" constant="21" id="QrA-xX-Oq8"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="rqi-dF-E88" secondAttribute="bottom" constant="21" id="XbR-wz-Z9A"/>
                                                         <constraint firstItem="kb0-MC-hvG" firstAttribute="leading" secondItem="4vW-UZ-MOc" secondAttribute="leadingMargin" id="Xdw-V0-ymn"/>
-                                                        <constraint firstItem="obd-cW-175" firstAttribute="leading" secondItem="kb0-MC-hvG" secondAttribute="trailing" constant="8" symbolic="YES" id="dWQ-Vl-lnB"/>
-                                                        <constraint firstItem="obd-cW-175" firstAttribute="top" secondItem="6fK-Pr-Xzz" secondAttribute="bottom" constant="10" id="f6T-zj-OQK"/>
                                                         <constraint firstItem="kb0-MC-hvG" firstAttribute="top" secondItem="4vW-UZ-MOc" secondAttribute="topMargin" constant="6" id="qWK-ll-6IP"/>
                                                         <constraint firstItem="6fK-Pr-Xzz" firstAttribute="leading" secondItem="kb0-MC-hvG" secondAttribute="trailing" constant="8" symbolic="YES" id="sSQ-pA-Swe"/>
+                                                        <constraint firstItem="WWd-ZB-oDG" firstAttribute="leading" secondItem="kb0-MC-hvG" secondAttribute="trailing" constant="8" symbolic="YES" id="uT1-R0-bfB"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.8740999752071249" green="0.9680322685319861" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -130,6 +140,7 @@
                                                     <outlet property="itemCountText" destination="P7W-B9-g5R" id="DwQ-dI-cao"/>
                                                     <outlet property="minusBtn" destination="ImV-ad-W5z" id="fbg-qt-5wc"/>
                                                     <outlet property="plusBtn" destination="XDg-Oz-ncE" id="QXl-wt-YbX"/>
+                                                    <outlet property="priceView" destination="WWd-ZB-oDG" id="dPj-Tj-fyr"/>
                                                     <outlet property="productImage" destination="kb0-MC-hvG" id="vvJ-XT-Ohs"/>
                                                     <outlet property="productName" destination="6fK-Pr-Xzz" id="7BA-9N-o8k"/>
                                                     <outlet property="productPrice" destination="obd-cW-175" id="d77-Ci-KFI"/>
@@ -140,8 +151,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-5Z-4kP">
                                         <rect key="frame" x="0.0" y="632" width="414" height="220"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clothes" translatesAutoresizingMaskIntoConstraints="NO" id="GIy-OC-o2W">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="235"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkout img" translatesAutoresizingMaskIntoConstraints="NO" id="GIy-OC-o2W">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="277"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-tq-99x">
@@ -428,7 +439,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clothes" width="1200" height="675"/>
+        <image name="checkout img" width="2800" height="2800"/>
         <image name="hph_mobile_fathers-day-shipping" width="320" height="194"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">

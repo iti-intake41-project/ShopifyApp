@@ -16,6 +16,7 @@ class ShoppingBagTableViewCell: UITableViewCell {
     @IBOutlet weak var itemCountText: UILabel!
     @IBOutlet weak var minusBtn: UIButton!
     @IBOutlet weak var plusBtn: UIButton!
+    @IBOutlet weak var priceView: UIView!
     
     var product: Product!{
         didSet{
@@ -46,7 +47,13 @@ class ShoppingBagTableViewCell: UITableViewCell {
         minusBtn.layer.borderWidth = 2
         plusBtn.layer.cornerRadius = 15
         plusBtn.layer.borderWidth = 2
-
+        priceView.layer.cornerRadius = 15
+        priceView.layer.borderWidth = 2
+        if #available(iOS 13.0, *) {
+            priceView.layer.borderColor = CGColor(red: 230, green: 0, blue: 0, alpha: 1)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     @IBAction func deleteProduct(_ sender: Any) {
