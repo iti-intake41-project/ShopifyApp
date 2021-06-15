@@ -40,12 +40,13 @@ class ShoppingBagTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        countStack.layer.cornerRadius = 15
-        countStack.layer.borderWidth = 1
-//        minusBtn.layer.cornerRadius = 15
-//        minusBtn.layer.borderWidth = 1
-//        plusBtn.layer.cornerRadius = 15
-//        plusBtn.layer.borderWidth = 1
+//        countStack.layer.cornerRadius = 15
+//        countStack.layer.borderWidth = 1
+        minusBtn.layer.cornerRadius = 15
+        minusBtn.layer.borderWidth = 2
+        plusBtn.layer.cornerRadius = 15
+        plusBtn.layer.borderWidth = 2
+
     }
     
     @IBAction func deleteProduct(_ sender: Any) {

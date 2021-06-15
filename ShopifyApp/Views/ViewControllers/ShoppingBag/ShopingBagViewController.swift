@@ -162,8 +162,8 @@ extension ShoppingBagViewController : productListDelegate {
             }
         }
         let noAction = UIAlertAction(title: "NO", style: .default)
-        alert.addAction(yesAction)
         alert.addAction(noAction)
+        alert.addAction(yesAction)
         self.present(alert, animated: true, completion: nil)
         
     }
