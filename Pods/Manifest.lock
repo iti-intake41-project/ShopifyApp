@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - IQKeyboardManagerSwift (6.5.6)
+  - lottie-ios (3.2.3)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/private/Math (124.2.0)
@@ -71,6 +72,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
+  - lottie-ios
   - "MaterialComponents/TextControls+FilledTextAreas"
   - "MaterialComponents/TextControls+FilledTextFields"
   - "MaterialComponents/TextControls+OutlinedTextAreas"
@@ -83,6 +85,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - lottie-ios
     - MaterialComponents
     - MDFInternationalization
     - RxCocoa
@@ -93,6 +96,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
@@ -100,6 +104,6 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 70a69e9edb6898ddb4c166383665127a57427934
+PODFILE CHECKSUM: 7b30725509385776ccb6f91534632feccaaebfb0
 
 COCOAPODS: 1.10.1
