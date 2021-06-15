@@ -17,6 +17,15 @@ struct ShopifyCollentions : Codable{
     }
 }
 
+struct SmartCollections : Codable{
+    let smartCollections:[CustomCollections]
+    
+    enum CodingKeys : String , CodingKey {
+        
+        case smartCollections = "smart_collections"
+        
+    }
+}
 struct CustomCollections :Codable{
     let id:Int
     let title: String

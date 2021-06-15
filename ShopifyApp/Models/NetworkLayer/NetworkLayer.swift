@@ -151,13 +151,13 @@ class NetworkLayer {
     
     //Donia
      func getSmartCollections(completion: @escaping ([CustomCollections]?, Error?) -> ()) {
-          AF.request(URLs.smartCollections()).validate().responseDecodable(of: ShopifyCollentions.self) { (response) in
+          AF.request(URLs.smartCollections()).validate().responseDecodable(of: SmartCollections.self) { (response) in
               
               switch response.result {
                   case .success( _):
                           
                       guard let data = response.value else { return }
-                      completion(data.customCollections, nil)
+                      completion(data.smartCollections, nil)
                       
                   case .failure(let error):
                       
