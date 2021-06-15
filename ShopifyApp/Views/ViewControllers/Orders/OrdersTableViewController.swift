@@ -42,8 +42,21 @@ class OrdersTableViewController: UITableViewController {
 
         return cell
     }
-  
-
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "My Orders"
+    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+//    {
+//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+//
+//        headerView.backgroundColor = UIColor.white
+//        return headerView
+//    }
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.white
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.systemPink
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -35,6 +35,8 @@ pod 'lottie-ios'
 
 
 
+pod 'lottie-ios'
+
 #pod 'RealmS', '~> 4.0.0'
 pod 'Cosmos'
 

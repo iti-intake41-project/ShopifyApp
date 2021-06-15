@@ -58,7 +58,7 @@ class SettingTableViewController: UITableViewController {
             }
       
         else{
-            performSegue(withIdentifier: "addAddress", sender: self)
+        //    performSegue(withIdentifier: "addAddress", sender: self)
             }
             
         }
