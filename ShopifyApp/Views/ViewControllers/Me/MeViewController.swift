@@ -122,9 +122,9 @@ class MeViewController: UIViewController {
             imgOrder2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
             imgOrder3.sd_setImage(with:URL(string:products[2].images[0].src), placeholderImage: UIImage(named: "noImage"))
             
-            lblOrder1.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
-            lblOrder2.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
-            lblOrder3.text = FormatePrice.formatePrice(priceStr: products[3].varients?[0].price)
+            lblOrder1.text = FormatePrice.formatePrice(priceStr: products[0].varients?[0].price)
+            lblOrder2.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
+            lblOrder3.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
             
             print(products[2].title)
             

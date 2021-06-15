@@ -251,7 +251,7 @@
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
                                                                         <color key="value" systemColor="labelColor"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                                                         <real key="value" value="27"/>
                                                                     </userDefinedRuntimeAttribute>

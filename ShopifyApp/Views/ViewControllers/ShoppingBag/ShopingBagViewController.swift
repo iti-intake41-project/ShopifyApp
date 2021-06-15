@@ -45,8 +45,9 @@ class ShoppingBagViewController: UIViewController {
             self?.performSegue(withIdentifier: "navigateToAddress", sender: self!)
         }
         
-        viewModel.navigateToPayment = {
+        viewModel.navigateToPayment = { [weak self] in
             print("navigate to payment")
+            self?.showPayment()
         }
     }
     
@@ -59,22 +60,25 @@ class ShoppingBagViewController: UIViewController {
         }else{
             viewModel.navigateToCheckOut()
         
-        
-            // MARK: Start the checkout process
-            paymentSheet?.present(from: self) { paymentResult in
-                // MARK: Handle the payment result
-                switch paymentResult {
-                case .completed:
-                    //self.displayAlert("Your order is confirmed!")
-                    print("completed")
-                case .canceled:
-                    print("Canceled!")
-                case .failed(let error):
-                    print(error)
-                    //self.displayAlert("Payment failed: \n\(error.localizedDescription)")
-                }
+        }
+    }
+    
+    func showPayment(){
+        // MARK: Start the checkout process
+        paymentSheet?.present(from: self) { paymentResult in
+            // MARK: Handle the payment result
+            switch paymentResult {
+            case .completed:
+                //self.displayAlert("Your order is confirmed!")
+                print("completed")
+            case .canceled:
+                print("Canceled!")
+            case .failed(let error):
+                print(error)
+                //self.displayAlert("Payment failed: \n\(error.localizedDescription)")
             }
         }
+
     }
     
     func updateTableView(){

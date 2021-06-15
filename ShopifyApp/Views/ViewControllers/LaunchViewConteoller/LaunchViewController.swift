@@ -31,7 +31,7 @@ class LaunchViewController: UIViewController {
 //            self.animatedView.alpha = 0
 //
 //        })
-        DispatchQueue.main.asyncAfter(deadline: .now()+4.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now()+2.0, execute: {
           self.performSegue(withIdentifier: "main", sender: self)
  
 //            let vc = ShopViewController()

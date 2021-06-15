@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6T-EG-5QN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6T-EG-5QN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Category View Controller-->
+        <!--Category-->
         <scene sceneID="Bfx-hf-lzh">
             <objects>
                 <viewController id="G6T-EG-5QN" customClass="CategoryViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +96,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-fK-tCZ">
                                         <rect key="frame" x="0.0" y="0.0" width="141.5" height="634"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subCategoryCell" rowHeight="100" id="A9b-jS-HDs" customClass="SubCategoriesCell" customModule="ShopifyApp" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="73.5" width="109.5" height="100"/>
@@ -132,7 +133,7 @@
                                     </tableView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sl4-Gf-Oc1">
                                         <rect key="frame" x="141.5" y="0.0" width="262.5" height="634"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hj9-Dq-6Oo">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -180,7 +181,8 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ome-u0-tZo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ymB-Gt-T49" firstAttribute="leading" secondItem="Ome-u0-tZo" secondAttribute="leading" id="4Rb-UG-gDX"/>
                             <constraint firstItem="BPQ-Tb-7o3" firstAttribute="trailing" secondItem="Ome-u0-tZo" secondAttribute="trailing" id="5rM-SX-MK2"/>
@@ -193,9 +195,8 @@
                             <constraint firstItem="Ome-u0-tZo" firstAttribute="bottom" secondItem="sHq-4H-jrw" secondAttribute="bottom" id="W8T-Cp-4LF"/>
                             <constraint firstItem="sHq-4H-jrw" firstAttribute="top" secondItem="BPQ-Tb-7o3" secondAttribute="bottom" constant="25" id="j24-ar-WSs"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ome-u0-tZo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="3AH-Un-cA8"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="square.grid.2x2.fill" catalog="system" id="3AH-Un-cA8"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -261,5 +262,9 @@
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

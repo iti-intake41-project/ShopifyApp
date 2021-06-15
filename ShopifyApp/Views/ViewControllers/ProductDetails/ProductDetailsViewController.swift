@@ -44,17 +44,19 @@ class ProductDetailsViewController: UIViewController {
         if shoppingViewModel.isInShopingCart(id: product.varients![0].id) {
             let alert = UIAlertController(title: "Done", message: "This product is already in your cart", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (UIAlertAction) in
-                self.dismiss(animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }))
             present(alert, animated: true, completion: nil)
         }else{
             shoppingViewModel.addProduct(product: product)
-            dismiss(animated: true, completion: nil)
+//            dismiss(animated: true, completion: nil)
+            navigationController?.popViewController(animated: true)
         }
     }
     
     @IBAction func goBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
     }
     
 

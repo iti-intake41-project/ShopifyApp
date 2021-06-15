@@ -54,6 +54,7 @@ class AddressTableViewController: UITableViewController {
                 self?.view.isUserInteractionEnabled = true
                 self?.indicator.isHidden = true
                 print("navigate to checkOut screen")
+                self?.navigationController?.popViewController(animated: true)
                 
             }
         }
