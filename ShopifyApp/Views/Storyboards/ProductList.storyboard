@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="966-cE-v6a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="966-cE-v6a">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -157,20 +157,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-J0-Kqh">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="k2b-gV-0oB">
-                                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="SnH-mg-3eZ">
-                                            <connections>
-                                                <action selector="goBack:" destination="sC3-SD-3DG" id="f9P-8I-Q8y"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8n-IY-k5U">
-                                <rect key="frame" x="20" y="88" width="374" height="764"/>
+                                <rect key="frame" x="20" y="44" width="374" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Rgs-V2-EEd">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="913.5"/>
@@ -373,13 +361,10 @@
                         <viewLayoutGuide key="safeArea" id="Uu0-Wq-eXp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iuX-J0-Kqh" firstAttribute="top" secondItem="K4x-2R-AJq" secondAttribute="topMargin" id="4nO-PG-T6k"/>
+                            <constraint firstItem="s8n-IY-k5U" firstAttribute="top" secondItem="Uu0-Wq-eXp" secondAttribute="top" id="9Cp-xg-MSm"/>
                             <constraint firstItem="Uu0-Wq-eXp" firstAttribute="bottom" secondItem="s8n-IY-k5U" secondAttribute="bottom" constant="10" id="Ac6-h4-4zY"/>
                             <constraint firstItem="Uu0-Wq-eXp" firstAttribute="trailing" secondItem="s8n-IY-k5U" secondAttribute="trailing" constant="20" id="HMB-8b-qeL"/>
                             <constraint firstItem="s8n-IY-k5U" firstAttribute="leading" secondItem="Uu0-Wq-eXp" secondAttribute="leading" constant="20" id="LGj-QT-FCj"/>
-                            <constraint firstItem="iuX-J0-Kqh" firstAttribute="leading" secondItem="Uu0-Wq-eXp" secondAttribute="leading" id="WDS-kt-5Of"/>
-                            <constraint firstItem="s8n-IY-k5U" firstAttribute="top" secondItem="iuX-J0-Kqh" secondAttribute="bottom" id="fIR-lD-mOc"/>
-                            <constraint firstItem="iuX-J0-Kqh" firstAttribute="centerX" secondItem="s8n-IY-k5U" secondAttribute="centerX" id="nsw-CR-Ik4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -403,7 +388,6 @@
         </designable>
     </designables>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="sort-down" width="512" height="512"/>
