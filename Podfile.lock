@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - Cosmos (23.0.0)
   - IQKeyboardManagerSwift (6.5.6)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
@@ -70,6 +71,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Cosmos
   - IQKeyboardManagerSwift
   - "MaterialComponents/TextControls+FilledTextAreas"
   - "MaterialComponents/TextControls+FilledTextFields"
@@ -82,6 +84,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - IQKeyboardManagerSwift
     - MaterialComponents
     - MDFInternationalization
@@ -92,6 +95,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
@@ -100,6 +104,6 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 70a69e9edb6898ddb4c166383665127a57427934
+PODFILE CHECKSUM: e1ea51f5d0237b1ffca61223881d39bcf73491d0
 
 COCOAPODS: 1.10.1

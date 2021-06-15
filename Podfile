@@ -30,6 +30,8 @@ pod 'MaterialComponents/TextControls+FilledTextAreas'
 pod 'MaterialComponents/TextControls+FilledTextFields'
 pod 'MaterialComponents/TextControls+OutlinedTextAreas'
 pod 'MaterialComponents/TextControls+OutlinedTextFields'
+pod 'Cosmos'
+
 
 #pod 'RealmS', '~> 4.0.0'
 
