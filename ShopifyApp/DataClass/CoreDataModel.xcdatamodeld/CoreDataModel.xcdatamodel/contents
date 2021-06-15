@@ -20,8 +20,8 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="AddressCoreData" positionX="-63" positionY="27" width="128" height="89"/>
         <element name="FavouriteCoreData" positionX="-63" positionY="18" width="128" height="89"/>
         <element name="ProductCoreData" positionX="-63" positionY="-18" width="128" height="104"/>
-        <element name="AddressCoreData" positionX="-63" positionY="27" width="128" height="89"/>
     </elements>
 </model>

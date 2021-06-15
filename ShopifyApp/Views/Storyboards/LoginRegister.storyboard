@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Register Table View Controller-->
+        <!--Register-->
         <scene sceneID="7JP-Ij-EGJ">
             <objects>
-                <tableViewController storyboardIdentifier="RegisterTableViewController" id="VPU-Kd-tWU" customClass="RegisterTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RegisterTableViewController" title="Register" id="VPU-Kd-tWU" customClass="RegisterTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tz4-bS-XiU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,17 +207,17 @@
                         <outlet property="lastNameText" destination="l9f-58-bzK" id="qtA-3c-iJd"/>
                         <outlet property="passwordText" destination="uzq-35-K7w" id="L7E-Mc-vBM"/>
                         <outlet property="registerBtn" destination="djn-oE-pk3" id="L26-Dk-byQ"/>
-                        <segue destination="7xA-Zm-6Nw" kind="show" identifier="navigateToMainFromRegister" id="vt7-cB-vJo"/>
+                        <segue destination="7xA-Zm-6Nw" kind="presentation" identifier="navigateToMainFromRegister" modalPresentationStyle="fullScreen" id="vt7-cB-vJo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OyG-cE-08m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="947.82608695652186" y="2.6785714285714284"/>
         </scene>
-        <!--Login Table View Controller-->
+        <!--Login-->
         <scene sceneID="XBT-J1-766">
             <objects>
-                <tableViewController storyboardIdentifier="LoginTableViewController" id="ZEW-AU-tvH" customClass="LoginTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LoginTableViewController" title="Login" id="ZEW-AU-tvH" customClass="LoginTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fhO-n8-B0m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

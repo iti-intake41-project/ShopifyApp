@@ -21,7 +21,9 @@ struct Customer: Codable {
 struct Address: Codable {
     var address1, city, province, phone: String?
     var zip, last_name, first_name, country: String?
+//    var isMainAddress:Bool = false
 }
+
 struct LoginResponse: Codable {
     let customers: [Customer]
 }

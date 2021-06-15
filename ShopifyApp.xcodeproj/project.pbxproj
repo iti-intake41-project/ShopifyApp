@@ -24,6 +24,8 @@
 		4BF2BF692670B7BE0036EB10 /* UserDefaultsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2BF682670B7BE0036EB10 /* UserDefaultsLayer.swift */; };
 		4BF2BF6C2670BC450036EB10 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2BF6B2670BC450036EB10 /* SettingViewModel.swift */; };
 		4BF2BF6F2670EC020036EB10 /* FormatePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2BF6E2670EC020036EB10 /* FormatePrice.swift */; };
+		762C28152679240F005BC69A /* ChooseAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C28142679240F005BC69A /* ChooseAddressViewController.swift */; };
+		762C281A267927BE005BC69A /* ChooseAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C2819267927BE005BC69A /* ChooseAddressViewModel.swift */; };
 		7649274E26570A3A00B23245 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649274D26570A3A00B23245 /* Shop.storyboard */; };
 		7649275326570B8400B23245 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649275226570B8400B23245 /* Category.storyboard */; };
 		76492763265710B900B23245 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76492762265710B900B23245 /* Favourites.storyboard */; };
@@ -106,6 +108,8 @@
 		4BF2BF6B2670BC450036EB10 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		4BF2BF6E2670EC020036EB10 /* FormatePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatePrice.swift; sourceTree = "<group>"; };
 		71066BE45E12FF94E7039064 /* Pods-ShopifyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.release.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.release.xcconfig"; sourceTree = "<group>"; };
+		762C28142679240F005BC69A /* ChooseAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAddressViewController.swift; sourceTree = "<group>"; };
+		762C2819267927BE005BC69A /* ChooseAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAddressViewModel.swift; sourceTree = "<group>"; };
 		7649274D26570A3A00B23245 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		7649275226570B8400B23245 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		76492762265710B900B23245 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 			children = (
 				76818D00266B7A11006CB1DC /* ShoppingBagViewModel.swift */,
 				769F08A126721C07003A3948 /* AddressViewModel.swift */,
+				762C2819267927BE005BC69A /* ChooseAddressViewModel.swift */,
 			);
 			path = ShoppingBag;
 			sourceTree = "<group>";
@@ -526,6 +531,7 @@
 				76818CEE266B5DBF006CB1DC /* ShopingBagViewController.swift */,
 				76818CFA266B6247006CB1DC /* ShoppingBagTableViewCell.swift */,
 				769F089C267219E8003A3948 /* AddressTableViewController.swift */,
+				762C28142679240F005BC69A /* ChooseAddressViewController.swift */,
 			);
 			path = ShoppingBag;
 			sourceTree = "<group>";
@@ -832,6 +838,7 @@
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
 				769F089D267219E8003A3948 /* AddressTableViewController.swift in Sources */,
 				4BF2BF6C2670BC450036EB10 /* SettingViewModel.swift in Sources */,
+				762C281A267927BE005BC69A /* ChooseAddressViewModel.swift in Sources */,
 				4BF2BF692670B7BE0036EB10 /* UserDefaultsLayer.swift in Sources */,
 				7697901F266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift in Sources */,
 				D39604542659BD3E00D94931 /* AllProducts.swift in Sources */,
@@ -845,6 +852,7 @@
 				D3F14902266BC4A800729210 /* ProductDetailsCollectionViewCell.swift in Sources */,
 				4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */,
 				76818CFB266B6247006CB1DC /* ShoppingBagTableViewCell.swift in Sources */,
+				762C28152679240F005BC69A /* ChooseAddressViewController.swift in Sources */,
 				C1C610BB266A894400FF455E /* CategoryViewController.swift in Sources */,
 				D396045D2659BD6A00D94931 /* ShopViewModel.swift in Sources */,
 				4BA0911A2674F70600117E05 /* ShowAddressTableViewController.swift in Sources */,

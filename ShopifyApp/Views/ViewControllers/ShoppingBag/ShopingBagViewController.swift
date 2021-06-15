@@ -52,7 +52,8 @@ class ShoppingBagViewController: UIViewController {
         
         viewModel.navigateToPayment = { [weak self] in
             print("navigate to payment")
-            self?.showPayment()
+//            self?.showPayment()
+            self?.performSegue(withIdentifier: "chooseAddressNavigation", sender: self!)
         }
     }
     

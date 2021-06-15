@@ -68,7 +68,9 @@ class LoginViewModel: LoginViewModelTemp {
                                 self?.defaultsRepo.addId(id: customer.id ?? 0)
                                 if customer.addresses?.count ?? 0 > 0 && customer.addresses?[0].address1 != "" {
                                     //save address
-                                    self?.dataRepository.addAddress(address: customer.addresses![0])
+                                    for address in customer.addresses! {
+                                        self?.dataRepository.addAddress(address: address)
+                                    }
                                 }
                                 self?.navigate = true
                                 break

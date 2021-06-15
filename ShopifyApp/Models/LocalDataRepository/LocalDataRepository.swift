@@ -21,6 +21,7 @@ protocol LocalDataRepository{
     func deleteAddress()
     func hasAddress()->Bool
     func getAddress()->Address
+    func getAddresses()->[Address]
 }
 
 class CoreDataRepository: LocalDataRepository {
@@ -258,5 +259,32 @@ class CoreDataRepository: LocalDataRepository {
         }
         
         return address
+    }
+    
+    func getAddresses()->[Address] {
+        var addresses: [Address] = []
+        
+        
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AddressCoreData")
+        do{
+            let addressCDArray = try managedContext.fetch(fetchRequest)
+            print("fetch address CD count \(addressCDArray.count)")
+            for addressCD in addressCDArray{
+                var address = Address(address1: "", city: "", province: "", phone: "", zip: "", last_name: "", first_name: "", country: "")
+
+                address.country = addressCD.value(forKey: "country") as? String
+                address.city = addressCD.value(forKey: "city") as? String
+                address.address1 = addressCD.value(forKey: "address1") as? String
+                address.zip = addressCD.value(forKey: "zip") as? String
+                
+                addresses.append(address)
+            }
+        }catch{
+            print("failed to load address from core data \(error.localizedDescription)")
+        }
+        
+        return addresses
+
     }
 }
