@@ -23,6 +23,10 @@ class ShopViewController: UIViewController{
 
         shopViewModel.fetchCustomCollection()
         shopViewModel.bindShopViewModelToView = onSuccessUpdateView
+        // Do any additional setup after loading the view.
+   //     productSearchBar.delegate = self
+     //   shopViewModel.fetchSmartCollection()
+   //     shopViewModel.bindsmartCollectionsViewModelToView = onSuccessUpdateView
     }
     
     

@@ -33,4 +33,10 @@ class URLs {
     static func discountCodes(priceRuleID: String) -> String {
               return baseUrl + "price_rules/950161080518/discount_codes.json"
           }
+    //Donia
+    static func smartCollections() -> String {
+        return baseUrl + "smart_collections.json"
+    }
+    //Donia
+    
 }

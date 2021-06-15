@@ -15,6 +15,9 @@ class ShopViewModel :NSObject{
     var bindCategoryViewModelToView : (()->()) = {}
     var bindViewModelErrorToView : (()->()) = {}
     var bindAddsViewModelToView : (()->()) = {}
+
+    var bindsmartCollectionsViewModelToView : (()->()) = {}
+
     var allProducts: [Product]? {
         didSet {
             self.bindShopViewModelToView()
@@ -25,6 +28,12 @@ class ShopViewModel :NSObject{
             self.bindCategoryViewModelToView()
         }
     }
+    var smartCollections: [CustomCollections]? {
+           didSet {
+               self.bindsmartCollectionsViewModelToView()
+           }
+       }
+
     var adds: [DiscountCode]? {
         didSet {
             self.bindAddsViewModelToView()
@@ -74,6 +83,20 @@ class ShopViewModel :NSObject{
             }
         }
     }
+    func fetchSmartCollection(){
+           networkService.getSmartCollections { (smartCollections, error) in
+               if let error : Error = error{
+                   
+                   let message = error.localizedDescription
+                   self.showError = message
+                   
+               }else{
+                   if let collections = smartCollections {
+                       self.smartCollections = collections
+                   }
+               }
+           }
+       }
     func searchProduct(sProducts:[CustomCollections],searchTxt:String)
         ->[CustomCollections]{
             return searchTxt.isEmpty ? sProducts : sProducts.filter({
