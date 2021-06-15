@@ -166,9 +166,9 @@ class MeViewController: UIViewController {
             imgFav2.sd_setImage(with:URL(string:products[1].images[0].src), placeholderImage: UIImage(named: "noImage"))
             imgFav3.sd_setImage(with:URL(string:products[2].images[0].src), placeholderImage: UIImage(named: "noImage"))
             
-            lblFav1.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
-            lblFav2.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
-            lblFav3.text = FormatePrice.formatePrice(priceStr: products[3].varients?[0].price)
+            lblFav1.text = FormatePrice.formatePrice(priceStr: products[0].varients?[0].price)
+            lblFav2.text = FormatePrice.formatePrice(priceStr: products[1].varients?[0].price)
+            lblFav3.text = FormatePrice.formatePrice(priceStr: products[2].varients?[0].price)
             
             print(products[2].title)
             
