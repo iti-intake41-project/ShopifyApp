@@ -196,7 +196,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Rgs-V2-EEd">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="897"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="981.5"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5rq-hW-89c">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="314"/>
@@ -261,16 +261,16 @@
                                                         <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </pageControl>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M2U-kF-dfh">
-                                                        <rect key="frame" x="20" y="356" width="374" height="172.5"/>
+                                                        <rect key="frame" x="20" y="356" width="374" height="257"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNq-df-wuh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="132.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="217"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="858-Gb-Gzb">
-                                                                <rect key="frame" x="0.0" y="142.5" width="374" height="30"/>
+                                                                <rect key="frame" x="0.0" y="227" width="374" height="30"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4b-WB-80H">
                                                                         <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
@@ -318,7 +318,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tvl-XR-WCN">
-                                                        <rect key="frame" x="20" y="539.5" width="374" height="357.5"/>
+                                                        <rect key="frame" x="20" y="624" width="374" height="357.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNF-eQ-ols">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="27.5"/>
@@ -352,7 +352,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="Tvl-XR-WCN" secondAttribute="trailing" constant="20" id="doZ-YM-VBe"/>
                                                     <constraint firstItem="Tvl-XR-WCN" firstAttribute="leading" secondItem="Rgs-V2-EEd" secondAttribute="leading" constant="20" id="f4c-CZ-yFp"/>
                                                     <constraint firstAttribute="trailing" secondItem="5rq-hW-89c" secondAttribute="trailing" id="lEu-kB-gtQ"/>
-                                                    <constraint firstItem="5rq-hW-89c" firstAttribute="height" secondItem="Rgs-V2-EEd" secondAttribute="height" multiplier="0.35" id="sYO-8J-JYE"/>
+                                                    <constraint firstItem="5rq-hW-89c" firstAttribute="height" secondItem="Rgs-V2-EEd" secondAttribute="height" multiplier="0.32" id="sYO-8J-JYE"/>
                                                     <constraint firstAttribute="trailing" secondItem="M2U-kF-dfh" secondAttribute="trailing" constant="20" id="wxy-TL-kDX"/>
                                                 </constraints>
                                             </stackView>
