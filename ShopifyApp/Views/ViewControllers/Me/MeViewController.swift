@@ -54,6 +54,10 @@ class MeViewController: UIViewController {
         favViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         favViewModel.bindFavouritesList = onSuccess
          favourites = getfavourites()
+        meViewModel.updateOrders = {
+            self.orderItems = self.meViewModel.orderItems
+            self.orderTableView.reloadData()
+        }
         
         //
         // Do any additional setup after loading the view.
@@ -62,14 +66,15 @@ class MeViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
        orders =  meViewModel.getOrders()
-        for order in orders {
-            for orderItem in order.line_items {
-                orderItems.append(orderItem)
-                print("in for \(orderItem.price)")
-            }
-            
-        }
-        orderTableView.reloadData()
+//        for order in orders {
+//            for orderItem in order.line_items {
+//                orderItems.append(orderItem)
+//                print("in for \(orderItem.price)")
+//            }
+//            
+//        }
+//        print("order items count: \(orders.count)")
+//        orderTableView.reloadData()
 //        setOrderesUI(products: getOrders())
 //        setWishListToUI(favourites: getfavourites())
 //        
@@ -230,7 +235,7 @@ class MeViewController: UIViewController {
 extension MeViewController :UITableViewDelegate , UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count
+        return orderItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

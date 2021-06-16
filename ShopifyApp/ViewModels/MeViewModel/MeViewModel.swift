@@ -10,7 +10,11 @@ import UIKit
 class MeViewModel{
     let network = NetworkLayer()
     let defaultsRepository = UserDefaultsLayer()
-    
+    var orderItems = [OrderItem]()
+
+    var updateOrders:()->() = {
+        
+    }
     func getOrders()-> [Product]?{
         //call orders from network layer
         return[]
@@ -20,6 +24,7 @@ class MeViewModel{
     func getOrders()->[Order] {
         let customerId = defaultsRepository.getId()
         var orders: [Order] = []
+        orderItems = []
         network.getOrders { (response) in
             
             switch response.result{
@@ -33,6 +38,15 @@ class MeViewModel{
                         orders.append(order)
                     }
                 }
+                for order in orders {
+                    for orderItem in order.line_items {
+                        self.orderItems.append(orderItem)
+                        print("in for \(orderItem.price)")
+                    }
+                    
+                }
+                self.updateOrders()
+                
                print("orders count \(orders.count)")
                 
             case .failure(let error):
