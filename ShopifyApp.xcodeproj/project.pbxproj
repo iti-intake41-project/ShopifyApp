@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B3CB77B2679A01000CEC241 /* CheckLoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CB77A2679A01000CEC241 /* CheckLoggedIn.swift */; };
 		4B3F8838266DEEB2009ED0BC /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F8837266DEEB2009ED0BC /* MeViewController.swift */; };
 		4B4262F526781EEC0041C07D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4262F426781EEC0041C07D /* LaunchViewController.swift */; };
 		4B4518FB2667F93400E0D1DF /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4518FA2667F93400E0D1DF /* ProductList.storyboard */; };
@@ -89,6 +90,7 @@
 /* Begin PBXFileReference section */
 		084C039A3F7AD7FD999EBEC7 /* Pods_ShopifyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D93BFD7B1D8DD090D512522 /* Pods_ShopifyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B3CB77A2679A01000CEC241 /* CheckLoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLoggedIn.swift; sourceTree = "<group>"; };
 		4B3F8837266DEEB2009ED0BC /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		4B4262F426781EEC0041C07D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		4B4518FA2667F93400E0D1DF /* ProductList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductList.storyboard; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				4B5DF7A2266F868300C15388 /* SettingTableViewController.swift */,
 				4BA091192674F70600117E05 /* ShowAddressTableViewController.swift */,
+				4B3CB77A2679A01000CEC241 /* CheckLoggedIn.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */,
 				4B45CAB62674BB16002FE0A8 /* OrderTableViewCell.swift in Sources */,
 				76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */,
+				4B3CB77B2679A01000CEC241 /* CheckLoggedIn.swift in Sources */,
 				769F08A226721C07003A3948 /* AddressViewModel.swift in Sources */,
 				4B45CAB02674AE51002FE0A8 /* MeViewModel.swift in Sources */,
 				4B4262F526781EEC0041C07D /* LaunchViewController.swift in Sources */,
