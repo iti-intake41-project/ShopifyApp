@@ -59,6 +59,14 @@ class ShoppingBagViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chooseAddressNavigation" {
+            if let nextViewController = segue.destination as? ChooseAddressViewController {
+                    nextViewController.orders = list
+            }
+        }
+    }
+    
     @IBAction func navigateToCheckOut(_ sender: UIButton) {
         if list.count == 0 {
             let alert = UIAlertController(title: "Alert", message: "Your cart is empty", preferredStyle: .alert)

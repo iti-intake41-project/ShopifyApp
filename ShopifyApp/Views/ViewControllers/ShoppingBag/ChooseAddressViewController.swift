@@ -11,9 +11,11 @@ class ChooseAddressViewController: UIViewController {
     
     @IBOutlet weak var addressTable: UITableView!
     var addresses: [Address] = []
+    var orders: [Product]!
     var viewModel: ChooseAddressViewModel!
     var delegate = UIApplication.shared.delegate as! AppDelegate
     var shippingAddressId: Int = 0
+    var paymentAddress: Address!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +38,24 @@ class ChooseAddressViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "navigateToPaymentOptions" {
+            if let nextViewController = segue.destination as? PaymentOptionsViewController {
+                nextViewController.address = paymentAddress
+                nextViewController.orders = orders
+            }
+        }
     }
-    */
+    
+    @IBAction func continueToPayment(_ sender: Any) {
+        performSegue(withIdentifier: "navigateToPaymentOptions", sender: self)
+    }
+    
 
 }
 
@@ -88,7 +99,7 @@ class AddressDetailCell: UITableViewCell{
     
     
     @IBAction func changeAddress(_ sender: Any) {
-        delegate.chooseAsMain(addressId: address.id!)
+        delegate.chooseAsMain(address: address)
     }
     
     
@@ -96,13 +107,15 @@ class AddressDetailCell: UITableViewCell{
 
 // MARK: - Main Address Delegate
 protocol MainAddressDelegate {
-    func chooseAsMain(addressId: Int)
+    func chooseAsMain(address: Address)
 }
 
 
 extension ChooseAddressViewController: MainAddressDelegate{
     
-    func chooseAsMain(addressId: Int) {
+    func chooseAsMain(address: Address) {
+        paymentAddress = address
+        let addressId = paymentAddress.id!
         shippingAddressId = addressId
         print("pressed id \(addressId)")
         addressTable.reloadData()

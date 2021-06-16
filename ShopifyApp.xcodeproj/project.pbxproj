@@ -43,6 +43,8 @@
 		769AEFB72669FE4C00D79AD5 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */; };
 		769F089D267219E8003A3948 /* AddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769F089C267219E8003A3948 /* AddressTableViewController.swift */; };
 		769F08A226721C07003A3948 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769F08A126721C07003A3948 /* AddressViewModel.swift */; };
+		76AFA5852679D4E000C6B5EE /* checkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AFA5842679D4E000C6B5EE /* checkoutViewController.swift */; };
+		76AFA58D2679E2C500C6B5EE /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AFA58C2679E2C500C6B5EE /* CheckoutViewModel.swift */; };
 		76BE68E726586ED600C93F88 /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68E626586ED600C93F88 /* LoginRegister.storyboard */; };
 		76BE68FC2658708900C93F88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76BE68FB2658708900C93F88 /* GoogleService-Info.plist */; };
 		76D918C426695F23000E406C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D918C326695F23000E406C /* RegisterViewModel.swift */; };
@@ -129,6 +131,8 @@
 		769AEFB62669FE4C00D79AD5 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		769F089C267219E8003A3948 /* AddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewController.swift; sourceTree = "<group>"; };
 		769F08A126721C07003A3948 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		76AFA5842679D4E000C6B5EE /* checkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkoutViewController.swift; sourceTree = "<group>"; };
+		76AFA58C2679E2C500C6B5EE /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
 		76BE68E626586ED600C93F88 /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
 		76BE68FB2658708900C93F88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76D918C326695F23000E406C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				76818D00266B7A11006CB1DC /* ShoppingBagViewModel.swift */,
 				769F08A126721C07003A3948 /* AddressViewModel.swift */,
 				762C2819267927BE005BC69A /* ChooseAddressViewModel.swift */,
+				76AFA58C2679E2C500C6B5EE /* CheckoutViewModel.swift */,
 			);
 			path = ShoppingBag;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				769F089C267219E8003A3948 /* AddressTableViewController.swift */,
 				762C28142679240F005BC69A /* ChooseAddressViewController.swift */,
 				762C284B267966B9005BC69A /* PaymentOptionsViewController.swift */,
+				76AFA5842679D4E000C6B5EE /* checkoutViewController.swift */,
 			);
 			path = ShoppingBag;
 			sourceTree = "<group>";
@@ -836,6 +842,7 @@
 				4B45CAB42674B9A0002FE0A8 /* OrdersTableViewController.swift in Sources */,
 				4BF2BF6F2670EC020036EB10 /* FormatePrice.swift in Sources */,
 				D37210A82655B81100935F86 /* AppDelegate.swift in Sources */,
+				76AFA58D2679E2C500C6B5EE /* CheckoutViewModel.swift in Sources */,
 				D3F148FD266BC04600729210 /* ProductDetailsViewModel.swift in Sources */,
 				4B4519002667FEEB00E0D1DF /* ProductsCollectionViewCell.swift in Sources */,
 				D37210E12655B97B00935F86 /* URLs.swift in Sources */,
@@ -859,6 +866,7 @@
 				762C284C267966B9005BC69A /* PaymentOptionsViewController.swift in Sources */,
 				C1C610BB266A894400FF455E /* CategoryViewController.swift in Sources */,
 				D396045D2659BD6A00D94931 /* ShopViewModel.swift in Sources */,
+				76AFA5852679D4E000C6B5EE /* checkoutViewController.swift in Sources */,
 				4BA0911A2674F70600117E05 /* ShowAddressTableViewController.swift in Sources */,
 				76D918CD26695F36000E406C /* LoginViewModel.swift in Sources */,
 				D3F148F7266BB63B00729210 /* ProductDetailsViewController.swift in Sources */,
