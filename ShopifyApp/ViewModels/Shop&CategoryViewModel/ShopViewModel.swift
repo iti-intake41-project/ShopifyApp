@@ -119,6 +119,7 @@ class ShopViewModel :NSObject{
             }else{
                 if let adds = adds {
                     self.adds = adds
+                    print("discount code: \(adds[0].code)")
                     self.userDefaults.setDiscountCode(code: adds[0].code)
                 }
             }
