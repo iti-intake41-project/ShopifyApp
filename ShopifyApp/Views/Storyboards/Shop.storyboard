@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PoY-yX-rGy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vF-Za-LrV">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -254,6 +254,9 @@
                         <segue destination="uy2-1Q-k1y" kind="show" identifier="fav" id="7nU-y7-VrC"/>
                     </connections>
                 </viewController>
+                <tabBarItem title="Home" image="homekit" catalog="system" id="8pA-KL-eFn">
+                    <color key="badgeColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tabBarItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYM-tV-b9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="M33-Ws-n9r">
                     <connections>
@@ -281,7 +284,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMU-8h-kyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1857.9710144927537" y="-48.214285714285715"/>
+            <point key="canvasLocation" x="1951" y="-57"/>
         </scene>
         <!--LoginRegister-->
         <scene sceneID="Yjd-Za-epG">
@@ -291,7 +294,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jog-Bn-8uW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788.4057971014495" y="-269.19642857142856"/>
+            <point key="canvasLocation" x="1936" y="-255"/>
         </scene>
         <!--ShoppingBag-->
         <scene sceneID="clm-t5-HZr">
@@ -301,13 +304,13 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="046-po-JbJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1823.913043478261" y="-109.15178571428571"/>
+            <point key="canvasLocation" x="1953" y="70"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="Hss-4V-o6Y">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PoY-yX-rGy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="qil-lJ-8Mu"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="qil-lJ-8Mu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PGQ-Yj-dTz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -320,13 +323,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsC-kj-c4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408.69565217391306" y="41.517857142857139"/>
+            <point key="canvasLocation" x="354" y="-1"/>
         </scene>
     </scenes>
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="pic" width="569" height="351"/>
         <systemColor name="systemBackgroundColor">

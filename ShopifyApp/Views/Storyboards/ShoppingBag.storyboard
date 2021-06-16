@@ -20,7 +20,7 @@
         <!--Shopping Cart-->
         <scene sceneID="3jh-P6-9oF">
             <objects>
-                <viewController storyboardIdentifier="ShopViewController" title="Shopping Cart" id="kat-JW-gFQ" customClass="ShoppingBagViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShopViewController" title="Shopping Cart" modalPresentationStyle="fullScreen" id="kat-JW-gFQ" customClass="ShoppingBagViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CEE-SB-nmS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

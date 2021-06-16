@@ -7,9 +7,6 @@
 
 import UIKit
 
-import Alamofire
-import PassKit
-
 class ShoppingBagViewController: UIViewController {
     @IBOutlet weak var shoppingTable: UITableView!
     @IBOutlet weak var totalPriceText: UILabel!
@@ -21,8 +18,6 @@ class ShoppingBagViewController: UIViewController {
     var viewModel:ShoppingBagViewModelTemp!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    //move
-    private var request: PKPaymentRequest!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +61,6 @@ class ShoppingBagViewController: UIViewController {
                     nextViewController.orders = list
             }
             //move
-            self.requestPayment(msg: "total", price: self.totalPrice)
         }
     }
     
@@ -246,33 +240,3 @@ extension UIView {
     }
 }
 
-extension ShoppingBagViewController: PKPaymentAuthorizationViewControllerDelegate {
-    func requestPayment(msg: String, price: Float) {
-        
-        request = PKPaymentRequest()
-        request.merchantIdentifier = "merchant.abanob.app"
-        request.supportedNetworks = [.quicPay, .masterCard, .visa, .mada, .vPay]
-        request.supportedCountries = ["US", "EG"]
-        request.merchantCapabilities = .capability3DS
-        request.countryCode = "EG"
-        request.currencyCode = UserDefaultsLayer().getCurrency()
-        
-        request.paymentSummaryItems = [PKPaymentSummaryItem(label: msg, amount: NSDecimalNumber(value: price))]
-        
-        let controller = PKPaymentAuthorizationViewController(paymentRequest: request)
-                
-        if controller != nil {
-            controller!.delegate = self
-            present(controller!, animated: true, completion: nil)
-        }
-    }
-    
-    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-        
-    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-        
-        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
-    }
-}

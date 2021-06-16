@@ -63,7 +63,7 @@ extension PaymentOptionsViewController: UITableViewDataSource, UITableViewDelega
         switch indexPath.section {
         case 0:
             cell.payment = payments[0]
-            cell.paymentText.text = "Pay now and get free delivery"
+            cell.paymentText.text = "Apple Pay"
         case 1:
             cell.payment = payments[1]
             cell.paymentText.text = "Cash On Delivery (COD)"

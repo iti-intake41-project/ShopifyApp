@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PassKit
 import MaterialComponents.MaterialTextControls_OutlinedTextAreas
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
@@ -23,6 +24,9 @@ class checkoutViewController: UIViewController {
     var subTotalPrice: Float = 0.0
     var delegate = UIApplication.shared.delegate as! AppDelegate
     var viewModel : CheckoutViewModel!
+    var paymentCompleted = false
+    private var request: PKPaymentRequest!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +103,7 @@ class checkoutViewController: UIViewController {
             showAlret()
         }else{
             //apple payment
+            self.requestPayment(msg: "total", price: self.subTotalPrice)
         }
     }
     
@@ -125,3 +130,44 @@ class checkoutViewController: UIViewController {
     */
 
 }
+
+
+// MARK: - Apple pay
+
+extension checkoutViewController: PKPaymentAuthorizationViewControllerDelegate {
+    func requestPayment(msg: String, price: Float) {
+        
+        request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.abanob.app"
+        request.supportedNetworks = [.quicPay, .masterCard, .visa, .mada, .vPay]
+        request.supportedCountries = ["US", "EG"]
+        request.merchantCapabilities = .capability3DS
+        request.countryCode = "EG"
+        request.currencyCode = UserDefaultsLayer().getCurrency()
+        
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: msg, amount: NSDecimalNumber(value: price))]
+        
+        let controller = PKPaymentAuthorizationViewController(paymentRequest: request)
+                
+        if controller != nil {
+            controller!.delegate = self
+            present(controller!, animated: true, completion: nil)
+        }
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true, completion: nil)
+
+        if paymentCompleted {
+            showAlret()
+        }
+        
+    }
+        
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        paymentCompleted = true
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+
+    }
+}
+

@@ -41,6 +41,8 @@ class FavouritesCollectionViewController: UICollectionViewController {
         cell.imageHeight.constant = (collectionView.frame.height / 2) - 40
         
         cell.productImage.sd_setImage(with: URL(string:favourites[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
+        cell.productImage.layer.borderWidth = 1
+        cell.productImage.layer.cornerRadius = cell.productImage.frame.height / 12
 
         cell.priceLbl.text = favourites[indexPath.row].varients?[0].price
         cell.favouriteBtn.backgroundColor = UIColor.white

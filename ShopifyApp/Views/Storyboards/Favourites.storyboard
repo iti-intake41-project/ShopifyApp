@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jxH-w4-ChJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jxH-w4-ChJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -105,7 +105,7 @@
                         </connections>
                     </collectionView>
                     <connections>
-                        <segue destination="qVO-pF-Pfb" kind="presentation" identifier="navigateToProductDetails" modalPresentationStyle="fullScreen" id="jKh-ST-sve"/>
+                        <segue destination="qVO-pF-Pfb" kind="show" identifier="navigateToProductDetails" id="jKh-ST-sve"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlM-En-oUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -115,7 +115,9 @@
         <!--ProductDetailsViewController-->
         <scene sceneID="Pnz-6Z-qkf">
             <objects>
-                <viewControllerPlaceholder storyboardName="ProductList" referencedIdentifier="ProductDetailsViewController" id="qVO-pF-Pfb" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ProductList" referencedIdentifier="ProductDetailsViewController" id="qVO-pF-Pfb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ozG-mA-FSg"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJj-Zv-VWv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-40" y="137"/>

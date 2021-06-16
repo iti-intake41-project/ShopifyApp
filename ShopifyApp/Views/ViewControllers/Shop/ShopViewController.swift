@@ -108,6 +108,8 @@ extension ShopViewController {
         
         vendorView.layer.cornerRadius = vendorView.frame.height / 14
         vendorView.layer.borderWidth = 1
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "pic"), style: .plain, target: self, action: #selector(favoriteAction(_:)))
     }
 }
 
