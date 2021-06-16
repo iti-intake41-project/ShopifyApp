@@ -18,6 +18,7 @@ class checkoutViewController: UIViewController {
     @IBOutlet weak var couponText: MDCOutlinedTextField!
     @IBOutlet weak var discountText: UILabel!
     @IBOutlet weak var totalText: UILabel!
+    @IBOutlet weak var placeOrderBtn: UIButton!
     var deliveryFee: Float = 0.0
     var subTotalPrice: Float = 0.0
     var delegate = UIApplication.shared.delegate as! AppDelegate
@@ -33,6 +34,8 @@ class checkoutViewController: UIViewController {
     }
     
     func setUI(){
+        placeOrderBtn.layer.cornerRadius = placeOrderBtn.layer.frame.height / 2
+
         for order in orders{
             subTotalPrice += (Float(order.varients?[0].price ?? "0.0") ?? 0.0) * Float(order.count)
         }

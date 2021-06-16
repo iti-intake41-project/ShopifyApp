@@ -13,12 +13,16 @@ class PaymentOptionsViewController: UIViewController {
     var currentType = "POD"
     var address: Address!
     var orders: [Product]!
+    @IBOutlet weak var viewBtn: UIView!
+    @IBOutlet weak var paymentBtn: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         paymentOptionsTable.delegate = self
         paymentOptionsTable.dataSource = self
+        viewBtn.roundCorners(corners: [.topLeft, .topRight], radius: 30)
+        paymentBtn.layer.cornerRadius = paymentBtn.layer.frame.height / 2
     }
     
 

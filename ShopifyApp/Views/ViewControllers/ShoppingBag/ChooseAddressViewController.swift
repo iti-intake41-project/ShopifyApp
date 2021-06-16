@@ -16,6 +16,8 @@ class ChooseAddressViewController: UIViewController {
     var delegate = UIApplication.shared.delegate as! AppDelegate
     var shippingAddressId: Int = 0
     var paymentAddress: Address!
+    @IBOutlet weak var viewBtn: UIView!
+    @IBOutlet weak var paymentBtn: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,9 @@ class ChooseAddressViewController: UIViewController {
         addressTable.delegate = self
         addressTable.dataSource = self
         viewModel = ChooseAddressViewModel(appDelegate: &delegate)
+        viewBtn.roundCorners(corners: [.topLeft, .topRight], radius: 30)
+        paymentBtn.layer.cornerRadius = paymentBtn.layer.frame.height / 2
+
         addresses = viewModel.getAddresses()
         shippingAddressId = addresses[0].id
         print("default id: \(shippingAddressId)")
