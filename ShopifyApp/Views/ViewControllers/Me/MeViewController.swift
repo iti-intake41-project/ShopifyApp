@@ -30,11 +30,17 @@ class MeViewController: UIViewController {
     @IBOutlet weak var fav3StackView: UIStackView!
     @IBOutlet weak var orderStackView: UIStackView!
     @IBOutlet weak var FavouriteStackVIew: UIStackView!
-    @IBOutlet weak var loginOrRegisterStackView: UIStackView!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
+    
+    
+    @IBOutlet weak var ordersHieght: NSLayoutConstraint!
+    @IBOutlet weak var favHeight: NSLayoutConstraint!
     @IBOutlet weak var orderTableView: UITableView!
     @IBOutlet weak var favCollectionView: UICollectionView!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginOrRegisterStackView: UIStackView!
 
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var meViewModel = MeViewModel()
@@ -56,9 +62,13 @@ class MeViewController: UIViewController {
          favourites = getfavourites()
         meViewModel.updateOrders = {
             self.orderItems = self.meViewModel.orderItems
+            self.ordersHieght.constant = CGFloat(self.orderItems.count * 120)
             self.orderTableView.reloadData()
         }
         
+        
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2
         //
         // Do any additional setup after loading the view.
 //        loginBtn.layer.cornerRadius = loginBtn.layer.frame.height  / 2
@@ -101,7 +111,7 @@ class MeViewController: UIViewController {
         self.favourites = favouriteslist
         print(favourites.count)
         
-        
+        favHeight.constant = CGFloat(favourites.count / 2 * 200)
     }
     @IBAction func login(_ sender: UIButton) {
         
@@ -259,7 +269,11 @@ extension MeViewController : UICollectionViewDelegate,UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =  favCollectionView.dequeueReusableCell(withReuseIdentifier: "WishListCollectionViewCell", for: indexPath) as! WishListCollectionViewCell
+        let cell =  favCollectionView.dequeueReusableCell(withReuseIdentifier: "wishlist", for: indexPath) as! WishListCollectionViewCell
+        
+        cell.imageWidth.constant = (collectionView.frame.width / 2) - 10
+        cell.imageHeight.constant = 200
+        
 //        cell.imageWidth.constant = (favCollectionView.frame.width / 2) - 10
 //        cell.imageHeight.constant = (favCollectionView.frame.height / 2) - 40
 //        cell.productImg.sd_setImage(with: URL(string:favourites[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
@@ -268,7 +282,7 @@ extension MeViewController : UICollectionViewDelegate,UICollectionViewDataSource
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 2) - 35)
+         return CGSize(width: (collectionView.frame.width / 2) - 10, height: 200)
      }
     
 }
