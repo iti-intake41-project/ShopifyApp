@@ -33,6 +33,8 @@ class MeViewController: UIViewController {
     @IBOutlet weak var loginOrRegisterStackView: UIStackView!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var orderTableView: UITableView!
+    @IBOutlet weak var favCollectionView: UICollectionView!
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var meViewModel = MeViewModel()
@@ -40,6 +42,10 @@ class MeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //
+        orderTableView.delegate = self
+        favCollectionView.delegate = self
+        //
         // Do any additional setup after loading the view.
         loginBtn.layer.cornerRadius = loginBtn.layer.frame.height  / 2
         registerBtn.layer.cornerRadius = registerBtn.layer.frame.height / 2
@@ -190,5 +196,32 @@ class MeViewController: UIViewController {
             
         }
     }
+    
+}
+
+extension MeViewController :UITableViewDelegate , UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
+    
+    
+}
+extension MeViewController : UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell =  favCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductsCollectionViewCell", for: indexPath) as! ProductsCollectionViewCell
+        cell.imageWidth.constant = (collectionView.frame.width / 2) - 10
+        cell.imageHeight.constant = (collectionView.frame.height / 2) - 40
+        
+    }
+    
     
 }
