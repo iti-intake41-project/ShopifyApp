@@ -11,7 +11,6 @@ class CheckoutViewModel {
     let defaults = UserDefaultsLayer()
     let network = NetworkLayer()
     var dataRepository: LocalDataRepository
-    var toggle = false
 
     init(appDelegate: inout AppDelegate) {
         var delegate = appDelegate
@@ -23,9 +22,8 @@ class CheckoutViewModel {
     }
     
     func checkCoupon(coupon: String)->Bool{
-        //check coupon
-        toggle = !toggle
-        return toggle
+        print("discount code: \(defaults.getDiscountCode())")
+        return coupon.elementsEqual(defaults.getDiscountCode()) && coupon != ""
     }
     
     func postOrder(products: inout [Product]){
@@ -44,6 +42,8 @@ class CheckoutViewModel {
             if let data = data{
                 let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
 //                print("json: \(json)")
+                print("order posted successfully")
+
                 let returnedOrder = json["order"] as? Dictionary<String,Any>
                 let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
                 let id = returnedCustomer?["id"] as? Int ?? 0

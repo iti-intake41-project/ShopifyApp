@@ -111,23 +111,14 @@ class checkoutViewController: UIViewController {
         let alert = UIAlertController(title: "Order", message: "Congratulations, your order has been placed successfully", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {[weak self] (action) in
             print("alert working")
-            self?.performSegue(withIdentifier: "mainAfterPayment", sender: self!)
+            if let self = self {
+                self.viewModel.postOrder(products: &self.orders)
+                self.performSegue(withIdentifier: "mainAfterPayment", sender: self)
+            }
         }
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
