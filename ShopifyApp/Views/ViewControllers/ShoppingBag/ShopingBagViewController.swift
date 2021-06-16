@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Stripe
 import Alamofire
 
 class ShoppingBagViewController: UIViewController {
@@ -19,8 +18,6 @@ class ShoppingBagViewController: UIViewController {
     var list:[Product] = []
     var viewModel:ShoppingBagViewModelTemp!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var paymentSheet: PaymentSheet?
-    var backendCheckoutUrl = URL(string: "https://shopify-app-iti.herokuapp.com/")!  // An example backend endpoint
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +27,6 @@ class ShoppingBagViewController: UIViewController {
         shoppingTable.dataSource = self
         
         updateTableView()
-        setupStripe()
         
 
     }
@@ -79,23 +75,6 @@ class ShoppingBagViewController: UIViewController {
         }
     }
     
-    func showPayment(){
-        // MARK: Start the checkout process
-        paymentSheet?.present(from: self) { paymentResult in
-            // MARK: Handle the payment result
-            switch paymentResult {
-            case .completed:
-                //self.displayAlert("Your order is confirmed!")
-                print("completed")
-            case .canceled:
-                print("Canceled!")
-            case .failed(let error):
-                print(error)
-                //self.displayAlert("Payment failed: \n\(error.localizedDescription)")
-            }
-        }
-
-    }
     
     func updateTableView(){
         totalPrice = 0
@@ -156,29 +135,6 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
     private func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-
-//    private func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        // handle delete (by removing the data from your array and updating the tableview)
-//        let id = list[indexPath.row].varients?[0].id ?? 0
-//        viewModel.deleteProduct(id: id)
-//        updateTableView()
-//
-//    }
-    
-//    private func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-//
-//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { [weak self] (action,arg) in
-//            let id = self?.list[indexPath.row].varients?[0].id ?? 0
-//            self?.viewModel.deleteProduct(id: id)
-//            self?.updateTableView()
-//        }
-//
-//        let editAction = UITableViewRowAction(style: .normal, title: "Edit") {(action,arg) in
-//            //handle edit
-//        }
-//
-//        return [deleteAction, editAction]
-//    }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -283,54 +239,3 @@ extension UIView {
     }
 }
 
-extension ShoppingBagViewController: STPAuthenticationContext {
-    func authenticationPresentingViewController() -> UIViewController {
-        return self
-    }
-    
-    func createPaymentIntent(completion: @escaping STPJSONResponseCompletionBlock) {
-        backendCheckoutUrl.appendPathComponent("create_payment_intent")
-        
-        AF.request(backendCheckoutUrl, method: .post, parameters: [:], encoding: URLEncoding.default, headers: nil).validate(statusCode: 200..<300).responseJSON { (response) in
-                        
-            switch (response.result) {
-            case .failure(let error):
-                completion(nil, error)
-            case .success(let json):
-                completion(json as! [String:Any], nil)
-            }
-        }
-    }
-    
-    func setupStripe() {
-        createPaymentIntent { (paymentIntent, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }else {
-                guard let paymentIntent = paymentIntent as? [String:AnyObject] else{
-                    print("incorrect")
-                    return
-                }
-                
-                let clientSecret = paymentIntent["secret"] as! String
-                
-                
-                STPAPIClient.shared.publishableKey = "pk_test_51J19gZAzeb3g68XKkIDsHNLM8Fl0e6ncassqNHNaQfpuiktP41zn8cuxkANqftLC3SJnokBpwMt3292uHcNmsvnJ007BVuBDay"
-
-                // MARK: Create a PaymentSheet instance
-                var configuration = PaymentSheet.Configuration()
-                configuration.merchantDisplayName = "Example, Inc."
-//                configuration.applePay = .init(
-//                    merchantId: "com.foo.example", merchantCountryCode: "US")
-//                configuration.customer = .init(
-//                    id: customerId, ephemeralKeySecret: customerEphemeralKeySecret)
-                //configuration.returnURL = "payments-example://stripe-redirect"
-                self.paymentSheet = PaymentSheet(
-                    paymentIntentClientSecret: clientSecret,
-                    configuration: configuration)
-                
-            }
-        }
-    }
-}

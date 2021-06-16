@@ -32,11 +32,7 @@ pod 'MaterialComponents/TextControls+OutlinedTextAreas'
 pod 'MaterialComponents/TextControls+OutlinedTextFields'
 pod 'Cosmos'
 pod 'lottie-ios'
-pod 'Stripe'
-
-pod 'lottie-ios'
 
 #pod 'RealmS', '~> 4.0.0'
-pod 'Cosmos'
 
 end
