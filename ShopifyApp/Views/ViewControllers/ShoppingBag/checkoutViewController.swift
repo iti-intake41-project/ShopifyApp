@@ -28,7 +28,7 @@ class checkoutViewController: UIViewController {
     var viewModel : CheckoutViewModel!
     var paymentCompleted = false
     private var request: PKPaymentRequest!
-
+    var applyDiscount = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,59 +45,86 @@ class checkoutViewController: UIViewController {
         for order in orders{
             subTotalPrice += (Float(order.varients?[0].price ?? "0.0") ?? 0.0) * Float(order.count)
         }
-        if viewModel.getCurrency() == "EGP"{
-            subtotalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice)")
-            if paymentType == "POD"{
-                deliveryFee = 1.8
-                shippingFeesText.text = FormatePrice.formatePrice(priceStr: "\(deliveryFee)")
-            }else{
-                shippingFeesText.text = "EGP 0.0"
-            }
-            totalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice+deliveryFee)")
-            discountText.text = "EGP 0.0"
-            
-        }else{
-            subtotalText.text = String(format: "US$ %.2f", subTotalPrice)
-            if paymentType == "POD"{
-                deliveryFee = 10.0
-              shippingFeesText.text = "US$ 10.0"
-            }else{
-                shippingFeesText.text = "US$ 0.0"
-            }
-            totalText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee))
-            discountText.text = "US$ 0.0"
-        }
         
+//        if viewModel.getCurrency() == "EGP"{
+//            subtotalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice)")
+//            if paymentType == "POD"{
+//                deliveryFee = 1.8
+//                shippingFeesText.text = FormatePrice.formatePrice(priceStr: "\(deliveryFee)")
+//            }else{
+//                shippingFeesText.text = "EGP 0.0"
+//            }
+//            totalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice+deliveryFee)")
+//            discountText.text = "EGP 0.0"
+//
+//        }else{
+//            subtotalText.text = String(format: "US$ %.2f", subTotalPrice)
+//            if paymentType == "POD"{
+//                deliveryFee = 10.0
+//              shippingFeesText.text = "US$ 10.0"
+//            }else{
+//                shippingFeesText.text = "US$ 0.0"
+//            }
+//            totalText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee))
+//            discountText.text = "US$ 0.0"
+//        }
+        updatePrices()
+    }
+    
+    func updatePrices(){
+        if paymentType == "POD"{
+            deliveryFee = 30.0
+        }
+        if applyDiscount{
+            totalPrice = (subTotalPrice + deliveryFee) * 0.8
+            discountPrice = (subTotalPrice + deliveryFee) * 0.2
+        }else{
+            totalPrice = subTotalPrice + deliveryFee
+            discountPrice = 0.0
+        }
+        if viewModel.getCurrency() == "EGP"{
+            subtotalText.text = String(format: "EGP %.2f", subTotalPrice)
+            shippingFeesText.text = String(format: "EGP %.2f", deliveryFee)
+            discountText.text = String(format: "EGP %.2f", discountPrice)
+            totalText.text = String(format: "EGP %.2f", totalPrice)
+        }else{
+            subtotalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice)")
+            shippingFeesText.text = FormatePrice.formatePrice(priceStr: "\(deliveryFee)")
+            discountText.text = FormatePrice.formatePrice(priceStr: "\(discountPrice)")
+            totalText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+        }
     }
         
     @IBAction func validateCopoun(_ sender: Any) {
-        if viewModel.checkCoupon(coupon: couponText.text ?? ""){
-            if viewModel.getCurrency() == "EGP"{
-                totalText.text = FormatePrice.formatePrice(priceStr: "\((subTotalPrice+deliveryFee) * 0.8)")
-                
-                discountText.text = FormatePrice.formatePrice(priceStr: "\((subTotalPrice+deliveryFee) * 0.2)")
-                
-            }else{
-                totalText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee)*0.8)
-                discountText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee)*0.2)
-            }
-        }else{
-            if viewModel.getCurrency() == "EGP"{
-                totalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice+deliveryFee)")
-                discountText.text = "EGP 0.0"
-            }else{
-                totalText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee))
-                discountText.text = "US$ 0.0"
-            }
-            couponText.text = ""
-            func showAlret(){
-                let alert = UIAlertController(title: "Coupoon", message: "The coupon you entered is not valid", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default)
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
-            }
-
-        }
+        applyDiscount = viewModel.checkCoupon(coupon: couponText.text ?? "")
+        updatePrices()
+//        if applyDiscount{
+//            if viewModel.getCurrency() == "EGP"{
+//                totalText.text = FormatePrice.formatePrice(priceStr: "\((subTotalPrice+deliveryFee) * 0.8)")
+//
+//                discountText.text = FormatePrice.formatePrice(priceStr: "\((subTotalPrice+deliveryFee) * 0.2)")
+//
+//            }else{
+//                totalText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee)*0.8)
+//                discountText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee)*0.2)
+//            }
+//        }else{
+//            if viewModel.getCurrency() == "EGP"{
+//                totalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice+deliveryFee)")
+//                discountText.text = "EGP 0.0"
+//            }else{
+//                totalText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee))
+//                discountText.text = "US$ 0.0"
+//            }
+//            couponText.text = ""
+//            func showAlret(){
+//                let alert = UIAlertController(title: "Coupoon", message: "The coupon you entered is not valid", preferredStyle: .alert)
+//                let okAction = UIAlertAction(title: "OK", style: .default)
+//                alert.addAction(okAction)
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//
+//        }
     }
     
     @IBAction func placeOrder(_ sender: Any) {
@@ -106,7 +133,7 @@ class checkoutViewController: UIViewController {
             showAlret()
         }else{
             //apple payment
-            self.requestPayment(msg: "total", price: self.subTotalPrice)
+            self.requestPayment(msg: "total", price: totalPrice)
         }
     }
     

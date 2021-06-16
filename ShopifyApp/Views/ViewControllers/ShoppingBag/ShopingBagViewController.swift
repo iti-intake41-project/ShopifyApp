@@ -86,9 +86,9 @@ class ShoppingBagViewController: UIViewController {
             totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
         }
         if viewModel.getCurrency() == "EGP"{
-            totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+            totalPriceText.text = String(format: "EGP %.2f", totalPrice)
         }else{
-            totalPriceText.text = String(format: "US$%.2f", totalPrice)
+            totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
         }
     }
     
