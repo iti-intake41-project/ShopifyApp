@@ -43,8 +43,8 @@ class PaymentOptionsViewController: UIViewController {
     }
     
     @IBAction func navigateToCheckout(_ sender: Any) {
-        print("address: \(address) paymentType: \(currentType)")
-        print("orders: \(orders)")
+//        print("address: \(address) paymentType: \(currentType)")
+//        print("orders: \(orders)")
         performSegue(withIdentifier: "toPayment", sender: self)
     }
     
@@ -63,7 +63,7 @@ extension PaymentOptionsViewController: UITableViewDataSource, UITableViewDelega
         switch indexPath.section {
         case 0:
             cell.payment = payments[0]
-            cell.paymentText.text = "Paynow and get free delivery"
+            cell.paymentText.text = "Pay now and get free delivery"
         case 1:
             cell.payment = payments[1]
             cell.paymentText.text = "Cash On Delivery (COD)"
