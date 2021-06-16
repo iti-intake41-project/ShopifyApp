@@ -19,10 +19,12 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
     
     var product: Product!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var shoppingViewModel: ShoppingBagViewModel!
+    var ratings = [4.0, 4.5, 5]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,15 +69,18 @@ extension ProductDetailsViewController {
     }
     
     func setProductDetails() {
+        navigationItem.title = product.vendor
+        
         productNameLabel.text = product.title
         ratingView.settings.fillMode = .precise
-        ratingView.rating = 4.2
+        ratingView.rating = ratings.randomElement() ?? 4.5
         
         if let varients = product.varients {
-            productPriceLabel.text = varients[0].price
+            productPriceLabel.text = varients[0].price + " \(UserDefaultsLayer().getCurrency())"
         }
         
         productDescriptionTextView.text = product.description
+        descriptionHeight.constant = productDescriptionTextView.contentSize.height
         
         if shoppingViewModel.isFavourite(id: product.varients![0].id) {
             favoriteButton.tintColor = .red

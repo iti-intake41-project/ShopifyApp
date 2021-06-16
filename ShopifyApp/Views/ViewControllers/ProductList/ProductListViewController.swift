@@ -132,11 +132,16 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
         cell.productImage.layer.borderWidth = 1
         cell.productImage.layer.cornerRadius = cell.productImage.frame.height / 12
 
-        cell.priceLbl.text = products[indexPath.row].varients?[0].price
+        cell.priceLbl.text = (products[indexPath.row].varients?[0].price)! + " \(UserDefaultsLayer().getCurrency())"
         //Moataz
-        cell.favouriteBtn.backgroundColor = UIColor.white
+//        cell.favouriteBtn.backgroundColor = UIColor.white
         cell.product = products[indexPath.row]
-        cell.isFavourite = favouritesViewModel.isFavourite(id: products[indexPath.row].id)
+        if favouritesViewModel.isFavourite(id: products[indexPath.row].varients![0].id) {
+            cell.favouriteBtn.tintColor = .red
+        }else{
+            cell.favouriteBtn.tintColor = .gray
+        }
+//        cell.isFavourite = favouritesViewModel.isFavourite(id: products[indexPath.row].id)
         cell.delegate = self
         //Moataz
         return cell
