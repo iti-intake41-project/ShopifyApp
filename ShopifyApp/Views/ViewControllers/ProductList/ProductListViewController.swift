@@ -24,6 +24,7 @@ class ProductListViewController: UIViewController {
     var favouritesViewModel:FavouriteViewModelTemp!
     var favourites: [Product] = [Product]()
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var settingVm = SettingViewModel()
     //Moataz
 
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ class ProductListViewController: UIViewController {
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
  
-
+        
         productsViewModel.bindProductListViewModelToView = onSuccessUpdateView
         productsViewModel.bindViewModelErrorToView = onFailUpdateView
         //call  products from viewController based on collectionID
@@ -132,7 +133,13 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
         cell.productImage.layer.borderWidth = 1
         cell.productImage.layer.cornerRadius = cell.productImage.frame.height / 12
 
-        cell.priceLbl.text = (products[indexPath.row].varients?[0].price)! + " \(UserDefaultsLayer().getCurrency())"
+        var price = products[indexPath.row].varients?[0].price
+
+          price =  FormatePrice.formatePrice(priceStr: price)
+      
+            cell.priceLbl.text = " \(price!)"
+
+       
         //Moataz
 //        cell.favouriteBtn.backgroundColor = UIColor.white
         cell.product = products[indexPath.row]

@@ -33,37 +33,76 @@ class MeViewController: UIViewController {
     @IBOutlet weak var loginOrRegisterStackView: UIStackView!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
-    
+    @IBOutlet weak var orderTableView: UITableView!
+    @IBOutlet weak var favCollectionView: UICollectionView!
+
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var meViewModel = MeViewModel()
     var isLoggedIn = false
+    var favViewModel:FavouriteViewModelTemp!
+    var favourites = [Product]()
+    var orders = [Order]()
+    var orderItems = [OrderItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //
+        orderTableView.delegate = self
+        orderTableView.dataSource = self
+        favCollectionView.delegate = self
+        favCollectionView.dataSource = self
+        favViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+        favViewModel.bindFavouritesList = onSuccess
+         favourites = getfavourites()
+        meViewModel.updateOrders = {
+            self.orderItems = self.meViewModel.orderItems
+            self.orderTableView.reloadData()
+        }
+        
+        //
         // Do any additional setup after loading the view.
-        loginBtn.layer.cornerRadius = loginBtn.layer.frame.height  / 2
-        registerBtn.layer.cornerRadius = registerBtn.layer.frame.height / 2
+//        loginBtn.layer.cornerRadius = loginBtn.layer.frame.height  / 2
+//        registerBtn.layer.cornerRadius = registerBtn.layer.frame.height / 2
     }
     override func viewWillAppear(_ animated: Bool) {
-        setOrderesUI(products: getOrders())
-        setWishListToUI(favourites: getfavourites())
-        
-       isLoggedIn = meViewModel.isLoggedIn()
-        
-        if isLoggedIn {
-            loginOrRegisterStackView.isHidden = true
-            orderStackView.isHidden = false
-            FavouriteStackVIew.isHidden = false
-            userLbl.text = "Welcome \(meViewModel.getUserName())"
-        }else{
-            loginOrRegisterStackView.isHidden = false
-            userLbl.isHidden = true
-            orderStackView.isHidden = true
-            FavouriteStackVIew.isHidden = true
-        }
+       orders =  meViewModel.getOrders()
+//        for order in orders {
+//            for orderItem in order.line_items {
+//                orderItems.append(orderItem)
+//                print("in for \(orderItem.price)")
+//            }
+//            
+//        }
+//        print("order items count: \(orders.count)")
+//        orderTableView.reloadData()
+//        setOrderesUI(products: getOrders())
+//        setWishListToUI(favourites: getfavourites())
+//        
+//       isLoggedIn = meViewModel.isLoggedIn()
+//        
+//        if isLoggedIn {
+//            loginOrRegisterStackView.isHidden = true
+//            orderStackView.isHidden = false
+//            FavouriteStackVIew.isHidden = false
+//            userLbl.text = "Welcome \(meViewModel.getUserName())"
+//        }else{
+//            loginOrRegisterStackView.isHidden = false
+//            userLbl.isHidden = true
+//            orderStackView.isHidden = true
+//            FavouriteStackVIew.isHidden = true
+//        }
         
     }
     
+    func onSuccess(){
+        print("dcjnjnc;")
+       let  favouriteslist = favViewModel.favourites
+
+        self.favourites = favouriteslist
+        print(favourites.count)
+        
+        
+    }
     @IBAction func login(_ sender: UIButton) {
         
         performSegue(withIdentifier:"login",sender:self)
@@ -190,5 +229,46 @@ class MeViewController: UIViewController {
             
         }
     }
+    
+}
+
+extension MeViewController :UITableViewDelegate , UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orderItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = orderTableView.dequeueReusableCell(withIdentifier: "MeOrderTableViewCell") as! MeOrderTableViewCell
+        cell.priceLbl.text = orderItems[indexPath.row].price
+        print("cell\(cell.priceLbl.text)")
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       return 150
+    }
+    
+    
+}
+extension MeViewController : UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5 //favourites.count
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell =  favCollectionView.dequeueReusableCell(withReuseIdentifier: "WishListCollectionViewCell", for: indexPath) as! WishListCollectionViewCell
+//        cell.imageWidth.constant = (favCollectionView.frame.width / 2) - 10
+//        cell.imageHeight.constant = (favCollectionView.frame.height / 2) - 40
+//        cell.productImg.sd_setImage(with: URL(string:favourites[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
+//        cell.productLbl.text = favourites[indexPath.row].varients?[0].price
+        cell.productLbl.text = "dckvmw"
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+         return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 2) - 35)
+     }
     
 }

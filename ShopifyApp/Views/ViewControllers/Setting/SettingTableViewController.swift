@@ -8,32 +8,46 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
-    
+       
+   
     @IBOutlet weak var addrbtn: UIButton!
     @IBOutlet weak var currencytBtn: UIButton!
     
     @IBOutlet weak var countrybtn: UIButton!
     
+    @IBOutlet weak var logoutBtn: UIButton!
     @IBOutlet weak var logoutStack: UIStackView!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var settingViewModel = SettingViewModel()
     var isLoggedIn = false
+    var logout = false
+    var address:Address?
+  //  var delegate:Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        logoutBtn.layer.cornerRadius = logoutBtn.layer.frame.height  / 2
         settingViewModel.bindSettingViewModel = onSuccess
-        currencytBtn.setTitle(settingViewModel.currency, for: .normal)
-        
-        let address:Address = settingViewModel.getAddress(appDelegate: &appDelegate)
-        
-        addrbtn.setTitle(address.address1, for: .normal)
-        countrybtn.setTitle(address.country, for: .normal)
+       
     }
     override func viewWillAppear(_ animated: Bool) {
+        settingViewModel.bindSettingViewModel = onSuccess
+               currencytBtn.setTitle(settingViewModel.currency, for: .normal)
+               
+              address = settingViewModel.getAddress(appDelegate: &appDelegate)
+               
+        addrbtn.setTitle(settingViewModel.address?.address1, for: .normal)
+               countrybtn.setTitle(settingViewModel.address?.country, for: .normal)
+           
         isLoggedIn = settingViewModel.isLoggedIn()
         if !isLoggedIn {
-            logoutStack.isHidden = true
+            logoutBtn.isHidden = true
+            self.currencytBtn.setTitle("EGP", for: .normal)
+
+        }else{
+            logoutBtn.isHidden = false
         }
+        
     }
     
     func onSuccess() {
@@ -47,11 +61,27 @@ class SettingTableViewController: UITableViewController {
         self.currencytBtn.setTitle(currency, for: .normal)
         
         print("after ")
+        guard let isLoggedIn = settingViewModel.logout else {
+                  print("no logout")
+                  return  }
+              print(logout)
+              
+        self.isLoggedIn = isLoggedIn
+        guard let address = settingViewModel.address else {
+                         print("no currency")
+                         return  }
+                     print("currency = ")
+        self.address = address
+        addrbtn.setTitle(address.address1
+            , for: .normal)
+        countrybtn.setTitle(address.country, for: .normal)
+        
+        
         
     }
     
     @IBAction func address(_ sender: UIButton) {
-        if isLoggedIn {
+        if settingViewModel.isLoggedIn() {
         if  settingViewModel.hasAddress(appDelegate: &appDelegate){
             //navigate to address
             performSegue(withIdentifier: "showAddress", sender: self)
@@ -65,6 +95,7 @@ class SettingTableViewController: UITableViewController {
         else {
             
             performSegue(withIdentifier: "login", sender: self)
+            
         }
     }
     
@@ -89,6 +120,7 @@ class SettingTableViewController: UITableViewController {
             alert.addAction(usd)
             alert.addAction(egp)
             self.present(alert, animated: true, completion: nil)
+        }else{
         }
         
     }
@@ -124,7 +156,8 @@ class SettingTableViewController: UITableViewController {
             self?.addrbtn.setTitle("", for: .normal)
             self?.countrybtn.setTitle("", for: .normal)
             self?.settingViewModel.logout(appDelegate: &self!.appDelegate)
-            self?.logoutStack.isHidden = true
+            self?.logoutBtn.isHidden = true
+            self?.viewWillAppear(true)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(yesAction)

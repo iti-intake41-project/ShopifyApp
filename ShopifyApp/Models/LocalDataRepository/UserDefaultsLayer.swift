@@ -74,6 +74,13 @@ class UserDefaultsLayer: UserDefaultsData {
     func getUserName() -> String {
         return UserDefaults.standard.value(forKey: "name") as? String ?? ""
     }
+    func setDiscountCode(code:String){
+        UserDefaults.standard.set(code ,forKey: "code")
+    }
+    func getDiscountCode() -> String {
+        return UserDefaults.standard.value(forKey: "code") as? String ?? ""
+
+    }
     //donia
     
 }

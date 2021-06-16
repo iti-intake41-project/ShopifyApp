@@ -10,16 +10,16 @@ class FormatePrice {
     static func formatePrice(priceStr:String?) -> String {
            let settingViewModel = SettingViewModel()
            let currency  = settingViewModel.getCurrency(key: "currency")
-           if  currency == "EGP" {
-           return "EGP \(toEGP(amount:Double(priceStr ?? "")! ))"
+           if  currency == "USD" {
+           return "USD \(toEGP(amount:Double(priceStr ?? "")! ))"
            }
            else {
-               return "USD \(priceStr!)"
+               return "EGP \(priceStr!)"
                
            }
        }
      static  func toEGP(amount:Double) -> Double {
             
-           return Double(round(100*(amount * 15.669931))/100)
+           return Double(round(100*(amount / 15.669931))/100)
        }
 }
