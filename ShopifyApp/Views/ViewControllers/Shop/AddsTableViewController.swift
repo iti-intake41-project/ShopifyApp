@@ -15,7 +15,7 @@ class AddsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        navigationItem.title = "Discounts"
     }
     override func viewWillAppear(_ animated: Bool) {
         shopViewModel.fetchAdds()

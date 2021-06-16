@@ -120,6 +120,11 @@ class NetworkLayer {
             completion(response)
         }
     }
+//    func getOrders(completion: @escaping (DataResponse<APIOrders, AFError>) -> ()){
+//        AF.request(URLs.order()).validate().
+//            }
+//        }
+//       }
     
     func addAddress(id: Int, address: Address, completion: @escaping(Data?, URLResponse?, Error?)->()){
         let id = id
@@ -168,5 +173,23 @@ class NetworkLayer {
 
     //Moataz
     
+    //Donia
+     func getSmartCollections(completion: @escaping ([CustomCollections]?, Error?) -> ()) {
+          AF.request(URLs.smartCollections()).validate().responseDecodable(of: SmartCollections.self) { (response) in
+              
+              switch response.result {
+                  case .success( _):
+                          
+                      guard let data = response.value else { return }
+                      completion(data.smartCollections, nil)
+                      
+                  case .failure(let error):
+                      
+                      print(error)
+                      completion(nil, error)
+              }
+          }
+      }
+    //Donia
     
 }

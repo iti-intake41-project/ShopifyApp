@@ -13,6 +13,9 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     @IBOutlet   weak var priceLbl: UILabel!
     @IBOutlet   weak var favouriteBtn: UIButton!
     
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageWidth: NSLayoutConstraint!
+    
     //Moataz
     var product: Product!
     
@@ -23,8 +26,11 @@ class ProductsCollectionViewCell: UICollectionViewCell {
             if isFavourite{
                 //donia
                 //favouriteBtn.backgroundColor = UIColor.red
-                favouriteBtn.setImage(UIImage(named: "redheart"), for: .normal)
+                //favouriteBtn.setImage(UIImage(named: "redheart"), for: .normal)
                 //donia
+                favouriteBtn.tintColor = .red
+            }else{
+                favouriteBtn.tintColor = .gray
             }
         }
     }
@@ -38,7 +44,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
             //change button icon to NOT favourite
              //donia
              //favouriteBtn.backgroundColor = UIColor.white
-             favouriteBtn.setImage(UIImage(named: "heart"), for: .normal)
+            favouriteBtn.tintColor = .gray
             //donia
             
             print("not favourite")
@@ -48,7 +54,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
             //change button icon to favourite
             //donia
             //favouriteBtn.backgroundColor = UIColor.red
-            favouriteBtn.setImage(UIImage(named: "redheart"), for: .normal)
+            favouriteBtn.tintColor = .red
             //donia
             print("is favourite")
         }

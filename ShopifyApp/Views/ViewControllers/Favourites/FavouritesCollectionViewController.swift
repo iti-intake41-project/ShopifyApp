@@ -37,6 +37,9 @@ class FavouritesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "ProductsCollectionViewCell", for: indexPath) as! ProductsCollectionViewCell
         
+        cell.imageWidth.constant = (collectionView.frame.width / 2) - 10
+        cell.imageHeight.constant = (collectionView.frame.height / 2) - 40
+        
         cell.productImage.sd_setImage(with: URL(string:favourites[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
 
         cell.priceLbl.text = favourites[indexPath.row].varients?[0].price
@@ -62,6 +65,11 @@ class FavouritesCollectionViewController: UICollectionViewController {
 
 }
 
+extension FavouritesCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 2) - 35)
+    }
+}
 
 extension FavouritesCollectionViewController: FavouriteProductCellProtocol {
     

@@ -18,7 +18,18 @@ class SettingViewModel :NSObject{
             self.bindSettingViewModel()
         }
     }
-    
+    var logout: Bool?{
+        didSet {
+            //            print("from didSelect :\(currency!) ")
+            self.bindSettingViewModel()
+        }
+    }
+    var address: Address?{
+          didSet {
+              //            print("from didSelect :\(currency!) ")
+              self.bindSettingViewModel()
+          }
+      }
     override init() {
         
         super .init()
@@ -27,7 +38,7 @@ class SettingViewModel :NSObject{
     }
     func getAddress(appDelegate:inout AppDelegate) -> Address {
         let coreDataRepo = CoreDataRepository(appDelegate:&appDelegate)
-        
+        address = coreDataRepo.getAddress()
         return coreDataRepo.getAddress()
     }
     func hasAddress(appDelegate:inout AppDelegate) -> Bool {
@@ -48,6 +59,7 @@ class SettingViewModel :NSObject{
     }
     func isLoggedIn() -> Bool {
         print()
+        logout = userDefaults.isLoggedIn()
         return userDefaults.isLoggedIn()
     }
     
@@ -56,6 +68,7 @@ class SettingViewModel :NSObject{
         //donia
         userDefaults.setCurrency(key: "currency", value:"")
         userDefaults.addUserName(userName: "")
+        self.logout = false
         //donia
         
         //remove address, empty fav & cart, switch flag

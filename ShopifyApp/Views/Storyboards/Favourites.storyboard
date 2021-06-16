@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jxH-w4-ChJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jxH-w4-ChJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favourites List-->
+        <!--Favourites Collection View Controller-->
         <scene sceneID="PKC-3m-hcn">
             <objects>
-                <collectionViewController title="Favourites List" id="jxH-w4-ChJ" customClass="FavouritesCollectionViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="jxH-w4-ChJ" customClass="FavouritesCollectionViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Kcn-ja-kPX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,55 +24,78 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductsCollectionViewCell" id="XaQ-De-iA9" customClass="ProductsCollectionViewCell" customModule="ShopifyApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="325"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductsCollectionViewCell" id="nWN-Ax-TRw" customClass="ProductsCollectionViewCell" customModule="ShopifyApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mXX-SO-KJn">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="325"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ptp-hQ-LxL">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="190"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="1HQ-CQ-JHh">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="300"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XQc-lo-12N">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="190"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fni-9g-lGK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="ccM-zK-ahe"/>
+                                                        <constraint firstAttribute="height" constant="150" id="sAs-8R-jo6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vgh-IX-USu">
+                                                    <rect key="frame" x="5" y="150" width="170" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-Fv-HnC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgt-vb-67X">
+                                                            <rect key="frame" x="140" y="0.0" width="30" height="40"/>
+                                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Pgt-vb-67X" secondAttribute="height" multiplier="3:4" id="5mI-FS-yBU"/>
+                                                            </constraints>
+                                                            <state key="normal" image="heart.fill" catalog="system">
+                                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="toggleFavourite:" destination="nWN-Ax-TRw" eventType="touchUpInside" id="FXC-WS-GOs"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ewb-Fv-HnC" firstAttribute="top" secondItem="Vgh-IX-USu" secondAttribute="top" id="ApX-gE-FbC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Pgt-vb-67X" secondAttribute="bottom" id="Lhx-eE-36i"/>
+                                                        <constraint firstItem="Pgt-vb-67X" firstAttribute="top" secondItem="Vgh-IX-USu" secondAttribute="top" id="SBa-4Q-cVg"/>
+                                                        <constraint firstAttribute="height" constant="40" id="cGR-0V-0a5"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ewb-Fv-HnC" secondAttribute="bottom" id="cq2-jV-lDN"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="300" id="5H6-l5-v6h"/>
-                                                <constraint firstAttribute="width" constant="150" id="wzw-XD-fQz"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vgh-IX-USu" secondAttribute="trailing" constant="5" id="Vhx-aX-D6p"/>
+                                                <constraint firstItem="Vgh-IX-USu" firstAttribute="leading" secondItem="XQc-lo-12N" secondAttribute="leading" constant="5" id="bEi-WA-g4l"/>
                                             </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVN-ml-E0V">
-                                            <rect key="frame" x="10" y="304.5" width="100" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cK0-F5-z8d">
-                                            <rect key="frame" x="118" y="293" width="24" height="24"/>
-                                            <state key="normal" image="heart">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="toggleFavourite:" destination="XaQ-De-iA9" eventType="touchUpInside" id="oLQ-ff-adL"/>
-                                            </connections>
-                                        </button>
+                                        </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="cK0-F5-z8d" secondAttribute="bottom" constant="8" id="C4h-lr-dtH"/>
-                                        <constraint firstAttribute="trailing" secondItem="1HQ-CQ-JHh" secondAttribute="trailing" id="JVQ-Yk-Q5F"/>
-                                        <constraint firstItem="bVN-ml-E0V" firstAttribute="top" secondItem="1HQ-CQ-JHh" secondAttribute="bottom" constant="4.5" id="SyY-yJ-DWy"/>
-                                        <constraint firstItem="cK0-F5-z8d" firstAttribute="leading" secondItem="bVN-ml-E0V" secondAttribute="trailing" constant="8" id="XZz-Nh-3TX"/>
-                                        <constraint firstItem="1HQ-CQ-JHh" firstAttribute="leading" secondItem="mXX-SO-KJn" secondAttribute="leading" id="mSZ-n0-bxN"/>
-                                        <constraint firstItem="1HQ-CQ-JHh" firstAttribute="top" secondItem="mXX-SO-KJn" secondAttribute="top" id="tBn-r8-WvX"/>
-                                        <constraint firstItem="bVN-ml-E0V" firstAttribute="leading" secondItem="mXX-SO-KJn" secondAttribute="leading" constant="10" id="u1L-A7-P3u"/>
-                                        <constraint firstAttribute="trailing" secondItem="cK0-F5-z8d" secondAttribute="trailing" constant="8" id="vlF-K4-SDZ"/>
-                                        <constraint firstAttribute="bottom" secondItem="bVN-ml-E0V" secondAttribute="bottom" id="xC7-GL-Lbf"/>
+                                        <constraint firstItem="XQc-lo-12N" firstAttribute="top" secondItem="ptp-hQ-LxL" secondAttribute="top" id="1p6-G3-XhA"/>
+                                        <constraint firstAttribute="bottom" secondItem="XQc-lo-12N" secondAttribute="bottom" id="HqR-Q7-6Q6"/>
+                                        <constraint firstItem="XQc-lo-12N" firstAttribute="leading" secondItem="ptp-hQ-LxL" secondAttribute="leading" id="RCv-Ec-lqs"/>
+                                        <constraint firstAttribute="trailing" secondItem="XQc-lo-12N" secondAttribute="trailing" id="YvL-r9-ywA"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="customSize" width="150" height="325"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="favouriteBtn" destination="cK0-F5-z8d" id="9xs-tY-yPw"/>
-                                    <outlet property="priceLbl" destination="bVN-ml-E0V" id="g98-NJ-aAD"/>
-                                    <outlet property="productImage" destination="1HQ-CQ-JHh" id="eEH-id-5Np"/>
+                                    <outlet property="favouriteBtn" destination="Pgt-vb-67X" id="Pu0-eW-jyh"/>
+                                    <outlet property="imageHeight" destination="sAs-8R-jo6" id="MzC-rh-07D"/>
+                                    <outlet property="imageWidth" destination="ccM-zK-ahe" id="TgA-Qr-KHD"/>
+                                    <outlet property="priceLbl" destination="ewb-Fv-HnC" id="O6t-tN-XpC"/>
+                                    <outlet property="productImage" destination="Fni-9g-lGK" id="GqY-ud-vzO"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -99,9 +122,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart" width="24" height="24"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

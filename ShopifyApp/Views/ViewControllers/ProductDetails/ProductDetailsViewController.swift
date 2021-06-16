@@ -12,16 +12,19 @@ import Cosmos
 class ProductDetailsViewController: UIViewController {
 
     @IBOutlet weak var productImagesCollectionView: UICollectionView!
+    @IBOutlet weak var imageControl: UIPageControl!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productDescriptionTextView: UITextView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
     
     var product: Product!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var shoppingViewModel: ShoppingBagViewModel!
+    var ratings = [4.0, 4.5, 5]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,21 +47,18 @@ class ProductDetailsViewController: UIViewController {
         if shoppingViewModel.isInShopingCart(id: product.varients![0].id) {
             let alert = UIAlertController(title: "Done", message: "This product is already in your cart", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (UIAlertAction) in
-//                self.dismiss(animated: true, completion: nil)
                 self.navigationController?.popViewController(animated: true)
             }))
             present(alert, animated: true, completion: nil)
         }else{
             shoppingViewModel.addProduct(product: product)
-//            dismiss(animated: true, completion: nil)
             navigationController?.popViewController(animated: true)
         }
     }
     
-    @IBAction func goBack(_ sender: Any) {
+//    @IBAction func goBack(_ sender: Any) {
 //        dismiss(animated: true, completion: nil)
-    }
-    
+//    }
 
 }
 
@@ -69,15 +69,18 @@ extension ProductDetailsViewController {
     }
     
     func setProductDetails() {
+        navigationItem.title = product.vendor
+        
         productNameLabel.text = product.title
         ratingView.settings.fillMode = .precise
-        ratingView.rating = 4.2
+        ratingView.rating = ratings.randomElement() ?? 4.5
         
         if let varients = product.varients {
-            productPriceLabel.text = varients[0].price
+            productPriceLabel.text = varients[0].price + " \(UserDefaultsLayer().getCurrency())"
         }
         
         productDescriptionTextView.text = product.description
+        descriptionHeight.constant = productDescriptionTextView.contentSize.height
         
         if shoppingViewModel.isFavourite(id: product.varients![0].id) {
             favoriteButton.tintColor = .red
@@ -93,6 +96,7 @@ extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        imageControl.numberOfPages = product.images.count
         return product.images.count
     }
     
@@ -111,6 +115,9 @@ extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionVi
         return image
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        imageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
 }
 
 extension ProductDetailsViewController: UICollectionViewDelegateFlowLayout {

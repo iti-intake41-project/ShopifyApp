@@ -36,4 +36,10 @@ class URLs {
     static func deleteAddress(customerId: Int, addressId: Int) -> String {
         return baseUrl + "customers/\(customerId)/addresses/\(addressId).json"
     }
+    //Donia
+    static func smartCollections() -> String {
+        return baseUrl + "smart_collections.json"
+    }
+    //Donia
+    
 }

@@ -20,9 +20,6 @@ pod 'SDWebImage'
 pod 'Alamofire'
 pod 'IQKeyboardManagerSwift'
 
-#pod 'Firebase/Auth'
-#pod 'GoogleSignIn'
-
 pod 'RxSwift' 
 pod 'RxCocoa' 
 
@@ -33,6 +30,5 @@ pod 'MaterialComponents/TextControls+OutlinedTextFields'
 pod 'Cosmos'
 pod 'lottie-ios'
 
-#pod 'RealmS', '~> 4.0.0'
 
 end
