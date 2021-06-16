@@ -17,7 +17,7 @@ class MeViewModel{
     }
     
     //get orders
-    func getOrders()->[Order]{
+    func getOrders()->[Order] {
         let customerId = defaultsRepository.getId()
         var orders: [Order] = []
         network.getOrders { (response) in
@@ -25,14 +25,15 @@ class MeViewModel{
             switch response.result{
             
             case .success(let result):
-//                print("result: \(result)")
-                let APIOrders = result.orders
+               print("result: \(result)")
+                let APIOrders = result.orders 
                 for order in APIOrders{
                     if order.customer.id == customerId {
                         print("matching order: \(order)")
                         orders.append(order)
                     }
                 }
+               print("orders count \(orders.count)")
                 
             case .failure(let error):
                 print("error while getting orders: \(error.localizedDescription)")
@@ -68,5 +69,6 @@ class MeViewModel{
          return defaultsRepository.getUserName()
 
       }
+ 
     
 }

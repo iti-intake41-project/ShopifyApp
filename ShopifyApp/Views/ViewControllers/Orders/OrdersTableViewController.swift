@@ -36,7 +36,6 @@ class OrdersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
 
         // Configure the cell...
-        cell.orderLbl?.text = "edko"
         
         
 

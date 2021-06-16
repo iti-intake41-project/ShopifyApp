@@ -120,6 +120,11 @@ class NetworkLayer {
             completion(response)
         }
     }
+//    func getOrders(completion: @escaping (DataResponse<APIOrders, AFError>) -> ()){
+//        AF.request(URLs.order()).validate().
+//            }
+//        }
+//       }
     
     func addAddress(id: Int, address: Address, completion: @escaping(Data?, URLResponse?, Error?)->()){
         let id = id

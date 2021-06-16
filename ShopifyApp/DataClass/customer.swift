@@ -35,9 +35,9 @@ struct PutAddress: Codable {
 }
 
 struct OrderItem: Codable {
-    var variant_id, quantity: Int
-    var name: String? = ""
-    var price: String
+    var variant_id, quantity: Int?
+    var name: String! = ""
+    var price: String!
 }
 
 struct OrderCustomer: Codable {

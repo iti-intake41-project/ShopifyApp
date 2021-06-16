@@ -1,5 +1,5 @@
 //
-//  OrderTableViewCell.swift
+//  MeOrderTableViewCell.swift
 //  ShopifyApp
 //
 //  Created by Donia Ashraf on 6/16/21.
@@ -7,8 +7,10 @@
 
 import UIKit
 
-class OrderTableViewCellMe: UITableViewCell {
+class MeOrderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var priceLbl: UILabel!
+     @IBOutlet weak var creationDateLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
