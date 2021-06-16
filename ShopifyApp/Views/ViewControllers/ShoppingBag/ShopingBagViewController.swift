@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PassKit
 
 class ShoppingBagViewController: UIViewController {
     @IBOutlet weak var shoppingTable: UITableView!
@@ -17,6 +18,7 @@ class ShoppingBagViewController: UIViewController {
     var list:[Product] = []
     var viewModel:ShoppingBagViewModelTemp!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var request: PKPaymentRequest!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,14 @@ class ShoppingBagViewController: UIViewController {
         
         viewModel.navigateToPayment = {
             print("navigate to payment")
+            
+            self.requestPayment()
+            let controller = PKPaymentAuthorizationViewController(paymentRequest: self.request)
+                    
+            if controller != nil {
+                controller!.delegate = self
+                self.present(controller!, animated: true, completion: nil)
+            }
         }
     }
     
@@ -180,5 +190,29 @@ extension UIView {
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         layer.mask = mask
+    }
+}
+
+extension ShoppingBagViewController: PKPaymentAuthorizationViewControllerDelegate {
+    func requestPayment() {
+        
+        request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.abanob.app"
+        request.supportedNetworks = [.quicPay, .masterCard, .visa, .mada, .vPay]
+        request.supportedCountries = ["US", "EG"]
+        request.merchantCapabilities = .capability3DS
+        request.countryCode = "EG"
+        request.currencyCode = UserDefaultsLayer().getCurrency()
+        
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Total Price \n suuf:", amount: NSDecimalNumber(value: totalPrice))]
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+        
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
     }
 }

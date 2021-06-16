@@ -156,6 +156,7 @@
 		D39604522659BD3D00D94931 /* AllProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllProducts.swift; sourceTree = "<group>"; };
 		D39604532659BD3E00D94931 /* ShopifyCollentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopifyCollentions.swift; sourceTree = "<group>"; };
 		D396045C2659BD6A00D94931 /* ShopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		D3EEC6E4267A01BA00166772 /* ShopifyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShopifyApp.entitlements; sourceTree = "<group>"; };
 		D3F148F6266BB63B00729210 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		D3F148FC266BC04600729210 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		D3F14901266BC4A800729210 /* ProductDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -359,6 +360,7 @@
 		D37210A62655B81100935F86 /* ShopifyApp */ = {
 			isa = PBXGroup;
 			children = (
+				D3EEC6E4267A01BA00166772 /* ShopifyApp.entitlements */,
 				4BB243B826789B9D00EB34A1 /* animation.json */,
 				D37210DD2655B93400935F86 /* DataClass */,
 				D37210DA2655B8FE00935F86 /* Models */,
@@ -1030,6 +1032,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShopifyApp/ShopifyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7DFJB5NCS;
 				INFOPLIST_FILE = ShopifyApp/Info.plist;
@@ -1038,7 +1041,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ShopifyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shoply-iti.app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1051,6 +1054,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShopifyApp/ShopifyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7DFJB5NCS;
 				INFOPLIST_FILE = ShopifyApp/Info.plist;
@@ -1059,7 +1063,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ShopifyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shoply-iti.app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
