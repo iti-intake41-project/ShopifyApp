@@ -20,6 +20,8 @@ class checkoutViewController: UIViewController {
     @IBOutlet weak var discountText: UILabel!
     @IBOutlet weak var totalText: UILabel!
     @IBOutlet weak var placeOrderBtn: UIButton!
+    var totalPrice: Float = 0.0
+    var discountPrice: Float = 0.0
     var deliveryFee: Float = 0.0
     var subTotalPrice: Float = 0.0
     var delegate = UIApplication.shared.delegate as! AppDelegate
@@ -53,6 +55,7 @@ class checkoutViewController: UIViewController {
             }
             totalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice+deliveryFee)")
             discountText.text = "EGP 0.0"
+            
         }else{
             subtotalText.text = String(format: "US$ %.2f", subTotalPrice)
             if paymentType == "POD"{
@@ -64,7 +67,7 @@ class checkoutViewController: UIViewController {
             totalText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee))
             discountText.text = "US$ 0.0"
         }
-
+        
     }
         
     @IBAction func validateCopoun(_ sender: Any) {
