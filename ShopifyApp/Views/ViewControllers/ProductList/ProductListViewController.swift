@@ -11,11 +11,11 @@ import SDWebImage
 class ProductListViewController: UIViewController {
 
     @IBOutlet weak var productSearchView: UISearchBar!
-
-    @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var sliderLbl: UILabel!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var sliderView: UIStackView!
     @IBOutlet weak var productsCollectionView: UICollectionView!
+    
     var products: [Product] = [Product]()
     var orignalProducts: [Product] = [Product]()
     let productsViewModel: ProductListViewModel = ProductListViewModel()
@@ -61,6 +61,11 @@ class ProductListViewController: UIViewController {
         }
         productsViewModel.fetchAllProductsFromAPI(collectionID: "\(collectionID.id)")
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        sliderView.isHidden = true
+        products = orignalProducts
+    }
 
     @IBAction func sliderAction(_ sender: UISlider) {
         sliderLbl.text = String(Int(sender.value))
@@ -99,38 +104,33 @@ class ProductListViewController: UIViewController {
                  self.present(alert, animated: true, completion: nil)
         }
     
-    @IBAction func sortProducts(_ sender: UIButton) {
-        
-   
+    @IBAction func sortAction(_ sender: Any) {
         products = orignalProducts.sorted(by: {
             Double ($0.varients![0].price)! < Double( $1.varients![0].price)!
             
         })
         self.productsCollectionView.reloadData()
-        
     }
     
+    @IBAction func filterAction(_ sender: Any) {
+        sliderView.isHidden = !sliderView.isHidden
+    }
 }
-extension ProductListViewController : UICollectionViewDelegate , UICollectionViewDelegateFlowLayout{
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: view.frame.width-20 , height:200)
-//    }
-   
-    
-}
-extension ProductListViewController : UICollectionViewDataSource {
+
+extension ProductListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
     }
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell =  productsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductsCollectionViewCell", for: indexPath) as! ProductsCollectionViewCell
+        cell.imageWidth.constant = (collectionView.frame.width / 2) - 10
+        cell.imageHeight.constant = (collectionView.frame.height / 2) - 40
         
         cell.productImage.sd_setImage(with: URL(string:products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
+        cell.productImage.layer.borderWidth = 1
+        cell.productImage.layer.cornerRadius = cell.productImage.frame.height / 12
 
         cell.priceLbl.text = products[indexPath.row].varients?[0].price
         //Moataz
@@ -140,16 +140,21 @@ extension ProductListViewController : UICollectionViewDataSource {
         cell.delegate = self
         //Moataz
         return cell
-        
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productDetailsViewController = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-               productDetailsViewController.modalPresentationStyle = .fullScreen
-               productDetailsViewController.product = products[indexPath.row]
-               present(productDetailsViewController, animated: true, completion: nil)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productDetailsViewController = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+//        productDetailsViewController.modalPresentationStyle = .fullScreen
+        productDetailsViewController.product = products[indexPath.row]
+        navigationController?.pushViewController(productDetailsViewController, animated: true)
+//        present(productDetailsViewController, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 2) - 35)
+    }
 }
+
 
 extension ProductListViewController:UISearchBarDelegate{
 

@@ -140,7 +140,8 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let productListViewController = storyboard.instantiateViewController(withIdentifier: "productList") as! ProductListViewController
     //    productListViewController.modalPresentationStyle = .fullScreen
         productListViewController.collectionID = collections[indexPath.row]
-        present(productListViewController, animated: true, completion: nil)
+        //present(productListViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(productListViewController, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
