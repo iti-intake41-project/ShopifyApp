@@ -42,16 +42,10 @@ class ShoppingBagViewController: UIViewController {
             self?.performSegue(withIdentifier: "navigateToAddress", sender: self!)
         }
         
-        viewModel.navigateToPayment = {
+        viewModel.navigateToPayment = { [weak self] in
             print("navigate to payment")
             
-            self.requestPayment()
-            let controller = PKPaymentAuthorizationViewController(paymentRequest: self.request)
-                    
-            if controller != nil {
-                controller!.delegate = self
-                self.present(controller!, animated: true, completion: nil)
-            }
+            self!.requestPayment(msg: "total", price: self!.totalPrice)
         }
     }
     
@@ -194,7 +188,7 @@ extension UIView {
 }
 
 extension ShoppingBagViewController: PKPaymentAuthorizationViewControllerDelegate {
-    func requestPayment() {
+    func requestPayment(msg: String, price: Float) {
         
         request = PKPaymentRequest()
         request.merchantIdentifier = "merchant.abanob.app"
@@ -204,7 +198,14 @@ extension ShoppingBagViewController: PKPaymentAuthorizationViewControllerDelegat
         request.countryCode = "EG"
         request.currencyCode = UserDefaultsLayer().getCurrency()
         
-        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Total Price \n suuf:", amount: NSDecimalNumber(value: totalPrice))]
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: msg, amount: NSDecimalNumber(value: price))]
+        
+        let controller = PKPaymentAuthorizationViewController(paymentRequest: request)
+                
+        if controller != nil {
+            controller!.delegate = self
+            present(controller!, animated: true, completion: nil)
+        }
     }
     
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
