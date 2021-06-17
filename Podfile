@@ -40,6 +40,5 @@ pod 'lottie-ios'
 #pod 'RealmS', '~> 4.0.0'
 pod 'Cosmos'
 pod 'JJFloatingActionButton'
-pod ''
 
 end
