@@ -73,6 +73,7 @@ class SettingViewModel :NSObject{
         
         //remove address, empty fav & cart, switch flag
         userDefaults.logut()
+        userDefaults.addId(id: 0)
         let dataRepo = CoreDataRepository(appDelegate: &appDelegate)
         dataRepo.deleteAddress()
         let favourites = dataRepo.getFavourites()

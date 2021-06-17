@@ -124,7 +124,7 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
             
             cell.productPrice.text = "\((FormatePrice.formatePrice(priceStr: "\(cost)")))"
         }else{
-            cell.productPrice.text = "US$\((Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
+            cell.productPrice.text = "US$\(FormatePrice.toEGP(amount: Double(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
         }
         return cell
     }

@@ -37,8 +37,11 @@ class UserDefaultsLayer: UserDefaultsData {
     }
     
     func getCurrency(key: String = "currency") -> String {
-
-        return self.defaults.string(forKey: key) ?? "USD"
+        let currency = self.defaults.string(forKey: key)
+        if currency == "" {
+            return "USD"
+        }
+        return currency ?? "USD"
     }
     
     func setCurrency(key: String, value: String) {

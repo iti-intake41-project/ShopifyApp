@@ -142,7 +142,7 @@ class checkoutViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default) {[weak self] (action) in
             print("alert working")
             if let self = self {
-                self.viewModel.postOrder(products: &self.orders)
+//                self.viewModel.postOrder(products: &self.orders)
                 self.performSegue(withIdentifier: "mainAfterPayment", sender: self)
             }
         }
@@ -165,7 +165,7 @@ extension checkoutViewController: PKPaymentAuthorizationViewControllerDelegate {
         request.merchantCapabilities = .capability3DS
         request.countryCode = "EG"
         request.currencyCode = UserDefaultsLayer().getCurrency()
-        
+        print("coming currency :\(UserDefaultsLayer().getCurrency())")
         request.paymentSummaryItems = [PKPaymentSummaryItem(label: msg, amount: NSDecimalNumber(value: price))]
         
         let controller = PKPaymentAuthorizationViewController(paymentRequest: request)
