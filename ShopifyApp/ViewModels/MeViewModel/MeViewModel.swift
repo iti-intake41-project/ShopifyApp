@@ -11,10 +11,14 @@ class MeViewModel{
     let network = NetworkLayer()
     let defaultsRepository = UserDefaultsLayer()
     var orderItems = [OrderItem]()
-
+    var orders = [Order]()
+    
     var updateOrders:()->() = {
         
     }
+    var bindOrders:()->() = {
+           
+       }
     func getOrders()-> [Product]?{
         //call orders from network layer
         return[]
@@ -30,24 +34,27 @@ class MeViewModel{
             switch response.result{
             
             case .success(let result):
-               print("result: \(result)")
-                let APIOrders = result.orders 
+            //   print("result: \(result)")
+                let APIOrders = result.orders
+                self.orders = result.orders
                 for order in APIOrders{
                     if order.customer.id == customerId {
-                        print("matching order: \(order)")
+                 //       print("matching order: \(order)")
                         orders.append(order)
                     }
                 }
                 for order in orders {
                     for orderItem in order.line_items {
                         self.orderItems.append(orderItem)
-                        print("in for \(orderItem.price)")
+                //        print("in for \(orderItem.price)")
                     }
                     
                 }
                 self.updateOrders()
-                
+                self.bindOrders()
                print("orders count \(orders.count)")
+                print("orders count \(self.orders.count)")
+
                 
             case .failure(let error):
                 print("error while getting orders: \(error.localizedDescription)")
