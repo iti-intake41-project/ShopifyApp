@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lc-MY-xqT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lc-MY-xqT">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -374,6 +374,7 @@
                         <segue destination="B43-Xi-SN8" kind="show" identifier="login" id="vgt-0h-a4I"/>
                         <segue destination="Amh-xO-nsK" kind="show" identifier="gotToOrders" id="WFi-qO-9TB"/>
                         <segue destination="Ywb-Jf-iSD" kind="show" identifier="gotToShoppingBag" id="lAP-MB-ZhF"/>
+                        <segue destination="I3V-hc-iNK" kind="show" identifier="goToSettings" id="l9M-OO-RJQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOj-WU-UQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -425,7 +426,7 @@
             <objects>
                 <tableViewController id="I3V-hc-iNK" customClass="SettingTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9YY-iz-4kU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -749,9 +750,9 @@
                         <outlet property="countrybtn" destination="w0J-rb-h1h" id="sOm-YW-Gs2"/>
                         <outlet property="currencytBtn" destination="Eba-61-8ds" id="VCj-kb-dk4"/>
                         <outlet property="logoutBtn" destination="gBZ-Tn-Nol" id="GWI-hS-xbs"/>
-                        <segue destination="wnj-gS-SOG" kind="show" identifier="showAddress" id="b7h-Y9-h9a"/>
                         <segue destination="t6F-2p-8KR" kind="show" identifier="addAddress" id="Opo-h8-Xhe"/>
                         <segue destination="6d9-O1-Okg" kind="show" identifier="login" id="RbO-qq-1DO"/>
+                        <segue destination="cIv-XW-oMt" kind="show" identifier="showAddress" id="QfH-yl-8fw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8b-lj-hdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -860,17 +861,30 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="hgb-EQ-uD0"/>
+                    <connections>
+                        <outlet property="ordersTabelView" destination="uHz-OG-Nvm" id="gud-OE-EjV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICr-ye-QRN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-607" y="-307"/>
+        </scene>
+        <!--ShowAdressViewController-->
+        <scene sceneID="twf-lL-ha3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ShoppingBag" referencedIdentifier="ShowAdressViewController" id="cIv-XW-oMt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3tK-yh-wlb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9N-tv-GAr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="-1432"/>
         </scene>
         <!--Show Address Table View Controller-->
         <scene sceneID="5fc-G4-aC2">
             <objects>
                 <tableViewController id="wnj-gS-SOG" customClass="ShowAddressTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TfD-vy-FgG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -1037,11 +1051,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Su-YC-5UX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="-1030"/>
+            <point key="canvasLocation" x="1271" y="-1030"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="62n-2K-nrM"/>
+        <segue reference="Opo-h8-Xhe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>

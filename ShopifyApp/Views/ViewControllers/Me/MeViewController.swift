@@ -148,6 +148,7 @@ class MeViewController: UIViewController {
         }
     }
     @IBAction func gotoSetting(_ sender: Any) {
+        performSegue(withIdentifier: "goToSettings", sender: self)
     }
     //    func getOrders() ->[Product]{
     //        let shoppingBagViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
