@@ -65,6 +65,7 @@ class MeViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+       
         orders =  meViewModel.getOrders()
         favourites = favViewModel.getAllFaourites()
         //   favourites = favViewModel.favourites
@@ -81,6 +82,9 @@ class MeViewController: UIViewController {
         isLoggedIn = meViewModel.isLoggedIn()
         
         if isLoggedIn {
+            if !ConnectionViewModel.isConnected(){
+                       showAlert(view: self)
+                   }
             loginOrRegisterStackView.isHidden = true
             orderTableView.isHidden = false
             favCollectionView.isHidden = false

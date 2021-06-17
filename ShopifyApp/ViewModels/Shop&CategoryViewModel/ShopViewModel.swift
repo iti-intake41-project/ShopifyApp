@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 class ShopViewModel :NSObject{
     
     var networkService = NetworkLayer()
@@ -17,7 +16,7 @@ class ShopViewModel :NSObject{
     var bindAddsViewModelToView : (()->()) = {}
 
     var bindsmartCollectionsViewModelToView : (()->()) = {}
-
+    
     var allProducts: [Product]? {
         didSet {
             self.bindShopViewModelToView()
@@ -47,7 +46,6 @@ class ShopViewModel :NSObject{
     
     
     override init() {
-        
         super .init()
         //self.fetchAllProductsFromAPI()
     }
@@ -126,7 +124,7 @@ class ShopViewModel :NSObject{
         }
     }
     func isLoggedIn() -> Bool {
-           print()
            return userDefaults.isLoggedIn()
        }
+    
 }

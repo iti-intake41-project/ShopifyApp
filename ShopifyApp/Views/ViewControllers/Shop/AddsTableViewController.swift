@@ -18,6 +18,10 @@ class AddsTableViewController: UITableViewController {
         navigationItem.title = "Discounts"
     }
     override func viewWillAppear(_ animated: Bool) {
+        if !ConnectionViewModel.isConnected(){
+                   showAlert(view: self)
+               }
+        
         shopViewModel.fetchAdds()
         shopViewModel.bindAddsViewModelToView = onSuccessAddsUpdateView
         shopViewModel.bindViewModelErrorToView = onFailUpdateView

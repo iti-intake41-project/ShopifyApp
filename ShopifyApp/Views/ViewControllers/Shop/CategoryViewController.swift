@@ -39,8 +39,15 @@ class CategoryViewController: UIViewController {
         
         createFloatingButton()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+         if !ConnectionViewModel.isConnected(){
+                   showAlert(view: self)
+               }
+    }
     override func viewDidAppear(_ animated: Bool) {
+        if !ConnectionViewModel.isConnected(){
+                          showAlert(view: self)
+                      }
         toolBar.items![0].tintColor = .black
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
     }
