@@ -15,6 +15,7 @@ protocol AddressViewModelTemp {
     var navigateToCheckOut:()->() {get set}
     func addAddress(country: String, city: String, address: String, zipcode: String)
     var message: String! {get}
+    func editAddress(address: Address)
 
 }
 
@@ -95,5 +96,34 @@ class AddressViewModel: AddressViewModelTemp {
             }
         }
     }
+    
+    func editAddress(address: Address){
+        let id = defaultsRepository.getId()
+        let editAddress = address
+        network.editAddress(id: id, address: address) { [weak self] (data, response, error) in
+            if error != nil {
+                print("error while editing address \(error!)")
+                self?.message = "An error occured while editing your address"
+                //failed to save address
+                return
+            }
+            if let data = data{
+                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+                print("json: \(json)")
+                let returnedCustomer = json["customer_address"] as? Dictionary<String,Any>
+                let id = returnedCustomer?["id"] as? Int ?? 0
+//                let addresses = returnedCustomer?["addresses"] as? Int ?? 0
+                if id == 0 {
+                    // failed to edit address
+                    self?.message = "An error occured while editing your address"
+                }else {
+                    //succeeded to edit address
+                    self?.navigateToCheckOut()
+                    self?.dataRepository.editAddress(address: editAddress)
+                }
+            }
+        }
+    }
+
     
 }

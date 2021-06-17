@@ -33,6 +33,10 @@ struct CustomerAddress: Codable {
     var addresses: [Address]?
 }
 
+struct UpdateAddress: Codable {
+    var address: Address
+}
+
 struct PutAddress: Codable {
     let customer: CustomerAddress?
 }

@@ -848,7 +848,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vl6-bp-oBi">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wtM-TC-zho">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wtM-TC-zho">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="632"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -951,6 +951,7 @@
                         <outlet property="indicator" destination="jHH-NV-FfK" id="Lbj-Nb-7Af"/>
                         <outlet property="viewBtn" destination="mvY-94-l3G" id="nbK-Tc-fP2"/>
                         <segue destination="8Zf-Xa-rR6" kind="show" identifier="navToAddAddress" id="dyf-CT-s2f"/>
+                        <segue destination="8Zf-Xa-rR6" kind="show" identifier="NavToEditAddress" id="ITN-NX-Ddl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VdB-al-RAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1127,7 +1128,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dyf-CT-s2f"/>
+        <segue reference="ITN-NX-Ddl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>

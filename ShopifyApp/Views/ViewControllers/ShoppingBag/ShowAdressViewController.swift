@@ -68,9 +68,15 @@ class ShowAdressViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NavToEditAddress" {
-            
+        
+        if let nextViewController = segue.destination as? AddressTableViewController {
+                nextViewController.addressDelegate = self
+            if segue.identifier == "NavToEditAddress" {
+                nextViewController.editAddress = editAddress
+                nextViewController.isEdit = true
+            }
         }
+        
     }
     
     func showAlret(){
@@ -92,6 +98,7 @@ class ShowAdressViewController: UIViewController {
 // MARK: - Table View
 
 extension ShowAdressViewController: UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addresses.count
     }
@@ -121,12 +128,7 @@ extension ShowAdressViewController: UITableViewDelegate, UITableViewDataSource{
 
             }
             
-            //            let id = list[indexPath.row].varients?[0].id ?? 0
-            //            viewModel.deleteProduct(id: id)
-            //            updateTableView()
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-            //            increaseCount(id: list[indexPath.row].varients?[0].id ?? 0)
         }
     }
     
@@ -144,4 +146,15 @@ class AddressesDetailCell: UITableViewCell {
     @IBOutlet weak var countryText: UITextField!
     @IBOutlet weak var addressText: UITextField!
     
+}
+
+// MARK: - Add address delegate
+protocol UpdateAddressList {
+    func updateAddressList()
+}
+
+extension ShowAdressViewController: UpdateAddressList{
+    func updateAddressList() {
+        viewModel.getAddresses()
+    }
 }

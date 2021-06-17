@@ -17,7 +17,9 @@ class AddressTableViewController: UITableViewController {
     @IBOutlet weak var zipcodeText: MDCOutlinedTextField!
     @IBOutlet weak var addAddressBtn: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    
+    var addressDelegate: UpdateAddressList!
+    var isEdit: Bool = false
+    var editAddress: Address!
     
     var viewModel: AddressViewModelTemp!
     var delegate = UIApplication.shared.delegate as! AppDelegate
@@ -35,6 +37,13 @@ class AddressTableViewController: UITableViewController {
         addressText.label.text = "Address"
         zipcodeText.label.text = "Zipcode"
         addAddressBtn.layer.cornerRadius = addAddressBtn.layer.frame.height / 2
+        if isEdit {
+            addAddressBtn.setTitle("EDIT ADDRESS", for: .normal)
+            countryText.text = editAddress.country
+            cityText.text = editAddress.country
+            addressText.text = editAddress.address1
+            zipcodeText.text = editAddress.zip
+        }
     }
     
     func bindToViewModel(){
@@ -54,6 +63,9 @@ class AddressTableViewController: UITableViewController {
                 self?.view.isUserInteractionEnabled = true
                 self?.indicator.isHidden = true
                 print("navigate to checkOut screen")
+                if self?.addressDelegate != nil {
+                    self?.addressDelegate.updateAddressList()
+                }
                 self?.navigationController?.popViewController(animated: true)
                 
             }
@@ -63,7 +75,15 @@ class AddressTableViewController: UITableViewController {
     @IBAction func addAddress(_ sender: Any) {
         indicator.isHidden = false
         view.isUserInteractionEnabled = false
-        viewModel.addAddress(country: countryText.text ?? "", city: cityText.text ?? "", address: addressText.text ?? "", zipcode: zipcodeText.text ?? "")
+        editAddress.country = countryText.text ?? ""
+        editAddress.city = cityText.text ?? ""
+        editAddress.address1 = addressText.text ?? ""
+        editAddress.zip = zipcodeText.text ?? ""
+        if isEdit{
+            viewModel.editAddress(address: editAddress)
+        }else{
+            viewModel.addAddress(country: countryText.text ?? "", city: cityText.text ?? "", address: addressText.text ?? "", zipcode: zipcodeText.text ?? "")
+        }
     }
     
     func showAlret(message:String){

@@ -151,10 +151,36 @@ class NetworkLayer {
         }.resume()
     }
     
+    func editAddress(id: Int, address: Address, completion: @escaping(Data?, URLResponse?, Error?)->()){
+        let id = id
+        let putObject = UpdateAddress(address: address)
+        
+        guard let url = URL(string: URLs.addressUrl(customerId: id, addressId: address.id)) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        let session = URLSession.shared
+        request.httpShouldHandleCookies = false
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: putObject.asDictionary(), options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        session.dataTask(with: request) { (data, response, error) in
+            completion(data, response, error)
+        }.resume()
+    }
+
+    
     func deleteAddress(id: Int, completion: @escaping(Data?, URLResponse?, Error?)->()){
         let addressId = id
         let customerId = UserDefaultsLayer().getId()
-        guard let url = URL(string: URLs.deleteAddress(customerId: customerId, addressId: addressId)) else {return}
+        guard let url = URL(string: URLs.addressUrl(customerId: customerId, addressId: addressId)) else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         let session = URLSession.shared
