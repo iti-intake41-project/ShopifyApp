@@ -25,6 +25,11 @@ class PaymentOptionsViewController: UIViewController {
         paymentBtn.layer.cornerRadius = paymentBtn.layer.frame.height / 2
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         if !ConnectionViewModel.isConnected(){
+                   showAlert(view: self)
+               }
+    }
 
     
     // MARK: - Navigation

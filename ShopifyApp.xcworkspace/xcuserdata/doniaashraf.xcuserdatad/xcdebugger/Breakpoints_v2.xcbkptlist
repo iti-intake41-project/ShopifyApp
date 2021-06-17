@@ -94,8 +94,8 @@
             filePath = "ShopifyApp/ViewModels/Shop&amp;CategoryViewModel/ShopViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "fetchAllProductsFromAPI(collectionID:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,9 +110,9 @@
             filePath = "ShopifyApp/Views/ViewControllers/Shop/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "favoriteAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,9 +126,9 @@
             filePath = "ShopifyApp/Views/ViewControllers/Shop/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "favoriteAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -142,9 +142,9 @@
             filePath = "ShopifyApp/Views/ViewControllers/Shop/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "shoppingBagAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,9 +158,9 @@
             filePath = "ShopifyApp/Views/ViewControllers/Shop/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "numberOfSections(in:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "item4(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

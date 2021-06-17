@@ -27,6 +27,11 @@ class FavouritesCollectionViewController: UICollectionViewController {
 //        viewModel.addFavourite(product: Product(id: 18, title: "shoes15", description: "", vendor: nil, productType: nil, images: [ProductImage(id: 0, productID: 0, position: 0, width: 0, height: 0, src: "https://cdn.shopify.com/s/files/1/0567/9310/4582/products/6eb0aa9fdb271e5954b2f0d09a0640e4.jpg?v=1621288163", graphQlID: "")], options: nil, varients: [Varient(id: 0, productID: 0, title: "", price: "10")]))
 //        viewModel.addFavourite(product: Product(id: 17, title: "shoes15", description: "", vendor: nil, productType: nil, images: [ProductImage(id: 0, productID: 0, position: 0, width: 0, height: 0, src: "https://cdn.shopify.com/s/files/1/0567/9310/4582/products/6eb0aa9fdb271e5954b2f0d09a0640e4.jpg?v=1621288163", graphQlID: "")], options: nil, varients: [Varient(id: 0, productID: 0, title: "", price: "9.99")]))
     }
+    override func viewWillAppear(_ animated: Bool) {
+        if !ConnectionViewModel.isConnected(){
+            showAlert(view: self)
+        }
+    }
 
     // MARK: UICollectionViewDataSource
 

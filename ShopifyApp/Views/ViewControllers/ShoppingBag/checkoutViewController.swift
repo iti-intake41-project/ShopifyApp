@@ -38,6 +38,11 @@ class checkoutViewController: UIViewController {
         setUI()
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+         if !ConnectionViewModel.isConnected(){
+                   showAlert(view: self)
+               }
+    }
     
     func setUI(){
         placeOrderBtn.layer.cornerRadius = placeOrderBtn.layer.frame.height / 2

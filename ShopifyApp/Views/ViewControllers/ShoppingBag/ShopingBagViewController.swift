@@ -65,6 +65,10 @@ class ShoppingBagViewController: UIViewController {
     }
     
     @IBAction func navigateToCheckOut(_ sender: UIButton) {
+        if !ConnectionViewModel.isConnected(){
+                   showAlert(view: self)
+        }
+        else {
         if list.count == 0 {
             let alert = UIAlertController(title: "Alert", message: "Your cart is empty", preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "OK", style: .default)
@@ -73,6 +77,7 @@ class ShoppingBagViewController: UIViewController {
         }else{
             viewModel.navigateToCheckOut()
         
+        }
         }
     }
     

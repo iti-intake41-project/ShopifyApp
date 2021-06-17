@@ -20,13 +20,18 @@ class ShopViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
+        
       
         // Do any additional setup after loading the view.
          //    productSearchBar.delegate = self
         shopViewModel.fetchSmartCollection()
         shopViewModel.bindsmartCollectionsViewModelToView = onSuccessUpdateView
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        if !ConnectionViewModel.isConnected(){
+            showAlert(view: self)
+        }
+    }
     
     
     func onSuccessUpdateView() {
