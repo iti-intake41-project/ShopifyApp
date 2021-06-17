@@ -18,21 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4FX-Wy-8aB">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4FX-Wy-8aB">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ymB-Gt-T49">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" horizontalHuggingPriority="129" translatesAutoresizingMaskIntoConstraints="NO" id="Nx9-Us-XIa">
-                                                <rect key="frame" x="0.0" y="0.0" width="309" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="G6T-EG-5QN" id="LCJ-95-TSs"/>
                                                 </connections>
                                             </searchBar>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RZn-AB-AVO">
-                                                <rect key="frame" x="314" y="0.0" width="100" height="56"/>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RZn-AB-AVO">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="56"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-zU-QV4">
                                                         <rect key="frame" x="0.0" y="0.0" width="47.5" height="56"/>
@@ -185,11 +185,11 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ymB-Gt-T49" firstAttribute="leading" secondItem="4FX-Wy-8aB" secondAttribute="leading" id="5dn-My-6yK"/>
+                                    <constraint firstItem="ymB-Gt-T49" firstAttribute="leading" secondItem="4FX-Wy-8aB" secondAttribute="leading" constant="20" id="5dn-My-6yK"/>
                                     <constraint firstAttribute="trailing" secondItem="Sl4-Gf-Oc1" secondAttribute="trailing" id="83K-ZP-JQm"/>
                                     <constraint firstItem="Sl4-Gf-Oc1" firstAttribute="leading" secondItem="4FX-Wy-8aB" secondAttribute="leading" id="CYQ-Ww-UNS"/>
                                     <constraint firstItem="BPQ-Tb-7o3" firstAttribute="leading" secondItem="4FX-Wy-8aB" secondAttribute="leading" id="Rkd-MG-JjX"/>
-                                    <constraint firstAttribute="trailing" secondItem="ymB-Gt-T49" secondAttribute="trailing" id="TIp-v9-FEZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="ymB-Gt-T49" secondAttribute="trailing" constant="20" id="TIp-v9-FEZ"/>
                                     <constraint firstAttribute="trailing" secondItem="BPQ-Tb-7o3" secondAttribute="trailing" id="bTn-9E-ulE"/>
                                 </constraints>
                             </stackView>

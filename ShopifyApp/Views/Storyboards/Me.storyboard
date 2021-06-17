@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -25,33 +24,8 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mJ-hw-GAZ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cC8-xX-Mky">
-                                                <rect key="frame" x="299.66666666666669" y="15.000000000000004" width="99.333333333333314" height="38.333333333333343"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cus-nJ-RLw">
-                                                        <rect key="frame" x="0.0" y="1.6666666666666679" width="39.666666666666664" height="36.333333333333336"/>
-                                                        <state key="normal" backgroundImage="cart.fill" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="bold"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="goToShoppingBag:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="bly-Hs-FqF"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ity-yL-Rg5">
-                                                        <rect key="frame" x="59.666666666666629" y="0.0" width="39.666666666666657" height="38.333333333333336"/>
-                                                        <state key="normal">
-                                                            <imageReference key="image" image="gearshape" catalog="system" symbolScale="large"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="gotoSetting:" destination="9Lc-MY-xqT" eventType="touchUpInside" id="slq-HF-tQO"/>
-                                                            <segue destination="I3V-hc-iNK" kind="show" id="BJ2-Ox-0IH"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oHz-4S-UWE">
-                                                <rect key="frame" x="0.0" y="73.333333333333371" width="414" height="878"/>
+                                                <rect key="frame" x="0.0" y="10" width="414" height="878"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Q0T-rC-MsF">
                                                         <rect key="frame" x="20" y="0.0" width="374" height="878"/>
@@ -72,7 +46,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHv-sl-7h2">
-                                                                                <rect key="frame" x="0.0" y="6.3333333333333126" width="182" height="26.333333333333329"/>
+                                                                                <rect key="frame" x="0.0" y="6.3333333333333268" width="182" height="26.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -189,7 +163,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="WishList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj2-EQ-i8f">
-                                                                                <rect key="frame" x="0.0" y="6.3333333333332558" width="203" height="26.333333333333329"/>
+                                                                                <rect key="frame" x="0.0" y="6.3333333333333126" width="203" height="26.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -360,13 +334,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="cC8-xX-Mky" firstAttribute="top" secondItem="4mJ-hw-GAZ" secondAttribute="top" constant="15" id="2ML-yO-gKa"/>
+                                            <constraint firstItem="oHz-4S-UWE" firstAttribute="top" secondItem="4mJ-hw-GAZ" secondAttribute="top" constant="10" id="2pK-fB-9up"/>
                                             <constraint firstAttribute="bottom" secondItem="oHz-4S-UWE" secondAttribute="bottom" constant="20" id="4SJ-3y-4cJ"/>
                                             <constraint firstItem="oHz-4S-UWE" firstAttribute="centerX" secondItem="4mJ-hw-GAZ" secondAttribute="centerX" id="60J-CJ-gbm"/>
-                                            <constraint firstAttribute="trailing" secondItem="cC8-xX-Mky" secondAttribute="trailing" constant="15" id="SNU-LF-KUE"/>
                                             <constraint firstAttribute="trailing" secondItem="oHz-4S-UWE" secondAttribute="trailing" id="UUa-S9-UsE"/>
                                             <constraint firstItem="oHz-4S-UWE" firstAttribute="leading" secondItem="4mJ-hw-GAZ" secondAttribute="leading" id="YFF-sp-9aB"/>
-                                            <constraint firstItem="oHz-4S-UWE" firstAttribute="top" secondItem="cC8-xX-Mky" secondAttribute="bottom" constant="20" id="o85-uN-Yfp"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
@@ -453,7 +425,7 @@
             <objects>
                 <tableViewController id="I3V-hc-iNK" customClass="SettingTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9YY-iz-4kU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -1074,7 +1046,6 @@
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="hph_mobile_fathers-day-shipping" width="320" height="194"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
