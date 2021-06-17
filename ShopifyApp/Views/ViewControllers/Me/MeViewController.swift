@@ -81,6 +81,19 @@ class MeViewController: UIViewController {
         
         isLoggedIn = meViewModel.isLoggedIn()
         
+        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gotoSetting(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(goToShoppingBag(_:)))]
+        tabBarController?.navigationItem.leftBarButtonItems =  []
+        tabBarController?.navigationItem.title = "Me"
+    }
+    
+    
+    func onSuccess(){
+        print("dcjnjnc;")
+       let  favouriteslist = favViewModel.favourites
+
+        self.favourites = favouriteslist
+        print(favourites.count)
+        
         if isLoggedIn {
             if !ConnectionViewModel.isConnected(){
                        showAlert(view: self)

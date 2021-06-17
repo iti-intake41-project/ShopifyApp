@@ -50,17 +50,23 @@ class CategoryViewController: UIViewController {
                       }
         toolBar.items![0].tintColor = .black
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
+        
+        
+        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:)))]
+        tabBarController?.navigationItem.leftBarButtonItems = []
+        tabBarController?.navigationItem.title = "Category"
     }
     
     @IBAction func item1(_ sender: Any) {
+        
         toolBarItem = 4
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
         
         print("1")
-        toolBar.items![0].tintColor = .black
-        toolBar.items![1].tintColor = .link
-        toolBar.items![2].tintColor = .link
-        toolBar.items![3].tintColor = .link
+        item1.tintColor = .black
+        item2.tintColor = .link
+        item3.tintColor = .link
+        item4.tintColor = .link
     }
     
     @IBAction func item2(_ sender: Any) {
@@ -69,10 +75,10 @@ class CategoryViewController: UIViewController {
         
         print("2")
 
-        toolBar.items![0].tintColor = .link
-        toolBar.items![1].tintColor = .black
-        toolBar.items![2].tintColor = .link
-        toolBar.items![3].tintColor = .link
+        item1.tintColor = .link
+        item2.tintColor = .black
+        item3.tintColor = .link
+        item4.tintColor = .link
     }
     @IBAction func item3(_ sender: Any) {
         toolBarItem = 2
@@ -80,10 +86,10 @@ class CategoryViewController: UIViewController {
         
         print("3")
 
-        toolBar.items![0].tintColor = .link
-        toolBar.items![1].tintColor = .link
-        toolBar.items![2].tintColor = .black
-        toolBar.items![3].tintColor = .link
+        item1.tintColor = .link
+        item2.tintColor = .link
+        item3.tintColor = .black
+        item4.tintColor = .link
     }
     @IBAction func item4(_ sender: Any) {
         toolBarItem = 3
@@ -91,10 +97,10 @@ class CategoryViewController: UIViewController {
         
         print("4")
 
-        toolBar.items![0].tintColor = .link
-        toolBar.items![1].tintColor = .link
-        toolBar.items![2].tintColor = .link
-        toolBar.items![3].tintColor = .black
+        item1.tintColor = .link
+        item2.tintColor = .link
+        item3.tintColor = .link
+        item4.tintColor = .black
     }
     
     
@@ -121,19 +127,22 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController {
     func createFloatingButton() {
-        actionButton.addItem(title: "", image: UIImage(named: "sneakers")?.withRenderingMode(.alwaysTemplate)) { item in
+        actionButton.addItem(title: "", image: UIImage(named: "sneakers")?.withRenderingMode(.alwaysOriginal)) { item in
             self.subCategory = "SHOES"
             self.shopFilteredProducts(toolBarItem: self.toolBarItem, subCategory: "SHOES")
+            self.actionButton.buttonImage = UIImage(named: "sneakers")
         }
 
-        actionButton.addItem(title: "", image: UIImage(named: "shirt")?.withRenderingMode(.alwaysTemplate)) { item in
+        actionButton.addItem(title: "", image: UIImage(named: "shirt")?.withRenderingMode(.alwaysOriginal)) { item in
             self.subCategory =  "T-SHIRTS"
             self.shopFilteredProducts(toolBarItem: self.toolBarItem, subCategory: "T-SHIRTS")
+            self.actionButton.buttonImage = UIImage(named: "shirt")
         }
         
-        actionButton.addItem(title: "", image: UIImage(named: "wedding-rings")?.withRenderingMode(.alwaysTemplate)) { item in
+        actionButton.addItem(title: "", image: UIImage(named: "wedding-rings")?.withRenderingMode(.alwaysOriginal)) { item in
             self.subCategory =  "ACCESSORIES"
             self.shopFilteredProducts(toolBarItem: self.toolBarItem, subCategory: "ACCESSORIES")
+            self.actionButton.buttonImage = UIImage(named: "wedding-rings")
         }
 
 //        view.addSubview(actionButton)
@@ -151,7 +160,7 @@ extension CategoryViewController {
         actionButton.handleSingleActionDirectly = false
         actionButton.buttonDiameter = 50
         actionButton.overlayView.backgroundColor = UIColor(white: 0, alpha: 0.3)
-        actionButton.buttonImage = UIImage(named: "menu")
+        actionButton.buttonImage = UIImage(named: "sneakers")
         actionButton.buttonColor = .black
         actionButton.buttonImageColor = .white
         actionButton.buttonImageSize = CGSize(width: 20, height: 20)

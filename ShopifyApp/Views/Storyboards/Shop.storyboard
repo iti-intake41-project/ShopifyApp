@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vF-Za-LrV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vF-Za-LrV">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -15,7 +15,7 @@
             <objects>
                 <tableViewController id="Ics-vI-adi" customClass="AddsTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SI3-nm-QAO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HBK-2g-4J6">
-                                <rect key="frame" x="0.0" y="98" width="419" height="705"/>
+                                <rect key="frame" x="0.0" y="54" width="419" height="749"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xK2-gd-yxt">
                                         <rect key="frame" x="15" y="-41" width="389" height="41"/>
@@ -107,14 +107,14 @@
                                         </constraints>
                                     </stackView>
                                     <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="azh-ih-yGt">
-                                        <rect key="frame" x="20" y="0.0" width="379" height="211.66666666666666"/>
+                                        <rect key="frame" x="20" y="0.0" width="379" height="224.66666666666666"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="M33-Ws-n9r" appends="YES" id="F9O-aC-cQn"/>
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-tk-iv4">
-                                        <rect key="frame" x="0.0" y="226.66666666666671" width="419" height="478.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="239.66666666666671" width="419" height="509.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbD-10-HA3">
                                                 <rect key="frame" x="170" y="0.0" width="79.333333333333314" height="30"/>
@@ -126,10 +126,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUe-Qj-o5Q">
-                                                <rect key="frame" x="20" y="34.999999999999972" width="379" height="443.33333333333326"/>
+                                                <rect key="frame" x="20" y="34.999999999999972" width="379" height="474.33333333333326"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dP3-Zh-Vdg">
-                                                        <rect key="frame" x="10" y="10" width="359" height="423.33333333333331"/>
+                                                        <rect key="frame" x="10" y="10" width="359" height="454.33333333333331"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5x0-bj-ffR">
                                                             <size key="itemSize" width="150" height="200"/>
@@ -305,25 +305,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="046-po-JbJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1953" y="70"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="Hss-4V-o6Y">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PoY-yX-rGy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="qil-lJ-8Mu"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PGQ-Yj-dTz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0vF-Za-LrV" kind="relationship" relationship="rootViewController" id="cvx-Bp-Uj5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MsC-kj-c4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="354" y="-1"/>
         </scene>
     </scenes>
     <resources>

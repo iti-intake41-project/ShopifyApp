@@ -34,6 +34,12 @@ class ShopViewController: UIViewController{
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(searchAction(_:)))]
+        tabBarController?.navigationItem.leftBarButtonItem =  UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(favoriteAction(_:)))
+        tabBarController?.navigationItem.title = "Home"
+    }
+    
     func onSuccessUpdateView() {
         guard let collections = shopViewModel.smartCollections else {
             print("no collections")
@@ -113,7 +119,8 @@ extension ShopViewController {
         vendorView.layer.cornerRadius = vendorView.frame.height / 14
         vendorView.layer.borderWidth = 1
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "pic"), style: .plain, target: self, action: #selector(favoriteAction(_:)))
+        tabBarController?.tabBar.items![0].image = UIImage(systemName: "homekit")
+        tabBarController?.tabBar.items![0].title = "Home"
     }
 }
 
