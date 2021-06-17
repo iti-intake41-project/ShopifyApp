@@ -34,6 +34,8 @@
 		7649275326570B8400B23245 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7649275226570B8400B23245 /* Category.storyboard */; };
 		76492763265710B900B23245 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76492762265710B900B23245 /* Favourites.storyboard */; };
 		76492768265710F000B23245 /* ShoppingBag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76492767265710F000B23245 /* ShoppingBag.storyboard */; };
+		766EA6E5267B7BF100D7FB32 /* ShowAdressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766EA6E4267B7BF100D7FB32 /* ShowAdressViewController.swift */; };
+		766EA6EA267B7C0600D7FB32 /* ShowAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766EA6E9267B7C0600D7FB32 /* ShowAddressViewModel.swift */; };
 		767DAA1F266AF74200067EE9 /* customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767DAA1E266AF74200067EE9 /* customer.swift */; };
 		76818CEF266B5DBF006CB1DC /* ShopingBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76818CEE266B5DBF006CB1DC /* ShopingBagViewController.swift */; };
 		76818CFB266B6247006CB1DC /* ShoppingBagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76818CFA266B6247006CB1DC /* ShoppingBagTableViewCell.swift */; };
@@ -126,6 +128,8 @@
 		76492762265710B900B23245 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		76492767265710F000B23245 /* ShoppingBag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingBag.storyboard; sourceTree = "<group>"; };
 		765D6F3A1516A825D81CE8C4 /* Pods_ShopifyApp_ShopifyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp_ShopifyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		766EA6E4267B7BF100D7FB32 /* ShowAdressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAdressViewController.swift; sourceTree = "<group>"; };
+		766EA6E9267B7C0600D7FB32 /* ShowAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddressViewModel.swift; sourceTree = "<group>"; };
 		767DAA1E266AF74200067EE9 /* customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customer.swift; sourceTree = "<group>"; };
 		76818CEE266B5DBF006CB1DC /* ShopingBagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingBagViewController.swift; sourceTree = "<group>"; };
 		76818CFA266B6247006CB1DC /* ShoppingBagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagTableViewCell.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 				769F08A126721C07003A3948 /* AddressViewModel.swift */,
 				762C2819267927BE005BC69A /* ChooseAddressViewModel.swift */,
 				76AFA58C2679E2C500C6B5EE /* CheckoutViewModel.swift */,
+				766EA6E9267B7C0600D7FB32 /* ShowAddressViewModel.swift */,
 			);
 			path = ShoppingBag;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				762C28142679240F005BC69A /* ChooseAddressViewController.swift */,
 				762C284B267966B9005BC69A /* PaymentOptionsViewController.swift */,
 				76AFA5842679D4E000C6B5EE /* checkoutViewController.swift */,
+				766EA6E4267B7BF100D7FB32 /* ShowAdressViewController.swift */,
 			);
 			path = ShoppingBag;
 			sourceTree = "<group>";
@@ -838,6 +844,7 @@
 			files = (
 				769AEF9A2669DFA000D79AD5 /* RegisterTableViewController.swift in Sources */,
 				D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */,
+				766EA6E5267B7BF100D7FB32 /* ShowAdressViewController.swift in Sources */,
 				4B3F8838266DEEB2009ED0BC /* MeViewController.swift in Sources */,
 				C1E635EA266FB99F0029F9EA /* SubCategoriesCell.swift in Sources */,
 				4B46CD242675C2F100B191D5 /* AddsTableViewController.swift in Sources */,
@@ -873,6 +880,7 @@
 				4B5DF7A3266F868300C15388 /* SettingTableViewController.swift in Sources */,
 				D39604552659BD3E00D94931 /* ShopifyCollentions.swift in Sources */,
 				76818CEF266B5DBF006CB1DC /* ShopingBagViewController.swift in Sources */,
+				766EA6EA267B7C0600D7FB32 /* ShowAddressViewModel.swift in Sources */,
 				76818D8A266BD1A1006CB1DC /* LocalDataRepository.swift in Sources */,
 				4B8D86212679DBE000391CAE /* MeOrderTableViewCell.swift in Sources */,
 				76818DF5266BD900006CB1DC /* CoreDataModel.xcdatamodeld in Sources */,
