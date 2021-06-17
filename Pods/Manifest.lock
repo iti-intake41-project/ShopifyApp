@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.4.3)
   - Cosmos (23.0.0)
   - IQKeyboardManagerSwift (6.5.6)
+  - JJFloatingActionButton (2.5.0)
   - lottie-ios (3.2.3)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - Alamofire
   - Cosmos
   - IQKeyboardManagerSwift
+  - JJFloatingActionButton
   - lottie-ios
   - "MaterialComponents/TextControls+FilledTextAreas"
   - "MaterialComponents/TextControls+FilledTextFields"
@@ -88,6 +90,7 @@ SPEC REPOS:
     - Alamofire
     - Cosmos
     - IQKeyboardManagerSwift
+    - JJFloatingActionButton
     - lottie-ios
     - MaterialComponents
     - MDFInternationalization
@@ -100,6 +103,7 @@ SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  JJFloatingActionButton: fdc3aefb0f28f04d0f988fa25d5fac97028a9ea7
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
@@ -109,5 +113,4 @@ SPEC CHECKSUMS:
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
 PODFILE CHECKSUM: 9f6842a0c1235043b20093794fc2ca7369e2b85a
-
 COCOAPODS: 1.10.1

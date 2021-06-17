@@ -7,12 +7,12 @@
 
 import UIKit
 import SDWebImage
+import JJFloatingActionButton
 
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var productSearchBar: UISearchBar!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
-    @IBOutlet weak var subCategoriesTable: UITableView!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var item1: UIBarButtonItem!
     @IBOutlet weak var item2: UIBarButtonItem!
@@ -25,36 +25,69 @@ class CategoryViewController: UIViewController {
     var product:Product!
     var toolBarItem = 4
     var subCategory:String = "SHOES"
+    var actionButton = JJFloatingActionButton()
     
+    var favouritesViewModel:FavouriteViewModelTemp!
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         shopViewModel.fetchCustomCollection()
         shopViewModel.bindCategoryViewModelToView = onSuccessUpdateView
-    }
-    override func viewWillAppear(_ animated: Bool) {
         
-        shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
+        favouritesViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+        
+        createFloatingButton()
     }
-    @IBAction func item1(_ sender: Any) {
-        toolBarItem = 4
+    
+    override func viewDidAppear(_ animated: Bool) {
         toolBar.items![0].tintColor = .black
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
+    }
+    
+    @IBAction func item1(_ sender: Any) {
+        toolBarItem = 4
+        shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
         
+        print("1")
+        toolBar.items![0].tintColor = .black
+        toolBar.items![1].tintColor = .link
+        toolBar.items![2].tintColor = .link
+        toolBar.items![3].tintColor = .link
     }
     
     @IBAction func item2(_ sender: Any) {
         toolBarItem = 1
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
         
+        print("2")
+
+        toolBar.items![0].tintColor = .link
+        toolBar.items![1].tintColor = .black
+        toolBar.items![2].tintColor = .link
+        toolBar.items![3].tintColor = .link
     }
     @IBAction func item3(_ sender: Any) {
         toolBarItem = 2
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
+        
+        print("3")
+
+        toolBar.items![0].tintColor = .link
+        toolBar.items![1].tintColor = .link
+        toolBar.items![2].tintColor = .black
+        toolBar.items![3].tintColor = .link
     }
     @IBAction func item4(_ sender: Any) {
         toolBarItem = 3
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
+        
+        print("4")
+
+        toolBar.items![0].tintColor = .link
+        toolBar.items![1].tintColor = .link
+        toolBar.items![2].tintColor = .link
+        toolBar.items![3].tintColor = .black
     }
     
     
@@ -79,64 +112,70 @@ class CategoryViewController: UIViewController {
 
 
 
-extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subCategoryCell", for: indexPath) as! SubCategoriesCell
-        
-        switch indexPath.section {
-        case 0:
-            cell.title.text = "SHOES"
-            break
-        case 1:
-            cell.title.text = "T-SHIRTS"
-            break
-        case 2:
-            cell.title.text = "3"
-            break
-        case 3:
-            cell.title.text = "ACCESSORIES"
-            break
-        default:
-            break
+extension CategoryViewController {
+    func createFloatingButton() {
+        actionButton.addItem(title: "", image: UIImage(named: "sneakers")?.withRenderingMode(.alwaysTemplate)) { item in
+            self.subCategory = "SHOES"
+            self.shopFilteredProducts(toolBarItem: self.toolBarItem, subCategory: "SHOES")
+        }
+
+        actionButton.addItem(title: "", image: UIImage(named: "shirt")?.withRenderingMode(.alwaysTemplate)) { item in
+            self.subCategory =  "T-SHIRTS"
+            self.shopFilteredProducts(toolBarItem: self.toolBarItem, subCategory: "T-SHIRTS")
         }
         
-        return cell
+        actionButton.addItem(title: "", image: UIImage(named: "wedding-rings")?.withRenderingMode(.alwaysTemplate)) { item in
+            self.subCategory =  "ACCESSORIES"
+            self.shopFilteredProducts(toolBarItem: self.toolBarItem, subCategory: "ACCESSORIES")
+        }
+
+//        view.addSubview(actionButton)
+//        actionButton.translatesAutoresizingMaskIntoConstraints = false
+//        actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+//        actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+
+        // last 4 lines can be replaced with
+         actionButton.display(inViewController: self)
+
+        floatingConfigration()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            // call function
-            subCategory = "SHOES"
-            shopFilteredProducts(toolBarItem: toolBarItem, subCategory: "SHOES")
-            break
-        case 1:
-            subCategory =  "T-SHIRTS"
-            shopFilteredProducts(toolBarItem: toolBarItem, subCategory: "T-SHIRTS")
-            break
-        case 2:
-            subCategory = "SHOES"
-            shopFilteredProducts(toolBarItem: toolBarItem, subCategory: "SHOES")
-            break
-        case 3:
-            subCategory = "ACCESSORIES"
-            shopFilteredProducts(toolBarItem: toolBarItem, subCategory: "ACCESSORIES")
-            break
-        default:
-            break
+    func floatingConfigration() {
+        actionButton.handleSingleActionDirectly = false
+        actionButton.buttonDiameter = 50
+        actionButton.overlayView.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        actionButton.buttonImage = UIImage(named: "menu")
+        actionButton.buttonColor = .black
+        actionButton.buttonImageColor = .white
+        actionButton.buttonImageSize = CGSize(width: 20, height: 20)
+
+        actionButton.buttonAnimationConfiguration = .transition(toImage: UIImage(named: "cancel")!)
+        actionButton.itemAnimationConfiguration = .slideIn(withInterItemSpacing: 14)
+
+        actionButton.layer.shadowColor = UIColor.black.cgColor
+        actionButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        actionButton.layer.shadowOpacity = Float(0.4)
+        actionButton.layer.shadowRadius = CGFloat(2)
+
+        actionButton.itemSizeRatio = CGFloat(0.75)
+        actionButton.configureDefaultItem { item in
+            item.titlePosition = .trailing
+
+            item.titleLabel.font = .boldSystemFont(ofSize: UIFont.systemFontSize)
+            item.titleLabel.textColor = .white
+            item.buttonColor = .white
+            item.imageSize = CGSize(width: 15, height: 15)
+            item.buttonImageColor = .black
+
+            item.layer.shadowColor = UIColor.black.cgColor
+            item.layer.shadowOffset = CGSize(width: 0, height: 1)
+            item.layer.shadowOpacity = Float(0.4)
+            item.layer.shadowRadius = CGFloat(2)
         }
     }
 }
 
-extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -146,10 +185,25 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! CategoryProductsCollectionView
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductsCollectionViewCell", for: indexPath) as! ProductsCollectionViewCell
         
-        item.image.sd_setImage(with: URL(string: products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
+        item.imageWidth.constant = (collectionView.frame.width / 3) - 15
+        item.imageHeight.constant = (collectionView.frame.height / 4) - 30
         
+        item.productImage.sd_setImage(with: URL(string: products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
+        item.productImage.layer.borderWidth = 1
+        item.productImage.layer.cornerRadius = item.productImage.frame.height / 12
+        
+        item.priceLbl.text = products[indexPath.row].varients![0].price + " \(UserDefaultsLayer().getCurrency())"
+        
+        item.product = products[indexPath.row]
+        if favouritesViewModel.isFavourite(id: products[indexPath.row].varients![0].id) {
+            item.favouriteBtn.tintColor = .red
+        }else{
+            item.favouriteBtn.tintColor = .gray
+        }
+        
+        item.delegate = self
         return item
     }
     
@@ -157,6 +211,10 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         product = products[indexPath.row]
         print(product.title)
         performSegue(withIdentifier: "ProductDetailsViewController", sender: self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width / 3), height: (collectionView.frame.height / 4))
     }
 }
 //donia
@@ -214,3 +272,19 @@ extension CategoryViewController {
     
 }
 //donia
+
+extension CategoryViewController: FavouriteProductCellProtocol {
+    func deleteFavourite(id: Int) {
+        favouritesViewModel.deleteFavourite(id: id)
+    }
+    
+    func addFavourite(product: Product) {
+        favouritesViewModel.addFavourite(product: product)
+    }
+    
+    func isFavourite(id: Int) -> Bool {
+        print("is favourite controller: \(id)")
+
+        return favouritesViewModel.isFavourite(id: id)
+    }
+}

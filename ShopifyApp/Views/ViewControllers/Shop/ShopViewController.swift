@@ -101,8 +101,7 @@ class ShopViewController: UIViewController{
 }
 extension ShopViewController {
     
-    
-    func style() {        
+    func style() {
         adsImage.layer.cornerRadius = adsImage.frame.height / 14
         adsImage.layer.borderWidth = 1
         
