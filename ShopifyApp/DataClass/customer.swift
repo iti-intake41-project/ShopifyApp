@@ -51,6 +51,10 @@ struct Order: Codable {
     var line_items: [OrderItem]
     let customer: OrderCustomer
     var financial_status: String = "paid"
+    var created_at :String?
+   // var id : Int
+    var currency:String?
+    var current_total_price:String?
 }
 
 struct APIOrder: Codable {

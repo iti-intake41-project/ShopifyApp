@@ -176,6 +176,7 @@ extension ShoppingBagViewModel: FavouriteViewModelTemp {
     }
     
     func getAllFaourites() -> [Product] {
+        favourites = dataRepository.getFavourites()
         return dataRepository.getFavourites()
     }
     

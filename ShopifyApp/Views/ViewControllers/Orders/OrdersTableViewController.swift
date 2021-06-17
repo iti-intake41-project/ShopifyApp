@@ -9,14 +9,18 @@ import UIKit
 
 class OrdersTableViewController: UITableViewController {
 
+    @IBOutlet var ordersTabelView: UITableView!
+    var meViewModel = MeViewModel()
+    var orders = [Order]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        meViewModel.bindOrders = {
+            self.orders = self.meViewModel.orders
+                  self.ordersTabelView.reloadData()
+            print("orders count \(self.orders.count)")
+              }
+        orders = meViewModel.getOrders()
     }
 
     // MARK: - Table view data source
@@ -28,7 +32,7 @@ class OrdersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return orders.count
     }
 
    
@@ -36,6 +40,8 @@ class OrdersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
 
         // Configure the cell...
+        cell.priceLbl.text = orders[indexPath.row].current_total_price
+        cell.creationDatelbl.text = orders[indexPath.row].created_at
         
         
 
