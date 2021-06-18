@@ -159,7 +159,7 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVq-oU-EJE">
                                                                                     <rect key="frame" x="0.0" y="150" width="180" height="20.333333333333343"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" red="0.48627450980392156" green="0.32941176470588235" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
@@ -190,7 +190,7 @@
                                                         </connections>
                                                     </collectionView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.41974140476948352" green="0.31213612816009145" blue="0.50563332469192968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="dP3-Zh-Vdg" secondAttribute="trailing" constant="10" id="25K-2r-EF4"/>
                                                     <constraint firstItem="dP3-Zh-Vdg" firstAttribute="leading" secondItem="uUe-Qj-o5Q" secondAttribute="leading" constant="10" id="2w4-mi-IwK"/>
