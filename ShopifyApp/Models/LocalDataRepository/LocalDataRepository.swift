@@ -212,7 +212,7 @@ class CoreDataRepository: LocalDataRepository {
         addressCD.setValue(address.city ?? "", forKey: "city")
         addressCD.setValue(address.id ?? 0, forKey: "id")
         addressCD.setValue(address.address1 ?? "", forKey: "address1")
-        addressCD.setValue(address.zip ?? "", forKey: "zip")
+        addressCD.setValue(address.phone ?? "", forKey: "phone")
         do{
             try managedContext.save()
             print("address saved successfully")
@@ -262,7 +262,7 @@ class CoreDataRepository: LocalDataRepository {
                 addressCD.setValue(address.city ?? "", forKey: "city")
                 addressCD.setValue(address.id ?? 0, forKey: "id")
                 addressCD.setValue(address.address1 ?? "", forKey: "address1")
-                addressCD.setValue(address.zip ?? "", forKey: "zip")
+                addressCD.setValue(address.phone ?? "", forKey: "phone")
             }
             try managedContext.save()
         }catch{
@@ -293,7 +293,7 @@ class CoreDataRepository: LocalDataRepository {
                 address.city = addressCD.value(forKey: "city") as? String
                 address.id = addressCD.value(forKey: "id") as? Int
                 address.address1 = addressCD.value(forKey: "address1") as? String
-                address.zip = addressCD.value(forKey: "zip") as? String
+                address.phone = addressCD.value(forKey: "phone") as? String
             }
         }catch{
             print("failed to load address from core data \(error.localizedDescription)")
@@ -318,7 +318,7 @@ class CoreDataRepository: LocalDataRepository {
                 address.city = addressCD.value(forKey: "city") as? String
                 address.id = addressCD.value(forKey: "id") as? Int
                 address.address1 = addressCD.value(forKey: "address1") as? String
-                address.zip = addressCD.value(forKey: "zip") as? String
+                address.phone = addressCD.value(forKey: "phone") as? String
                 
                 addresses.append(address)
             }

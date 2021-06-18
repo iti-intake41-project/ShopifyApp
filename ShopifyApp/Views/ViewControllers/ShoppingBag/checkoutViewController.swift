@@ -50,7 +50,7 @@ class checkoutViewController: UIViewController {
         for order in orders{
             subTotalPrice += (Float(order.varients?[0].price ?? "0.0") ?? 0.0) * Float(order.count)
         }
-        
+        updatePrices()
 //        if viewModel.getCurrency() == "EGP"{
 //            subtotalText.text = FormatePrice.formatePrice(priceStr: "\(subTotalPrice)")
 //            if paymentType == "POD"{
@@ -73,7 +73,6 @@ class checkoutViewController: UIViewController {
 //            totalText.text = String(format: "US$ %.2f", (subTotalPrice+deliveryFee))
 //            discountText.text = "US$ 0.0"
 //        }
-        updatePrices()
     }
     
     func updatePrices(){
@@ -87,6 +86,7 @@ class checkoutViewController: UIViewController {
             totalPrice = subTotalPrice + deliveryFee
             discountPrice = 0.0
         }
+
         if viewModel.getCurrency() == "EGP"{
             subtotalText.text = String(format: "EGP %.2f", subTotalPrice)
             shippingFeesText.text = String(format: "EGP %.2f", deliveryFee)
@@ -97,6 +97,7 @@ class checkoutViewController: UIViewController {
             shippingFeesText.text = FormatePrice.formatePrice(priceStr: "\(deliveryFee)")
             discountText.text = FormatePrice.formatePrice(priceStr: "\(discountPrice)")
             totalText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+            totalPrice = Float("\(FormatePrice.toEGP(amount: Double("\(totalPrice)") ?? 0.0))") ?? 0.0
         }
     }
         

@@ -987,7 +987,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ZipCode" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uhM-Xx-ip4" customClass="MDCOutlinedTextField">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uhM-Xx-ip4" customClass="MDCOutlinedTextField">
                                                     <rect key="frame" x="30" y="30.333333333333336" width="354" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1045,7 +1045,7 @@
                         <outlet property="address" destination="ca0-Wz-DlX" id="1si-RC-0xu"/>
                         <outlet property="city" destination="0lQ-JI-IKq" id="Ddg-iI-UH9"/>
                         <outlet property="country" destination="LxQ-sA-knk" id="weD-rw-n73"/>
-                        <outlet property="zipCode" destination="uhM-Xx-ip4" id="O7l-z9-4Mp"/>
+                        <outlet property="phone" destination="uhM-Xx-ip4" id="O7l-z9-4Mp"/>
                         <segue destination="t6F-2p-8KR" kind="show" identifier="addAddr" id="62n-2K-nrM"/>
                     </connections>
                 </tableViewController>
@@ -1055,7 +1055,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Opo-h8-Xhe"/>
+        <segue reference="62n-2K-nrM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
