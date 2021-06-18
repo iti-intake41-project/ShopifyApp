@@ -98,7 +98,7 @@ class AddressDetailCell: UITableViewCell{
     var address: Address! {
         didSet{
             countryText.text = address.country
-            addressText.text = "\(address.country ?? ""), \(address.address1 ?? "")"
+            addressText.text = "\(address.city ?? ""), \(address.address1 ?? "")"
         }
     }
     
