@@ -19,10 +19,10 @@ class MeViewModel{
     var bindOrders:()->() = {
            
        }
-    func getOrders()-> [Product]?{
-        //call orders from network layer
-        return[]
-    }
+//    func getOrders()-> [Product]?{
+//        //call orders from network layer
+//        return[]
+//    }
     
     //get orders
     func getOrders()->[Order] {
@@ -36,6 +36,7 @@ class MeViewModel{
             case .success(let result):
             //   print("result: \(result)")
                 let APIOrders = result.orders
+                
                 self.orders = result.orders
                 for order in APIOrders{
                     if order.customer.id == customerId {

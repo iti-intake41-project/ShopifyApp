@@ -1,13 +1,13 @@
 //
-//  ShopifyAppTests.swift
-//  ShopifyAppTests
+//  NetworkTests.swift
+//  ShopifyAppTests1
 //
-//  Created by Abanob Wadie on 19/05/2021.
+//  Created by Donia Ashraf on 6/17/21.
 //
 
 import XCTest
-
-class ShopifyAppTests: XCTestCase {
+@testable import ShopifyApp
+class NetworkTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

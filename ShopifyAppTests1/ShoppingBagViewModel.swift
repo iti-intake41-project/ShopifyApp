@@ -1,16 +1,17 @@
 //
-//  ShopifyAppTests.swift
-//  ShopifyAppTests
+//  ShoppingBagViewModel.swift
+//  ShopifyAppTests1
 //
-//  Created by Abanob Wadie on 19/05/2021.
+//  Created by Donia Ashraf on 6/18/21.
 //
 
 import XCTest
 
-class ShopifyAppTests: XCTestCase {
-
+class ShoppingBagViewModel: XCTestCase {
+   // let shoppingViewModel:ShoppingBagViewModelTemp!
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+    //    shoppingViewModel = ShoppingBagViewModel()
     }
 
     override func tearDownWithError() throws {
@@ -29,4 +30,7 @@ class ShopifyAppTests: XCTestCase {
         }
     }
 
+    func test(){
+   //     shoppingViewModel.fa
+    }
 }

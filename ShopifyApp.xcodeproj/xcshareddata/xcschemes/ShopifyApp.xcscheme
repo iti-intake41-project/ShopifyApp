@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -45,6 +46,16 @@
                BlueprintIdentifier = "D37210C42655B81300935F86"
                BuildableName = "ShopifyAppUITests.xctest"
                BlueprintName = "ShopifyAppUITests"
+               ReferencedContainer = "container:ShopifyApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4B1C1D2B267BE2D4003856E2"
+               BuildableName = "ShopifyAppTests1.xctest"
+               BlueprintName = "ShopifyAppTests1"
                ReferencedContainer = "container:ShopifyApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
