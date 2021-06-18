@@ -27,6 +27,7 @@ class CheckoutViewModel {
     }
     
     func postOrder(products: inout [Product]){
+        print("post order view model")
         var items: [OrderItem] = []
         for product in products{
             items.append(OrderItem(variant_id: product.varients?[0].id ?? 0, quantity: product.count, price: product.varients?[0].price ?? "0.0"))
@@ -42,7 +43,7 @@ class CheckoutViewModel {
             if let data = data{
                 let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
 //                print("json: \(json)")
-                print("order posted successfully")
+                print("call empty cart")
 
                 let returnedOrder = json["order"] as? Dictionary<String,Any>
                 let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>

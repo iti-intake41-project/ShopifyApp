@@ -135,7 +135,7 @@ class checkoutViewController: UIViewController {
     
     @IBAction func placeOrder(_ sender: Any) {
         if paymentType == "POD" {
-            viewModel.postOrder(products: &orders)
+//            viewModel.postOrder(products: &orders)
             showAlret()
         }else{
             //apple payment
@@ -144,11 +144,11 @@ class checkoutViewController: UIViewController {
     }
     
     func showAlret(){
+        self.viewModel.postOrder(products: &self.orders)
         let alert = UIAlertController(title: "Order", message: "Congratulations, your order has been placed successfully", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {[weak self] (action) in
             print("alert working")
             if let self = self {
-//                self.viewModel.postOrder(products: &self.orders)
                 self.performSegue(withIdentifier: "mainAfterPayment", sender: self)
             }
         }
