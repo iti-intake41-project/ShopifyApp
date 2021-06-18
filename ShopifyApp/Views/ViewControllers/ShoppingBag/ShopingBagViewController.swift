@@ -17,7 +17,7 @@ class ShoppingBagViewController: UIViewController {
     var list:[Product] = []
     var viewModel:ShoppingBagViewModelTemp!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    var productDetail: Product!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +61,11 @@ class ShoppingBagViewController: UIViewController {
                     nextViewController.orders = list
             }
             //move
+        }else if segue.identifier == "navToDetails" {
+            if let nextViewController = segue.destination as? ProductDetailsViewController {
+                    nextViewController.product = productDetail
+            }
+
         }
     }
     
@@ -151,6 +156,12 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
             increaseCount(id: list[indexPath.row].varients?[0].id ?? 0)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        productDetail = list[indexPath.row]
+        print("select")
+        performSegue(withIdentifier: "navToDetails", sender: self)
     }
 
 }
