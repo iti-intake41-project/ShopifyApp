@@ -13,6 +13,7 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class RegisterTableViewController: UITableViewController {
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var firstNameText: MDCOutlinedTextField!
     @IBOutlet weak var lastNameText: MDCOutlinedTextField!
     @IBOutlet weak var emailText: MDCOutlinedTextField!
@@ -69,12 +70,17 @@ class RegisterTableViewController: UITableViewController {
         email = emailText.text ?? ""
         password = passwordText.text ?? ""
         confirmPassword = confirmPasswordText.text ?? ""
-        
+        indicator.isHidden = false
+        view.isUserInteractionEnabled = false
+
         viewModel.registerCustomer(firstName: firstName, lastName: lastName, email: email, password: password, confirmPassword: confirmPassword)
     }
     
     
     func showAlret(message:String){
+        indicator.isHidden = true
+        view.isUserInteractionEnabled = true
+
         let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
             print("alert working")

@@ -89,6 +89,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="99o-8s-Oc1">
+                                                    <rect key="frame" x="197" y="60" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="l9f-58-bzK" secondAttribute="trailing" constant="10" id="UIW-3u-I5w"/>
@@ -204,6 +208,7 @@
                         <outlet property="confirmPasswordText" destination="P7c-we-9br" id="i1J-ij-J6a"/>
                         <outlet property="emailText" destination="fEQ-0h-hdC" id="VWc-x5-Vh8"/>
                         <outlet property="firstNameText" destination="5qj-9B-Eof" id="Zx7-ZN-Hgk"/>
+                        <outlet property="indicator" destination="99o-8s-Oc1" id="3bg-4f-hQJ"/>
                         <outlet property="lastNameText" destination="l9f-58-bzK" id="qtA-3c-iJd"/>
                         <outlet property="passwordText" destination="uzq-35-K7w" id="L7E-Mc-vBM"/>
                         <outlet property="registerBtn" destination="djn-oE-pk3" id="L26-Dk-byQ"/>
@@ -301,6 +306,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8kj-v3-Qhc">
+                                                    <rect key="frame" x="197" y="60" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="3Dz-aH-moO" firstAttribute="centerY" secondItem="wZZ-xg-uPx" secondAttribute="centerY" id="2TR-Ye-yrd"/>
@@ -381,6 +390,7 @@
                     </tableView>
                     <connections>
                         <outlet property="emailText" destination="by2-3Z-zbp" id="5NI-Dj-aQo"/>
+                        <outlet property="indicator" destination="8kj-v3-Qhc" id="Ntg-yd-lN8"/>
                         <outlet property="loginBtn" destination="zwZ-fL-5r3" id="Qmg-N6-EqN"/>
                         <outlet property="passwordText" destination="3Dz-aH-moO" id="ypz-4L-gHY"/>
                         <outlet property="registerBtn" destination="ybD-wW-fzx" id="9CD-IW-zzN"/>
@@ -390,7 +400,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KY-Q6-dUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1725" y="3"/>
+            <point key="canvasLocation" x="1724.6376811594205" y="2.6785714285714284"/>
         </scene>
         <!--main-->
         <scene sceneID="W7Y-Hd-PKm">
@@ -404,7 +414,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vt7-cB-vJo"/>
+        <segue reference="Alx-do-lRB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="online-shopping-concept-cart-bags-260nw-1680067750" width="462" height="280"/>

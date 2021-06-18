@@ -12,6 +12,7 @@ import MaterialComponents.MaterialTextControls_OutlinedTextAreas
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class LoginTableViewController: UITableViewController {
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var emailText: MDCOutlinedTextField!
     @IBOutlet weak var passwordText: MDCOutlinedTextField!
     var delegate = UIApplication.shared.delegate as! AppDelegate
@@ -51,6 +52,8 @@ class LoginTableViewController: UITableViewController {
     @IBAction func login(_ sender: UIButton) {
         email = emailText.text ?? ""
         password = passwordText.text ?? ""
+        indicator.isHidden = false
+        view.isUserInteractionEnabled = false
         viewModel.login(email: email, password: password)
     }
         
@@ -60,6 +63,8 @@ class LoginTableViewController: UITableViewController {
 //        present(mainScreen!, animated: true, completion: nil)
 //        performSegue(withIdentifier: "navigateToMain", sender: self)
 //        dismiss(animated: true, completion: nil)
+        indicator.isHidden = true
+        view.isUserInteractionEnabled = true
         navigationController?.popViewController(animated: true)
     }
     
@@ -76,6 +81,9 @@ class LoginTableViewController: UITableViewController {
     }
     
     func showAlret(message:String){
+        indicator.isHidden = true
+        view.isUserInteractionEnabled = true
+
         let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
             print("alert working")
