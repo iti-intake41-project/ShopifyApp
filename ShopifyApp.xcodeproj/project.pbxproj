@@ -17,6 +17,7 @@
 		4B4262F526781EEC0041C07D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4262F426781EEC0041C07D /* LaunchViewController.swift */; };
 		4B426A43267CA19300A5D6E2 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B426A42267CA19300A5D6E2 /* TestCoreDataStack.swift */; };
 		4B426A45267CC14200A5D6E2 /* MockCoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B426A44267CC14200A5D6E2 /* MockCoreDataRepository.swift */; };
+		4B42D6A9267D26CA008BAFB7 /* ProductListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B42D6A8267D26CA008BAFB7 /* ProductListTest.swift */; };
 		4B4518FB2667F93400E0D1DF /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4518FA2667F93400E0D1DF /* ProductList.storyboard */; };
 		4B4518FD2667FC4A00E0D1DF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4518FC2667FC4A00E0D1DF /* ProductListViewController.swift */; };
 		4B4519002667FEEB00E0D1DF /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4518FF2667FEEB00E0D1DF /* ProductsCollectionViewCell.swift */; };
@@ -128,6 +129,7 @@
 		4B4262F426781EEC0041C07D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		4B426A42267CA19300A5D6E2 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		4B426A44267CC14200A5D6E2 /* MockCoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataRepository.swift; sourceTree = "<group>"; };
+		4B42D6A8267D26CA008BAFB7 /* ProductListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTest.swift; sourceTree = "<group>"; };
 		4B4518FA2667F93400E0D1DF /* ProductList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductList.storyboard; sourceTree = "<group>"; };
 		4B4518FC2667FC4A00E0D1DF /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		4B4518FF2667FEEB00E0D1DF /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				4B1C1D3C267C41E5003856E2 /* ShoppingBagViewModel.swift */,
 				4B426A42267CA19300A5D6E2 /* TestCoreDataStack.swift */,
 				4B426A44267CC14200A5D6E2 /* MockCoreDataRepository.swift */,
+				4B42D6A8267D26CA008BAFB7 /* ProductListTest.swift */,
 			);
 			path = ShopifyAppTests1;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				4B1C1D2F267BE2D4003856E2 /* ShopifyAppTests1.swift in Sources */,
 				4B1C1D39267C1C27003856E2 /* ShopViewModelTests.swift in Sources */,
 				4B1C1D3B267C379F003856E2 /* LocalStorgeTests.swift in Sources */,
+				4B42D6A9267D26CA008BAFB7 /* ProductListTest.swift in Sources */,
 				4B426A43267CA19300A5D6E2 /* TestCoreDataStack.swift in Sources */,
 				4B426A45267CC14200A5D6E2 /* MockCoreDataRepository.swift in Sources */,
 			);

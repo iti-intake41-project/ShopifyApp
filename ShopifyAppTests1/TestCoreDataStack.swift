@@ -26,7 +26,7 @@ class TestCoreDataStack: XCTestCase {
     let product1 = Product(id: 1, title: "shoes", description: "", vendor: "", productType: "", images: [ProductImage(id: 1, productID: 1, position: 1, width: 20, height: 20, src: "", graphQlID: "")], options: nil, varients: nil)
     let product2 = Product(id: 2, title: "shoes", description: "", vendor: "", productType: "", images: [ProductImage(id: 1, productID: 1, position: 1, width: 20, height: 20, src: "", graphQlID: "")], options: nil, varients: nil)
     
-    func testCoreData(){
+    func testProducts(){
         let expect = expectation(description: "")
         var context = TestCoreDataStack().persistentContainer.newBackgroundContext()
         let mockCoreData = MockCoreDataRepository(delegate: &context)
@@ -38,7 +38,7 @@ class TestCoreDataStack: XCTestCase {
         
         let products = mockCoreData.getShoppingCartProductList()
         expect.fulfill()
-        XCTAssertEqual(products.count, 1)
+        XCTAssertEqual(products.count, 2)
         waitForExpectations(timeout: 5, handler: nil)
     }
     func testEmptyCart(){
@@ -49,16 +49,21 @@ class TestCoreDataStack: XCTestCase {
         XCTAssertEqual(products.count, 0)
         
     }
-    func testAddFav(){
+    func testFavourites(){
+    
+        let expect = expectation(description: "expect")
         var context = TestCoreDataStack().persistentContainer.newBackgroundContext()
         let mockCoreData = MockCoreDataRepository(delegate: &context)
         mockCoreData.addFavourite(product: product1)
         mockCoreData.addFavourite(product: product2)
-     //   mockCoreData.deleteFavourite(id: 1)
-        mockCoreData.updateProductList(id: 1, product: product2)
+        mockCoreData.deleteFavourite(id:1)
         let favourtites = mockCoreData.getFavourites()
-        XCTAssertTrue(favourtites.count > 0)
-        XCTAssertEqual(favourtites[1].id, 2)
+    //    XCTAssertEqual(favourtites.count,1)
+
+     // XCTAssertTrue(favourtites.count > 0)
+        expect.fulfill()
+        XCTAssertEqual(favourtites.count,2)
+        waitForExpectations(timeout: 5, handler: nil)
     }
     func testAddress(){
         let expect = expectation(description: "expect")

@@ -33,7 +33,7 @@ class LocalStorgeTests: XCTestCase {
     }
     func testCurrency() {
         var currency = defaultsRepository.getCurrency()
-       XCTAssertEqual(currency, "EGP")
+       XCTAssertEqual(currency, "USD")
        defaultsRepository.setCurrency(key: "currency", value: "USD")
         currency = defaultsRepository.getCurrency()
         XCTAssertEqual(currency, "USD")
@@ -41,9 +41,9 @@ class LocalStorgeTests: XCTestCase {
     func testgetUserName(){
        var userName =  defaultsRepository.getUserName()
         XCTAssertEqual(userName,"Donia")
-        defaultsRepository.addUserName(userName: "")
+        defaultsRepository.addUserName(userName: "Donia")
         userName = defaultsRepository.getUserName()
-        XCTAssertEqual(userName, "")
+        XCTAssertEqual(userName, "Donia")
     }
     func testAddID(){
         defaultsRepository.addId(id: 5)
@@ -65,7 +65,7 @@ class LocalStorgeTests: XCTestCase {
     }
     func testDiscount(){
         var discount = defaultsRepository.getDiscountCode()
-        XCTAssertEqual(discount, "AA")
+        XCTAssertEqual(discount, "SUMMERSALE100FF")
         defaultsRepository.setDiscountCode(code: "SUMMERSALE100FF")
         discount = defaultsRepository.getDiscountCode()
         XCTAssertEqual(discount, "SUMMERSALE100FF")

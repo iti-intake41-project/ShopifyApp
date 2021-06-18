@@ -128,12 +128,14 @@ class MockCoreDataRepository: LocalDataRepository {
     // MARK: - Favourites
     
     func deleteFavourite(id: Int) {
+        print("delete favourites")
         let managedContext = delegate
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCoreData")
         fetchRequest.predicate = NSPredicate(format: "id = \(id)")
         do{
             let productCDArray = try managedContext.fetch(fetchRequest)
             for product in productCDArray {
+                print("delete fav obj ")
                 managedContext.delete(product)
             }
             try managedContext.save()
