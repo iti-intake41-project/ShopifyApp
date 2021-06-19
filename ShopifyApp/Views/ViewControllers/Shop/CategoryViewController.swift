@@ -57,7 +57,7 @@ class CategoryViewController: UIViewController {
         tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
         tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchAction(_:)))
         tabBarController?.navigationItem.title = "Category"
-        tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
+        tabBarController?.navigationItem.leftBarButtonItem?.tintColor = .white
     }
     
     @IBAction func item1(_ sender: Any) {

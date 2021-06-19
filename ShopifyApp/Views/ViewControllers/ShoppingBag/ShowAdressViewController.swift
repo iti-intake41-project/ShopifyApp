@@ -35,6 +35,14 @@ class ShowAdressViewController: UIViewController {
                 self.view.isUserInteractionEnabled = true
                 self.addresses = self.viewModel.addresses!
                 self.addressTable.reloadData()
+                
+                if self.addresses.count == 0 {
+                    let imageView = UIImageView(image: UIImage(named: "noSearch"))
+                    imageView.contentMode = .scaleAspectFill
+                    self.addressTable.backgroundView = imageView
+                }else{
+                    self.addressTable.backgroundView = nil
+                }
             }
         }
         viewModel.cantDeleteAddress = {

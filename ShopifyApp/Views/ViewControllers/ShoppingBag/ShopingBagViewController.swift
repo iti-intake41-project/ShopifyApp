@@ -36,11 +36,6 @@ class ShoppingBagViewController: UIViewController {
         totalPriceView.layer.cornerRadius = totalPriceView.layer.frame.height / 4
         checkoutBtn.layer.cornerRadius = checkoutBtn.layer.frame.height / 2
 //        shoppingTable.backgroundView = UIImageView(image: UIImage(named: "cart background.jpg"))
-        if list.count == 0 {
-            shoppingTable.backgroundView = UIImageView(image: UIImage(named: "empty cart.jpeg"))
-
-            
-        }
     }
     
     func bindToViewModel(){
@@ -99,6 +94,14 @@ class ShoppingBagViewController: UIViewController {
             totalPriceText.text = String(format: "EGP %.2f", totalPrice)
         }else{
             totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+        }
+        
+        if list.count == 0 {
+            let imageView = UIImageView(image: UIImage(named: "noSearch"))
+            imageView.contentMode = .scaleAspectFill
+            shoppingTable.backgroundView = imageView
+        }else{
+            shoppingTable.backgroundView = nil
         }
     }
     

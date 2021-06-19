@@ -149,7 +149,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UUH-97-ZGE"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Jv2-4N-r5N" firstAttribute="top" secondItem="UUH-97-ZGE" secondAttribute="top" id="4wB-ts-PmX"/>
                             <constraint firstItem="UUH-97-ZGE" firstAttribute="bottom" secondItem="Jv2-4N-r5N" secondAttribute="bottom" id="ke3-F5-HDg"/>

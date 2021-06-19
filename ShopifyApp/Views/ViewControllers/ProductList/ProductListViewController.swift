@@ -175,6 +175,14 @@ extension ProductListViewController:UISearchBarDelegate{
 
         products = productsViewModel.searchProduct(sProducts: orignalProducts, searchTxt: searchText)
         self.productsCollectionView.reloadData()
+        
+        if products.count == 0 {
+            let imageView = UIImageView(image: UIImage(named: "noSearch"))
+            imageView.contentMode = .scaleAspectFill
+            productsCollectionView.backgroundView = imageView
+        }else{
+            productsCollectionView.backgroundView = nil
+        }
     }
     
     
