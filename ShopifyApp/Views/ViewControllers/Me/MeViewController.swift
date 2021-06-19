@@ -57,57 +57,12 @@ class MeViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-       
-        orders =  meViewModel.getOrders()
-        favourites = favViewModel.getAllFaourites()
-        //   favourites = favViewModel.favourites
-        
-        favViewModel.bindFavouritesList = { [weak self] in
-            self?.favourites = self?.favViewModel.favourites ?? []
-            self?.favHeight.constant = CGFloat((self?.favourites.count)! / 2 * 200)
-            
-            self?.favCollectionView.reloadData()
-            print("bind fav")
+        if !ConnectionViewModel.isConnected(){
+            showAlert(view: self)
         }
-        print("willappear")
-        
         isLoggedIn = meViewModel.isLoggedIn()
         if isLoggedIn {
-                   if !ConnectionViewModel.isConnected(){
-                              showAlert(view: self)
-                          }
-                   loginOrRegisterStackView.isHidden = true
-                   orderTableView.isHidden = false
-                   favCollectionView.isHidden = false
-                   userLbl.text = "Welcome \(meViewModel.getUserName())"
-               }else{
-                   loginOrRegisterStackView.isHidden = false
-                   userLbl.isHidden = true
-                   orderTableView.isHidden = true
-                   favCollectionView.isHidden = true
-               }
-
-        
-        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gotoSetting(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(goToShoppingBag(_:)))]
-        tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
-        tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
-        tabBarController?.navigationItem.leftBarButtonItems =  []
-        tabBarController?.navigationItem.title = "Me"
-        tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
-    }
-    
-    
-    func onSuccess(){
-        print("dcjnjnc;")
-       let  favouriteslist = favViewModel.favourites
-
-        self.favourites = favouriteslist
-        print(favourites.count)
-        
-        if isLoggedIn {
-            if !ConnectionViewModel.isConnected(){
-                       showAlert(view: self)
-                   }
+            
             loginOrRegisterStackView.isHidden = true
             orderTableView.isHidden = false
             favCollectionView.isHidden = false
@@ -118,7 +73,54 @@ class MeViewController: UIViewController {
             orderTableView.isHidden = true
             favCollectionView.isHidden = true
         }
+        
+        
+        orders =  meViewModel.getOrders()
+        favourites = favViewModel.getAllFaourites()
+      //     favourites = favViewModel.favourites
+        
+        favViewModel.bindFavouritesList = { [weak self] in
+            self?.favourites = self?.favViewModel.favourites ?? []
+//            self?.favHeight.constant = CGFloat((self?.favourites.count)! / 2 * 200)
+            self?.favHeight.constant = CGFloat((self?.favourites.count)! * 200)
+            
+            self?.favCollectionView.reloadData()
+            print("bind fav\(self?.favourites.count)")
+        }
+        print("willappear")
+        
+        
+        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gotoSetting(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(goToShoppingBag(_:)))]
+        tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
+        tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
+        tabBarController?.navigationItem.leftBarButtonItems =  []
+        tabBarController?.navigationItem.title = "Me"
+        tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
     }
+    
+    
+    //    func onSuccess(){
+    //        print("dcjnjnc;")
+    //       let  favouriteslist = favViewModel.favourites
+    //
+    //        self.favourites = favouriteslist
+    //        print(favourites.count)
+    //
+    //        if isLoggedIn {
+    //            if !ConnectionViewModel.isConnected(){
+    //                       showAlert(view: self)
+    //                   }
+    //            loginOrRegisterStackView.isHidden = true
+    //            orderTableView.isHidden = false
+    //            favCollectionView.isHidden = false
+    //            userLbl.text = "Welcome \(meViewModel.getUserName())"
+    //        }else{
+    //            loginOrRegisterStackView.isHidden = false
+    //            userLbl.isHidden = true
+    //            orderTableView.isHidden = true
+    //            favCollectionView.isHidden = true
+    //        }
+    //    }
     
     @IBAction func login(_ sender: UIButton) {
         

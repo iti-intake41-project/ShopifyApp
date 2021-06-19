@@ -66,7 +66,7 @@ class SettingViewModel :NSObject{
     //moataz
     func logout(appDelegate:inout AppDelegate){
         //donia
-        userDefaults.setCurrency(key: "currency", value:"")
+     //   userDefaults.setCurrency(key: "currency", value:"")
         userDefaults.addUserName(userName: "")
         self.logout = false
         //donia
