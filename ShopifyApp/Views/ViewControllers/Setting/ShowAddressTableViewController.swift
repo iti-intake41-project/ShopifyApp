@@ -12,7 +12,7 @@ class ShowAddressTableViewController: UITableViewController {
     @IBOutlet weak var country: UITextField!
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var address: UITextField!
-    @IBOutlet weak var zipCode: UITextField!
+    @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var addAddressBtn: UIButton!
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -25,12 +25,12 @@ class ShowAddressTableViewController: UITableViewController {
         city.text = address.city
         self.address.text = address.address1
         if address.zip != "" {
-        zipCode.text = address.zip
+        phone.text = address.phone
         }
         else {
-//            zipCode.frame =  CGRect(x: 0 , y: 0, width: 0, height: 0)
+//            phone.frame =  CGRect(x: 0 , y: 0, width: 0, height: 0)
 //
-            zipCode.isHidden = true
+            phone.isHidden = true
 
         }
     

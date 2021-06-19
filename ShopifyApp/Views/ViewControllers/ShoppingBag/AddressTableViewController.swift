@@ -14,7 +14,7 @@ class AddressTableViewController: UITableViewController {
     @IBOutlet weak var countryText: MDCOutlinedTextField!
     @IBOutlet weak var cityText: MDCOutlinedTextField!
     @IBOutlet weak var addressText: MDCOutlinedTextField!
-    @IBOutlet weak var zipcodeText: MDCOutlinedTextField!
+    @IBOutlet weak var phoneText: MDCOutlinedTextField!
     @IBOutlet weak var addAddressBtn: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     var addressDelegate: UpdateAddressList!
@@ -35,14 +35,14 @@ class AddressTableViewController: UITableViewController {
         countryText.label.text = "Coutry"
         cityText.label.text = "City"
         addressText.label.text = "Address"
-        zipcodeText.label.text = "Zipcode"
+        phoneText.label.text = "Phone"
         addAddressBtn.layer.cornerRadius = addAddressBtn.layer.frame.height / 2
         if isEdit {
             addAddressBtn.setTitle("EDIT ADDRESS", for: .normal)
             countryText.text = editAddress.country
-            cityText.text = editAddress.country
+            cityText.text = editAddress.city
             addressText.text = editAddress.address1
-            zipcodeText.text = editAddress.zip
+            phoneText.text = editAddress.phone
         }
     }
     
@@ -75,14 +75,14 @@ class AddressTableViewController: UITableViewController {
     @IBAction func addAddress(_ sender: Any) {
         indicator.isHidden = false
         view.isUserInteractionEnabled = false
-        editAddress.country = countryText.text ?? ""
-        editAddress.city = cityText.text ?? ""
-        editAddress.address1 = addressText.text ?? ""
-        editAddress.zip = zipcodeText.text ?? ""
         if isEdit{
+            editAddress.country = countryText.text ?? ""
+            editAddress.city = cityText.text ?? ""
+            editAddress.address1 = addressText.text ?? ""
+            editAddress.phone = phoneText.text ?? ""
             viewModel.editAddress(address: editAddress)
         }else{
-            viewModel.addAddress(country: countryText.text ?? "", city: cityText.text ?? "", address: addressText.text ?? "", zipcode: zipcodeText.text ?? "")
+            viewModel.addAddress(country: countryText.text ?? "", city: cityText.text ?? "", address: addressText.text ?? "", phone: phoneText.text ?? "")
         }
     }
     

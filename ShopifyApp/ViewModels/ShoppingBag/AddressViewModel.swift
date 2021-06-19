@@ -13,7 +13,7 @@ protocol AddressViewModelTemp {
     var defaultsRepository: UserDefaultsLayer {get}
     var viewShowAlret:()->() {get set}
     var navigateToCheckOut:()->() {get set}
-    func addAddress(country: String, city: String, address: String, zipcode: String)
+    func addAddress(country: String, city: String, address: String, phone: String)
     var message: String! {get}
     func editAddress(address: Address)
 
@@ -40,11 +40,11 @@ class AddressViewModel: AddressViewModelTemp {
         dataRepository = CoreDataRepository(appDelegate: &delegate)
     }
     
-    func addAddress(country: String, city: String, address: String, zipcode: String){
+    func addAddress(country: String, city: String, address: String, phone: String){
         if country != ""{
             if city != ""{
                 if address != ""{
-                    var address = Address(address1: address, city: city, province: "", phone: "", zip: zipcode, last_name: "", first_name: "", country: country)
+                    var address = Address(address1: address, city: city, province: "", phone: phone, zip: "", last_name: "", first_name: "", country: country)
                     addAddress( address: address)
                 }else{
                     message = "Please enter your address"

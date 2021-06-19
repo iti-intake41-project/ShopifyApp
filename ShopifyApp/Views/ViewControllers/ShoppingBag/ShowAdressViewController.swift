@@ -107,6 +107,8 @@ extension ShowAdressViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = addressTable.dequeueReusableCell(withIdentifier: "AddressesDetailCell", for: indexPath) as! AddressesDetailCell
         cell.countryText.text = addresses[indexPath.row].country
         cell.addressText.text = "\(addresses[indexPath.row].city ?? ""), \(addresses[indexPath.row].address1 ?? "")"
+        cell.phoneText.text = addresses[indexPath.row].phone
+
         return cell
     }
     
@@ -143,8 +145,13 @@ extension ShowAdressViewController: UITableViewDelegate, UITableViewDataSource{
 // MARK: - table Cell
 
 class AddressesDetailCell: UITableViewCell {
-    @IBOutlet weak var countryText: UITextField!
-    @IBOutlet weak var addressText: UITextField!
+//    @IBOutlet weak var countryText: UITextField!
+//    @IBOutlet weak var addressText: UITextField!
+//    @IBOutlet weak var phoneText: UITextField!
+    @IBOutlet weak var countryText: UILabel!
+    @IBOutlet weak var addressText: UILabel!
+    @IBOutlet weak var phoneText: UILabel!
+    
     
 }
 

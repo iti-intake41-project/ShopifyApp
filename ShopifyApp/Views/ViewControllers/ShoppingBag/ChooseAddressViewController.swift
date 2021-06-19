@@ -25,6 +25,7 @@ class ChooseAddressViewController: UIViewController {
     }
     
     func startView(){
+        navigationItem.title = "Choose Address"
         addressTable.delegate = self
         addressTable.dataSource = self
         viewModel = ChooseAddressViewModel(appDelegate: &delegate)
@@ -98,7 +99,7 @@ class AddressDetailCell: UITableViewCell{
     var address: Address! {
         didSet{
             countryText.text = address.country
-            addressText.text = "\(address.country ?? ""), \(address.address1 ?? "")"
+            addressText.text = "\(address.city ?? ""), \(address.address1 ?? "")"
         }
     }
     
