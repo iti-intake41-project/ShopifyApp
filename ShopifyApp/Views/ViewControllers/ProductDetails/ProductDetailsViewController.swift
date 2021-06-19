@@ -76,7 +76,7 @@ extension ProductDetailsViewController {
         ratingView.rating = ratings.randomElement() ?? 4.5
         
         if let varients = product.varients {
-            productPriceLabel.text = varients[0].price + " \(UserDefaultsLayer().getCurrency())"
+            productPriceLabel.text = FormatePrice.formatePrice(priceStr: "\(varients[0].price)")
         }
         
         productDescriptionTextView.text = product.description

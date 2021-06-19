@@ -101,7 +101,7 @@ class SettingTableViewController: UITableViewController {
     
     @IBAction func currency(_ sender: Any) {
         print("currency")
-        if isLoggedIn {
+        //if isLoggedIn {
             
             let alert = UIAlertController(title: "Choose Currency", message: nil, preferredStyle: .alert)
             
@@ -120,8 +120,8 @@ class SettingTableViewController: UITableViewController {
             alert.addAction(usd)
             alert.addAction(egp)
             self.present(alert, animated: true, completion: nil)
-        }else{
-        }
+       // }else{
+        //}
         
     }
     

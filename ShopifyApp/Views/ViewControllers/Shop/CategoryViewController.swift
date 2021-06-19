@@ -52,7 +52,7 @@ class CategoryViewController: UIViewController {
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
         
         
-        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:)))]
+        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(shoppingBagAction(_:)))]
         tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
         tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
         tabBarController?.navigationItem.leftBarButtonItems = []
@@ -214,7 +214,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         item.productImage.layer.borderColor = CGColor(srgbRed: 96/255, green: 72/255, blue: 116/255, alpha: 1)
         item.productImage.layer.cornerRadius = item.productImage.frame.height / 12
         
-        item.priceLbl.text = products[indexPath.row].varients![0].price + " \(UserDefaultsLayer().getCurrency())"
+        item.priceLbl.text = FormatePrice.formatePrice(priceStr: "\(products[indexPath.row].varients![0].price)")
         
         item.product = products[indexPath.row]
         if favouritesViewModel.isFavourite(id: products[indexPath.row].varients![0].id) {
