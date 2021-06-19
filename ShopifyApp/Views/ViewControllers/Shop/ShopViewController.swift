@@ -72,7 +72,10 @@ class ShopViewController: UIViewController{
     }
     
     @IBAction func searchAction(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "ProductList", bundle: nil)
+        let productListViewController = storyboard.instantiateViewController(withIdentifier: "productList") as! ProductListViewController
+//        productListViewController.collectionID = collections[indexPath.row]
+        navigationController?.pushViewController(productListViewController, animated: true)
     }
     
     @IBAction func shoppingBagAction(_ sender: Any) {
