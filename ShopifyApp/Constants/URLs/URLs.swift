@@ -47,6 +47,9 @@ class URLs {
     static func smartCollections() -> String {
         return baseUrl + "smart_collections.json"
     }
+    static func allProducts() -> String {
+        return baseUrl + "products.json"
+    }
     //Donia
     
 }

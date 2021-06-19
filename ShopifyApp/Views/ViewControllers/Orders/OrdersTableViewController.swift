@@ -66,7 +66,7 @@ class OrdersTableViewController: UITableViewController {
            if editingStyle == .delete {
                let alert = UIAlertController(title: "Do you Want to Delete Order", message: nil, preferredStyle: .alert)
                let yes = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
-                   self.meViewModel.deleteOrder(orderId: self.orders[indexPath.row].id!)
+            //       self.meViewModel.deleteOrder(orderId: self.orders[indexPath.row].id!)
                    self.orders.remove(at: indexPath.row)
                    tableView.deleteRows(at: [indexPath], with: .none)
            

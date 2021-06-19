@@ -60,6 +60,20 @@ class ProductListViewModel :NSObject{
               })
         
     }
-   
+    func getAllProducts (){
+
+        networkService.getAllProducts(){ (product, error) in
+              if let error : Error = error{
+
+                  let message = error.localizedDescription
+                  self.showError = message
+
+              }else{
+                  if let products = product {
+                      self.allProducts = products
+                  }
+              }
+          }
+      }
    
 }
