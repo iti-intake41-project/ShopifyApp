@@ -58,7 +58,6 @@ class FavouritesCollectionViewController: UICollectionViewController {
         cell.productImage.layer.cornerRadius = cell.productImage.frame.height / 12
 
         cell.priceLbl.text = favourites[indexPath.row].varients?[0].price
-        cell.favouriteBtn.backgroundColor = UIColor.white
         cell.isFavourite = viewModel.isFavourite(id: favourites[indexPath.row].id)
         cell.product = favourites[indexPath.row]
         cell.delegate = self

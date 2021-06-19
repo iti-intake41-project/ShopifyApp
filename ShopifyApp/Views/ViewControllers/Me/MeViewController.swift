@@ -76,7 +76,7 @@ class MeViewController: UIViewController {
         }
         
         
-        orders =  meViewModel.getOrders()
+        meViewModel.getOrders()
         favourites = favViewModel.getAllFaourites()
         //     favourites = favViewModel.favourites
         

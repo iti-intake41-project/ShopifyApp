@@ -20,7 +20,6 @@ class OrdersTableViewController: UITableViewController {
                   self.ordersTabelView.reloadData()
             print("orders count \(self.orders.count)")
               }
-        orders = meViewModel.getOrders()
     }
 
     // MARK: - Table view data source
