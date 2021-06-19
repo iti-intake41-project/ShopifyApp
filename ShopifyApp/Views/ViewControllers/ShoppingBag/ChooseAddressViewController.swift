@@ -25,6 +25,7 @@ class ChooseAddressViewController: UIViewController {
     }
     
     func startView(){
+        navigationItem.title = "Choose Address"
         addressTable.delegate = self
         addressTable.dataSource = self
         viewModel = ChooseAddressViewModel(appDelegate: &delegate)

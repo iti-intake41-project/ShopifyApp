@@ -21,6 +21,8 @@ class PaymentOptionsViewController: UIViewController {
         // Do any additional setup after loading the view.
         paymentOptionsTable.delegate = self
         paymentOptionsTable.dataSource = self
+        navigationItem.title = "Payment Options"
+
         viewBtn.roundCorners(corners: [.topLeft, .topRight], radius: 30)
         paymentBtn.layer.cornerRadius = paymentBtn.layer.frame.height / 2
     }

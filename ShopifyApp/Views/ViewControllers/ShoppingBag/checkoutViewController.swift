@@ -45,8 +45,8 @@ class checkoutViewController: UIViewController {
     }
     
     func setUI(){
+        navigationItem.title = "Check Out"
         placeOrderBtn.layer.cornerRadius = placeOrderBtn.layer.frame.height / 2
-
         for order in orders{
             subTotalPrice += (Float(order.varients?[0].price ?? "0.0") ?? 0.0) * Float(order.count)
         }
