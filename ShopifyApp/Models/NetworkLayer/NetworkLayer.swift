@@ -194,6 +194,23 @@ class NetworkLayer {
             completion(data, response, error)
         }.resume()
     }
+    
+    func deleteOrder(orderId: Int, completion: @escaping(Data?, URLResponse?, Error?)->()){
+        guard let url = URL(string: URLs.deleteOrder(id: "\(orderId)")) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        let session = URLSession.shared
+        request.httpShouldHandleCookies = false
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        session.dataTask(with: request) { (data, response, error) in
+            completion(data, response, error)
+        }.resume()
+    }
+
 
 
 

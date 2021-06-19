@@ -22,17 +22,10 @@ class ShowAddressViewModel {
         coreDataRepo = CoreDataRepository(appDelegate: &delegate)
     }
     
-    func getAddresses()/*->[Address]*/{
+    func getAddresses(){
         addresses = coreDataRepo.getAddresses()
-//        return coreDataRepo.getAddresses()
     }
     
-//    func deleteAddress(id: Int){
-//        coreDataRepo.deleteAddress(id: id)
-//        network.deleteAddress(id: id) { (data, response, error) in
-//            print("delete address")
-//        }
-//    }
     
     func deleteAddress(addressId: Int){
         network.deleteAddress(id: addressId) { [weak self] (data, response, error) in
@@ -42,7 +35,6 @@ class ShowAddressViewModel {
                 //delete address from coreData
                 self?.coreDataRepo.deleteAddress(id: addressId)
                 self?.addresses = self?.coreDataRepo.getAddresses()
-//                self?.reloadTable()
             }else{
                 print("cant delete")
                 self?.cantDeleteAddress()
