@@ -69,7 +69,7 @@ class ProductListViewController: UIViewController {
     }
 
     @IBAction func sliderAction(_ sender: UISlider) {
-        sliderLbl.text = String(Int(sender.value))
+        sliderLbl.text = "Price: " + String(Int(sender.value))
         products = orignalProducts.filter{Double($0.varients![0].price)! <= Double(sender.value) }
                print(String(Int(sender.value)))
                self.productsCollectionView.reloadData()

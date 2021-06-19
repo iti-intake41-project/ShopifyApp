@@ -55,7 +55,7 @@ class CategoryViewController: UIViewController {
         tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(shoppingBagAction(_:)))]
         tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
         tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
-        tabBarController?.navigationItem.leftBarButtonItems = []
+        tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchAction(_:)))
         tabBarController?.navigationItem.title = "Category"
         tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
     }
@@ -106,6 +106,12 @@ class CategoryViewController: UIViewController {
         item4.tintColor = UIColor(named: "mainColor")
     }
     
+    @IBAction func searchAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "ProductList", bundle: nil)
+        let productListViewController = storyboard.instantiateViewController(withIdentifier: "productList") as! ProductListViewController
+//        productListViewController.collectionID = collections[indexPath.row]
+        navigationController?.pushViewController(productListViewController, animated: true)
+    }
     
     @IBAction func shoppingBagAction(_ sender: Any) {
         if shopViewModel.isLoggedIn() {

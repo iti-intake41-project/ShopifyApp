@@ -492,11 +492,6 @@
             <point key="canvasLocation" x="-39.130434782608695" y="-414.50892857142856"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="fTb-lE-fvp">
-            <size key="intrinsicContentSize" width="155" height="27"/>
-        </designable>
-    </designables>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
@@ -504,7 +499,7 @@
             <color red="0.37599998712539673" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tabIconColor">
-            <color red="0.37647058823529411" green="0.28235294117647058" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.37599998712539673" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
