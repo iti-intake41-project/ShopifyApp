@@ -29,6 +29,7 @@ class MeViewController: UIViewController {
     var orders = [Order]()
     var orderItems = [OrderItem]()
     var productDetails: Product?
+    var order: Order?
     var count :Int = 0
     
     override func viewDidLoad() {
@@ -77,11 +78,11 @@ class MeViewController: UIViewController {
         
         orders =  meViewModel.getOrders()
         favourites = favViewModel.getAllFaourites()
-      //     favourites = favViewModel.favourites
+        //     favourites = favViewModel.favourites
         
         favViewModel.bindFavouritesList = { [weak self] in
             self?.favourites = self?.favViewModel.favourites ?? []
-//            self?.favHeight.constant = CGFloat((self?.favourites.count)! / 2 * 200)
+            //            self?.favHeight.constant = CGFloat((self?.favourites.count)! / 2 * 200)
             self?.favHeight.constant = CGFloat((self?.favourites.count)! * 200)
             
             self?.favCollectionView.reloadData()
@@ -98,29 +99,6 @@ class MeViewController: UIViewController {
         tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
     }
     
-    
-    //    func onSuccess(){
-    //        print("dcjnjnc;")
-    //       let  favouriteslist = favViewModel.favourites
-    //
-    //        self.favourites = favouriteslist
-    //        print(favourites.count)
-    //
-    //        if isLoggedIn {
-    //            if !ConnectionViewModel.isConnected(){
-    //                       showAlert(view: self)
-    //                   }
-    //            loginOrRegisterStackView.isHidden = true
-    //            orderTableView.isHidden = false
-    //            favCollectionView.isHidden = false
-    //            userLbl.text = "Welcome \(meViewModel.getUserName())"
-    //        }else{
-    //            loginOrRegisterStackView.isHidden = false
-    //            userLbl.isHidden = true
-    //            orderTableView.isHidden = true
-    //            favCollectionView.isHidden = true
-    //        }
-    //    }
     
     @IBAction func login(_ sender: UIButton) {
         
@@ -184,10 +162,31 @@ extension MeViewController :UITableViewDelegate , UITableViewDataSource {
         
         return cell
     }
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //       return 150
-    //    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       // let vc = OrderDetailsViewController()
+        //  vc.order = orders[indexPath.row]
+        //   order = orders[indexPath.row]
+        //     performSegue(withIdentifier: "OrderDetailsViewController", sender: self)
+        
+        print("did select row")
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let alert = UIAlertController(title: "Do you Want to Delete Order", message: nil, preferredStyle: .alert)
+            let yes = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
+                self.meViewModel.deleteOrder(orderId: self.orders[indexPath.row].id!)
+                self.orders.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .none)
+        
+                self.orderTableView.reloadData()
+                print("editing delete")
+            }
+            let no = UIAlertAction(title: "No", style: .default , handler: nil)
+            alert.addAction(yes)
+            alert.addAction(no)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     
 }
 extension MeViewController : UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -222,7 +221,12 @@ extension MeViewController : UICollectionViewDelegate,UICollectionViewDataSource
         if segue.identifier == "ProductDetailsViewController" {
             let navController = segue.destination as! ProductDetailsViewController
             navController.product = productDetails
+            
         }
+        //        else if segue.identifier == "OrderDetailsViewController" {
+        //            let navController = segue.destination as! OrderDetailsViewController
+        //                   navController.order = order
+        //               }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

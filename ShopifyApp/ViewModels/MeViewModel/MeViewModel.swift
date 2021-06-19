@@ -91,5 +91,15 @@ class MeViewModel{
 
       }
  
-    
+    func deleteOrder(orderId: Int){
+        network.deleteOrder(orderId: orderId) { [weak self] (data, response, error) in
+            let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Dictionary<String,Any>
+            if json.isEmpty {
+                print("deleted")
+            }else{
+                print("cant delete")
+            }
+            print(json)
+        }
+    }
 }

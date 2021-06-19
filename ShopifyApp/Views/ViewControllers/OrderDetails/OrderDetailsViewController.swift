@@ -12,7 +12,7 @@ class OrderDetailsViewController: UIViewController {
     @IBOutlet weak var oderIdLabel: UILabel!
     @IBOutlet weak var shippingToLabel: UILabel!
     @IBOutlet weak var orderDetailsTableView: UITableView!
-
+    //var order:Order?
     override func viewDidLoad() {
         super.viewDidLoad()
 
