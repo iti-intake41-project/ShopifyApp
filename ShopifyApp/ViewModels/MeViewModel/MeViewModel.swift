@@ -39,8 +39,8 @@ class MeViewModel{
                 
                 self.orders = result.orders
                 for order in APIOrders{
-                    if order.customer.id == customerId {
-                 //       print("matching order: \(order)")
+                    if order.customer.id == customerId{
+                        print("matching order: \(order)")
                         orders.append(order)
                     }
                 }

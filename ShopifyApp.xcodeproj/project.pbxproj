@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B1C1D2F267BE2D4003856E2 /* ShopifyAppTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C1D2E267BE2D4003856E2 /* ShopifyAppTests1.swift */; };
-		4B1C1D37267BE70F003856E2 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C1D36267BE70F003856E2 /* NetworkTests.swift */; };
+		4B1C1D2F267BE2D4003856E2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C1D2E267BE2D4003856E2 /* NetworkLayer.swift */; };
 		4B1C1D39267C1C27003856E2 /* ShopViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C1D38267C1C27003856E2 /* ShopViewModelTests.swift */; };
 		4B1C1D3B267C379F003856E2 /* LocalStorgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C1D3A267C379F003856E2 /* LocalStorgeTests.swift */; };
 		4B1C1D3D267C41E5003856E2 /* ShoppingBagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C1D3C267C41E5003856E2 /* ShoppingBagViewModel.swift */; };
@@ -27,6 +26,10 @@
 		4B45CAB62674BB16002FE0A8 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B45CAB52674BB16002FE0A8 /* OrderTableViewCell.swift */; };
 		4B46CD222675BAE400B191D5 /* DiscountCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CD212675BAE400B191D5 /* DiscountCodes.swift */; };
 		4B46CD242675C2F100B191D5 /* AddsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CD232675C2F100B191D5 /* AddsTableViewController.swift */; };
+		4B47E550267DB6CC0060701B /* TestAddressViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E54F267DB6CC0060701B /* TestAddressViewModels.swift */; };
+		4B47E552267DBF740060701B /* TestMeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E551267DBF740060701B /* TestMeViewModel.swift */; };
+		4B47E554267DC6E40060701B /* TestSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E553267DC6E40060701B /* TestSetting.swift */; };
+		4B47E556267DD03C0060701B /* Login&Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E555267DD03C0060701B /* Login&Register.swift */; };
 		4B562E2A267B7E8F00B1C978 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B562E29267B7E8F00B1C978 /* Reachability.swift */; };
 		4B562E2C267B81CC00B1C978 /* ShowAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B562E2B267B81CC00B1C978 /* ShowAlerts.swift */; };
 		4B562E2F267B99A500B1C978 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B562E2E267B99A500B1C978 /* ConnectionViewModel.swift */; };
@@ -118,9 +121,8 @@
 		084C039A3F7AD7FD999EBEC7 /* Pods_ShopifyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D93BFD7B1D8DD090D512522 /* Pods_ShopifyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1C1D2C267BE2D4003856E2 /* ShopifyAppTests1.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopifyAppTests1.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B1C1D2E267BE2D4003856E2 /* ShopifyAppTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAppTests1.swift; sourceTree = "<group>"; };
+		4B1C1D2E267BE2D4003856E2 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		4B1C1D30267BE2D4003856E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B1C1D36267BE70F003856E2 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		4B1C1D38267C1C27003856E2 /* ShopViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModelTests.swift; sourceTree = "<group>"; };
 		4B1C1D3A267C379F003856E2 /* LocalStorgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorgeTests.swift; sourceTree = "<group>"; };
 		4B1C1D3C267C41E5003856E2 /* ShoppingBagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +141,10 @@
 		4B45CAB52674BB16002FE0A8 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		4B46CD212675BAE400B191D5 /* DiscountCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodes.swift; sourceTree = "<group>"; };
 		4B46CD232675C2F100B191D5 /* AddsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddsTableViewController.swift; sourceTree = "<group>"; };
+		4B47E54F267DB6CC0060701B /* TestAddressViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddressViewModels.swift; sourceTree = "<group>"; };
+		4B47E551267DBF740060701B /* TestMeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMeViewModel.swift; sourceTree = "<group>"; };
+		4B47E553267DC6E40060701B /* TestSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetting.swift; sourceTree = "<group>"; };
+		4B47E555267DD03C0060701B /* Login&Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login&Register.swift"; sourceTree = "<group>"; };
 		4B562E29267B7E8F00B1C978 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4B562E2B267B81CC00B1C978 /* ShowAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlerts.swift; sourceTree = "<group>"; };
 		4B562E2E267B99A500B1C978 /* ConnectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
@@ -251,15 +257,18 @@
 		4B1C1D2D267BE2D4003856E2 /* ShopifyAppTests1 */ = {
 			isa = PBXGroup;
 			children = (
-				4B1C1D2E267BE2D4003856E2 /* ShopifyAppTests1.swift */,
+				4B1C1D2E267BE2D4003856E2 /* NetworkLayer.swift */,
 				4B1C1D30267BE2D4003856E2 /* Info.plist */,
-				4B1C1D36267BE70F003856E2 /* NetworkTests.swift */,
 				4B1C1D38267C1C27003856E2 /* ShopViewModelTests.swift */,
 				4B1C1D3A267C379F003856E2 /* LocalStorgeTests.swift */,
 				4B1C1D3C267C41E5003856E2 /* ShoppingBagViewModel.swift */,
 				4B426A42267CA19300A5D6E2 /* TestCoreDataStack.swift */,
 				4B426A44267CC14200A5D6E2 /* MockCoreDataRepository.swift */,
 				4B42D6A8267D26CA008BAFB7 /* ProductListTest.swift */,
+				4B47E54F267DB6CC0060701B /* TestAddressViewModels.swift */,
+				4B47E551267DBF740060701B /* TestMeViewModel.swift */,
+				4B47E553267DC6E40060701B /* TestSetting.swift */,
+				4B47E555267DD03C0060701B /* Login&Register.swift */,
 			);
 			path = ShopifyAppTests1;
 			sourceTree = "<group>";
@@ -940,13 +949,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B1C1D3D267C41E5003856E2 /* ShoppingBagViewModel.swift in Sources */,
-				4B1C1D37267BE70F003856E2 /* NetworkTests.swift in Sources */,
-				4B1C1D2F267BE2D4003856E2 /* ShopifyAppTests1.swift in Sources */,
+				4B1C1D2F267BE2D4003856E2 /* NetworkLayer.swift in Sources */,
 				4B1C1D39267C1C27003856E2 /* ShopViewModelTests.swift in Sources */,
 				4B1C1D3B267C379F003856E2 /* LocalStorgeTests.swift in Sources */,
+				4B47E550267DB6CC0060701B /* TestAddressViewModels.swift in Sources */,
+				4B47E552267DBF740060701B /* TestMeViewModel.swift in Sources */,
+				4B47E556267DD03C0060701B /* Login&Register.swift in Sources */,
 				4B42D6A9267D26CA008BAFB7 /* ProductListTest.swift in Sources */,
 				4B426A43267CA19300A5D6E2 /* TestCoreDataStack.swift in Sources */,
 				4B426A45267CC14200A5D6E2 /* MockCoreDataRepository.swift in Sources */,
+				4B47E554267DC6E40060701B /* TestSetting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

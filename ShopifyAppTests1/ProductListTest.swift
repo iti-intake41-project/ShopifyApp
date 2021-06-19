@@ -76,4 +76,12 @@ class ProductListTest: XCTestCase {
 //        expect.fulfill()
 //        XCTAssertEqual(fav.count, 1)
     }
+    func testFormatePrice(){
+       let price = FormatePrice.formatePrice(priceStr: "1000")
+        XCTAssertEqual(price, "USD \(Double(round(100*(1000 / 15.669931))/100))")
+    }
+    func testShowAlert(){
+//        let vm = ShopViewController()
+//        showAlert(view: vm)
+    }
 }

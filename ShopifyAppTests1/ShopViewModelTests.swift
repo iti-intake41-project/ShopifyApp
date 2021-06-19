@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import ShopifyApp
-class ViewModelTests: XCTestCase {
+class ShopViewModelTests: XCTestCase {
     let showViewModel = ShopViewModel()
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -90,5 +90,21 @@ class ViewModelTests: XCTestCase {
     func testIsLoggedIn(){
       let isLoggedIn = showViewModel.isLoggedIn()
       XCTAssertTrue(isLoggedIn)
+   //     XCTAssertTrue(!isLoggedIn)
+    
     }
+//    func testVC () {
+//         let expext = expectation(description: "expect")
+//        let vc = ShopViewController()
+//        vc.shopViewModel.bindShopViewModelToView = {
+//            guard let products = vc.shopViewModel.smartCollections else {
+//                return
+//            }
+//            expext.fulfill()
+//            XCTAssertTrue(products.count > 0)
+//        }
+//        waitForExpectations(timeout: 30, handler: nil)
+//
+//    }
 }
+

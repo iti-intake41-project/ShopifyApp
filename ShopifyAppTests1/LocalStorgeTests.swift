@@ -40,10 +40,11 @@ class LocalStorgeTests: XCTestCase {
     }
     func testgetUserName(){
        var userName =  defaultsRepository.getUserName()
-        XCTAssertEqual(userName,"Donia")
-        defaultsRepository.addUserName(userName: "Donia")
+//        XCTAssertEqual(userName,"Donia")
+        XCTAssertEqual(userName,"")
+        defaultsRepository.addUserName(userName: "donia")
         userName = defaultsRepository.getUserName()
-        XCTAssertEqual(userName, "Donia")
+        XCTAssertEqual(userName, "donia")
     }
     func testAddID(){
         defaultsRepository.addId(id: 5)
@@ -51,16 +52,19 @@ class LocalStorgeTests: XCTestCase {
     }
     func testISLoggedIn(){
        let isLoggedIn = defaultsRepository.isLoggedIn()
-        XCTAssertTrue(isLoggedIn)
-        
+ //       XCTAssertTrue(isLoggedIn)
+    //    XCTAssertTrue(!isLoggedIn)
+
     }
     func testLogout (){
-        defaultsRepository.login()
-        testISLoggedIn()
+        defaultsRepository.logut()
+         let isLoggedIn = defaultsRepository.isLoggedIn()
+        XCTAssertTrue(!isLoggedIn)
     }
     func testLogin(){
         defaultsRepository.login()
-        testISLoggedIn()
+         let isLoggedIn = defaultsRepository.isLoggedIn()
+         XCTAssertTrue(isLoggedIn)
         
     }
     func testDiscount(){
