@@ -40,14 +40,6 @@ class MeViewController: UIViewController {
         favCollectionView.dataSource = self
         favViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         
-        
-        
-        //        meViewModel.updateOrders = {
-        //            self.orderItems = self.meViewModel.orderItems
-        //            self.ordersHieght.constant = CGFloat((self.orderItems.count / 2) * 120)
-        //            self.orderTableView.reloadData()
-        //        }
-        
         meViewModel.bindOrders = {
             self.orders = self.meViewModel.orders
             //        self.ordersHieght.constant = CGFloat((self.orders.count / 2) * 120)
@@ -80,6 +72,21 @@ class MeViewController: UIViewController {
         print("willappear")
         
         isLoggedIn = meViewModel.isLoggedIn()
+        if isLoggedIn {
+                   if !ConnectionViewModel.isConnected(){
+                              showAlert(view: self)
+                          }
+                   loginOrRegisterStackView.isHidden = true
+                   orderTableView.isHidden = false
+                   favCollectionView.isHidden = false
+                   userLbl.text = "Welcome \(meViewModel.getUserName())"
+               }else{
+                   loginOrRegisterStackView.isHidden = false
+                   userLbl.isHidden = true
+                   orderTableView.isHidden = true
+                   favCollectionView.isHidden = true
+               }
+
         
         tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gotoSetting(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(goToShoppingBag(_:)))]
         tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
