@@ -19,6 +19,14 @@ class FavouritesCollectionViewController: UICollectionViewController {
         viewModel.bindFavouritesList = { [weak self] in
             self?.favourites = self?.viewModel.favourites ?? []
             self?.collectionView.reloadData()
+            
+            if self!.favourites.count == 0 {
+                let imageView = UIImageView(image: UIImage(named: "emptyFav"))
+                imageView.contentMode = .scaleAspectFill
+                self!.collectionView.backgroundView = imageView
+            }else{
+                self!.collectionView.backgroundView = nil
+            }
         }
         favourites = viewModel.favourites
 
