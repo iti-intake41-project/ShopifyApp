@@ -82,8 +82,11 @@ class MeViewController: UIViewController {
         isLoggedIn = meViewModel.isLoggedIn()
         
         tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gotoSetting(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(goToShoppingBag(_:)))]
+        tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
+        tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
         tabBarController?.navigationItem.leftBarButtonItems =  []
         tabBarController?.navigationItem.title = "Me"
+        tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
     }
     
     

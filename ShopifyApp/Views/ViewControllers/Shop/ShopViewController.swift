@@ -37,8 +37,12 @@ class ShopViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(searchAction(_:)))]
+        tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
+        tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
         tabBarController?.navigationItem.leftBarButtonItem =  UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(favoriteAction(_:)))
+        tabBarController?.navigationItem.leftBarButtonItems![0].tintColor = .white
         tabBarController?.navigationItem.title = "Home"
+        tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
     }
     
     func onSuccessUpdateView() {

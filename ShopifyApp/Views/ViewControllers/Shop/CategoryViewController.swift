@@ -48,13 +48,16 @@ class CategoryViewController: UIViewController {
         if !ConnectionViewModel.isConnected(){
                           showAlert(view: self)
                       }
-        toolBar.items![0].tintColor = .black
+        toolBar.items![0].tintColor = UIColor(named: "mainColor")
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
         
         
         tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:)))]
+        tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
+        tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
         tabBarController?.navigationItem.leftBarButtonItems = []
         tabBarController?.navigationItem.title = "Category"
+        tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
     }
     
     @IBAction func item1(_ sender: Any) {

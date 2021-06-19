@@ -160,11 +160,13 @@
                     <navigationItem key="navigationItem" title="Products" id="sxr-N9-lC2">
                         <rightBarButtonItems>
                             <barButtonItem title="Filter" id="yZD-ks-Wp8">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="filterAction:" destination="966-cE-v6a" id="VPT-V2-DuR"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="line.horizontal.3.decrease" catalog="system" id="KcD-Qc-o2b">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="sortAction:" destination="966-cE-v6a" id="1Zh-9M-bUJ"/>
                                 </connections>
