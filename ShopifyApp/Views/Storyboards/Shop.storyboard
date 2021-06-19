@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -122,13 +123,17 @@
                                                     <constraint firstAttribute="height" constant="30" id="cjG-ul-B37"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                <color key="textColor" red="0.48211984540000002" green="0.088810474139999998" blue="0.48086372690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" name="tabIconColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUe-Qj-o5Q">
                                                 <rect key="frame" x="20" y="34.999999999999972" width="379" height="474.33333333333326"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dP3-Zh-Vdg">
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aNR-5n-X5r">
+                                                        <rect key="frame" x="171" y="218.66666666666669" width="37" height="37"/>
+                                                        <color key="color" name="mainColor"/>
+                                                    </activityIndicatorView>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dP3-Zh-Vdg">
                                                         <rect key="frame" x="10" y="10" width="359" height="454.33333333333331"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5x0-bj-ffR">
@@ -158,8 +163,8 @@
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVq-oU-EJE">
                                                                                     <rect key="frame" x="0.0" y="150" width="180" height="20.333333333333343"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <color key="textColor" red="0.48627450980392156" green="0.32941176470588235" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                                    <color key="textColor" name="tabIconColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
@@ -190,11 +195,13 @@
                                                         </connections>
                                                     </collectionView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.41974140476948352" green="0.31213612816009145" blue="0.50563332469192968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="dP3-Zh-Vdg" secondAttribute="trailing" constant="10" id="25K-2r-EF4"/>
                                                     <constraint firstItem="dP3-Zh-Vdg" firstAttribute="leading" secondItem="uUe-Qj-o5Q" secondAttribute="leading" constant="10" id="2w4-mi-IwK"/>
+                                                    <constraint firstItem="aNR-5n-X5r" firstAttribute="centerX" secondItem="uUe-Qj-o5Q" secondAttribute="centerX" id="IT1-lx-xTd"/>
                                                     <constraint firstAttribute="bottom" secondItem="dP3-Zh-Vdg" secondAttribute="bottom" constant="10" id="TUK-QY-XCl"/>
+                                                    <constraint firstItem="aNR-5n-X5r" firstAttribute="centerY" secondItem="uUe-Qj-o5Q" secondAttribute="centerY" id="iBM-Ea-uxW"/>
                                                     <constraint firstItem="dP3-Zh-Vdg" firstAttribute="top" secondItem="uUe-Qj-o5Q" secondAttribute="top" constant="10" id="vLT-B2-tlK"/>
                                                 </constraints>
                                             </view>
@@ -247,6 +254,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adsImage" destination="azh-ih-yGt" id="Gav-E1-GgR"/>
+                        <outlet property="loading" destination="aNR-5n-X5r" id="DE0-E7-CgG"/>
                         <outlet property="vendorCollectionView" destination="dP3-Zh-Vdg" id="NXr-nf-Tyq"/>
                         <outlet property="vendorView" destination="uUe-Qj-o5Q" id="adu-Cn-nRp"/>
                         <segue destination="HhF-vL-mQw" kind="show" identifier="login" id="4LJ-8E-3wH"/>
@@ -314,8 +322,17 @@
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="pic" width="569" height="351"/>
+        <namedColor name="mainColor">
+            <color red="0.37599998712539673" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tabIconColor">
+            <color red="0.37647058823529411" green="0.28235294117647058" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

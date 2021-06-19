@@ -195,6 +195,8 @@ extension MeViewController : UICollectionViewDelegate,UICollectionViewDataSource
         cell.imageWidth.constant = (favCollectionView.frame.width / 2) - 10
         cell.imageHeight.constant = (favCollectionView.frame.height / 2) - 40
         cell.productImg.sd_setImage(with: URL(string:favourites[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
+        cell.productImg.layer.borderWidth = 1
+        cell.productImg.layer.borderColor = CGColor(srgbRed: 96/255, green: 72/255, blue: 116/255, alpha: 1)
         cell.productLbl.text = favourites[indexPath.row].varients?[0].price
         //      cell.productLbl.text = "dckvmw"
         return cell

@@ -63,7 +63,7 @@ class CategoryViewController: UIViewController {
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
         
         print("1")
-        item1.tintColor = .black
+        item1.tintColor = UIColor(named: "mainColor")
         item2.tintColor = .link
         item3.tintColor = .link
         item4.tintColor = .link
@@ -76,7 +76,7 @@ class CategoryViewController: UIViewController {
         print("2")
 
         item1.tintColor = .link
-        item2.tintColor = .black
+        item2.tintColor = UIColor(named: "mainColor")
         item3.tintColor = .link
         item4.tintColor = .link
     }
@@ -88,7 +88,7 @@ class CategoryViewController: UIViewController {
 
         item1.tintColor = .link
         item2.tintColor = .link
-        item3.tintColor = .black
+        item3.tintColor = UIColor(named: "mainColor")
         item4.tintColor = .link
     }
     @IBAction func item4(_ sender: Any) {
@@ -100,7 +100,7 @@ class CategoryViewController: UIViewController {
         item1.tintColor = .link
         item2.tintColor = .link
         item3.tintColor = .link
-        item4.tintColor = .black
+        item4.tintColor = UIColor(named: "mainColor")
     }
     
     
@@ -161,7 +161,7 @@ extension CategoryViewController {
         actionButton.buttonDiameter = 50
         actionButton.overlayView.backgroundColor = UIColor(white: 0, alpha: 0.3)
         actionButton.buttonImage = UIImage(named: "sneakers")
-        actionButton.buttonColor = .black
+        actionButton.buttonColor = UIColor(named: "mainColor")!
         actionButton.buttonImageColor = .white
         actionButton.buttonImageSize = CGSize(width: 20, height: 20)
 
@@ -208,6 +208,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         
         item.productImage.sd_setImage(with: URL(string: products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
         item.productImage.layer.borderWidth = 1
+        item.productImage.layer.borderColor = CGColor(srgbRed: 96/255, green: 72/255, blue: 116/255, alpha: 1)
         item.productImage.layer.cornerRadius = item.productImage.frame.height / 12
         
         item.priceLbl.text = products[indexPath.row].varients![0].price + " \(UserDefaultsLayer().getCurrency())"

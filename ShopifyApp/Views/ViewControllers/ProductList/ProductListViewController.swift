@@ -132,6 +132,7 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
         cell.productImage.sd_setImage(with: URL(string:products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
         cell.productImage.layer.borderWidth = 1
         cell.productImage.layer.cornerRadius = cell.productImage.frame.height / 12
+        cell.productImage.layer.borderColor = CGColor(srgbRed: 96/255, green: 72/255, blue: 116/255, alpha: 1)
 
         var price = products[indexPath.row].varients?[0].price
 

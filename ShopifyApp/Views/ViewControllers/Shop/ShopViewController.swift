@@ -12,6 +12,7 @@ class ShopViewController: UIViewController{
     @IBOutlet weak var adsImage: UIImageView!
     @IBOutlet weak var vendorView: UIView!
     @IBOutlet weak var vendorCollectionView: UICollectionView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var products: [Product] = [Product]()
     var collections = [CustomCollections]()
@@ -21,7 +22,7 @@ class ShopViewController: UIViewController{
         super.viewDidLoad()
         style()
         
-      
+        loading.startAnimating()
         // Do any additional setup after loading the view.
          //    productSearchBar.delegate = self
         shopViewModel.fetchSmartCollection()
@@ -46,6 +47,7 @@ class ShopViewController: UIViewController{
             return
         }
         self.collections = collections
+        self.loading.stopAnimating()
         self.vendorCollectionView.reloadData()
         for i in collections {
             print(i.title)
@@ -118,6 +120,7 @@ extension ShopViewController {
         
         vendorView.layer.cornerRadius = vendorView.frame.height / 14
         vendorView.layer.borderWidth = 1
+        vendorView.layer.borderColor = CGColor(srgbRed: 96/255, green: 72/255, blue: 116/255, alpha: 1)
         
         tabBarController?.tabBar.items![0].image = UIImage(systemName: "homekit")
         tabBarController?.tabBar.items![0].title = "Home"
@@ -140,6 +143,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         vendor.image.sd_setImage(with: URL(string: collections[indexPath.row].image?.src ?? ""), placeholderImage: UIImage(named: "noImage"))
         vendor.image.layer.borderWidth = 1
         vendor.image.layer.cornerRadius = vendor.image.frame.height / 12
+        vendor.image.layer.borderColor = CGColor(srgbRed: 96/255, green: 72/255, blue: 116/255, alpha: 1)
         
         //     vendor.name.text = "\(indexPath.row)"
         vendor.name.text = collections[indexPath.row].title
