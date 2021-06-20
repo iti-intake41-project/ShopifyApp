@@ -16,10 +16,12 @@ class ShopViewController: UIViewController{
     
     var products: [Product] = [Product]()
     var collections = [CustomCollections]()
+    var adds: [DiscountCode] = [DiscountCode]()
     let shopViewModel: ShopViewModel = ShopViewModel()
     var shoppingViewModel: ShoppingBagViewModel!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var adsNum = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
@@ -30,6 +32,12 @@ class ShopViewController: UIViewController{
          //    productSearchBar.delegate = self
         shopViewModel.fetchSmartCollection()
         shopViewModel.bindsmartCollectionsViewModelToView = onSuccessUpdateView
+        
+        shopViewModel.fetchAdds()
+        shopViewModel.bindAddsViewModelToView = onSuccessAddsUpdateView
+        shopViewModel.bindViewModelErrorToView = onFailUpdateView
+        
+        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(adsSwitcher), userInfo: nil, repeats: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         style()
@@ -39,15 +47,14 @@ class ShopViewController: UIViewController{
         }
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(shoppingBagAction(_:)))]
-        tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
-        tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
-        tabBarController?.navigationItem.leftBarButtonItem =  UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchAction(_:)))
-        tabBarController?.navigationItem.leftBarButtonItems![0].tintColor = .white
-        tabBarController?.navigationItem.title = "Home"
-        tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
+    @objc func adsSwitcher() {
+        adsImage.image = UIImage(named: "ad\(adsNum)")
+        
+        if adsNum == 1 {
+            adsNum = 2
+        }else{
+            adsNum = 1
+        }
     }
     
     func onSuccessUpdateView() {
@@ -76,6 +83,16 @@ class ShopViewController: UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
     
+    func onSuccessAddsUpdateView (){
+        guard let adds = shopViewModel.adds
+            else{
+                print("no adds")
+                return
+        }
+        self.adds = adds
+        print(adds[0].code)
+    }
+    
     @IBAction func searchAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "ProductList", bundle: nil)
         let productListViewController = storyboard.instantiateViewController(withIdentifier: "productList") as! ProductListViewController
@@ -102,6 +119,16 @@ class ShopViewController: UIViewController{
         }
     }
     
+    @IBAction func addsAction(_ sender: Any) {
+        if adds.count != 0 {
+            UIPasteboard.general.string = adds[0].code
+            
+            let alert = UIAlertController(title: "Done", message: "Discount code copied", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare")
         print(collections.count)
@@ -122,6 +149,8 @@ class ShopViewController: UIViewController{
                 vc.collectionID = collections[3]
             }
         }
+        
+        
     }
 }
 extension ShopViewController {
@@ -142,6 +171,13 @@ extension ShopViewController {
         }else{
             tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(shoppingBagAction(_:)))]
         }
+        
+        tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
+        tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
+        tabBarController?.navigationItem.leftBarButtonItem =  UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchAction(_:)))
+        tabBarController?.navigationItem.leftBarButtonItems![0].tintColor = .white
+        tabBarController?.navigationItem.title = "Home"
+        tabBarController?.navigationItem.backBarButtonItem?.tintColor = .white
     }
 }
 

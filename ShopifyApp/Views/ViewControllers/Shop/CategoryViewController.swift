@@ -40,18 +40,19 @@ class CategoryViewController: UIViewController {
         favouritesViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
         
         createFloatingButton()
+        
+        toolBar.items![0].tintColor = UIColor(named: "mainColor")
+        shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
     }
     override func viewWillAppear(_ animated: Bool) {
-         if !ConnectionViewModel.isConnected(){
-                   showAlert(view: self)
-               }
+        if !ConnectionViewModel.isConnected(){
+            showAlert(view: self)
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         if !ConnectionViewModel.isConnected(){
-                          showAlert(view: self)
-                      }
-        toolBar.items![0].tintColor = UIColor(named: "mainColor")
-        shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
+            showAlert(view: self)
+        }
         
         if shoppingViewModel.getShoppingCartProductList().count != 0 {
             tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.badge.plus.fill"), style: .plain, target: self, action: #selector(shoppingBagAction(_:)))]
@@ -68,7 +69,7 @@ class CategoryViewController: UIViewController {
         
         
     }
-    
+        
     @IBAction func item1(_ sender: Any) {
         
         toolBarItem = 4
