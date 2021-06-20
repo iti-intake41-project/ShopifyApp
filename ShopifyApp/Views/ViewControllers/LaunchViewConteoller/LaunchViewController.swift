@@ -11,7 +11,7 @@ class LaunchViewController: UIViewController {
    let animatedView = AnimationView()
     private let imgView :UIImageView = {
         let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-        imgView.image = UIImage(named: "clothes")
+        imgView.image = UIImage(named: "icons8-buying-96")
         return imgView
     }()
     
@@ -34,7 +34,7 @@ class LaunchViewController: UIViewController {
         })
     }
     private func animation(){
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 1.5, animations: {
             let size = self.view.frame.size.width * 3
             let diffX = size - self.view.frame.size.width
             let diffY = self.view.frame.size.height - size

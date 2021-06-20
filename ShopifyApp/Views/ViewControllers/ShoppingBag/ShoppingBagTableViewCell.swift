@@ -57,7 +57,7 @@ class ShoppingBagTableViewCell: UITableViewCell {
         priceView.layer.cornerRadius = 15
         priceView.layer.borderWidth = 2
         if #available(iOS 13.0, *) {
-            priceView.layer.borderColor = CGColor(red: 230, green: 0, blue: 0, alpha: 1)
+//            priceView.layer.borderColor = CGColor(red: 230, green: 0, blue: 0, alpha: 1)
         } else {
             // Fallback on earlier versions
         }
