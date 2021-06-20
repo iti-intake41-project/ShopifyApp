@@ -50,8 +50,6 @@ class ShoppingBagTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        countStack.layer.cornerRadius = 15
-//        countStack.layer.borderWidth = 1
         minusBtn.layer.cornerRadius = 15
         minusBtn.layer.borderWidth = 2
         plusBtn.layer.cornerRadius = 15
@@ -59,7 +57,7 @@ class ShoppingBagTableViewCell: UITableViewCell {
         priceView.layer.cornerRadius = 15
         priceView.layer.borderWidth = 2
         if #available(iOS 13.0, *) {
-      //      priceView.layer.borderColor = CGColor(red: 230, green: 0, blue: 0, alpha: 1)
+            priceView.layer.borderColor = CGColor(red: 230, green: 0, blue: 0, alpha: 1)
         } else {
             // Fallback on earlier versions
         }

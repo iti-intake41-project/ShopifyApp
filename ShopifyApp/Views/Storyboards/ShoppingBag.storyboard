@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9pW-4y-Sxn">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WJ0-DC-4Ov">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WJ0-DC-4Ov">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="632"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -206,13 +206,13 @@
                                             <constraint firstAttribute="trailing" secondItem="RQf-tq-99x" secondAttribute="trailing" constant="20" symbolic="YES" id="EV9-Bz-qfF"/>
                                             <constraint firstItem="RQf-tq-99x" firstAttribute="leading" secondItem="8LA-5Z-4kP" secondAttribute="leading" constant="20" symbolic="YES" id="Gfr-Bo-YQn"/>
                                             <constraint firstItem="exB-4s-Lir" firstAttribute="top" secondItem="8LA-5Z-4kP" secondAttribute="top" constant="22" id="Jqe-KW-XmJ"/>
+                                            <constraint firstItem="RQf-tq-99x" firstAttribute="top" secondItem="exB-4s-Lir" secondAttribute="bottom" constant="34" id="TK5-0N-BIj"/>
                                             <constraint firstItem="exB-4s-Lir" firstAttribute="leading" secondItem="8LA-5Z-4kP" secondAttribute="leading" constant="20" symbolic="YES" id="cNg-V7-Blu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WJ0-DC-4Ov" firstAttribute="leading" secondItem="9pW-4y-Sxn" secondAttribute="leading" id="Fov-Jo-it8"/>
-                                    <constraint firstAttribute="bottom" secondItem="WJ0-DC-4Ov" secondAttribute="bottom" constant="220" id="OLc-Lv-Bbb"/>
                                     <constraint firstAttribute="trailing" secondItem="WJ0-DC-4Ov" secondAttribute="trailing" id="XYo-cY-1M8"/>
                                     <constraint firstItem="WJ0-DC-4Ov" firstAttribute="top" secondItem="9pW-4y-Sxn" secondAttribute="top" id="bH1-Js-U1m"/>
                                 </constraints>
@@ -1012,7 +1012,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cU8-f6-een"/>
+        <segue reference="ITN-NX-Ddl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>

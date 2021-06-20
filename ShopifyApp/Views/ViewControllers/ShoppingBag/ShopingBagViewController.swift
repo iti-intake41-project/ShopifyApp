@@ -36,11 +36,6 @@ class ShoppingBagViewController: UIViewController {
         totalPriceView.layer.cornerRadius = totalPriceView.layer.frame.height / 4
         checkoutBtn.layer.cornerRadius = checkoutBtn.layer.frame.height / 2
 //        shoppingTable.backgroundView = UIImageView(image: UIImage(named: "cart background.jpg"))
-        if list.count == 0 {
-            shoppingTable.backgroundView = UIImageView(image: UIImage(named: "empty cart.jpeg"))
-
-            
-        }
     }
     
     func bindToViewModel(){
@@ -95,10 +90,19 @@ class ShoppingBagViewController: UIViewController {
         for product in list{
             totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
         }
-        if viewModel.getCurrency() == "EGP"{
-            totalPriceText.text = String(format: "EGP %.2f", totalPrice)
+//        if viewModel.getCurrency() == "EGP"{
+//            totalPriceText.text = String(format: "EGP %.2f", totalPrice)
+//        }else{
+//            totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+//        }
+        totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+        
+        if list.count == 0 {
+            let imageView = UIImageView(image: UIImage(named: "noSearch"))
+            imageView.contentMode = .scaleAspectFill
+            shoppingTable.backgroundView = imageView
         }else{
-            totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+            shoppingTable.backgroundView = nil
         }
     }
     
@@ -129,13 +133,14 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
         cell.delegate = self
         cell.isFavourite = viewModel.isFavourite(id: list[indexPath.row].varients?[0].id ?? 0)
         cell.product = list[indexPath.row]
-        if viewModel.getCurrency() == "EGP"{
-            let cost = Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0
-            
-            cell.productPrice.text = "\((FormatePrice.formatePrice(priceStr: "\(cost)")))"
-        }else{
-            cell.productPrice.text = "US$\(FormatePrice.toEGP(amount: Double(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
-        }
+//        if viewModel.getCurrency() == "EGP"{
+//            let cost = Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0
+//
+//            cell.productPrice.text = "\((FormatePrice.formatePrice(priceStr: "\(cost)")))"
+//        }else{
+//            cell.productPrice.text = "US$\(FormatePrice.toEGP(amount: Double(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
+//        }
+        cell.productPrice.text = FormatePrice.formatePrice(priceStr: "\(list[indexPath.row].varients?[0].price ?? "0.0")")
         return cell
     }
     
