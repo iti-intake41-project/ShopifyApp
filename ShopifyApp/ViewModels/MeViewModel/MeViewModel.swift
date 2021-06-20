@@ -31,7 +31,6 @@ class MeViewModel{
             case .success(let result):
             //   print("result: \(result)")
                 let APIOrders = result.orders
-                self.orders = result.orders
                 for order in APIOrders{
                     if order.customer.id == customerId {
                  //       print("matching order: \(order)")
@@ -46,14 +45,11 @@ class MeViewModel{
 //
 //                }
                print("orders count \(comingOrder.count)")
-                print("orders count \(self.orders.count)")
+                print("orders count \(self.orders?.count)")
                 
                 if comingOrder.count > 0{
                     print("set order list")
-                    DispatchQueue.main.sync {
                         self.orders = comingOrder
-
-                    }
 
                 }
                 

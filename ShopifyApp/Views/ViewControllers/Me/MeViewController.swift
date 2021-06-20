@@ -43,6 +43,7 @@ class MeViewController: UIViewController {
         
         meViewModel.bindOrders = {
             self.orders = self.meViewModel.orders
+            print("set order: \(self.orders.count)")
             //        self.ordersHieght.constant = CGFloat((self.orders.count / 2) * 120)
             if(self.orders.count >= 6){
                 self.count = 6
@@ -68,6 +69,8 @@ class MeViewController: UIViewController {
             orderTableView.isHidden = false
             favCollectionView.isHidden = false
             userLbl.text = "Welcome \(meViewModel.getUserName())"
+            meViewModel.getOrders()
+
         }else{
             loginOrRegisterStackView.isHidden = false
             userLbl.isHidden = true
@@ -76,7 +79,6 @@ class MeViewController: UIViewController {
         }
         
         
-        meViewModel.getOrders()
         favourites = favViewModel.getAllFaourites()
         //     favourites = favViewModel.favourites
         
@@ -174,7 +176,7 @@ extension MeViewController :UITableViewDelegate , UITableViewDataSource {
         if editingStyle == .delete {
             let alert = UIAlertController(title: "Do you Want to Delete Order", message: nil, preferredStyle: .alert)
             let yes = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
-         //       self.meViewModel.deleteOrder(orderId: self.orders[indexPath.row].id!)
+                self.meViewModel.deleteOrder(orderId: self.orders[indexPath.row].id!)
                 self.orders.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .none)
         
