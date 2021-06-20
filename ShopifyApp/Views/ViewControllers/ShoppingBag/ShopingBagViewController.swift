@@ -98,7 +98,7 @@ class ShoppingBagViewController: UIViewController {
         totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
         
         if list.count == 0 {
-            let imageView = UIImageView(image: UIImage(named: "noSearch"))
+            let imageView = UIImageView(image: UIImage(named: "emptyBag"))
             imageView.contentMode = .scaleAspectFill
             shoppingTable.backgroundView = imageView
         }else{

@@ -41,6 +41,16 @@ class FavouritesCollectionViewController: UICollectionViewController {
         if !ConnectionViewModel.isConnected(){
             showAlert(view: self)
         }
+        
+        tabBarController?.navigationItem.title = "Favorite"
+        
+        if favourites.count == 0 {
+            let imageView = UIImageView(image: UIImage(named: "emptyFav"))
+            imageView.contentMode = .scaleAspectFill
+            collectionView.backgroundView = imageView
+        }else{
+            collectionView.backgroundView = nil
+        }
     }
 
     
@@ -52,14 +62,13 @@ class FavouritesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "ProductsCollectionViewCell", for: indexPath) as! ProductsCollectionViewCell
         
-        cell.imageWidth.constant = (collectionView.frame.width / 2) - 10
-        cell.imageHeight.constant = (collectionView.frame.height / 2) - 40
+        cell.imageWidth.constant = (collectionView.frame.width / 2) - 20
+        cell.imageHeight.constant = (collectionView.frame.height / 4)
         
         cell.productImage.sd_setImage(with: URL(string:favourites[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
         cell.productImage.layer.borderWidth = 1
         cell.productImage.layer.cornerRadius = cell.productImage.frame.height / 12
-
-        cell.priceLbl.text = favourites[indexPath.row].varients?[0].price
+        cell.priceLbl.text = FormatePrice.formatePrice(priceStr: favourites[indexPath.row].varients?[0].price)
         cell.isFavourite = viewModel.isFavourite(id: favourites[indexPath.row].id)
         cell.product = favourites[indexPath.row]
         cell.delegate = self
@@ -83,7 +92,7 @@ class FavouritesCollectionViewController: UICollectionViewController {
 
 extension FavouritesCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 2) - 35)
+        return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 4) - 35)
     }
 }
 
