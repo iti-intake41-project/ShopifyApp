@@ -17,10 +17,13 @@ class ShopViewController: UIViewController{
     var products: [Product] = [Product]()
     var collections = [CustomCollections]()
     let shopViewModel: ShopViewModel = ShopViewModel()
+    var shoppingViewModel: ShoppingBagViewModel!
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
+        shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+        //style()
         
         loading.startAnimating()
         // Do any additional setup after loading the view.
@@ -29,6 +32,8 @@ class ShopViewController: UIViewController{
         shopViewModel.bindsmartCollectionsViewModelToView = onSuccessUpdateView
     }
     override func viewWillAppear(_ animated: Bool) {
+        style()
+        
         if !ConnectionViewModel.isConnected(){
             showAlert(view: self)
         }
@@ -131,6 +136,12 @@ extension ShopViewController {
         
         tabBarController?.tabBar.items![0].image = UIImage(systemName: "homekit")
         tabBarController?.tabBar.items![0].title = "Home"
+        
+        if shoppingViewModel.getShoppingCartProductList().count != 0 {
+            tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.badge.plus.fill"), style: .plain, target: self, action: #selector(shoppingBagAction(_:)))]
+        }else{
+            tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favoriteAction(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(shoppingBagAction(_:)))]
+        }
     }
 }
 

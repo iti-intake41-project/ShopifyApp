@@ -851,19 +851,19 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="334" height="120.33333333333333"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L92-Mp-JZa">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="120.33333333333333"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="120.33333333333333"/>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="opM-d5-E5V">
-                                                                    <rect key="frame" x="127" y="0.0" width="207" height="120.33333333333333"/>
+                                                                    <rect key="frame" x="128" y="0.0" width="206" height="120.33333333333333"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX0-Gs-HN7">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="207" height="33.333333333333336"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="206" height="33.333333333333336"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YPC-UV-VN8">
-                                                                            <rect key="frame" x="0.0" y="43.333333333333343" width="207" height="33.666666666666657"/>
+                                                                            <rect key="frame" x="0.0" y="43.333333333333343" width="206" height="33.666666666666657"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="752" ambiguous="YES" text="Price: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W14-cB-Gne">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="58.666666666666664" height="33.666666666666664"/>
@@ -872,7 +872,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgK-Yy-TKA">
-                                                                                    <rect key="frame" x="63.666666666666643" y="0.0" width="143.33333333333337" height="33.666666666666664"/>
+                                                                                    <rect key="frame" x="63.666666666666643" y="0.0" width="142.33333333333337" height="33.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -886,7 +886,7 @@
                                                                             </constraints>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-R0-E3W">
-                                                                            <rect key="frame" x="0.0" y="87" width="207" height="33.333333333333343"/>
+                                                                            <rect key="frame" x="0.0" y="87" width="206" height="33.333333333333343"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="752" ambiguous="YES" text="Quantity: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23s-pY-juD">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="92" height="33.333333333333336"/>
@@ -895,7 +895,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDH-fn-Zia">
-                                                                                    <rect key="frame" x="97" y="0.0" width="110" height="33.333333333333336"/>
+                                                                                    <rect key="frame" x="97" y="0.0" width="109" height="33.333333333333336"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
