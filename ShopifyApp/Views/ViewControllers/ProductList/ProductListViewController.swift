@@ -128,8 +128,8 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell =  productsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductsCollectionViewCell", for: indexPath) as! ProductsCollectionViewCell
-        cell.imageWidth.constant = (collectionView.frame.width / 2) - 10
-        cell.imageHeight.constant = (collectionView.frame.height / 2) - 40
+        cell.imageWidth.constant = (collectionView.frame.width / 2) - 20
+        cell.imageHeight.constant = (collectionView.frame.height / 4)
         
         cell.productImage.sd_setImage(with: URL(string:products[indexPath.row].images[0].src), placeholderImage: UIImage(named: "noImage"))
         cell.productImage.layer.borderWidth = 1
@@ -166,7 +166,7 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 2) - 35)
+        return CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.height / 4) - 35)
     }
 }
 

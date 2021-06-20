@@ -25,6 +25,7 @@ class MeViewController: UIViewController {
     var meViewModel = MeViewModel()
     var isLoggedIn = false
     var favViewModel:FavouriteViewModelTemp!
+    var shoppingViewModel: ShoppingBagViewModel!
     var favourites = [Product]()
     var orders = [Order]()
     var orderItems = [OrderItem]()
@@ -40,6 +41,15 @@ class MeViewController: UIViewController {
         favCollectionView.delegate = self
         favCollectionView.dataSource = self
         favViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+        shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
+
+        
+        
+        //        meViewModel.updateOrders = {
+        //            self.orderItems = self.meViewModel.orderItems
+        //            self.ordersHieght.constant = CGFloat((self.orderItems.count / 2) * 120)
+        //            self.orderTableView.reloadData()
+        //        }
         
         meViewModel.bindOrders = {
             self.orders = self.meViewModel.orders
@@ -93,7 +103,12 @@ class MeViewController: UIViewController {
         print("willappear")
         
         
-        tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gotoSetting(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(goToShoppingBag(_:)))]
+        if shoppingViewModel.getShoppingCartProductList().count != 0 {
+            tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gotoSetting(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.badge.plus.fill"), style: .plain, target: self, action: #selector(goToShoppingBag(_:)))]
+        }else{
+            tabBarController?.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(gotoSetting(_:))),  UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(goToShoppingBag(_:)))]
+        }
+
         tabBarController?.navigationItem.rightBarButtonItems![0].tintColor = .white
         tabBarController?.navigationItem.rightBarButtonItems![1].tintColor = .white
         tabBarController?.navigationItem.leftBarButtonItems =  []

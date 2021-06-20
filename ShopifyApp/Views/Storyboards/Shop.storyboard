@@ -16,7 +16,7 @@
             <objects>
                 <tableViewController id="Ics-vI-adi" customClass="AddsTableViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SI3-nm-QAO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -107,7 +107,7 @@
                                             <constraint firstAttribute="width" secondItem="xK2-gd-yxt" secondAttribute="height" multiplier="379:40" id="tKU-bw-xe3"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="azh-ih-yGt">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad1" translatesAutoresizingMaskIntoConstraints="NO" id="azh-ih-yGt">
                                         <rect key="frame" x="20" y="0.0" width="379" height="224.66666666666666"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -268,7 +268,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYM-tV-b9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="M33-Ws-n9r">
                     <connections>
-                        <segue destination="Ics-vI-adi" kind="show" identifier="adds" id="NAx-X6-sgQ"/>
+                        <action selector="addsAction:" destination="0vF-Za-LrV" id="gPY-un-KVc"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -316,17 +316,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ad1" width="628" height="419"/>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="pic" width="569" height="351"/>
         <namedColor name="mainColor">
             <color red="0.37599998712539673" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tabIconColor">
-            <color red="0.37647058823529411" green="0.28235294117647058" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.37599998712539673" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
