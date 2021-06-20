@@ -29,6 +29,11 @@ class URLs {
     static func order()->String{
         return baseUrl + "orders.json"
     }
+    
+    static func deleteOrder(id: String)->String{
+        return baseUrl + "orders/\(id).json"
+    }
+
 
     static func discountCodes(priceRuleID: String) -> String {
               return baseUrl + "price_rules/950161080518/discount_codes.json"
