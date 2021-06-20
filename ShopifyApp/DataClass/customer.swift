@@ -49,6 +49,8 @@ struct OrderItem: Codable {
 
 struct OrderCustomer: Codable {
     var id: Int
+    var first_name :String?
+    
 }
 
 struct Order: Codable {

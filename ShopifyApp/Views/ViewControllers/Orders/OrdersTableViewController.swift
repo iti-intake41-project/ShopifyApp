@@ -61,11 +61,12 @@ class OrdersTableViewController: UITableViewController {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.systemPink
     }
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
            if editingStyle == .delete {
                let alert = UIAlertController(title: "Do you Want to Delete Order", message: nil, preferredStyle: .alert)
                let yes = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
-            //       self.meViewModel.deleteOrder(orderId: self.orders[indexPath.row].id!)
+                   self.meViewModel.deleteOrder(orderId: self.orders[indexPath.row].id!)
                    self.orders.remove(at: indexPath.row)
                    tableView.deleteRows(at: [indexPath], with: .none)
            
@@ -78,6 +79,15 @@ class OrdersTableViewController: UITableViewController {
                self.present(alert, animated: true, completion: nil)
            }
        }
+
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+////        let vc = OrderDetailsViewController()
+////          vc.order = orders[indexPath.row]
+////           order = orders[indexPath.row]
+////             performSegue(withIdentifier: "OrderDetailsViewController", sender: self)
+////        
+//        print("did select row")
+//    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

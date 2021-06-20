@@ -11,7 +11,7 @@ class LaunchViewController: UIViewController {
    let animatedView = AnimationView()
     private let imgView :UIImageView = {
         let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-        imgView.image = UIImage(named: "icons8-buying-96")
+        imgView.image = UIImage(named: "logo1")
         return imgView
     }()
     
