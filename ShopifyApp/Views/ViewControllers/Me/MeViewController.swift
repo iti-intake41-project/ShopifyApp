@@ -44,16 +44,9 @@ class MeViewController: UIViewController {
         shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
 
         
-        
-        //        meViewModel.updateOrders = {
-        //            self.orderItems = self.meViewModel.orderItems
-        //            self.ordersHieght.constant = CGFloat((self.orderItems.count / 2) * 120)
-        //            self.orderTableView.reloadData()
-        //        }
-        
         meViewModel.bindOrders = {
             self.orders = self.meViewModel.orders
-            print("set order: \(self.orders.count)")
+         //   print("set order: \(self.orders.count)")
             //        self.ordersHieght.constant = CGFloat((self.orders.count / 2) * 120)
             if(self.orders.count >= 6){
                 self.count = 6
@@ -98,7 +91,7 @@ class MeViewController: UIViewController {
             self?.favHeight.constant = CGFloat((self?.favourites.count)! * 200)
             
             self?.favCollectionView.reloadData()
-            print("bind fav\(self?.favourites.count)")
+     //       print("bind fav\(self?.favourites.count)")
         }
         print("willappear")
         

@@ -55,6 +55,9 @@ class ProductListViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        if !ConnectionViewModel.isConnected(){
+                   showAlert(view: self)
+               }
         if let collectionID = collectionID {
             //alert
             productsViewModel.fetchAllProductsFromAPI(collectionID: "\(collectionID.id)")

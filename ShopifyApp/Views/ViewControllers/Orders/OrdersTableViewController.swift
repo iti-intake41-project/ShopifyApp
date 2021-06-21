@@ -15,11 +15,31 @@ class OrdersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        meViewModel.bindOrders = {
+//        meViewModel.bindOrders = {
+//            self.orders = self.meViewModel.orders
+//                  self.ordersTabelView.reloadData()
+//            print("orders count \(self.orders.count)")
+//              }
+            meViewModel.bindOrders = {
             self.orders = self.meViewModel.orders
-                  self.ordersTabelView.reloadData()
-            print("orders count \(self.orders.count)")
-              }
+           print("set order: \(self.orders.count)")
+      
+            self.ordersTabelView.reloadData()
+            
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+//        meViewModel.bindOrders = {
+//            self.orders = self.meViewModel.orders
+//            print("set order: \(self.orders.count)")
+//            //        self.ordersHieght.constant = CGFloat((self.orders.count / 2) * 120)
+//
+//            self.ordersTabelView.reloadData()
+//
+//        }
+        meViewModel.getOrders()
+
+        
     }
 
     // MARK: - Table view data source
@@ -41,8 +61,7 @@ class OrdersTableViewController: UITableViewController {
         // Configure the cell...
         cell.priceLbl.text = orders[indexPath.row].current_total_price
         cell.creationDatelbl.text = orders[indexPath.row].created_at
-        
-        
+
 
         return cell
     }
