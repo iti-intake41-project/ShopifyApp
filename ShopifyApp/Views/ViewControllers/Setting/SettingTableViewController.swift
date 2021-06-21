@@ -42,7 +42,7 @@ class SettingTableViewController: UITableViewController {
         isLoggedIn = settingViewModel.isLoggedIn()
         if !isLoggedIn {
             logoutBtn.isHidden = true
-            self.currencytBtn.setTitle("EGP", for: .normal)
+      ///     self.currencytBtn.setTitle("EGP", for: .normal)
 
         }else{
             logoutBtn.isHidden = false

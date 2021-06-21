@@ -234,5 +234,20 @@ class NetworkLayer {
           }
       }
     //Donia
-    
+    func getAllProducts(completion: @escaping ([Product]?, Error?) -> ()) {
+        AF.request(URLs.allProducts()).validate().responseDecodable(of: AllProducts.self) { (response) in
+            
+            switch response.result {
+                case .success( _):
+                        
+                    guard let data = response.value else { return }
+                    completion(data.products, nil)
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                    completion(nil, error)
+            }
+        }
+    }
 }

@@ -10,25 +10,20 @@ import UIKit
 class MeViewModel{
     let network = NetworkLayer()
     let defaultsRepository = UserDefaultsLayer()
-    var orderItems = [OrderItem]()
-    var orders = [Order]()
+//    var orderItems = [OrderItem]()
+    var orders:[Order]!{
+        didSet{
+            self.bindOrders()
+        }
+    }
     
-    var updateOrders:()->() = {
-        
-    }
-    var bindOrders:()->() = {
-           
-       }
-    func getOrders()-> [Product]?{
-        //call orders from network layer
-        return[]
-    }
+    var bindOrders:()->() = {}
     
     //get orders
-    func getOrders()->[Order] {
+    func getOrders() {
         let customerId = defaultsRepository.getId()
-        var orders: [Order] = []
-        orderItems = []
+        var comingOrder: [Order] = []
+//        orderItems = []
         network.getOrders { (response) in
             
             switch response.result{
@@ -36,32 +31,33 @@ class MeViewModel{
             case .success(let result):
             //   print("result: \(result)")
                 let APIOrders = result.orders
-                self.orders = result.orders
                 for order in APIOrders{
                     if order.customer.id == customerId {
                  //       print("matching order: \(order)")
-                        orders.append(order)
+                        comingOrder.append(order)
                     }
                 }
-                for order in orders {
-                    for orderItem in order.line_items {
-                        self.orderItems.append(orderItem)
-                //        print("in for \(orderItem.price)")
-                    }
-                    
-                }
-                self.updateOrders()
-                self.bindOrders()
-               print("orders count \(orders.count)")
-                print("orders count \(self.orders.count)")
+//                for order in comingOrder {
+//                    for orderItem in order.line_items {
+//                        self.orderItems.append(orderItem)
+//                //        print("in for \(orderItem.price)")
+//                    }
+//
+//                }
+               print("orders count \(comingOrder.count)")
+                print("orders count \(self.orders?.count)")
+                
+                if comingOrder.count > 0{
+                    print("set order list")
+                        self.orders = comingOrder
 
+                }
                 
             case .failure(let error):
                 print("error while getting orders: \(error.localizedDescription)")
             }
             
         }
-        return orders
     }
 
     
@@ -91,5 +87,15 @@ class MeViewModel{
 
       }
  
-    
+    func deleteOrder(orderId: Int){
+        network.deleteOrder(orderId: orderId) { [weak self] (data, response, error) in
+            let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Dictionary<String,Any>
+            if json.isEmpty {
+                print("deleted")
+            }else{
+                print("cant delete")
+            }
+            print(json)
+        }
+    }
 }

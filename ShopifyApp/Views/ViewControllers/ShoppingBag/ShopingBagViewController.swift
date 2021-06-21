@@ -90,11 +90,12 @@ class ShoppingBagViewController: UIViewController {
         for product in list{
             totalPrice += (Float(product.varients?[0].price ?? "0.0") ?? 0.0) * Float(product.count)
         }
-        if viewModel.getCurrency() == "EGP"{
-            totalPriceText.text = String(format: "EGP %.2f", totalPrice)
-        }else{
-            totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
-        }
+//        if viewModel.getCurrency() == "EGP"{
+//            totalPriceText.text = String(format: "EGP %.2f", totalPrice)
+//        }else{
+//            totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
+//        }
+        totalPriceText.text = FormatePrice.formatePrice(priceStr: "\(totalPrice)")
         
         if list.count == 0 {
             let imageView = UIImageView(image: UIImage(named: "emptyBag"))
@@ -132,13 +133,14 @@ extension ShoppingBagViewController : UITableViewDelegate, UITableViewDataSource
         cell.delegate = self
         cell.isFavourite = viewModel.isFavourite(id: list[indexPath.row].varients?[0].id ?? 0)
         cell.product = list[indexPath.row]
-        if viewModel.getCurrency() == "EGP"{
-            let cost = Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0
-            
-            cell.productPrice.text = "\((FormatePrice.formatePrice(priceStr: "\(cost)")))"
-        }else{
-            cell.productPrice.text = "US$\(FormatePrice.toEGP(amount: Double(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
-        }
+//        if viewModel.getCurrency() == "EGP"{
+//            let cost = Float(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0
+//
+//            cell.productPrice.text = "\((FormatePrice.formatePrice(priceStr: "\(cost)")))"
+//        }else{
+//            cell.productPrice.text = "US$\(FormatePrice.toEGP(amount: Double(list[indexPath.row].varients?[0].price ?? "0.0") ?? 0.0))"
+//        }
+        cell.productPrice.text = FormatePrice.formatePrice(priceStr: "\(list[indexPath.row].varients?[0].price ?? "0.0")")
         return cell
     }
     

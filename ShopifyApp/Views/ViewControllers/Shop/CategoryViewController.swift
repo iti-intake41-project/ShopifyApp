@@ -143,6 +143,7 @@ class CategoryViewController: UIViewController {
 }
 
 
+// MARK: - Floating Action Button
 
 extension CategoryViewController {
     func createFloatingButton() {
@@ -210,6 +211,7 @@ extension CategoryViewController {
     }
 }
 
+// MARK: - Collection View
 extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

@@ -55,12 +55,14 @@ class ProductListViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        guard let collectionID = collectionID else {
+        if let collectionID = collectionID {
             //alert
-            return
+            productsViewModel.fetchAllProductsFromAPI(collectionID: "\(collectionID.id)")
             
+        }else {
+            productsViewModel.getAllProducts()
+
         }
-        productsViewModel.fetchAllProductsFromAPI(collectionID: "\(collectionID.id)")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
