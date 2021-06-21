@@ -13,7 +13,7 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var addrbtn: UIButton!
     @IBOutlet weak var currencytBtn: UIButton!
     
-    @IBOutlet weak var countrybtn: UIButton!
+    //@IBOutlet weak var countrybtn: UIButton!
     
     @IBOutlet weak var logoutBtn: UIButton!
     @IBOutlet weak var logoutStack: UIStackView!
