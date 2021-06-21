@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import ShopifyApp
 
 class ShopifyAppTests: XCTestCase {
 

@@ -118,6 +118,7 @@ class NetworkLayer {
     func getOrders(completion: @escaping (DataResponse<APIOrders, AFError>) -> ()){
         AF.request(URLs.order()).validate().responseDecodable(of:APIOrders.self) { (response) in
             completion(response)
+            
         }
     }
 //    func getOrders(completion: @escaping (DataResponse<APIOrders, AFError>) -> ()){
