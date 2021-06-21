@@ -15,6 +15,7 @@ class ProductListViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var sliderView: UIStackView!
     @IBOutlet weak var productsCollectionView: UICollectionView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var products: [Product] = [Product]()
     var orignalProducts: [Product] = [Product]()
@@ -34,7 +35,8 @@ class ProductListViewController: UIViewController {
         productSearchView.delegate = self
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
- 
+        
+        productSearchView.searchTextField.delegate = self
         
         productsViewModel.bindProductListViewModelToView = onSuccessUpdateView
         productsViewModel.bindViewModelErrorToView = onFailUpdateView
@@ -55,6 +57,8 @@ class ProductListViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.loading.startAnimating()
+        
         if !ConnectionViewModel.isConnected(){
                    showAlert(view: self)
                }
@@ -90,6 +94,7 @@ class ProductListViewController: UIViewController {
         }
         self.products = products
         self.orignalProducts = products
+        self.loading.stopAnimating()
         productsCollectionView.reloadData()
         print("****ProductList****")
             print(products.count)
@@ -98,6 +103,7 @@ class ProductListViewController: UIViewController {
             print("-------------------------")
         }
         func onFailUpdateView() {
+            self.loading.stopAnimating()
             let alert = UIAlertController(title: "Error", message: productsViewModel.showError, preferredStyle: .alert)
                  
                  let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
@@ -215,3 +221,8 @@ extension ProductListViewController: FavouriteProductCellProtocol {
 }
 
 //Moataz
+extension ProductListViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.endEditing(true)
+    }
+}

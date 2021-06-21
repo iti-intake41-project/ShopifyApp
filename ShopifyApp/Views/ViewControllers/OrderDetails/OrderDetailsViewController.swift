@@ -17,7 +17,7 @@ class OrderDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        oderIdLabel.text = "\(order?.id)"
+        oderIdLabel.text = "\(order?.created_at ?? "")"
         shippingToLabel.text = order?.customer.first_name
     }
     
@@ -37,7 +37,7 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
         cell.name.text = order?.line_items[indexPath.row].name
       //  cell.orderImage.image = UIImage(named: "pic")
         cell.price.text = order?.line_items[indexPath.row].price
-        cell.quantity.text = "\(order?.line_items[indexPath.row].quantity)"
+        cell.quantity.text = "\(order?.line_items[indexPath.row].quantity ?? 0)"
         return cell
     }
     

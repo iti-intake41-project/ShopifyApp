@@ -132,22 +132,31 @@ class SettingTableViewController: UITableViewController {
         let message = """
          email : shopify@gmail.com
          phone : 0100101055
-"""
-        getAlert(message: message)
+        """
+//        getAlert(message: message)
         
+        let infoViewController = storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+        infoViewController.info = message
+        infoViewController.titleText = "Contact us"
+        present(infoViewController, animated: true, completion: nil)
     }
     
     @IBAction func aboutUs(_ sender: UIButton) {
         let message = """
-        this application is  our graduation project, try use this application and if you found any problem, please contact us to solve it and improve our application.
+        This application is  our graduation project, try use this application and if you found any problem, please contact us to solve it and improve our application.
 
-                Our team :
-                    Moatez Akram
-                    Donia Ashraf
-                    Asmaa Mohamed
-                    Abanob Wadie
+        Our team :
+            Abanoub Wadie
+            Moatez Akram
+            Donia Ashraf
+            Asmaa Mohamed
         """
-        getAlert(message: message)
+//        getAlert(message: message)
+        
+        let infoViewController = storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+        infoViewController.info = message
+        infoViewController.titleText = "About us"
+        present(infoViewController, animated: true, completion: nil)
     }
     
     @IBAction func logout(_ sender: UIButton) {

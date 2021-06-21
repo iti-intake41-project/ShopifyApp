@@ -81,9 +81,9 @@ extension PaymentOptionsViewController: UITableViewDataSource, UITableViewDelega
         }
         cell.delegate = self
         if currentType == cell.payment {
-            cell.mybtton.tintColor = UIColor.blue
+            cell.mybtton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
         }else{
-            cell.mybtton.tintColor = UIColor.white
+            cell.mybtton.setImage(UIImage(systemName: "circle"), for: .normal)
         }
         print("cell type:\(cell.payment) current type: \(currentType)")
         return cell

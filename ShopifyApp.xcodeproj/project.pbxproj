@@ -72,6 +72,7 @@
 		D37210CA2655B81300935F86 /* ShopifyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37210C92655B81300935F86 /* ShopifyAppUITests.swift */; };
 		D37210E12655B97B00935F86 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37210E02655B97B00935F86 /* URLs.swift */; };
 		D37210F02655BA4800935F86 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37210EF2655BA4800935F86 /* NetworkLayer.swift */; };
+		D37C74D226812C1300027DF8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C74D126812C1300027DF8 /* InfoViewController.swift */; };
 		D396044E2659BC4D00D94931 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396044D2659BC4D00D94931 /* ShopViewController.swift */; };
 		D39604542659BD3E00D94931 /* AllProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39604522659BD3D00D94931 /* AllProducts.swift */; };
 		D39604552659BD3E00D94931 /* ShopifyCollentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39604532659BD3E00D94931 /* ShopifyCollentions.swift */; };
@@ -180,6 +181,7 @@
 		D37210CB2655B81300935F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D37210E02655B97B00935F86 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		D37210EF2655BA4800935F86 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		D37C74D126812C1300027DF8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		D396044D2659BC4D00D94931 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D39604522659BD3D00D94931 /* AllProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllProducts.swift; sourceTree = "<group>"; };
 		D39604532659BD3E00D94931 /* ShopifyCollentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopifyCollentions.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				4B5DF7A2266F868300C15388 /* SettingTableViewController.swift */,
 				4BA091192674F70600117E05 /* ShowAddressTableViewController.swift */,
 				4B3CB77A2679A01000CEC241 /* CheckLoggedIn.swift */,
+				D37C74D126812C1300027DF8 /* InfoViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				769F089D267219E8003A3948 /* AddressTableViewController.swift in Sources */,
 				4BF2BF6C2670BC450036EB10 /* SettingViewModel.swift in Sources */,
 				762C281A267927BE005BC69A /* ChooseAddressViewModel.swift in Sources */,
+				D37C74D226812C1300027DF8 /* InfoViewController.swift in Sources */,
 				4BF2BF692670B7BE0036EB10 /* UserDefaultsLayer.swift in Sources */,
 				7697901F266EE86000ED9ED5 /* FavouriteProductCellProtocol.swift in Sources */,
 				D39604542659BD3E00D94931 /* AllProducts.swift in Sources */,

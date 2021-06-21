@@ -76,7 +76,7 @@ class CategoryViewController: UIViewController {
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
         
         print("1")
-        item1.tintColor = UIColor(named: "mainColor")
+        item1.tintColor = UIColor(named: "tabIconColor")
         item2.tintColor = .link
         item3.tintColor = .link
         item4.tintColor = .link
@@ -89,7 +89,7 @@ class CategoryViewController: UIViewController {
         print("2")
 
         item1.tintColor = .link
-        item2.tintColor = UIColor(named: "mainColor")
+        item2.tintColor = UIColor(named: "tabIconColor")
         item3.tintColor = .link
         item4.tintColor = .link
     }
@@ -101,7 +101,7 @@ class CategoryViewController: UIViewController {
 
         item1.tintColor = .link
         item2.tintColor = .link
-        item3.tintColor = UIColor(named: "mainColor")
+        item3.tintColor = UIColor(named: "tabIconColor")
         item4.tintColor = .link
     }
     @IBAction func item4(_ sender: Any) {
@@ -113,7 +113,7 @@ class CategoryViewController: UIViewController {
         item1.tintColor = .link
         item2.tintColor = .link
         item3.tintColor = .link
-        item4.tintColor = UIColor(named: "mainColor")
+        item4.tintColor = UIColor(named: "tabIconColor")
     }
     
     @IBAction func searchAction(_ sender: Any) {

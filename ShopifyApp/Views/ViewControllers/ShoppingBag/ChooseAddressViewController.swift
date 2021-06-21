@@ -76,9 +76,9 @@ extension ChooseAddressViewController: UITableViewDelegate, UITableViewDataSourc
         cell.address = addresses[indexPath.row]
         cell.delegate = self
         if shippingAddressId != addresses[indexPath.row].id {
-            cell.mybutton.tintColor = UIColor.white
+            cell.mybutton.setImage(UIImage(systemName: "circle"), for: .normal)
         }else{
-            cell.mybutton.tintColor = UIColor.blue
+            cell.mybutton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
         }
         return cell
     }
