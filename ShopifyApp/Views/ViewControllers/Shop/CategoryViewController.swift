@@ -41,7 +41,7 @@ class CategoryViewController: UIViewController {
         
         createFloatingButton()
         
-        toolBar.items![0].tintColor = UIColor(named: "mainColor")
+        toolBar.items![0].tintColor = UIColor(named: "tabIconColor")
         shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -273,7 +273,7 @@ extension CategoryViewController {
         item3.title = collections[2].title
         item4.title = collections[3].title
         
-        
+        shopFilteredProducts(toolBarItem: toolBarItem, subCategory: subCategory)
     }
     func onSucessProductsUpdateView(){
         guard let products = shopViewModel.allProducts else {
