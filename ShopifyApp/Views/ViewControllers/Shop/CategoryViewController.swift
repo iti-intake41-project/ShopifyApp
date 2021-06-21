@@ -312,12 +312,31 @@ extension CategoryViewController {
 //donia
 
 extension CategoryViewController: FavouriteProductCellProtocol {
+    func navTologin() {
+        performSegue(withIdentifier: "login", sender: self)
+    }
+    
+    func isLogin() -> Bool {
+        return UserDefaultsLayer().isLoggedIn()
+    }
+    
     func deleteFavourite(id: Int) {
         favouritesViewModel.deleteFavourite(id: id)
+
+//        if isLogin(){
+//        }else{
+//            performSegue(withIdentifier: "login", sender: self)
+//        }
+
     }
     
     func addFavourite(product: Product) {
         favouritesViewModel.addFavourite(product: product)
+//        if isLogin(){
+//        }else{
+//            performSegue(withIdentifier: "login", sender: self)
+//        }
+
     }
     
     func isFavourite(id: Int) -> Bool {
@@ -325,4 +344,6 @@ extension CategoryViewController: FavouriteProductCellProtocol {
 
         return favouritesViewModel.isFavourite(id: id)
     }
+    
+    
 }

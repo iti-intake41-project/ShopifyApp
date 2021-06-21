@@ -37,7 +37,7 @@ class SettingTableViewController: UITableViewController {
               address = settingViewModel.getAddress(appDelegate: &appDelegate)
                
         addrbtn.setTitle(settingViewModel.address?.address1, for: .normal)
-               countrybtn.setTitle(settingViewModel.address?.country, for: .normal)
+//               countrybtn.setTitle(settingViewModel.address?.country, for: .normal)
            
         isLoggedIn = settingViewModel.isLoggedIn()
         if !isLoggedIn {
@@ -74,7 +74,7 @@ class SettingTableViewController: UITableViewController {
         self.address = address
         addrbtn.setTitle(address.address1
             , for: .normal)
-        countrybtn.setTitle(address.country, for: .normal)
+//        countrybtn.setTitle(address.country, for: .normal)
         
         
         
@@ -125,8 +125,8 @@ class SettingTableViewController: UITableViewController {
         
     }
     
-    @IBAction func country(_ sender: Any) {
-    }
+//    @IBAction func country(_ sender: Any) {
+//    }
     
     @IBAction func contactus(_ sender: UIButton) {
         let message = """
@@ -145,7 +145,7 @@ class SettingTableViewController: UITableViewController {
         let message = """
         This application is  our graduation project, try use this application and if you found any problem, please contact us to solve it and improve our application.
 
-        Our team :
+        Our Team :
             Abanoub Wadie
             Moatez Akram
             Donia Ashraf
@@ -163,7 +163,7 @@ class SettingTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Alert", message: "Do You  want Logout from application ?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default) {[weak self] (UIAlertAction) in
             self?.addrbtn.setTitle("", for: .normal)
-            self?.countrybtn.setTitle("", for: .normal)
+//            self?.countrybtn.setTitle("", for: .normal)
             self?.settingViewModel.logout(appDelegate: &self!.appDelegate)
             self?.logoutBtn.isHidden = true
             self?.viewWillAppear(true)

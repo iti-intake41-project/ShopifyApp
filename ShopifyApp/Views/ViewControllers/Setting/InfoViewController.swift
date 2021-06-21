@@ -15,7 +15,7 @@ class InfoViewController: UIViewController {
     var titleText = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        textView.text = info
         // Do any additional setup after loading the view.
     }
     

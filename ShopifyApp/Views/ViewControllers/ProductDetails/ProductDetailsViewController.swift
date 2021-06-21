@@ -25,7 +25,7 @@ class ProductDetailsViewController: UIViewController {
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var shoppingViewModel: ShoppingBagViewModel!
     var ratings = [4.0, 4.5, 5]
-
+    var shopViewModel = ShopViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         shoppingViewModel = ShoppingBagViewModel(appDelegate: &appDelegate)
@@ -34,25 +34,33 @@ class ProductDetailsViewController: UIViewController {
         setProductDetails()
     }
     @IBAction func favoriteAction(_ sender: Any) {
-        if favoriteButton.tintColor == .red{
-            favoriteButton.tintColor = .gray
-            shoppingViewModel.deleteFavourite(id: product.varients![0].id)
-        }else {
-            favoriteButton.tintColor = .red
-            shoppingViewModel.addFavourite(product: product)
+        if shopViewModel.isLoggedIn(){
+            if favoriteButton.tintColor == .red{
+                favoriteButton.tintColor = .gray
+                shoppingViewModel.deleteFavourite(id: product.varients![0].id)
+            }else {
+                favoriteButton.tintColor = .red
+                shoppingViewModel.addFavourite(product: product)
+            }
+        }else{
+            performSegue(withIdentifier: "navToLogin", sender: self)
         }
     }
     
     @IBAction func cartAction(_ sender: Any) {
-        if shoppingViewModel.isInShopingCart(id: product.varients![0].id) {
-            let alert = UIAlertController(title: "Done", message: "This product is already in your cart", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (UIAlertAction) in
-                self.navigationController?.popViewController(animated: true)
-            }))
-            present(alert, animated: true, completion: nil)
+        if shopViewModel.isLoggedIn(){
+            if shoppingViewModel.isInShopingCart(id: product.varients![0].id) {
+                let alert = UIAlertController(title: "Done", message: "This product is already in your cart", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (UIAlertAction) in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                present(alert, animated: true, completion: nil)
+            }else{
+                shoppingViewModel.addProduct(product: product)
+                navigationController?.popViewController(animated: true)
+            }
         }else{
-            shoppingViewModel.addProduct(product: product)
-            navigationController?.popViewController(animated: true)
+            performSegue(withIdentifier: "navToLogin", sender: self)
         }
     }
     

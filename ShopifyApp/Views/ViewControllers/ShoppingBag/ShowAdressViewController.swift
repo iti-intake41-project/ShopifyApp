@@ -108,14 +108,18 @@ class ShowAdressViewController: UIViewController {
 extension ShowAdressViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return addresses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = addressTable.dequeueReusableCell(withIdentifier: "AddressesDetailCell", for: indexPath) as! AddressesDetailCell
-        cell.countryText.text = addresses[indexPath.row].country
-        cell.addressText.text = "\(addresses[indexPath.row].city ?? ""), \(addresses[indexPath.row].address1 ?? "")"
-        cell.phoneText.text = addresses[indexPath.row].phone
+        cell.countryText.text = addresses[indexPath.section].country
+        cell.addressText.text = "\(addresses[indexPath.section].city ?? ""), \(addresses[indexPath.section].address1 ?? "")"
+        cell.phoneText.text = addresses[indexPath.section].phone
 
         return cell
     }
@@ -128,11 +132,11 @@ extension ShowAdressViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("indexPath.row: \(indexPath.row)")
-            if indexPath.row == 0 {
+            print("indexPath.section: \(indexPath.section)")
+            if indexPath.section == 0 {
                 showAlret()
             }else{
-                viewModel.deleteAddress(addressId: addresses[indexPath.row].id)
+                viewModel.deleteAddress(addressId: addresses[indexPath.section].id)
                 indicator.isHidden = false
                 view.isUserInteractionEnabled = false
 
@@ -143,7 +147,7 @@ extension ShowAdressViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        editAddress = addresses[indexPath.row]
+        editAddress = addresses[indexPath.section]
         navigateToEditAddress()
     }
     

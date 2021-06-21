@@ -99,14 +99,14 @@ class OrdersTableViewController: UITableViewController {
            }
        }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-////        let vc = OrderDetailsViewController()
-////          vc.order = orders[indexPath.row]
-////           order = orders[indexPath.row]
-////             performSegue(withIdentifier: "OrderDetailsViewController", sender: self)
-////        
-//        print("did select row")
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "OrderDetailsViewController") as! OrderDetailsViewController
+          vc.order = orders[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+//             performSegue(withIdentifier: "OrderDetailsViewController", sender: self)
+//
+        print("did select row")
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

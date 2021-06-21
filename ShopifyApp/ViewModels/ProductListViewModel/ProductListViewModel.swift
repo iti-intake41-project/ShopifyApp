@@ -10,7 +10,7 @@ import Foundation
 class ProductListViewModel :NSObject{
     
     var networkService = NetworkLayer()
-    
+    let defaults = UserDefaultsLayer()
     var allProducts: [Product]? {
         didSet {
             self.bindProductListViewModelToView()
@@ -75,5 +75,9 @@ class ProductListViewModel :NSObject{
               }
           }
       }
+    
+    func getCurrency()->String{
+        return defaults.getCurrency()
+    }
    
 }

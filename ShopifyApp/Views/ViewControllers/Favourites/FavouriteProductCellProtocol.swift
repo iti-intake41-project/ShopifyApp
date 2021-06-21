@@ -11,4 +11,6 @@ protocol FavouriteProductCellProtocol {
     func isFavourite(id: Int)->Bool
     func deleteFavourite(id: Int)
     func addFavourite(product: Product)
+    func isLogin()->Bool
+    func navTologin()
 }

@@ -36,29 +36,32 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func toggleFavourite(_ sender: UIButton) {
+        if delegate.isLogin(){
+            if delegate.isFavourite(id: product.varients?[0].id ?? 0){
+                print("is favourite cell: \(product.varients?[0].id ?? 0)")
 
-        if delegate.isFavourite(id: product.varients?[0].id ?? 0){
-            print("is favourite cell: \(product.varients?[0].id ?? 0)")
+                delegate.deleteFavourite(id: product.varients?[0].id ?? 0)
+                //change button icon to NOT favourite
+                 //donia
+                 //favouriteBtn.backgroundColor = UIColor.white
+                favouriteBtn.tintColor = .gray
+                //donia
+                
+                print("not favourite")
 
-            delegate.deleteFavourite(id: product.varients?[0].id ?? 0)
-            //change button icon to NOT favourite
-             //donia
-             //favouriteBtn.backgroundColor = UIColor.white
-            favouriteBtn.tintColor = .gray
-            //donia
-            
-            print("not favourite")
-
+            }else{
+                delegate.addFavourite(product: product)
+                //change button icon to favourite
+                //donia
+                //favouriteBtn.backgroundColor = UIColor.red
+                favouriteBtn.tintColor = .red
+                //donia
+                print("is favourite")
+            }
+            print("prdouct id: \(product.varients?[0].id ?? 0)")
         }else{
-            delegate.addFavourite(product: product)
-            //change button icon to favourite
-            //donia
-            //favouriteBtn.backgroundColor = UIColor.red
-            favouriteBtn.tintColor = .red
-            //donia
-            print("is favourite")
+            delegate.navTologin()
         }
-        print("prdouct id: \(product.varients?[0].id ?? 0)")
 
     }
     //Moataz

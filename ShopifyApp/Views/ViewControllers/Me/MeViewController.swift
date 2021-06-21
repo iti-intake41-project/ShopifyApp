@@ -159,6 +159,7 @@ class MeViewController: UIViewController {
     
 }
 
+// MARK: - Order Table
 extension MeViewController :UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -173,9 +174,10 @@ extension MeViewController :UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = OrderDetailsViewController()
-//          vc.order = orders[indexPath.row]
-//           order = orders[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: "OrderDetailsViewController") as! OrderDetailsViewController
+          vc.order = orders[indexPath.row]
+           order = orders[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
 //             performSegue(withIdentifier: "OrderDetailsViewController", sender: self)
 //        
         print("did select row")
@@ -199,6 +201,8 @@ extension MeViewController :UITableViewDelegate , UITableViewDataSource {
     }
     
 }
+
+// MARK: - Favourites Table
 extension MeViewController : UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return favourites.count

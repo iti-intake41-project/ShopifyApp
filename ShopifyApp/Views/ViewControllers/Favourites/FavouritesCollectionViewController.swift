@@ -97,6 +97,14 @@ extension FavouritesCollectionViewController: UICollectionViewDelegateFlowLayout
 }
 
 extension FavouritesCollectionViewController: FavouriteProductCellProtocol {
+    func navTologin() {
+        
+    }
+    
+    func isLogin() -> Bool {
+        return UserDefaultsLayer().isLoggedIn()
+    }
+    
     
     func deleteFavourite(id: Int) {
         viewModel.deleteFavourite(id: id)

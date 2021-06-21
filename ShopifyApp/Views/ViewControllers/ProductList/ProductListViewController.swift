@@ -70,6 +70,7 @@ class ProductListViewController: UIViewController {
             productsViewModel.getAllProducts()
 
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -126,6 +127,12 @@ class ProductListViewController: UIViewController {
     
     @IBAction func filterAction(_ sender: Any) {
         sliderView.isHidden = !sliderView.isHidden
+        
+        if productsViewModel.getCurrency() == "EGP"{
+            slider.maximumValue = Float("\(FormatePrice.toEGP(amount: 300))") ?? 0.0
+            slider.setValue(Float("\(FormatePrice.toEGP(amount: 100))") ?? 0.0, animated: true)
+        }
+        sliderAction(slider)
     }
 }
 
@@ -205,18 +212,34 @@ extension ProductListViewController:UISearchBarDelegate{
 //Moataz
 
 extension ProductListViewController: FavouriteProductCellProtocol {
+    func navTologin() {
+        performSegue(withIdentifier: "navigationToLogin", sender: self)
+    }
+    
     func deleteFavourite(id: Int) {
         favouritesViewModel.deleteFavourite(id: id)
+//        if isLogin(){
+//        }else{
+//            performSegue(withIdentifier: "navigationToLogin", sender: self)
+//        }
     }
     
     func addFavourite(product: Product) {
         favouritesViewModel.addFavourite(product: product)
+//        if isLogin(){
+//        }else{
+//            
+//        }
     }
     
     func isFavourite(id: Int) -> Bool {
         print("is favourite controller: \(id)")
 
         return favouritesViewModel.isFavourite(id: id)
+    }
+    
+    func isLogin()->Bool{
+        return UserDefaultsLayer().isLoggedIn()
     }
 }
 

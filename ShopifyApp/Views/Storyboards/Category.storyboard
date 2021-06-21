@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6T-EG-5QN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6T-EG-5QN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -67,6 +68,7 @@
                                         <rect key="frame" x="0.0" y="68" width="414" height="44"/>
                                         <items>
                                             <barButtonItem title="Home" id="2v4-2v-7JS">
+                                                <color key="tintColor" name="tabIconColor"/>
                                                 <connections>
                                                     <action selector="item1:" destination="G6T-EG-5QN" id="Il9-BY-LVB"/>
                                                 </connections>
@@ -195,7 +197,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ome-u0-tZo"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="4FX-Wy-8aB" firstAttribute="top" secondItem="Ome-u0-tZo" secondAttribute="top" id="7L0-dC-xYR"/>
                             <constraint firstItem="Ome-u0-tZo" firstAttribute="bottom" secondItem="4FX-Wy-8aB" secondAttribute="bottom" id="o7X-yS-eYI"/>
@@ -269,9 +271,9 @@
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="tabIconColor">
+            <color red="0.37599998712539673" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
